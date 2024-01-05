@@ -1,3 +1,5 @@
+package DiaLogServlet;
+
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;

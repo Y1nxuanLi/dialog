@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+<div id="app" class="container" v-cloak>
+    <div class="logo-section">
+        <img src="loginImage.webp" alt="糖尿病日记 Logo">
+    </div>
+    <div class="login-section">
+        <form @submit.prevent="submitLoginForm">
+            <h1>欢迎登录</h1>
+            <div class="form-group">
+                <label for="account">帐号</label>
+                <input type="text" v-model="account" id="account" name="account">
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" v-model="password" id="password" name="password">
+            </div>
+            <button type="submit">登录</button>
+            <a href="register.html">&nbsp;没有账号？点我注册</a>
+        </form>
+    </div>
+</div>
+
+<!--<script>
+    new Vue({
+        el: '#app',
+        data: {
+            account: '',
+            password: ''
+        },
+        methods: {
+            submitLoginForm() {
+                // 获取表单数据
+                const account = this.account;
+                const password = this.password;
+
+                axios.post("http://35.179.12.19:7529/api/user/login", {
+                    userAccount: account,
+                    userPassword: password,
+                })
+                    .then((response) => {
+                        const responseData = response.data;
+                        if (responseData.code === 0) {
+                            console.log("登录成功", response.data);
+
+                            // 使用本地存储保存用户信息
+                            localStorage.setItem('userMes', JSON.stringify(responseData));
+                            window.location.replace('./index.html');
+                        } else {
+                            alert(responseData.message);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("登录错误", error);
+                    });
+            }
+        }
+    });
+</script>-->
+</body>
+</html>

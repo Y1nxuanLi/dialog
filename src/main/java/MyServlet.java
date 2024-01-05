@@ -6,26 +6,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import java.sql.*;
 
-@WebServlet(urlPatterns={"/","/patients","/doctors"},loadOnStartup=1)
+@WebServlet(urlPatterns={"/","/patients","/doctors","login","register"},loadOnStartup=1)
 
 public class MyServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
-        resp.getWriter().write("Hello, java programmer! ");
+        resp.getWriter().write("Welcome to DiaLog");
         String servletPath = req.getServletPath();
         // You can now use the servletPath in your code
         resp.getWriter().println("Servlet Path: " + servletPath);
 
         switch (servletPath) {
+            case "/login":
+                resp.getWriter().write("login Page");
+                break;
+            case "/register":
+                resp.getWriter().write("register Page");
+                break;
             case "/doctors":
                 resp.getWriter().write("Hello, doctor! ");
                 break;
@@ -35,7 +41,6 @@ public class MyServlet extends HttpServlet {
             case "/": // default case is for root path ("/")
                 resp.getWriter().write("Welcome to the home page! ");
                 break;
-
         }
 
 

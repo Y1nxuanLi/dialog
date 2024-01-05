@@ -1,3 +1,5 @@
+package DiaLogApp;
+
 import java.io.Serializable;
 
 public class Patient implements Serializable{
@@ -12,6 +14,9 @@ public class Patient implements Serializable{
     public String getBedPhoneNum(){
         return phoneNum;
     }
+    public String getName(){
+        return name;
+    }
 
     public void setBedPhoneNum(String bedPhoneNum){
         Integer.parseInt(bedPhoneNum);
@@ -20,7 +25,7 @@ public class Patient implements Serializable{
 
     //Overrides contact inPerson
     public void contact(String msg){
-        System.out.println("Contact to Patient via msg:");
+        System.out.println("Contact to DiaLogApp.Patient via msg:");
         System.out.println(msg);
     }
 }

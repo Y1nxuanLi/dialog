@@ -1,5 +1,6 @@
 package DiaLogServlet;
 
+import DiaLogApp.Patient;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -95,7 +96,7 @@ public class MyServlet extends HttpServlet {
             resp.getWriter().write("Received at /doctors: " + requestBody);
         }
         System.out.println("Sent response: " + responseMessage);
-        System.out.println(patient1.name);
+        System.out.println(patient1.getName());
 
     }
 }

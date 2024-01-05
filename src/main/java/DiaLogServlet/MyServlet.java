@@ -17,23 +17,20 @@ import java.sql.Statement;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-@WebServlet(urlPatterns={"/","/patients","/doctors","login","register"},loadOnStartup=1)
-
+@WebServlet(urlPatterns={"/", "/patients", "/doctors", "/register"}, loadOnStartup=1)
 public class MyServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
-        resp.getWriter().write("Welcome to DiaLog ");
+//        resp.getWriter().write("Welcome to DiaLog ");
         String servletPath = req.getServletPath();
         // You can now use the servletPath in your code
-        resp.getWriter().println("Servlet Path: " + servletPath);
+//        resp.getWriter().println("Servlet Path: " + servletPath);
 
         switch (servletPath) {
-            case "/login":
-                forwardTo(req, resp, "/login.html");
-                break;
             case "/register":
+//                resp.getWriter().write("Register Page");
                 forwardTo(req, resp, "/register.html");
                 break;
             case "/doctors":

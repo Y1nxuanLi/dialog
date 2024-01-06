@@ -47,6 +47,7 @@ public class LoginServlet extends HttpServlet {
             case "/home": // default case is for root path ("/")
                 UserLoginDataSQL.createTable();
                 resp.getWriter().write("Welcome to the home page! ");
+                UserLoginDataSQL.insertData("Admin","1234567890");
                 break;
             case "/UserDataTesting": // default case is for root path ("/")
                 UserLoginDataSQL.createTable();

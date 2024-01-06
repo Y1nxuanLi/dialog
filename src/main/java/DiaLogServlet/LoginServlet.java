@@ -84,8 +84,6 @@ public class LoginServlet extends HttpServlet {
                     throw new RuntimeException(e);
                 }
 
-
-
             case "/register":
                 KeyPairs<String, String> registerData = getAccountPassword(req,resp);
                 String userAccountRegister = registerData.getFirst();
@@ -104,7 +102,6 @@ public class LoginServlet extends HttpServlet {
 //        String requestBody = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
 //        Gson gson1 = new Gson();
 //        UserLoginData user2 = gson1.fromJson(requestBody, UserLoginData.class);
-
 
     }
 

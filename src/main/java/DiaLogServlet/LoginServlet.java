@@ -77,7 +77,7 @@ public class LoginServlet extends HttpServlet {
                 String userAccountLogin = loginData.getFirst();
                 String userPasswordLogin = loginData.getSecond();
                 try {
-                    UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
+                    int UserId = UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
                     sendResponseData(resp);
 //                    forwardTo(req, resp, "/index.html");
                 } catch (SQLException e) {

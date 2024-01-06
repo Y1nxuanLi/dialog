@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Login Register Web Setup v1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/KeyPairs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/UserLoginData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogSQL/UserLoginDataSQL.java" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Connect Login Register Page to SQL Database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/MyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LoginServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704482147872</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Connect Login Register Page to SQL Database">
+      <option name="closed" value="true" />
+      <created>1704513235373</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704513235373</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +218,7 @@
     <MESSAGE value="Servlet Setup 3" />
     <MESSAGE value="Servlet Setup 4" />
     <MESSAGE value="Login Register Web Setup v1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login Register Web Setup v1" />
+    <MESSAGE value="Connect Login Register Page to SQL Database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Connect Login Register Page to SQL Database" />
   </component>
 </project>

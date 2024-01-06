@@ -35,17 +35,21 @@ public class LoginServlet extends HttpServlet {
 
         switch (servletPath) {
             case "/login":
+                UserLoginDataSQL.createTable();
 //                resp.getWriter().write("Register Page");
                 forwardTo(req, resp, "/login.html");
                 break;
             case "/register":
+                UserLoginDataSQL.createTable();
 //                resp.getWriter().write("Register Page");
                 forwardTo(req, resp, "/register.html");
                 break;
             case "/home": // default case is for root path ("/")
+                UserLoginDataSQL.createTable();
                 resp.getWriter().write("Welcome to the home page! ");
                 break;
             case "/UserDataTesting": // default case is for root path ("/")
+                UserLoginDataSQL.createTable();
                 resp.getWriter().write("UserLoginData Display for testing purpose");
                 UserLoginDataSQL.displayData(resp);
                 break;
@@ -86,7 +90,6 @@ public class LoginServlet extends HttpServlet {
                 KeyPairs<String, String> registerData = getAccountPassword(req,resp);
                 String userAccountRegister = registerData.getFirst();
                 String userPasswordRegister = registerData.getSecond();
-                UserLoginDataSQL.createTable();
                 try {
                     if (UserLoginDataSQL.checkIdentity(userAccountRegister,userPasswordRegister)==null){
                         UserLoginDataSQL.insertData(userAccountRegister,userPasswordRegister);

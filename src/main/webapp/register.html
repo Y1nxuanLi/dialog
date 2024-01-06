@@ -58,7 +58,7 @@
                     .then(response => {
                         const responseData = response.data;
                         console.log("responseData:",responseData);
-                        console.log("responseData.data:",responseData.data);
+                        console.log("responseData.code:",responseData.code);
                         console.log("responseData.message:",responseData.message);
                         if (responseData.code === 0) {
                             console.log("Register Success", response.data);

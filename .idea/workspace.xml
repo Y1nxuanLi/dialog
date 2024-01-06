@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Connect Login Register Page to SQL Database Testing 7">
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/ResponseObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LoginServlet.java" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Connect Login Register Page to SQL Database Testing 9">
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,7 +342,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704550751113</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Connect Login Register Page to SQL Database Testing 8">
+      <option name="closed" value="true" />
+      <created>1704553176120</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1704553176120</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Connect Login Register Page to SQL Database Testing 9">
+      <option name="closed" value="true" />
+      <created>1704553767432</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1704553767432</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,6 +386,8 @@
     <MESSAGE value="Connect Login Register Page to SQL Database Testing 4" />
     <MESSAGE value="Connect Login Register Page to SQL Database Testing 5" />
     <MESSAGE value="Connect Login Register Page to SQL Database Testing 7" />
-    <option name="LAST_COMMIT_MESSAGE" value="Connect Login Register Page to SQL Database Testing 7" />
+    <MESSAGE value="Connect Login Register Page to SQL Database Testing 8" />
+    <MESSAGE value="Connect Login Register Page to SQL Database Testing 9" />
+    <option name="LAST_COMMIT_MESSAGE" value="Connect Login Register Page to SQL Database Testing 9" />
   </component>
 </project>

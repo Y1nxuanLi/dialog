@@ -72,7 +72,11 @@ public class LoginServlet extends HttpServlet {
 
                 try {
                     if (UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin) != 0){
-                        sendSuccessResponseData(resp);
+                        sendSuccessResponse(resp);
+                    }
+                    else {
+                        // Send an appropriate error response here
+                        sendErrorResponse(resp);
                     }
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
@@ -90,7 +94,7 @@ public class LoginServlet extends HttpServlet {
                 try {
                     if (UserLoginDataSQL.checkIdentity(userAccountRegister,userPasswordRegister)==0){
                         UserLoginDataSQL.insertData(userAccountRegister,userPasswordRegister);
-                        sendSuccessResponseData(resp);
+                        sendSuccessResponse(resp);
                     }
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
@@ -104,14 +108,19 @@ public class LoginServlet extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
-    private void sendSuccessResponseData(HttpServletResponse resp) throws IOException {
+    private void sendSuccessResponse(HttpServletResponse resp) throws IOException {
         resp.setStatus(HttpServletResponse.SC_OK);
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         resp.getWriter().write(new Gson().toJson(new ResponseObject(ErrorCode.SUCCESS.getCode(), ErrorCode.SUCCESS.getMessage())));
 
     }
-
+    private void sendErrorResponse(HttpServletResponse resp) throws IOException {
+        resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        resp.getWriter().write(new Gson().toJson(new ResponseObject(ErrorCode.NO_AUTH_ERROR.getCode(), ErrorCode.NO_AUTH_ERROR.getMessage())));
+    }
 }
 
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>注册</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="login.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
@@ -11,65 +11,28 @@
 <body>
 <div id="app" class="container" v-cloak>
     <div class="logo-section">
-        <img src="loginImage.webp" alt="糖尿病日记 Logo">
+        <img src="loginImage.webp" alt="Logo">
     </div>
     <div class="login-section">
         <form @submit.prevent="submitLoginForm">
-            <h1>欢迎注册</h1>
+            <h1>Welcome</h1>
             <div class="form-group">
-                <label for="account">帐号</label>
+                <label for="account">User</label>
                 <input type="text" v-model="account" id="account" name="account">
             </div>
             <div class="form-group">
-                <label for="password">密码</label>
+                <label for="password">Password</label>
                 <input type="password" v-model="password" id="password" name="password">
             </div>
             <div class="form-group">
-                <label for="confirmPassword">确认密码</label>
+                <label for="confirmPassword">Password Comfirm</label>
                 <input type="password" v-model="confirmPassword" id="confirmPassword" name="confirmPassword">
             </div>
-            <button type="submit">注册</button>
-            <a href="login.html">&nbsp;已有账号？点我登录</a>
+            <button type="submit">Sign Up</button>
+            <a href="login.html">&nbsp;Already have a DiaLog account?</a>
         </form>
     </div>
 </div>
 
-<!--<script>
-    new Vue({
-        el: '#app',
-        data: {
-            account: '',
-            password: '',
-            confirmPassword: '',
-        },
-        methods: {
-            submitLoginForm() {
-                if (this.password !== this.confirmPassword) {
-                    alert('两次输入密码不一致');
-                    return;
-                }
-
-                const requestData = {
-                    userAccount: this.account,
-                    userPassword: this.password,
-                    checkPassword: this.confirmPassword,
-                };
-                axios.post("http://35.179.12.19:7529/api/user/register", requestData)
-                    .then(response => {
-                        const responseData = response.data;
-                        if (responseData.code === 0) {
-                            console.log("注册成功", response.data);
-                            window.location.href = "login.html";
-                        } else {
-                            alert(responseData.message);
-                        }
-                    })
-                    .catch(error => {
-                        console.error("注册失败", error);
-                    });
-            }
-        }
-    });
-</script>-->
 </body>
 </html>

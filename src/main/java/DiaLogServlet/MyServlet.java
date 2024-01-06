@@ -17,7 +17,7 @@ import java.sql.Statement;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-@WebServlet(urlPatterns={"/", "/patients", "/doctors", "/register"}, loadOnStartup=1)
+@WebServlet(urlPatterns={"/home", "/patients", "/doctors", "/register", "/login"}, loadOnStartup=1)
 public class MyServlet extends HttpServlet {
 
     @Override
@@ -29,6 +29,10 @@ public class MyServlet extends HttpServlet {
 //        resp.getWriter().println("Servlet Path: " + servletPath);
 
         switch (servletPath) {
+            case "/login":
+//                resp.getWriter().write("Register Page");
+                forwardTo(req, resp, "/login.html");
+                break;
             case "/register":
 //                resp.getWriter().write("Register Page");
                 forwardTo(req, resp, "/register.html");
@@ -39,7 +43,7 @@ public class MyServlet extends HttpServlet {
             case "/patients":
                 resp.getWriter().write("Hello, patient! ");
                 break;
-            case "/": // default case is for root path ("/")
+            case "/home": // default case is for root path ("/")
                 resp.getWriter().write("Welcome to the home page! ");
                 break;
             default:

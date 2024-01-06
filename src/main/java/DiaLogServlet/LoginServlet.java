@@ -23,7 +23,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 
-@WebServlet(urlPatterns={"/home", "/register", "/login", "/UserDataTesting","/Admin"}, loadOnStartup=1)
+@WebServlet(urlPatterns={"/home", "/register", "/loginpage", "/UserDataTesting","/Admin"}, loadOnStartup=1)
 public class LoginServlet extends HttpServlet {
 
     @Override
@@ -32,8 +32,8 @@ public class LoginServlet extends HttpServlet {
         String servletPath = req.getServletPath();
         UserLoginDataSQL.createTable();
         switch (servletPath) {
-            case "/login":
-                forwardTo(req, resp, "/login.html");
+            case "/loginpage":
+                forwardTo(req, resp, "/loginpage.html");
                 break;
             case "/register":
                 forwardTo(req, resp, "/register.html");
@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
         String servletPath = req.getServletPath();
 
         switch (servletPath) {
-            case "/login":
+            case "/loginpage":
                 String jsonData1 = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
                 Gson gson1 = new Gson();
                 UserLoginData user1 = gson1.fromJson(jsonData1, UserLoginData.class);

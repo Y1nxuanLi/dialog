@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -66,8 +67,6 @@ public class LoginServlet extends HttpServlet {
         // req is sent from user to server
         // resp is sent from server to user
 
-
-
         String servletPath = req.getServletPath();
         // You can now use the servletPath in your code
 //        resp.getWriter().println("Servlet Path: " + servletPath);
@@ -79,10 +78,12 @@ public class LoginServlet extends HttpServlet {
                 String userPasswordLogin = loginData.getSecond();
                 try {
                     UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
+                    sendResponseData(resp);
                     forwardTo(req, resp, "/index.html");
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
+
 
 
             case "/register":
@@ -92,19 +93,17 @@ public class LoginServlet extends HttpServlet {
                 try {
                     if (UserLoginDataSQL.checkIdentity(userAccountRegister,userPasswordRegister)==0){
                         UserLoginDataSQL.insertData(userAccountRegister,userPasswordRegister);
+                        sendResponseData(resp);
                         forwardTo(req, resp, "/login.html");
                     }
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
-
         }
 
 //        String requestBody = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
 //        Gson gson1 = new Gson();
 //        UserLoginData user2 = gson1.fromJson(requestBody, UserLoginData.class);
-
-
 
 
     }
@@ -134,6 +133,19 @@ public class LoginServlet extends HttpServlet {
 
         return keypairs;
 
+    }
+
+    private void sendResponseData(HttpServletResponse resp) throws IOException {
+        KeyPairs<Integer, String> responseData = new KeyPairs<>(0, "Request processed successfully");
+
+// Setting the response type to JSON
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+
+        // Sending the JSON response
+        PrintWriter out = resp.getWriter();
+        out.print(new Gson().toJson(responseData));
+        out.flush();
     }
 
 }

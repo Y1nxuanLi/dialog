@@ -6,7 +6,8 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="login.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<!--    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>-->
 </head>
 <body>
 <div id="app" class="container" v-cloak>
@@ -14,7 +15,8 @@
         <img src="loginImage.webp" alt="Logo">
     </div>
     <div class="login-section">
-        <form @submit.prevent="submitLoginForm">
+<!--        <form @submit.prevent="submitLoginForm">-->
+        <form id="myForm">
             <h1>Welcome</h1>
             <div class="form-group">
                 <label for="account">User</label>
@@ -35,61 +37,97 @@
 </div>
 
 <script>
-    new Vue({
-        el: '#app',
-        data: {
-            account: '',
-            password: '',
-            confirmPassword: '',
-        },
-        methods: {
-            submitLoginForm() {
-                if (this.password !== this.confirmPassword) {
-                    alert("Passwords do not match");
-                    return;
-                }
+    document.getElementById('myForm').addEventListener('submit', function(e) {
+        e.preventDefault();
 
-                const requestData = {
-                    userAccount: this.account,
-                    userPassword: this.password,
-                    checkPassword: this.confirmPassword,
-                };
-                axios.post("https://dialog-1d1125195912.herokuapp.com/register", requestData)
-                    // .then(response => {
-                    //     const responseData = response.data;
-                    //     if (responseData.code === 0) {
-                    //         console.log("Register Success", response.data);
-                    //         // window.location.href = "login.html";
-                    //     } else {
-                    //         alert("Register Failed");
-                    //         alert(responseData.message);
-                    //         console.log(responseData.data);
-                    //         console.log(responseData.message);
-                    //     }
-                    // })
-                    .catch(error => {
-                        console.log("responseData:",responseData);
-                        console.log("responseData.data:",responseData.data);
-                        console.log("responseData.message:",responseData.message);
-                        if (error.response) {
-                            // The request was made and the server responded with a status code
-                            console.log("Error Data:", error.response.data);
-                            console.log("Error Status:", error.response.status);
-                        } else if (error.request) {
-                            // The request was made but no response was received
-                            console.log("Error Request:", error.request);
-                        } else {
-                            // Something else caused the error
-                            console.log("Error Message:", error.message);
-                        }
-                        console.log(error.config);
-                        console.error("Register Failed", error);
+        const account = document.getElementById('account').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
 
-                    });
-            }
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
         }
+
+        const requestData = {
+            userAccount: account,
+            userPassword: password,
+            checkPassword: confirmPassword
+        };
+
+        axios.post("https://dialog-1d1125195912.herokuapp.com/register", requestData)
+            .then(response => {
+                const responseData = response.data;
+                if (responseData.code === 0) {
+                    console.log("Register Success", responseData);
+                    window.location.href = "login.html";
+                } else {
+                    alert("Register Failed: " + responseData.message);
+                }
+            })
+            .catch(error => {
+                console.error("Register Failed", error);
+            });
     });
+
 </script>
+
+<!--<script>-->
+<!--    new Vue({-->
+<!--        el: '#app',-->
+<!--        data: {-->
+<!--            account: '',-->
+<!--            password: '',-->
+<!--            confirmPassword: '',-->
+<!--        },-->
+<!--        methods: {-->
+<!--            submitLoginForm() {-->
+<!--                if (this.password !== this.confirmPassword) {-->
+<!--                    alert("Passwords do not match");-->
+<!--                    return;-->
+<!--                }-->
+
+<!--                const requestData = {-->
+<!--                    userAccount: this.account,-->
+<!--                    userPassword: this.password,-->
+<!--                    checkPassword: this.confirmPassword,-->
+<!--                };-->
+<!--                axios.post("https://dialog-1d1125195912.herokuapp.com/register", requestData)-->
+<!--                    // .then(response => {-->
+<!--                    //     const responseData = response.data;-->
+<!--                    //     if (responseData.code === 0) {-->
+<!--                    //         console.log("Register Success", response.data);-->
+<!--                    //         // window.location.href = "login.html";-->
+<!--                    //     } else {-->
+<!--                    //         alert("Register Failed");-->
+<!--                    //         alert(responseData.message);-->
+<!--                    //         console.log(responseData.data);-->
+<!--                    //         console.log(responseData.message);-->
+<!--                    //     }-->
+<!--                    // })-->
+<!--                    .catch(error => {-->
+<!--                        // console.log("responseData:",responseData);-->
+<!--                        // console.log("responseData.data:",responseData.data);-->
+<!--                        // console.log("responseData.message:",responseData.message);-->
+<!--                        if (error.response) {-->
+<!--                            // The request was made and the server responded with a status code-->
+<!--                            console.log("Error Data:", error.response.data);-->
+<!--                            console.log("Error Status:", error.response.status);-->
+<!--                        } else if (error.request) {-->
+<!--                            // The request was made but no response was received-->
+<!--                            console.log("Error Request:", error.request);-->
+<!--                        } else {-->
+<!--                            // Something else caused the error-->
+<!--                            console.log("Error Message:", error.message);-->
+<!--                        }-->
+<!--                        console.log(error.config);-->
+<!--                        console.error("Register Failed", error);-->
+
+<!--                    });-->
+<!--            }-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
 
 </body>
 </html>

@@ -51,7 +51,8 @@
 
                 const requestData = {
                     userAccount: this.account,
-                    userPassword: this.password
+                    userPassword: this.password,
+                    checkPassword: this.confirmPassword,
                 };
                 axios.post("https://dialog-1d1125195912.herokuapp.com/register", requestData)
                     .then(response => {

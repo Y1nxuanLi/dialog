@@ -71,7 +71,7 @@ public class LoginServlet extends HttpServlet {
                 String userPasswordLogin = user1.getUserPassword();
 
                 try {
-                    if (UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin) == 0){
+                    if (UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin) != 0){
                         sendSuccessResponseData(resp);
                     }
                 } catch (SQLException e) {

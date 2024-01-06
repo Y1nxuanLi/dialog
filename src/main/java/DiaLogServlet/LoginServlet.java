@@ -29,24 +29,19 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
-//        resp.getWriter().write("Welcome to DiaLog ");
         String servletPath = req.getServletPath();
-        // You can now use the servletPath in your code
-//        resp.getWriter().println("Servlet Path: " + servletPath);
         UserLoginDataSQL.createTable();
         switch (servletPath) {
             case "/login":
-//                resp.getWriter().write("Register Page");
                 forwardTo(req, resp, "/login.html");
                 break;
             case "/register":
-//                resp.getWriter().write("Register Page");
                 forwardTo(req, resp, "/register.html");
                 break;
-            case "/home": // default case is for root path ("/")
+            case "/home":
                 resp.getWriter().write("Welcome to the home page! ");
                 break;
-            case "/UserDataTesting": // default case is for root path ("/")
+            case "/UserDataTesting":
                 resp.getWriter().write("UserLoginData Display for testing purpose");
                 UserLoginDataSQL.displayData(resp);
                 break;
@@ -64,44 +59,42 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
 
-        // req is sent from user to server
-        // resp is sent from server to user
-
         String servletPath = req.getServletPath();
-        // You can now use the servletPath in your code
-//        resp.getWriter().println("Servlet Path: " + servletPath);
 
         switch (servletPath) {
             case "/login":
-                KeyPairs<String, String> loginData = getAccountPassword(req,resp);
-                String userAccountLogin = loginData.getFirst();
-                String userPasswordLogin = loginData.getSecond();
+                String jsonData1 = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+                Gson gson1 = new Gson();
+                UserLoginData user1 = gson1.fromJson(jsonData1, UserLoginData.class);
+
+
+                String userAccountLogin = user1.getUserAccount();
+                String userPasswordLogin = user1.getUserPassword();
                 try {
                     int UserId = UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
                     if (UserId != 0){sendResponseData(resp);}
-//                    forwardTo(req, resp, "/index.html");
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
 
             case "/register":
-                KeyPairs<String, String> registerData = getAccountPassword(req,resp);
-                String userAccountRegister = registerData.getFirst();
-                String userPasswordRegister = registerData.getSecond();
+                String jsonData2 = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+                Gson gson2 = new Gson();
+                UserRegisterData user2 = gson2.fromJson(jsonData2, UserRegisterData.class);
+
+                String userAccountRegister = user2.getUserAccount();
+                String userPasswordRegister = user2.getUserPassword();
+                String userConfirmedPassword = user2.getUserConfirmedPassword();
+
                 try {
                     if (UserLoginDataSQL.checkIdentity(userAccountRegister,userPasswordRegister)==0){
                         UserLoginDataSQL.insertData(userAccountRegister,userPasswordRegister);
                         sendResponseData(resp);
-//                        forwardTo(req, resp, "/login.html");
                     }
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
         }
-
-//        String requestBody = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-//        Gson gson1 = new Gson();
-//        UserLoginData user2 = gson1.fromJson(requestBody, UserLoginData.class);
 
     }
 
@@ -110,47 +103,12 @@ public class LoginServlet extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
-    private KeyPairs<String, String> getAccountPassword(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        StringBuilder buffer = new StringBuilder();
-        BufferedReader reader = req.getReader();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            buffer.append(line);
-        }
-        String jsonData = buffer.toString();
-
-        // Parse the JSON data to DataModel object
-        Gson gson = new Gson();
-        UserLoginData user1 = gson.fromJson(jsonData, UserLoginData.class);
-
-        // Access key1 and key2
-        String userAccount = user1.getUserAccount();
-        String userPassword = user1.getUserPassword();
-        KeyPairs<String, String> keypairs = new KeyPairs<>(userAccount, userPassword);
-
-        return keypairs;
-
-    }
-
     private void sendResponseData(HttpServletResponse resp) throws IOException {
         resp.setStatus(HttpServletResponse.SC_OK);
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         resp.getWriter().write(new Gson().toJson(new ResponseObject(ErrorCode.SUCCESS.getCode(), ErrorCode.SUCCESS.getMessage())));
 
-//        Map<String, Object> responseData = new HashMap<>();
-//        responseData.put("code", 0); // Example status code
-//        responseData.put("message", "Request processed Failed"); // Example message
-
-//        KeyPairs<Integer, String> responseData = new KeyPairs<>(0, "Request processed successfully");
-
-// Setting the response type to JSON
-
-
-        // Sending the JSON response
-//        PrintWriter out = resp.getWriter();
-//        out.print(new Gson().toJson(responseData));
-//        out.flush();
     }
 
 }

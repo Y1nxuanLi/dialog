@@ -29,7 +29,7 @@
                 <input type="password" v-model="confirmPassword" id="confirmPassword" name="confirmPassword">
             </div>
             <button type="submit">Sign Up</button>
-            <a href="loginpage.html">&nbsp;Already have a DiaLog account?</a>
+            <a href="login.html">&nbsp;Already have a DiaLog account?</a>
         </form>
     </div>
 </div>
@@ -54,8 +54,8 @@
                     userPassword: this.password,
                     checkPassword: this.confirmPassword,
                 };
-
-                axios.post("https://dialog-1d1125195912.herokuapp.com/register", requestData)
+                axios.post("http://localhost:8080/dialog/register", requestData)
+                // axios.post("https://dialog-1d1125195912.herokuapp.com/register", requestData)
                     .then(response => {
                         const responseData = response.data;
                         console.log("responseData:",responseData);
@@ -63,7 +63,7 @@
                         console.log("responseData.message:",responseData.message);
                         if (responseData.code === 200) {
                             console.log("Register Success", response.data);
-                            window.location.href = "loginpage.html";
+                            window.location.href = "login.html";
                         } else {
                             alert("Register Failed");
                             alert(responseData.message);

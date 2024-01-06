@@ -23,7 +23,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 
-@WebServlet(urlPatterns={"/home", "/register", "/loginpage", "/UserDataTesting","/Admin"}, loadOnStartup=1)
+@WebServlet(urlPatterns={"/home", "/register", "/login", "/UserDataTesting","/Admin"}, loadOnStartup=1)
 public class LoginServlet extends HttpServlet {
 
     @Override
@@ -32,8 +32,8 @@ public class LoginServlet extends HttpServlet {
         String servletPath = req.getServletPath();
         UserLoginDataSQL.createTable();
         switch (servletPath) {
-            case "/loginpage":
-                forwardTo(req, resp, "/loginpage.html");
+            case "/login":
+                forwardTo(req, resp, "/login.html");
                 break;
             case "/register":
                 forwardTo(req, resp, "/register.html");
@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
         String servletPath = req.getServletPath();
 
         switch (servletPath) {
-            case "/loginpage":
+            case "/login":
                 String jsonData1 = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
                 Gson gson1 = new Gson();
                 UserLoginData user1 = gson1.fromJson(jsonData1, UserLoginData.class);
@@ -71,7 +71,7 @@ public class LoginServlet extends HttpServlet {
                 String userPasswordLogin = user1.getUserPassword();
 
                 try {
-                    if (UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin) != 0){
+                    if (UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin) == 0){
                         sendSuccessResponseData(resp);
                     }
                 } catch (SQLException e) {

@@ -22,7 +22,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 
-@WebServlet(urlPatterns={"/home", "/register", "/login", "/UserDataTesting"}, loadOnStartup=1)
+@WebServlet(urlPatterns={"/home", "/register", "/login", "/UserDataTesting","/Admin"}, loadOnStartup=1)
 public class LoginServlet extends HttpServlet {
 
     @Override
@@ -33,7 +33,6 @@ public class LoginServlet extends HttpServlet {
         // You can now use the servletPath in your code
 //        resp.getWriter().println("Servlet Path: " + servletPath);
         UserLoginDataSQL.createTable();
-        UserLoginDataSQL.insertData("Admin","1234567890");
         switch (servletPath) {
             case "/login":
 //                resp.getWriter().write("Register Page");
@@ -45,12 +44,14 @@ public class LoginServlet extends HttpServlet {
                 break;
             case "/home": // default case is for root path ("/")
                 resp.getWriter().write("Welcome to the home page! ");
-                UserLoginDataSQL.insertData("Admin","1234567890");
                 break;
             case "/UserDataTesting": // default case is for root path ("/")
                 resp.getWriter().write("UserLoginData Display for testing purpose");
                 UserLoginDataSQL.displayData(resp);
                 break;
+            case "/Admin":
+                UserLoginDataSQL.insertData("Admin","1234567890");
+
             default:
                 resp.getWriter().write("404 Not Found");
                 resp.setStatus(HttpServletResponse.SC_NOT_FOUND);

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Connect Login Register Page to SQL Database Testing 9">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Login Register Page v1">
       <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
     </list>
@@ -358,7 +358,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704553767432</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Connect Login Register Page to SQL Database Success">
+      <option name="closed" value="true" />
+      <created>1704554041617</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1704554041617</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Login Register Page v1">
+      <option name="closed" value="true" />
+      <created>1704554331940</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1704554331940</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,6 +404,8 @@
     <MESSAGE value="Connect Login Register Page to SQL Database Testing 7" />
     <MESSAGE value="Connect Login Register Page to SQL Database Testing 8" />
     <MESSAGE value="Connect Login Register Page to SQL Database Testing 9" />
-    <option name="LAST_COMMIT_MESSAGE" value="Connect Login Register Page to SQL Database Testing 9" />
+    <MESSAGE value="Connect Login Register Page to SQL Database Success" />
+    <MESSAGE value="Login Register Page v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login Register Page v1" />
   </component>
 </project>

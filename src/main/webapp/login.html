@@ -40,13 +40,12 @@
         methods: {
             submitLoginForm() {
                 //
-                const account = this.account;
-                const password = this.password;
+                const requestData = {
+                    userAccount: this.account,
+                    userPassword: this.password,
+                };
 
-                axios.post("https://dialog-1d1125195912.herokuapp.com/login", {
-                    userAccount: account,
-                    userPassword: password,
-                })
+                axios.post("https://dialog-1d1125195912.herokuapp.com/login", requestData)
                     .then((response) => {
                         const responseData = response.data;
                         console.log("responseData:",responseData);

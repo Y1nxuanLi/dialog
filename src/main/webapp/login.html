@@ -67,10 +67,6 @@
                         }
                     })
                     .catch((error) => {
-                        const responseData = response.data;
-                        console.log("responseData:",responseData);
-                        console.log("responseData.code:",responseData.code);
-                        console.log("responseData.message:",responseData.message);
                         console.log(error.config);
                         console.error("Login Failed", error);
                     });

@@ -85,7 +85,7 @@ public class LoginServlet extends HttpServlet {
 
     }
     private void sendErrorResponse(HttpServletResponse resp) throws IOException {
-        resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        resp.setStatus(HttpServletResponse.SC_OK);
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         resp.getWriter().write(new Gson().toJson(new ResponseObject(ErrorCode.NO_AUTH_ERROR.getCode(), ErrorCode.NO_AUTH_ERROR.getMessage())));

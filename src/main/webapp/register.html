@@ -34,5 +34,42 @@
     </div>
 </div>
 
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            account: '',
+            password: '',
+            confirmPassword: '',
+        },
+        methods: {
+            submitLoginForm() {
+                if (this.password !== this.confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+
+                const requestData = {
+                    userAccount: this.account,
+                    userPassword: this.password
+                };
+                axios.post("https://dialog-1d1125195912.herokuapp.com/register", requestData)
+                    .then(response => {
+                        const responseData = response.data;
+                        if (responseData.code === 0) {
+                            console.log("Register Success", response.data);
+                            window.location.href = "login.html";
+                        } else {
+                            alert(responseData.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Register Failed", error);
+                    });
+            }
+        }
+    });
+</script>
+
 </body>
 </html>

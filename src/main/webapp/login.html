@@ -21,7 +21,7 @@
                 <input type="text" v-model="account" id="account" name="account">
             </div>
             <div class="form-group">
-                <label for="password">Passwork</label>
+                <label for="password">Password</label>
                 <input type="password" v-model="password" id="password" name="password">
             </div>
             <button type="submit">Login</button>
@@ -29,6 +29,40 @@
         </form>
     </div>
 </div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            account: '',
+            password: ''
+        },
+        methods: {
+            submitLoginForm() {
+                //
+                const account = this.account;
+                const password = this.password;
+
+                axios.post("https://dialog-1d1125195912.herokuapp.com/login", {
+                    userAccount: account,
+                    userPassword: password,
+                })
+                    .then((response) => {
+                        const responseData = response.data;
+                        if (responseData.code === 0) {
+                            console.log("Login Success", response.data);
+                            window.location.replace('./index.html');
+                        } else {
+                            alert(responseData.message);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Login Failed", error);
+                    });
+            }
+        }
+    });
+</script>
 
 </body>
 </html>

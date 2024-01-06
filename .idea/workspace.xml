@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Login Register Page v2.6" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Login Register Page v2.8">
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -475,7 +479,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704570029870</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Login Register Page v2.7">
+      <option name="closed" value="true" />
+      <created>1704570634247</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1704570634247</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Login Register Page v2.8">
+      <option name="closed" value="true" />
+      <created>1704570719766</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1704570719766</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,8 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Servlet Setup 4" />
-    <MESSAGE value="Login Register Web Setup v1" />
     <MESSAGE value="Connect Login Register Page to SQL Database" />
     <MESSAGE value="Connect Login Register Page to SQL Database Testing 1" />
     <MESSAGE value="Connect Login Register Page to SQL Database Testing 3" />
@@ -518,6 +536,8 @@
     <MESSAGE value="Login Register Page v2.4" />
     <MESSAGE value="Login Register Page v2.5" />
     <MESSAGE value="Login Register Page v2.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login Register Page v2.6" />
+    <MESSAGE value="Login Register Page v2.7" />
+    <MESSAGE value="Login Register Page v2.8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login Register Page v2.8" />
   </component>
 </project>

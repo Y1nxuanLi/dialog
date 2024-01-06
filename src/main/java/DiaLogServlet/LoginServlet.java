@@ -72,9 +72,7 @@ public class LoginServlet extends HttpServlet {
 
                 try {
                     if (UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin) != 0){
-                        resp.setContentType("application/json");
-                        resp.setCharacterEncoding("UTF-8");
-                        resp.getWriter().write("{\"code\": 200, \"message\": \"Simplified response\"}");
+                        sendSuccessResponseData(resp);
                     }
                 } catch (SQLException e) {
                     throw new RuntimeException(e);

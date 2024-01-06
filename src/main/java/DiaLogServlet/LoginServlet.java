@@ -1,8 +1,6 @@
 package DiaLogServlet;
 
-import DiaLogApp.KeyPairs;
-import DiaLogApp.Patient;
-import DiaLogApp.UserLoginData;
+import DiaLogApp.*;
 import DiaLogSQL.UserLoginDataSQL;
 import com.google.gson.Gson;
 
@@ -138,20 +136,24 @@ public class LoginServlet extends HttpServlet {
     }
 
     private void sendResponseData(HttpServletResponse resp) throws IOException {
-        Map<String, Object> responseData = new HashMap<>();
-        responseData.put("code", 0); // Example status code
-        responseData.put("message", "Request processed Failed"); // Example message
+        resp.setStatus(HttpServletResponse.SC_OK);
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        resp.getWriter().write(new Gson().toJson(new ResponseObject(ErrorCode.SUCCESS.getCode(), ErrorCode.SUCCESS.getMessage())));
+
+//        Map<String, Object> responseData = new HashMap<>();
+//        responseData.put("code", 0); // Example status code
+//        responseData.put("message", "Request processed Failed"); // Example message
 
 //        KeyPairs<Integer, String> responseData = new KeyPairs<>(0, "Request processed successfully");
 
 // Setting the response type to JSON
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
+
 
         // Sending the JSON response
-        PrintWriter out = resp.getWriter();
-        out.print(new Gson().toJson(responseData));
-        out.flush();
+//        PrintWriter out = resp.getWriter();
+//        out.print(new Gson().toJson(responseData));
+//        out.flush();
     }
 
 }

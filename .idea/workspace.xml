@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Connect Login Register Page to SQL Database Testing 5">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Connect Login Register Page to SQL Database Testing 7">
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/ResponseObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LoginServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +38,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,6 +86,7 @@
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="DiaLogApp" />
       <recent name="" />
     </key>
   </component>
@@ -333,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704548068164</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Connect Login Register Page to SQL Database Testing 7">
+      <option name="closed" value="true" />
+      <created>1704550751113</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1704550751113</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,6 +371,7 @@
     <MESSAGE value="Connect Login Register Page to SQL Database Testing 3" />
     <MESSAGE value="Connect Login Register Page to SQL Database Testing 4" />
     <MESSAGE value="Connect Login Register Page to SQL Database Testing 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Connect Login Register Page to SQL Database Testing 5" />
+    <MESSAGE value="Connect Login Register Page to SQL Database Testing 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Connect Login Register Page to SQL Database Testing 7" />
   </component>
 </project>

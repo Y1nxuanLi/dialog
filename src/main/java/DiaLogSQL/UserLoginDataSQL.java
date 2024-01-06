@@ -23,12 +23,15 @@ public class UserLoginDataSQL {
     }
 
     public static void insertData(String acc, String pswd) {
-        String sqlInsert = "INSERT INTO userLogin (userAccount, userPassword) " +
-                "VALUES (acc, pswd);";
+        String sqlInsert = "INSERT INTO userLogin (userAccount, userPassword) VALUES (?, ?);";
 
         try (Connection conn = DatabaseConnector.getConnection();
-             Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate(sqlInsert);
+             PreparedStatement pstmt = conn.prepareStatement(sqlInsert)) {
+
+            pstmt.setString(1, acc);
+            pstmt.setString(2, pswd);
+
+            pstmt.executeUpdate();
             System.out.println("Data inserted successfully.");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -56,8 +59,8 @@ public class UserLoginDataSQL {
 
     }
 
-    public static Integer checkIdentity(String acc, String pswd) throws SQLException {
-        String sql = "SELECT * FROM patients WHERE userAccount = ? AND userPassword = ?;";
+    public static int checkIdentity(String acc, String pswd) throws SQLException {
+        String sql = "SELECT * FROM userLogin WHERE userAccount = ? AND userPassword = ?;";
 
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -72,14 +75,14 @@ public class UserLoginDataSQL {
                     return rs.getInt("id");
                 } else {
                     // If no record is found, return null or throw an exception as per your design decision
-                    return null;
+                    return 0;
                 }
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             // Depending on how you handle exceptions, you might want to rethrow it or handle it differently
         }
-        return null;
+        return 0;
     }
 
 }

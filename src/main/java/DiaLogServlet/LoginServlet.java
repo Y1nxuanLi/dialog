@@ -92,7 +92,7 @@ public class LoginServlet extends HttpServlet {
                 String userAccountRegister = registerData.getFirst();
                 String userPasswordRegister = registerData.getSecond();
                 try {
-                    if (UserLoginDataSQL.checkIdentity(userAccountRegister,userPasswordRegister)==null){
+                    if (UserLoginDataSQL.checkIdentity(userAccountRegister,userPasswordRegister)==0){
                         UserLoginDataSQL.insertData(userAccountRegister,userPasswordRegister);
                         forwardTo(req, resp, "/login.html");
                     }

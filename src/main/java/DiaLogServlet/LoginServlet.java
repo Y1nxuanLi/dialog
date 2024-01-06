@@ -79,7 +79,7 @@ public class LoginServlet extends HttpServlet {
                 try {
                     UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
                     sendResponseData(resp);
-                    forwardTo(req, resp, "/index.html");
+//                    forwardTo(req, resp, "/index.html");
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
@@ -94,7 +94,7 @@ public class LoginServlet extends HttpServlet {
                     if (UserLoginDataSQL.checkIdentity(userAccountRegister,userPasswordRegister)==0){
                         UserLoginDataSQL.insertData(userAccountRegister,userPasswordRegister);
                         sendResponseData(resp);
-                        forwardTo(req, resp, "/login.html");
+//                        forwardTo(req, resp, "/login.html");
                     }
                 } catch (SQLException e) {
                     throw new RuntimeException(e);

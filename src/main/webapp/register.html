@@ -57,6 +57,9 @@
                 axios.post("https://dialog-1d1125195912.herokuapp.com/register", requestData)
                     .then(response => {
                         const responseData = response.data;
+                        console.log("responseData:",responseData);
+                        console.log("responseData.data:",responseData.data);
+                        console.log("responseData.message:",responseData.message);
                         if (responseData.code === 0) {
                             console.log("Register Success", response.data);
                             // window.location.href = "login.html";
@@ -68,9 +71,6 @@
                         }
                     })
                     .catch(error => {
-                        console.log("responseData:",responseData);
-                        console.log("responseData.data:",responseData.data);
-                        console.log("responseData.message:",responseData.message);
                         if (error.response) {
                             // The request was made and the server responded with a status code
                             console.log("Error Data:", error.response.data);

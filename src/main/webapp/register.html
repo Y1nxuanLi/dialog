@@ -68,6 +68,9 @@
                         }
                     })
                     .catch(error => {
+                        console.log("responseData:",responseData);
+                        console.log("responseData.data:",responseData.data);
+                        console.log("responseData.message:",responseData.message);
                         if (error.response) {
                             // The request was made and the server responded with a status code
                             console.log("Error Data:", error.response.data);
@@ -81,6 +84,7 @@
                         }
                         console.log(error.config);
                         console.error("Register Failed", error);
+
                     });
             }
         }

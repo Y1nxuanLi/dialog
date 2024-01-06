@@ -1,0 +1,94 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+}
+
+.nav-left ul, .nav-right ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-left li, .nav-right li {
+    margin-right: 20px;
+}
+
+.nav-right li:last-child {
+    margin-right: 0;
+}
+
+.nav-left li a, .nav-right li a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: bold;
+    display: block;
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+.nav-left li a:hover, .nav-right li a:hover {
+    background-color: #eaeaea;
+}
+
+.date-entry {
+    margin-bottom: 20px;
+}
+
+.date-entry label {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.date-entry input[type="date"] {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.trends-section {
+    margin: 20px;
+    text-align: center;
+}
+
+.filter-options {
+    margin-bottom: 20px;
+}
+
+.filter-options label {
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+.chart-container {
+    width: 80%;
+    height: 400px;
+    margin: auto;
+    background-color: #e9e9e9;
+    border: 1px solid #cccccc;
+}

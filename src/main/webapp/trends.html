@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据分析</title>
+    <link rel="stylesheet" type="text/css" href="logbook.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.1/dist/echarts.min.js"></script>
+</head>
+<body>
+<div id="logbook">
+    <header>
+        <nav>
+            <div class="nav-left">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="logbook.html">血糖记录</a></li>
+                    <li><a href="trends.html">血糖趋势</a></li>
+                    <li><a href="settings.html">个人信息</a></li>
+
+                </ul>
+            </div>
+            <div class="nav-right">
+                <ul v-if="currentUser">
+                    <li><span style="line-height: 37px">{{ currentUser.userAccount }}</span></li>
+                </ul>
+                <ul v-else>
+                    <!-- 渲染登录/注册链接 -->
+                    <li><a href="login.html">登录</a></li>
+                    <li><a href="register.html">注册</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <el-select v-model="selectedOption" placeholder="请选择">
+            <el-option label="全部" value="all"></el-option>
+            <el-option label="当天" value="today"></el-option>
+            <el-option label="早上" value="morning"></el-option>
+            <el-option label="中午" value="noon"></el-option>
+            <el-option label="晚上" value="evening"></el-option>
+            <!-- 添加其他选项 -->
+        </el-select>
+        <div id="lineChart" style="width: 100%; height: 400px;"></div>
+    </main>
+
+    <footer>
+        <p>@2024，血糖系统</p>
+    </footer>
+</div>
+
+<script>
+    new Vue({
+        name: 'logbook',
+        el: '#logbook',
+        data() {
+            return {
+                useMes: JSON.parse(localStorage.getItem('userMes')),
+                title: '',
+                currentUser: null,
+                daydatas: [],
+                createTime: '',
+                content: '',
+                selectedOption: 'all',
+            }
+        },
+        created() {
+            this.getAll();
+            this.currentUser = this.useMes.data
+        },
+        watch: {
+            selectedOption: 'drawChart',
+        },
+        methods: {
+            formatXAxis(row) {
+                if (this.selectedOption === 'today') {
+                    // 如果是今天，只显示 HH:mm:ss
+                    return moment(row.createTime).format('HH时mm分ss秒');
+                } else {
+                    // 如果是全部，显示完整的 createTime
+                    return moment(row.createTime).format('YYYY年MM月DD日 HH时mm分ss秒');
+                }
+            },
+            openModal() {
+                this.isModalOpen = true;
+                this.taskForm.title = '';
+                this.taskForm.content = '';
+            },
+
+            getAll() {
+                axios.post("http://35.179.12.19:7529/api/daydata/getByUserId",
+                    {
+                        userId: this.useMes.data.id
+                    })
+                    .then(response => {
+                        if (Array.isArray(response.data.data)) {
+                            this.daydatas = response.data.data;
+                            this.drawChart();
+                        } else if (typeof response.data.data === 'object') {
+                            this.daydatas = Object.values(response.data.data);
+                            this.drawChart();
+                        } else {
+                            console.error("不支持的数据类型:", response.data.data);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("检索时发生错误:", error);
+                    });
+            },
+            drawChart() {
+                const chartContainer = document.getElementById('lineChart');
+                const chart = echarts.init(chartContainer);
+
+                // 根据选项筛选要显示的数据
+                let filteredData = this.daydatas;
+                if (this.selectedOption === 'today') {
+                    const today = moment().format('YYYY-MM-DD');
+                    // 使用原始的 createTime 进行比较
+                    filteredData = this.daydatas.filter(item => moment(item.createTime).format('YYYY-MM-DD') === today);
+                } else if (this.selectedOption === 'morning') {
+                    // 早上6点到9点
+                    filteredData = this.daydatas.filter(item => {
+                        const hour = moment(item.createTime).hour();
+                        return hour >= 6 && hour <= 9;
+                    });
+                } else if (this.selectedOption === 'noon') {
+                    // 中午11点到14点
+                    filteredData = this.daydatas.filter(item => {
+                        const hour = moment(item.createTime).hour();
+                        return hour >= 11 && hour <= 14;
+                    });
+                } else if (this.selectedOption === 'evening') {
+                    // 晚上16点到19点
+                    filteredData = this.daydatas.filter(item => {
+                        const hour = moment(item.createTime).hour();
+                        return hour >= 16 && hour <= 19;
+                    });
+                }
+                // 处理数据，提取数字部分
+                const xAxisData = filteredData.map(item => this.formatXAxis(item));
+                const seriesData = filteredData.map(item => {
+                    // 使用正则表达式提取数字部分
+                    const match = item.content.match(/\d+(\.\d+)?/);
+                    // 如果有匹配则返回匹配到的数字部分，否则返回原始内容
+                    return match ? parseFloat(match[0]) : item.content;
+                });
+
+                const options = {
+                    title: {
+                        text: '血糖局势',
+                        left: 'center',
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        formatter: '{b} <br/>{a}: {c}',  // 不添加单位，可以根据需要自行处理
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: xAxisData,
+                    },
+                    yAxis: {
+                        type: 'value',
+                        min: 50,
+                        max: 150,
+                        interval: 10,
+                    },
+                    series: [
+                        {
+                            name: '数值',
+                            type: 'line',
+                            data: seriesData,
+                        },
+                    ],
+                };
+
+                // 设置选项并渲染图表
+                chart.setOption(options);
+            },
+        },
+    })
+
+</script>
+</body>
+</html>

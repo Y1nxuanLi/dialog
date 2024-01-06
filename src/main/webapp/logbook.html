@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常记录</title>
+    <link rel="stylesheet" type="text/css" href="logbook.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2"></script>
+</head>
+<body>
+<div id="logbook">
+    <header>
+        <nav>
+            <div class="nav-left">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="logbook.html">血糖记录</a></li>
+                    <li><a href="trends.html">血糖趋势</a></li>
+                    <li><a href="settings.html">个人信息</a></li>
+
+                </ul>
+            </div>
+            <div class="nav-right">
+                <ul v-if="currentUser">
+                    <li><span style="line-height: 37px">{{ currentUser.userAccount }}</span></li>
+                </ul>
+                <ul v-else>
+                    <!-- 渲染登录/注册链接 -->
+                    <li><a href="login.html">登录</a></li>
+                    <li><a href="register.html">注册</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="add-activity-button-container">
+        <el-button @click="openModal()">添加记录</el-button>
+    </div>
+
+    <main>
+        <el-table :data="daydatas" class="table" style="width: 90%" stripe border>
+            <el-table-column prop="id" label="ID" width="80"></el-table-column>
+            <el-table-column prop="createTime" label="日期" :formatter="formatDate" width="180"></el-table-column>
+            <el-table-column prop="title" label="名称"></el-table-column>
+            <el-table-column prop="content" label="数值"></el-table-column>
+            <el-table-column prop="createTime" label="记录时间" :formatter="formatTime"></el-table-column>
+            <el-table-column label="操作">
+                <template slot-scope="scope">
+                    <el-button type="text" @click="deleteRecord(scope.row.id)">删除</el-button>
+                    <el-button type="text" @click="openModal(scope.row.id)">修改</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+    </main>
+
+
+    <el-dialog
+            :visible.sync="isModalOpen"
+            title="添加记录"
+            width="30%"
+            :before-close="closeModal">
+        <el-form ref="taskForm" :model="taskForm" label-width="80px">
+            <el-form-item label="名称" prop="title">
+                <el-input v-model="taskForm.title" placeholder="请输入名称，如：血糖"></el-input>
+            </el-form-item>
+            <el-form-item label="数值" prop="content">
+                <el-input type="textarea" v-model="taskForm.content" placeholder="请输入值，如：100mg/dL"></el-input>
+            </el-form-item>
+        </el-form>
+
+        <span slot="footer" class="dialog-footer">
+            <el-button @click="closeModal">取消</el-button>
+            <el-button type="primary" @click="taskForm.id ? updateTask() : createTask()">
+                {{ taskForm.id ? '修改记录' : '创建记录' }}
+            </el-button>
+        </span>
+    </el-dialog>
+
+    <footer>
+        <p>@2024，血糖系统</p>
+    </footer>
+</div>
+
+<script>
+    new Vue({
+        name: 'logbook',
+        el: '#logbook',
+        data() {
+            return {
+                useMes: JSON.parse(localStorage.getItem('userMes')),
+                title: '',
+                currentUser: null,
+                daydatas: [],
+                isModalOpen: false,
+                createTime: '',
+                content: '',
+                taskForm: {
+                    id: '',
+                    title: '',
+                    content: ''
+                },
+            }
+        },
+        created() {
+            this.getAll();
+            this.currentUser = this.useMes.data
+        },
+        methods: {
+            formatDate(row) {
+                // 格式化日期
+                return moment(row.createTime).format('YYYY年MM月DD日');
+            },
+            formatTime(row) {
+                // 格式化时间
+                return moment(row.createTime).format('HH时mm分ss秒');
+            },
+            openModal(dadataId) {
+                this.isModalOpen = true;
+                if (dadataId !== undefined && dadataId !== null) {
+                    const selectedRecord = this.daydatas.find(record => record.id === dadataId);
+                    if (selectedRecord) {
+                        this.taskForm.id = selectedRecord.id;
+                        this.taskForm.title = selectedRecord.title;
+                        this.taskForm.content = selectedRecord.content;
+                    }
+                } else {
+                    this.taskForm.id = '';
+                    this.taskForm.title = '';
+                    this.taskForm.content = '';
+                }
+            },
+            createTask() {
+                axios.post("http://35.179.12.19:7529/api/daydata/add",
+                    {
+                        title: this.taskForm.title,
+                        content: this.taskForm.content,
+                        userId: this.useMes.data.id
+                    })
+                    .then(response => {
+                        const responseData = response.data;
+                        if (responseData.code === 0) {
+                            console.log("添加成功", response.data);
+                            this.getAll();
+                            this.isModalOpen = false;
+                            this.taskForm.title = '';
+                            this.taskForm.content = '';
+                        } else {
+                            alert(responseData.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("检索时发生错误:", error);
+                    });
+
+            },
+            updateTask() {
+                axios.post("http://35.179.12.19:7529/api/daydata/update", {
+                    id: this.taskForm.id,
+                    title: this.taskForm.title,
+                    content: this.taskForm.content
+                })
+                    .then(response => {
+                        const responseData = response.data;
+                        if (responseData.code === 0) {
+                            console.log("修改成功", response.data);
+                            this.getAll();
+                            this.isModalOpen = false;
+                            this.taskForm.id = '';
+                            this.taskForm.title = '';
+                            this.taskForm.content = '';
+                        } else {
+                            alert(responseData.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("检索时发生错误:", error);
+                    });
+            },
+            closeModal() {
+                this.$confirm('确定要取消吗？', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'info'
+                }).then(() => {
+                    this.isModalOpen = false;
+                    this.taskForm.title = '';
+                    this.taskForm.content = '';
+                }).catch(() => {
+                });
+            },
+            getAll() {
+                axios.post("http://35.179.12.19:7529/api/daydata/getByUserId",
+                    {
+                        userId: this.useMes.data.id
+                    })
+                    .then(response => {
+                        if (Array.isArray(response.data.data)) {
+                            this.daydatas = response.data.data;
+                        } else if (typeof response.data.data === 'object') {
+                            this.daydatas = Object.values(response.data.data);
+                        } else {
+                            console.error("不支持的数据类型:", response.data.data);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("检索时发生错误:", error);
+                    });
+            },
+            deleteRecord(id) {
+                if (window.confirm('确定删除吗？')) {
+                    axios.post('http://35.179.12.19:7529/api/daydata/delete', { id: id })
+                        .then(response => {
+                            if (response.data) {
+                                this.getAll();
+                            } else {
+                                console.error('删除失败，未返回有效数据');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('删除记录时出错：', error);
+                        });
+                }},
+        },
+    })
+
+</script>
+</body>
+</html>

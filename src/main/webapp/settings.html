@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息</title>
+    <link rel="stylesheet" href="settingstyle.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+<div id="setting">
+    <header>
+        <nav>
+            <div class="nav-left">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="logbook.html">血糖记录</a></li>
+                    <li><a href="trends.html">血糖趋势</a></li>
+                    <li><a href="settings.html">个人信息</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <ul v-if="currentUser">
+                    <li><span style="line-height: 37px">{{ currentUser.userAccount }}</span></li>
+                </ul>
+                <ul v-else>
+                    <!-- 渲染登录/注册链接 -->
+                    <li><a href="login.html">登录</a></li>
+                    <li><a href="register.html">注册</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <el-card class="box-card">
+        <div slot="header" class="clearfix">
+            <span>个人信息</span>
+            <el-button @click="editMode = !editMode">{{ editMode ? '编辑' : '取消编辑' }}</el-button>
+            <el-button @click="saveChanges" v-if="!editMode">保存</el-button>
+        </div>
+        <div>
+            <el-form ref="userForm" :model="currentUser" :rules="rules" label-width="80px">
+                <el-form-item label="名称">
+                    <el-input v-model="currentUser.userName" :disabled="editMode"></el-input>
+                </el-form-item>
+                <el-form-item label="性别">
+                    <el-select v-model="selectedGender" :disabled="editMode">
+                        <el-option label="男" value="1"></el-option>
+                        <el-option label="女" value="2"></el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="邮箱">
+                    <el-input v-model="currentUser.email" :disabled="editMode"></el-input>
+                </el-form-item>
+                <el-form-item label="电话号码">
+                    <el-input v-model="currentUser.phoneNumber" :disabled="editMode"></el-input>
+                </el-form-item>
+                <el-form-item label="身份证号">
+                    <el-input v-model="currentUser.idCardNumber" :disabled="editMode"></el-input>
+                </el-form-item>
+                <el-form-item label="邮编">
+                    <el-input v-model="currentUser.postalCode" :disabled="editMode"></el-input>
+                </el-form-item>
+                <el-form-item label="地址">
+                    <el-input v-model="currentUser.address" :disabled="editMode"></el-input>
+                </el-form-item>
+            </el-form>
+        </div>
+    </el-card>
+</div>
+<script>
+    new Vue({
+        name: 'setting',
+        el: '#setting',
+        data() {
+            return {
+                useMes: JSON.parse(localStorage.getItem('userMes')),
+                currentUser: null,
+                editMode: true,
+                selectedGender: '',
+                rules: {
+                    address: [{ required: true, message: '请输入地址', trigger: 'blur' }],
+                    email: [{ required: true, message: '请输入邮箱', trigger: 'blur' }],
+                    gender: [{ required: true, message: '请输入性别', trigger: 'blur' }],
+                    idCardNumber: [{ required: true, message: '请输入身份证号码', trigger: 'blur' }],
+                    phoneNumber: [{ required: true, message: '请输入电话号码', trigger: 'blur' }],
+                    postalCode: [{ required: true, message: '请输入邮编', trigger: 'blur' }],
+                    userName: [{ required: true, message: '请输入名称', trigger: 'blur' }],
+                }
+            }
+        },
+        created() {
+            this.currentUser = this.useMes.data
+            this.selectedGender = this.currentUser.gender.toString()
+        },
+        methods: {
+            saveChanges() {
+                axios.post("http://35.179.12.19:7529/api/user/update", {
+                    id: this.currentUser.id,
+                    address: this.currentUser.address,
+                    email: this.currentUser.email,
+                    gender: this.selectedGender,
+                    idCardNumber: this.currentUser.idCardNumber,
+                    phoneNumber: this.currentUser.phoneNumber,
+                    postalCode: this.currentUser.postalCode,
+                    userName: this.currentUser.userName,
+                })
+                    .then(response => {
+                        const responseData = response.data;
+                        if (responseData.code === 0) {
+                            console.log("修改成功", response.data);
+                            this.useMes.data.gender = this.selectedGender;
+                            localStorage.setItem('userMes', JSON.stringify(this.useMes));
+                            this.editMode = true;
+                        } else {
+                            alert(responseData.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("检索时发生错误:", error);
+                    });
+            }
+        },
+    })
+
+</script>
+</body>
+</html>

@@ -53,7 +53,8 @@
                         console.log("responseData.message:",responseData.message);
                         if (responseData.code === 0) {
                             console.log("Login Success", response.data);
-                            window.location.replace('index.html');
+                            // window.location.replace('index.html');
+                            window.location.href = "./index.html";
                         } else {
                             alert(responseData.message);
                         }

@@ -12,7 +12,7 @@ public class UserLoginDataSQL {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS userLogin (" +
                 "id SERIAL PRIMARY KEY, " +
                 "userAccount VARCHAR(128) NOT NULL, " +
-                "userPassword VARCHAR(128) NOT NULL;";
+                "userPassword VARCHAR(128) NOT NULL);";
 
         try (Connection conn = DatabaseConnector.getConnection();
              Statement stmt = conn.createStatement()) {

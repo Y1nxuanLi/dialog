@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Login Register Page v2.4">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Login Register Page v2.5">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -462,7 +461,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704568858071</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Login Register Page v2.5">
+      <option name="closed" value="true" />
+      <created>1704569369376</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1704569369376</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Servlet Setup 2" />
     <MESSAGE value="Servlet Setup 3" />
     <MESSAGE value="Servlet Setup 4" />
     <MESSAGE value="Login Register Web Setup v1" />
@@ -505,6 +511,7 @@
     <MESSAGE value="Login Register Page v2.2" />
     <MESSAGE value="Login Register Page v2.3" />
     <MESSAGE value="Login Register Page v2.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login Register Page v2.4" />
+    <MESSAGE value="Login Register Page v2.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login Register Page v2.5" />
   </component>
 </project>

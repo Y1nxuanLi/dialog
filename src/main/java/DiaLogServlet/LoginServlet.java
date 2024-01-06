@@ -19,6 +19,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -136,7 +138,11 @@ public class LoginServlet extends HttpServlet {
     }
 
     private void sendResponseData(HttpServletResponse resp) throws IOException {
-        KeyPairs<Integer, String> responseData = new KeyPairs<>(0, "Request processed successfully");
+        Map<String, Object> responseData = new HashMap<>();
+        responseData.put("code", 0); // Example status code
+        responseData.put("message", "Request processed successfully"); // Example message
+
+//        KeyPairs<Integer, String> responseData = new KeyPairs<>(0, "Request processed successfully");
 
 // Setting the response type to JSON
         resp.setContentType("application/json");

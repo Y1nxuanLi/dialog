@@ -8,6 +8,7 @@ import java.sql.*;
 
 public class UserLoginDataSQL {
     public static void createTable() {
+        System.out.println("Creating table.");
         String sqlCreate = "CREATE TABLE IF NOT EXISTS userLogin (" +
                 "id SERIAL PRIMARY KEY, " +
                 "userAccount VARCHAR(128) NOT NULL, " +
@@ -24,7 +25,7 @@ public class UserLoginDataSQL {
 
     public static void insertData(String acc, String pswd) {
         String sqlInsert = "INSERT INTO userLogin (userAccount, userPassword) VALUES (?, ?);";
-
+        System.out.println("Inserting Data table.");
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlInsert)) {
 
@@ -61,7 +62,7 @@ public class UserLoginDataSQL {
 
     public static int checkIdentity(String acc, String pswd) throws SQLException {
         String sql = "SELECT * FROM userLogin WHERE userAccount = ? AND userPassword = ?;";
-
+        System.out.println("Checking Identity.");
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 

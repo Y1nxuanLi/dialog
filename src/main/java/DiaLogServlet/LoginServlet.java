@@ -67,13 +67,14 @@ public class LoginServlet extends HttpServlet {
                 Gson gson1 = new Gson();
                 UserLoginData user1 = gson1.fromJson(jsonData1, UserLoginData.class);
 
-
                 String userAccountLogin = user1.getUserAccount();
                 String userPasswordLogin = user1.getUserPassword();
+
                 try {
-                    int UserId = UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
-//                    if (UserId != 0){sendSuccessResponseData(resp);}
-                    sendSuccessResponseData(resp);
+                    if (UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin) != 0){
+                        UserLoginDataSQL.insertData("Success Login","Success Login");
+                        sendSuccessResponseData(resp);
+                    }
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }

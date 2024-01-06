@@ -56,7 +56,10 @@
                             window.location.replace('index.html');
                             // window.location.href = "./index.html";
                         } else {
+                            alert("Login Failed");
                             alert(responseData.message);
+                            console.log(responseData.data);
+                            console.log(responseData.message);
                         }
                     })
                     .catch((error) => {

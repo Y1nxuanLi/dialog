@@ -32,25 +32,22 @@ public class LoginServlet extends HttpServlet {
         String servletPath = req.getServletPath();
         // You can now use the servletPath in your code
 //        resp.getWriter().println("Servlet Path: " + servletPath);
-
+        UserLoginDataSQL.createTable();
+        UserLoginDataSQL.insertData("Admin","1234567890");
         switch (servletPath) {
             case "/login":
-                UserLoginDataSQL.createTable();
 //                resp.getWriter().write("Register Page");
                 forwardTo(req, resp, "/login.html");
                 break;
             case "/register":
-                UserLoginDataSQL.createTable();
 //                resp.getWriter().write("Register Page");
                 forwardTo(req, resp, "/register.html");
                 break;
             case "/home": // default case is for root path ("/")
-                UserLoginDataSQL.createTable();
                 resp.getWriter().write("Welcome to the home page! ");
                 UserLoginDataSQL.insertData("Admin","1234567890");
                 break;
             case "/UserDataTesting": // default case is for root path ("/")
-                UserLoginDataSQL.createTable();
                 resp.getWriter().write("UserLoginData Display for testing purpose");
                 UserLoginDataSQL.displayData(resp);
                 break;

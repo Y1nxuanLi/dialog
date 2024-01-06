@@ -72,7 +72,8 @@ public class LoginServlet extends HttpServlet {
                 String userPasswordLogin = user1.getUserPassword();
                 try {
                     int UserId = UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
-                    if (UserId != 0){sendResponseData(resp);}
+//                    if (UserId != 0){sendSuccessResponseData(resp);}
+                    sendSuccessResponseData(resp);
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
@@ -89,7 +90,7 @@ public class LoginServlet extends HttpServlet {
                 try {
                     if (UserLoginDataSQL.checkIdentity(userAccountRegister,userPasswordRegister)==0){
                         UserLoginDataSQL.insertData(userAccountRegister,userPasswordRegister);
-                        sendResponseData(resp);
+                        sendSuccessResponseData(resp);
                     }
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
@@ -103,7 +104,7 @@ public class LoginServlet extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
-    private void sendResponseData(HttpServletResponse resp) throws IOException {
+    private void sendSuccessResponseData(HttpServletResponse resp) throws IOException {
         resp.setStatus(HttpServletResponse.SC_OK);
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");

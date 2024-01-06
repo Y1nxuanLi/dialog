@@ -55,18 +55,18 @@
                     checkPassword: this.confirmPassword,
                 };
                 axios.post("https://dialog-1d1125195912.herokuapp.com/register", requestData)
-                    .then(response => {
-                        const responseData = response.data;
-                        if (responseData.code === 0) {
-                            console.log("Register Success", response.data);
-                            // window.location.href = "login.html";
-                        } else {
-                            alert("Register Failed");
-                            alert(responseData.message);
-                            console.log(responseData.data);
-                            console.log(responseData.message);
-                        }
-                    })
+                    // .then(response => {
+                    //     const responseData = response.data;
+                    //     if (responseData.code === 0) {
+                    //         console.log("Register Success", response.data);
+                    //         // window.location.href = "login.html";
+                    //     } else {
+                    //         alert("Register Failed");
+                    //         alert(responseData.message);
+                    //         console.log(responseData.data);
+                    //         console.log(responseData.message);
+                    //     }
+                    // })
                     .catch(error => {
                         console.log("responseData:",responseData);
                         console.log("responseData.data:",responseData.data);

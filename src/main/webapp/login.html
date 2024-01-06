@@ -47,15 +47,15 @@
                     userAccount: account,
                     userPassword: password,
                 })
-                    .then((response) => {
-                        const responseData = response.data;
-                        if (responseData.code === 0) {
-                            console.log("Login Success", response.data);
-                            // window.location.replace('./index.html');
-                        } else {
-                            alert(responseData.message);
-                        }
-                    })
+                    // .then((response) => {
+                    //     const responseData = response.data;
+                    //     if (responseData.code === 0) {
+                    //         console.log("Login Success", response.data);
+                    //         // window.location.replace('./index.html');
+                    //     } else {
+                    //         alert(responseData.message);
+                    //     }
+                    // })
                     .catch((error) => {
                         console.log("responseData:",responseData);
                         console.log("responseData.data:",responseData.data);

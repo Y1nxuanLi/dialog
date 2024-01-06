@@ -55,6 +55,8 @@
                             console.log("Login Success", response.data);
                             window.location.replace('index.html');
                             // window.location.href = "./index.html";
+                        } else if (responseData.code === 40101){
+                            console.log("Login Unauthorized", response.data);
                         } else {
                             alert("Login Failed");
                             alert(responseData.message);

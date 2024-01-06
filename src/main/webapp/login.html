@@ -57,6 +57,18 @@
                         }
                     })
                     .catch((error) => {
+                        if (error.response) {
+                            // The request was made and the server responded with a status code
+                            console.log("Error Data:", error.response.data);
+                            console.log("Error Status:", error.response.status);
+                        } else if (error.request) {
+                            // The request was made but no response was received
+                            console.log("Error Request:", error.request);
+                        } else {
+                            // Something else caused the error
+                            console.log("Error Message:", error.message);
+                        }
+                        console.log(error.config);
                         console.error("Login Failed", error);
                     });
             }

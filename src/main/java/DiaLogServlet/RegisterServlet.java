@@ -23,8 +23,8 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 
-@WebServlet(urlPatterns={"/login"}, loadOnStartup=1)
-public class LoginServlet extends HttpServlet {
+@WebServlet(urlPatterns={"/home", "/register", "/UserDataTesting","/Admin"}, loadOnStartup=1)
+public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
@@ -32,9 +32,19 @@ public class LoginServlet extends HttpServlet {
         String servletPath = req.getServletPath();
         UserLoginDataSQL.createTable();
         switch (servletPath) {
-            case "/login":
-                forwardTo(req, resp, "/login.html");
+            case "/register":
+                forwardTo(req, resp, "/register.html");
                 break;
+            case "/home":
+                resp.getWriter().write("Welcome to the home page! ");
+                break;
+            case "/UserDataTesting":
+                resp.getWriter().write("UserLoginData Display for testing purpose");
+                UserLoginDataSQL.displayData(resp);
+                break;
+            case "/Admin":
+                UserLoginDataSQL.insertData("Admin","1234567890");
+
             default:
                 resp.getWriter().write("404 Not Found");
                 resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -48,26 +58,27 @@ public class LoginServlet extends HttpServlet {
         String servletPath = req.getServletPath();
 
         switch (servletPath) {
-            case "/login":
-                String jsonData1 = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-                Gson gson1 = new Gson();
-                UserLoginData user1 = gson1.fromJson(jsonData1, UserLoginData.class);
+            case "/register":
+                String jsonData2 = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+                Gson gson2 = new Gson();
+                UserRegisterData user2 = gson2.fromJson(jsonData2, UserRegisterData.class);
 
-                String userAccountLogin = user1.getUserAccount();
-                String userPasswordLogin = user1.getUserPassword();
+                String userAccountRegister = user2.getUserAccount();
+                String userPasswordRegister = user2.getUserPassword();
+                String userConfirmedPassword = user2.getUserConfirmedPassword();
 
                 try {
-                    if (UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin) != 0){
+                    if (UserLoginDataSQL.checkIdentity(userAccountRegister,userPasswordRegister)==0){
+                        UserLoginDataSQL.insertData(userAccountRegister,userPasswordRegister);
                         sendSuccessResponse(resp);
                     }
-                    else {
-                        // Send an appropriate error response here
+                    else{
                         sendErrorResponse(resp);
                     }
+
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
-
         }
 
     }

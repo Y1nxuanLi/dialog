@@ -140,7 +140,7 @@ public class LoginServlet extends HttpServlet {
     private void sendResponseData(HttpServletResponse resp) throws IOException {
         Map<String, Object> responseData = new HashMap<>();
         responseData.put("code", 0); // Example status code
-        responseData.put("message", "Request processed successfully"); // Example message
+        responseData.put("message", "Request processed Failed"); // Example message
 
 //        KeyPairs<Integer, String> responseData = new KeyPairs<>(0, "Request processed successfully");
 

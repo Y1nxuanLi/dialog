@@ -45,7 +45,7 @@
         methods: {
             submitLoginForm() {
                 if (this.password !== this.confirmPassword) {
-                    alert('Passwords do not match');
+                    alert("Passwords do not match");
                     return;
                 }
 
@@ -60,6 +60,7 @@
                             console.log("Register Success", response.data);
                             // window.location.href = "login.html";
                         } else {
+                            alert("Register Failed");
                             alert(responseData.message);
                         }
                     })

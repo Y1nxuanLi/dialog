@@ -57,11 +57,11 @@ public class LoginServlet extends HttpServlet {
                 String userPasswordLogin = user1.getUserPassword();
 
                 try {
-                    if (UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin) != 0){
+                    int UserID = UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
+                    if (UserID != 0){
                         sendSuccessResponse(resp);
                     }
                     else {
-                        // Send an appropriate error response here
                         sendErrorResponse(resp);
                     }
                 } catch (SQLException e) {

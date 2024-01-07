@@ -3,6 +3,8 @@ package DiaLogServlet.DataBaseController.ReadControl;
 import DiaLogServlet.ServletResponse.ErrorCode;
 import DiaLogSQL.UserDataSQL;
 import DiaLogServlet.ServletResponse.sendResponse;
+import com.google.gson.JsonObject;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,8 +33,8 @@ public class ReadAll extends Read {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }
         if (UserID != 0) {
-            UserDataSQL.deleteUser(UserID);
-            sendResponse.send(resp, ErrorCode.SUCCESS);
+            JsonObject jsonData=UserDataSQL.readUser(UserID);
+            sendResponse.sendData(resp, ErrorCode.SUCCESS, jsonData);
         } else {
             sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
         }

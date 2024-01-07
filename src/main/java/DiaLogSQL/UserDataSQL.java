@@ -1,6 +1,7 @@
 package DiaLogSQL;
 
 import DiaLogServlet.DataBaseController.DatabaseConnector;
+import com.google.gson.JsonObject;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -97,6 +98,28 @@ public class UserDataSQL {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static JsonObject readUser(int userID) {
+        System.out.println("Reading data from userLoginData table.");
+        String sqlRead = "SELECT * FROM userLoginData WHERE userID = ?";
+        JsonObject jasonData = new JsonObject();
+
+        try (Connection conn = DatabaseConnector.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sqlRead);
+             ResultSet rs = pstmt.executeQuery()) {
+            System.out.println("Read SQL success.");
+            pstmt.setInt(1, userID);
+            while (rs.next()) {
+                jasonData.addProperty("userID", rs.getInt("userID"));
+                jasonData.addProperty("userAccount", rs.getString("userAccount"));
+                jasonData.addProperty("userPassword", rs.getString("userPassword"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return jasonData;
     }
 
 

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Testing Home Page v4.2.0" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Testing Home Page v4.2.2">
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,31 +149,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704476545078</updated>
       <workItem from="1704476546166" duration="13935000" />
-      <workItem from="1704643704945" duration="20912000" />
-    </task>
-    <task id="LOCAL-00020" summary="Connect Login Register Page to SQL Database Testing 3">
-      <option name="closed" value="true" />
-      <created>1704546720156</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1704546720156</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Connect Login Register Page to SQL Database Testing 4">
-      <option name="closed" value="true" />
-      <created>1704547426602</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1704547426602</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Connect Login Register Page to SQL Database Testing 5">
-      <option name="closed" value="true" />
-      <created>1704548002977</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1704548002977</updated>
+      <workItem from="1704643704945" duration="21274000" />
     </task>
     <task id="LOCAL-00023" summary="Connect Login Register Page to SQL Database Testing 5">
       <option name="closed" value="true" />
@@ -541,7 +519,31 @@
       <option name="project" value="LOCAL" />
       <updated>1704668329427</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Testing Home Page v4.2.1">
+      <option name="closed" value="true" />
+      <created>1704668599659</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1704668599659</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Testing Home Page v4.2.2">
+      <option name="closed" value="true" />
+      <created>1704668649308</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1704668649308</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Testing Home Page v4.2.2">
+      <option name="closed" value="true" />
+      <created>1704668710442</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1704668710442</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,8 +561,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Login Register Page v2.8" />
-    <MESSAGE value="Login Register Page v2.9" />
     <MESSAGE value="Login Register Page v2.10" />
     <MESSAGE value="Login Register Page v2.11" />
     <MESSAGE value="Login Register Page v2.12" />
@@ -584,6 +584,8 @@
     <MESSAGE value="Testing Home Page v4.1.8" />
     <MESSAGE value="Testing Home Page v4.1.9" />
     <MESSAGE value="Testing Home Page v4.2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing Home Page v4.2.0" />
+    <MESSAGE value="Testing Home Page v4.2.1" />
+    <MESSAGE value="Testing Home Page v4.2.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing Home Page v4.2.2" />
   </component>
 </project>

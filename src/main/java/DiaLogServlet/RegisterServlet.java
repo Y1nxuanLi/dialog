@@ -68,7 +68,7 @@ public class RegisterServlet extends HttpServlet {
                         UserDataSQL.insertData(userAccountRegister,userPasswordRegister);
                         sendResponse.send(resp, ErrorCode.SUCCESS);
                     }
-                    if (UserID != 0){
+                    else if (UserID != 0){
                         sendResponse.send(resp, ErrorCode.USER_EXIST);
                     }
                     else{

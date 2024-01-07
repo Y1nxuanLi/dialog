@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
                 try {
                     UserID = UserDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
                     if (UserID != 0){
-                        sendResponse.send(resp, ErrorCode.SUCCESS);
+                        sendResponse.sendId(resp, ErrorCode.SUCCESS, UserID);
                     }
                     else if (UserID == 0){
                         sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);

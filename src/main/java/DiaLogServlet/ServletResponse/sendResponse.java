@@ -12,4 +12,11 @@ public class sendResponse {
         resp.setCharacterEncoding("UTF-8");
         resp.getWriter().write(new Gson().toJson(new ResponseObject(errorCode.getCode(), errorCode.getMessage())));
     }
+
+    public static void sendId(HttpServletResponse resp, ErrorCode errorCode, int id) throws IOException {
+        resp.setStatus(HttpServletResponse.SC_OK);
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        resp.getWriter().write(new Gson().toJson(new ResponseObject(errorCode.getCode(), errorCode.getMessage(), id)));
+    }
 }

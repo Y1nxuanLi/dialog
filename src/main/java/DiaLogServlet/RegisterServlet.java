@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.util.stream.Collectors;
 
 
-@WebServlet(urlPatterns={"/home", "/register", "/UserDataTesting","/admin"}, loadOnStartup=1)
+@WebServlet(urlPatterns={"/register"}, loadOnStartup=1)
 public class RegisterServlet extends HttpServlet {
 
     @Override
@@ -29,17 +29,6 @@ public class RegisterServlet extends HttpServlet {
             case "/register":
                 forwardTo(req, resp, "/register.html");
                 break;
-            case "/home":
-                resp.getWriter().write("Welcome to the home page! ");
-                break;
-            case "/UserDataTesting":
-                resp.getWriter().write("UserLoginData Display for testing purpose");
-                UserDataSQL.displayData(resp);
-                break;
-            case "/admin":
-                resp.getWriter().write("Add admin data");
-                UserDataSQL.insertData("Admin","1234567890");
-
             default:
                 resp.getWriter().write("404 Not Found");
                 resp.setStatus(HttpServletResponse.SC_NOT_FOUND);

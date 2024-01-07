@@ -25,7 +25,7 @@
             </div>
             <div class="nav-right">
                 <ul v-if="currentUser">
-                    <li><span style="line-height: 37px">{{ currentUser.userAccount }}</span></li>
+                    <li><span style="line-height: 37px">{{ userAccount }}</span></li>
                 </ul>
                 <ul v-else>
                     <li><a href="login.html">Login</a></li>
@@ -108,7 +108,10 @@
         },
         created() {
             this.readAll();
-            this.currentUser = this.useMes.data
+            var  userAccount = localStorage.getItem("userAccount")
+            this.currentUser = []
+            this.userAccount = userAccount
+            // this.currentUser = this.useMes.data
         },
         methods: {
             openModal(postId) {

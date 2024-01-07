@@ -108,7 +108,10 @@
         },
         created() {
             this.getAll();
-            this.currentUser = this.useMes.data
+            this.currentUser = this.userMes.data
+            var  userAccount = localStorage.getItem("userAccount")
+            this.currentUser = []
+            this.userAccount = userAccount
         },
         methods: {
             openModal(postId) {

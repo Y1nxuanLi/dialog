@@ -9,8 +9,8 @@ import java.sql.*;
 public class UserDataSQL {
     public static void createTable() {
         System.out.println("Creating table.");
-        String sqlCreate = "CREATE TABLE IF NOT EXISTS userLogin (" +
-                "UserID SERIAL PRIMARY KEY, " +
+        String sqlCreate = "CREATE TABLE IF NOT EXISTS userLoginData (" +
+                "userID SERIAL PRIMARY KEY, " +
                 "userAccount VARCHAR(128) NOT NULL, " +
                 "userPassword VARCHAR(128) NOT NULL);";
 
@@ -24,7 +24,7 @@ public class UserDataSQL {
     }
 
     public static void insertData(String acc, String pswd) {
-        String sqlInsert = "INSERT INTO userLogin (userAccount, userPassword) VALUES (?, ?);";
+        String sqlInsert = "INSERT INTO userLoginData (userAccount, userPassword) VALUES (?, ?);";
         System.out.println("Inserting Data table.");
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlInsert)) {
@@ -40,17 +40,17 @@ public class UserDataSQL {
     }
 
     public static void displayData(HttpServletResponse resp) {
-        String sqlSelect = "SELECT * FROM userLogin;";
+        String sqlSelect = "SELECT * FROM userLoginData;";
 
         try (Connection conn = DatabaseConnector.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sqlSelect)) {
-
+            System.out.println("Display SQL success.");
             while (rs.next()) {
-                int UserID = rs.getInt("UserID");
+                int userID = rs.getInt("userID");
                 String userAccount = rs.getString("userAccount");
                 String userPassword = rs.getString("userPassword");
-                resp.getWriter().write("UserID: " + UserID + ", Account: " + userAccount + ", Password: " + userPassword+ ". ");
+                resp.getWriter().write("userID: " + userID + ", Account: " + userAccount + ", Password: " + userPassword+ ". ");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -61,7 +61,7 @@ public class UserDataSQL {
     }
 
     public static int checkIdentity(String acc, String pswd) throws SQLException {
-        String sqlCheck = "SELECT * FROM userLogin WHERE userAccount = ? AND userPassword = ?;";
+        String sqlCheck = "SELECT * FROM userLoginData WHERE userAccount = ? AND userPassword = ?;";
         System.out.println("Checking Identity.");
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlCheck)) {
@@ -73,7 +73,7 @@ public class UserDataSQL {
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
                     // If a record is found, return the id
-                    return rs.getInt("UserID");
+                    return rs.getInt("userID");
                 } else {
                     // If no record is found, return null or throw an exception as per your design decision
                     return 0;
@@ -85,13 +85,14 @@ public class UserDataSQL {
         }
         return 0;
     }
-    public static void deleteUser(int UserID) {
-        System.out.println("Deleting record from userLogin table.");
-        String sqlDelete = "DELETE FROM userLogin WHERE UserID = ?";
+    public static void deleteUser(int userID) {
+        System.out.println("Deleting record from userLoginData table.");
+        String sqlDelete = "DELETE FROM userLoginData WHERE userID = ?";
 
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlDelete)) {
-            pstmt.setInt(1, UserID);
+            System.out.println("Delete success.");
+            pstmt.setInt(1, userID);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

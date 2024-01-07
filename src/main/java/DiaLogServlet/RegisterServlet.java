@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.stream.Collectors;
 
 
-@WebServlet(urlPatterns={"/home", "/register", "/UserDataTesting","/Admin"}, loadOnStartup=1)
+@WebServlet(urlPatterns={"/home", "/register", "/UserDataTesting","/admin"}, loadOnStartup=1)
 public class RegisterServlet extends HttpServlet {
 
     @Override
@@ -37,7 +37,8 @@ public class RegisterServlet extends HttpServlet {
                 resp.getWriter().write("UserLoginData Display for testing purpose");
                 UserDataSQL.displayData(resp);
                 break;
-            case "/Admin":
+            case "/admin":
+                resp.getWriter().write("Add admin data");
                 UserDataSQL.insertData("Admin","1234567890");
 
             default:

@@ -1,7 +1,10 @@
 package DiaLogServlet;
 
 import DiaLogApp.*;
-import DiaLogSQL.UserLoginDataSQL;
+import DiaLogServlet.Response.ErrorCode;
+import DiaLogServlet.Response.ResponseObject;
+import DiaLogSQL.UserDataSQL;
+import DiaLogServlet.Response.sendResponse;
 import com.google.gson.Gson;
 
 import javax.servlet.RequestDispatcher;
@@ -10,16 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 
@@ -30,7 +25,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         String servletPath = req.getServletPath();
-        UserLoginDataSQL.createTable();
+        UserDataSQL.createTable();
         switch (servletPath) {
             case "/register":
                 forwardTo(req, resp, "/register.html");
@@ -40,10 +35,10 @@ public class RegisterServlet extends HttpServlet {
                 break;
             case "/UserDataTesting":
                 resp.getWriter().write("UserLoginData Display for testing purpose");
-                UserLoginDataSQL.displayData(resp);
+                UserDataSQL.displayData(resp);
                 break;
             case "/Admin":
-                UserLoginDataSQL.insertData("Admin","1234567890");
+                UserDataSQL.insertData("Admin","1234567890");
 
             default:
                 resp.getWriter().write("404 Not Found");
@@ -68,12 +63,16 @@ public class RegisterServlet extends HttpServlet {
                 String userConfirmedPassword = user2.getUserConfirmedPassword();
 
                 try {
-                    if (UserLoginDataSQL.checkIdentity(userAccountRegister,userPasswordRegister)==0){
-                        UserLoginDataSQL.insertData(userAccountRegister,userPasswordRegister);
-                        sendSuccessResponse(resp);
+                    int UserID = UserDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
+                    if (UserID == 0){
+                        UserDataSQL.insertData(userAccountRegister,userPasswordRegister);
+                        sendResponse.send(resp, ErrorCode.SUCCESS);
+                    }
+                    if (UserID != 0){
+                        sendResponse.send(resp, ErrorCode.USER_EXIST);
                     }
                     else{
-                        sendErrorResponse(resp);
+                        sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
                     }
 
                 } catch (SQLException e) {
@@ -88,19 +87,6 @@ public class RegisterServlet extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
-    private void sendSuccessResponse(HttpServletResponse resp) throws IOException {
-        resp.setStatus(HttpServletResponse.SC_OK);
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().write(new Gson().toJson(new ResponseObject(ErrorCode.SUCCESS.getCode(), ErrorCode.SUCCESS.getMessage())));
-
-    }
-    private void sendErrorResponse(HttpServletResponse resp) throws IOException {
-        resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().write(new Gson().toJson(new ResponseObject(ErrorCode.NO_AUTH_ERROR.getCode(), ErrorCode.NO_AUTH_ERROR.getMessage())));
-    }
 }
 
 

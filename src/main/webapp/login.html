@@ -53,10 +53,19 @@
                         console.log("responseData.message:",responseData.message);
                         if (responseData.code === 200) {
                             console.log("Login Success", response.data);
+
+                            localStorage.setItem('userMes',JSON.stringify(responseData) );
+                            localStorage.setItem('userAccount',responseData.userAccount)
+
+                            let userMes = JSON.parse(localStorage.getItem('userMes'));
+
+                            console.log("userMes", userMes);
+
+
                             window.location.replace('index.html');
                             // window.location.href = "./index.html";
-                        } else if (responseData.code === 40101){
-                            console.log("Login Unauthorized", response.data);
+                        } else if (responseData.code === 40400){
+                            console.log("Login data not found", response.data);
                             alert("Invalid User Account or Password");
                             // alert(responseData.message);
                         } else {

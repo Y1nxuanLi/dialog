@@ -1,7 +1,10 @@
 package DiaLogServlet;
 
 import DiaLogApp.*;
-import DiaLogSQL.UserLoginDataSQL;
+import DiaLogServlet.Response.ErrorCode;
+import DiaLogServlet.Response.ResponseObject;
+import DiaLogServlet.Response.sendResponse;
+import DiaLogSQL.UserDataSQL;
 import com.google.gson.Gson;
 
 import javax.servlet.RequestDispatcher;
@@ -10,27 +13,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 
 @WebServlet(urlPatterns={"/login"}, loadOnStartup=1)
 public class LoginServlet extends HttpServlet {
 
+    public static int UserID;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         String servletPath = req.getServletPath();
-        UserLoginDataSQL.createTable();
+        UserDataSQL.createTable();
         switch (servletPath) {
             case "/login":
                 forwardTo(req, resp, "/login.html");
@@ -57,17 +53,20 @@ public class LoginServlet extends HttpServlet {
                 String userPasswordLogin = user1.getUserPassword();
 
                 try {
-                    int UserID = UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
+                    UserID = UserDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
                     if (UserID != 0){
-                        sendSuccessResponse(resp);
+                        sendResponse.send(resp, ErrorCode.SUCCESS);
+                    }
+                    else if (UserID == 0){
+                        sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
                     }
                     else {
-                        sendErrorResponse(resp);
+                        sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
                     }
+
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
-
         }
 
     }
@@ -77,19 +76,6 @@ public class LoginServlet extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 
-    private void sendSuccessResponse(HttpServletResponse resp) throws IOException {
-        resp.setStatus(HttpServletResponse.SC_OK);
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().write(new Gson().toJson(new ResponseObject(ErrorCode.SUCCESS.getCode(), ErrorCode.SUCCESS.getMessage())));
-
-    }
-    private void sendErrorResponse(HttpServletResponse resp) throws IOException {
-        resp.setStatus(HttpServletResponse.SC_OK);
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().write(new Gson().toJson(new ResponseObject(ErrorCode.NO_AUTH_ERROR.getCode(), ErrorCode.NO_AUTH_ERROR.getMessage())));
-    }
 }
 
 

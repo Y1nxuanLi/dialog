@@ -1,4 +1,4 @@
-package DiaLogServlet;
+package DiaLogServlet.DataBaseController;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

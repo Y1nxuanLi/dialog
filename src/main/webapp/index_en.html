@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,6 +85,156 @@
         <p>@2024，DiaLog</p>
     </footer>
 </div>
+
+<script>
+    new Vue({
+        name: 'index',
+        el: '#index',
+        data() {
+            return {
+                useMes: JSON.parse(localStorage.getItem('userMes')),
+                currentUser: null,
+                title: '',
+                posts: [],
+                isModalOpen: false,
+                createTime: '',
+                content: '',
+                taskForm: {
+                    id: '',
+                    title: '',
+                    content: ''
+                },
+            }
+        },
+        created() {
+            this.readAll();
+            this.currentUser = this.useMes.data
+        },
+        methods: {
+            openModal(postId) {
+                this.isModalOpen = true;
+                if (postId) {
+                    // 如果有 postId，表示是修改任务，加载任务信息
+                    const selectedPost = this.posts.find(post => post.id === postId);
+                    if (selectedPost) {
+                        this.taskForm.id = selectedPost.id;
+                        this.taskForm.title = selectedPost.title;
+                        this.taskForm.content = selectedPost.content;
+                    }
+                } else {
+                    // 没有 postId，表示是添加任务
+                    this.taskForm.id = '';
+                    this.taskForm.title = '';
+                    this.taskForm.content = '';
+                }
+            },
+
+            createTask() {
+                axios.post("http://35.179.12.19:7529/api/post/add",
+                    {
+                        title: this.taskForm.title,
+                        content: this.taskForm.content,
+                        userId: this.useMes.data.id
+                    })
+                    .then(response => {
+                        const responseData = response.data;
+                        if (responseData.code === 0) {
+                            console.log("添加成功", response.data);
+                            this.readAll();
+                            this.isModalOpen = false;
+                            this.taskForm.title = '';
+                            this.taskForm.content = '';
+                        } else {
+                            alert(responseData.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("检索时发生错误:", error);
+                    });
+
+            },
+            updateTask() {
+                axios.post("http://35.179.12.19:7529/api/post/update", {
+                    id: this.taskForm.id,
+                    title: this.taskForm.title,
+                    content: this.taskForm.content
+                })
+                    .then(response => {
+                        const responseData = response.data;
+                        if (responseData.code === 0) {
+                            console.log("修改成功", response.data);
+                            this.readAll();
+                            this.isModalOpen = false;
+                            this.taskForm.id = '';
+                            this.taskForm.title = '';
+                            this.taskForm.content = '';
+                        } else {
+                            alert(responseData.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("检索时发生错误:", error);
+                    });
+            },
+            closeModal() {
+                this.$confirm('确定要取消吗？', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'info'
+                }).then(() => {
+                    this.isModalOpen = false;
+                    this.taskForm.title = '';
+                    this.taskForm.content = '';
+                }).catch(() => {
+                });
+            },
+            readAll() {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/all",
+                    {
+                        userId: this.useMes.data.id
+                    })
+                    .then(response => {
+                        if (Array.isArray(response.data.data)) {
+                            this.posts = response.data.data;
+                        } else if (typeof response.data.data === 'object') {
+                            // 如果是对象，将其转换为数组
+                            this.posts = Object.values(response.data.data);
+                        } else {
+                            console.error("不支持的数据类型:", response.data.data);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("检索时发生错误:", error);
+                    });
+            },
+
+            deleteTask(postId) {
+                this.$confirm('Are you sure you want to delete this task?', 'Notification', {
+                    confirmButtonText: 'sure',
+                    cancelButtonText: 'cancel',
+                    type: 'warning'
+                }).then(() => {
+                    axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/delete/user", { id: postId })
+                        .then(response => {
+                            const responseData = response.data;
+                            if (responseData.code === 0) {
+                                console.log("删除成功", response.data);
+                                this.getAll();
+                            } else {
+                                alert(responseData.message);
+                            }
+                        })
+                        .catch(error => {
+                            console.error("删除时发生错误:", error);
+                        });
+                }).catch(() => {
+                    // 用户取消了删除操作
+                });
+            },
+        },
+    })
+
+</script>
 
 </body>
 </html>

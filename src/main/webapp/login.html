@@ -62,12 +62,12 @@
                             console.log("userMes", userMes);
                             console.log("userAccount", userAccount);
 
-                            // window.location.replace('index.html');
-                            // window.location.href = "./index.html";
+                            window.location.replace('index.html');
+
                         } else if (responseData.code === 40400){
                             console.log("Login data not found", response.data);
                             alert("Invalid User Account or Password");
-                            // alert(responseData.message);
+
                         } else {
                             alert("Login Failed");
                             alert(responseData.message);

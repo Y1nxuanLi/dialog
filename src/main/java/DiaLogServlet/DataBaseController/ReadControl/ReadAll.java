@@ -1,8 +1,8 @@
 package DiaLogServlet.DataBaseController.ReadControl;
 
-import DiaLogServlet.Response.ErrorCode;
+import DiaLogServlet.ServletResponse.ErrorCode;
 import DiaLogSQL.UserDataSQL;
-import DiaLogServlet.Response.sendResponse;
+import DiaLogServlet.ServletResponse.sendResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,4 +1,4 @@
-package DiaLogServlet.Response;
+package DiaLogServlet.ServletResponse;
 
 public class ResponseObject {
     private int code;

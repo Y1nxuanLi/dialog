@@ -1,4 +1,4 @@
-package DiaLogServlet.Response;
+package DiaLogServlet.ServletResponse;
 
 import com.google.gson.Gson;
 

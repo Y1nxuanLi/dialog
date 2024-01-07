@@ -1,9 +1,8 @@
 package DiaLogServlet;
 
 import DiaLogApp.*;
-import DiaLogServlet.Response.ErrorCode;
-import DiaLogServlet.Response.ResponseObject;
-import DiaLogServlet.Response.sendResponse;
+import DiaLogServlet.ServletResponse.ErrorCode;
+import DiaLogServlet.ServletResponse.sendResponse;
 import DiaLogSQL.UserDataSQL;
 import com.google.gson.Gson;
 

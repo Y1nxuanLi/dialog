@@ -1,10 +1,9 @@
 package DiaLogServlet;
 
 import DiaLogApp.*;
-import DiaLogServlet.Response.ErrorCode;
-import DiaLogServlet.Response.ResponseObject;
+import DiaLogServlet.ServletResponse.ErrorCode;
 import DiaLogSQL.UserDataSQL;
-import DiaLogServlet.Response.sendResponse;
+import DiaLogServlet.ServletResponse.sendResponse;
 import com.google.gson.Gson;
 
 import javax.servlet.RequestDispatcher;
@@ -65,12 +64,12 @@ public class RegisterServlet extends HttpServlet {
 
                 try {
                     int UserID = UserDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
-                    if (UserID == 0){
+                    if (UserID != 0){
+                        sendResponse.send(resp, ErrorCode.USER_EXIST);
+                    }
+                    else if (UserID == 0){
                         UserDataSQL.insertData(userAccountRegister,userPasswordRegister);
                         sendResponse.send(resp, ErrorCode.SUCCESS);
-                    }
-                    else if (UserID != 0){
-                        sendResponse.send(resp, ErrorCode.USER_EXIST);
                     }
                     else{
                         sendResponse.send(resp, ErrorCode.OPERATION_ERROR);

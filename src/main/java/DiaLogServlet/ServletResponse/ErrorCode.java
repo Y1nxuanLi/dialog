@@ -1,4 +1,4 @@
-package DiaLogServlet.Response;
+package DiaLogServlet.ServletResponse;
 
 /**
  * 错误码

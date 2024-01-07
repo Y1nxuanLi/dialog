@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
+    <title>Home Page</title>
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
@@ -17,19 +17,20 @@
         <nav>
             <div class="nav-left">
                 <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="logbook.html">血糖记录</a></li>
-                    <li><a href="trends.html">血糖趋势</a></li>
-                    <li><a href="settings.html">个人信息</a></li>
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="logbook.html">Log</a></li>
+                    <li><a href="trends.html">Blood Sugar Trend</a></li>
+                    <li><a href="settings.html">User Info</a></li>
                 </ul>
             </div>
             <div class="nav-right">
-                <ul v-if="currentUser">
-                    <li><span style="line-height: 37px">{{ currentUser.userAccount }}</span></li>
+                <ul v-if="currentUserID">
+                    <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
+                    <li><span style="line-height: 37px">{{ userAccount }}</span></li>
                 </ul>
                 <ul v-else>
-                    <li><a href="login.html">登录</a></li>
-                    <li><a href="register.html">注册</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
                 </ul>
             </div>
         </nav>
@@ -37,15 +38,15 @@
 
     <main>
         <section id="logbook-entries" v-if="posts.length > 0">
-            <h1>我的任务</h1>
+            <h1>Task</h1>
             <div class="entry normal" v-for="post in posts" :key="post.id">
                 <div class="post-header">
                     <h2 class="post-title">{{ post.title }}</h2>
                     <div>
-                        <span class="post-time">创建时间：{{ post.createTime }}</span>
+                        <span class="post-time">Created Time：{{ post.createTime }}</span>
                         <div class="delete-flex">
-                            <button class="delete-button" @click="deleteTask(post.id)">删除</button>
-                            <button class="update-button" @click="openModal(post.id)">修改</button>
+                            <button class="delete-button" @click="deleteTask(post.id)">delete</button>
+                            <button class="update-button" @click="openModal(post.id)">edit</button>
                         </div>
                     </div>
 
@@ -53,36 +54,36 @@
                 <div class="post-content">{{ post.content }}</div>
             </div>
         </section>
-        <p v-else>暂无记录。</p>
+        <p v-else>no record。</p>
     </main>
 
     <div class="add-activity-button-container">
-        <el-button @click="openModal()">添加任务</el-button>
+        <el-button @click="openModal()">Add Task</el-button>
     </div>
     <el-dialog
             :visible.sync="isModalOpen"
-            title="添加任务"
+            title="Add Task"
             width="30%"
             :before-close="closeModal">
         <el-form ref="taskForm" :model="taskForm" label-width="80px">
-            <el-form-item label="任务标题" prop="title">
-                <el-input v-model="taskForm.title" placeholder="请输入任务标题"></el-input>
+            <el-form-item label="Title" prop="title">
+                <el-input v-model="taskForm.title" placeholder="Please enter the title"></el-input>
             </el-form-item>
-            <el-form-item label="任务内容" prop="content">
-                <el-input type="textarea" v-model="taskForm.content" placeholder="请输入任务内容"></el-input>
+            <el-form-item label="Content" prop="content">
+                <el-input type="textarea" v-model="taskForm.content" placeholder="Please enter the content"></el-input>
             </el-form-item>
         </el-form>
 
         <span slot="footer" class="dialog-footer">
-            <el-button @click="closeModal">取消</el-button>
+            <el-button @click="closeModal">cancel</el-button>
             <el-button type="primary" @click="taskForm.id ? updateTask() : createTask()">
-                {{ taskForm.id ? '修改任务' : '创建任务' }}
+                {{ taskForm.id ? 'Edit Task' : 'Create Task' }}
             </el-button>
         </span>
     </el-dialog>
 
     <footer>
-        <p>@2024，血糖系统</p>
+        <p>@2024，DiaLog</p>
     </footer>
 </div>
 
@@ -93,7 +94,7 @@
         data() {
             return {
                 useMes: JSON.parse(localStorage.getItem('userMes')),
-                currentUser: null,
+                currentUserID: null,
                 title: '',
                 posts: [],
                 isModalOpen: false,
@@ -107,11 +108,9 @@
             }
         },
         created() {
-            this.getAll();
-            this.currentUser = this.userMes.data
-            var  userAccount = localStorage.getItem("userAccount")
-            this.currentUser = []
-            this.userAccount = userAccount
+            this.readAll();
+            this.currentUserID = this.useMes.data
+            this.userAccount = localStorage.getItem("userAccount")
         },
         methods: {
             openModal(postId) {
@@ -143,7 +142,7 @@
                         const responseData = response.data;
                         if (responseData.code === 0) {
                             console.log("添加成功", response.data);
-                            this.getAll();
+                            this.readAll();
                             this.isModalOpen = false;
                             this.taskForm.title = '';
                             this.taskForm.content = '';
@@ -166,7 +165,7 @@
                         const responseData = response.data;
                         if (responseData.code === 0) {
                             console.log("修改成功", response.data);
-                            this.getAll();
+                            this.readAll();
                             this.isModalOpen = false;
                             this.taskForm.id = '';
                             this.taskForm.title = '';
@@ -191,8 +190,8 @@
                 }).catch(() => {
                 });
             },
-            getAll() {
-                axios.post("http://35.179.12.19:7529/api/post/getByUserId",
+            readAll() {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/all",
                     {
                         userId: this.useMes.data.id
                     })
@@ -210,14 +209,14 @@
                         console.error("检索时发生错误:", error);
                     });
             },
+
             deleteTask(postId) {
-                this.$confirm('确定要删除该任务吗？', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                this.$confirm('Are you sure you want to delete this task?', 'Notification', {
+                    confirmButtonText: 'sure',
+                    cancelButtonText: 'cancel',
                     type: 'warning'
                 }).then(() => {
-                    // 处理删除任务的逻辑
-                    axios.post("http://35.179.12.19:7529/api/post/delete", { id: postId })
+                    axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/delete/user", { id: postId })
                         .then(response => {
                             const responseData = response.data;
                             if (responseData.code === 0) {
@@ -238,5 +237,6 @@
     })
 
 </script>
+
 </body>
 </html>

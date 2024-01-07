@@ -1,20 +1,12 @@
 package DiaLogServlet;
 
-import DiaLogApp.*;
-import DiaLogServlet.ServletResponse.ErrorCode;
 import DiaLogSQL.UserDataSQL;
-import DiaLogServlet.ServletResponse.sendResponse;
-import com.google.gson.Gson;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.stream.Collectors;
 
 
 @WebServlet(urlPatterns={"/home", "/UserDataTesting","/admin"}, loadOnStartup=1)

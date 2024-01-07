@@ -110,8 +110,7 @@
         created() {
             this.readAll();
             this.currentUserID = this.useMes.data
-            var  userAccount = localStorage.getItem("userAccount")
-            this.userAccount = userAccount
+            this.userAccount = localStorage.getItem("userAccount")
         },
         methods: {
             openModal(postId) {

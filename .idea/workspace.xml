@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Testing Home Page v4.1.9">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/sendResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/sendResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index_en.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index_en.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
-    </list>
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Testing Home Page v4.2.0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,15 +147,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704476545078</updated>
       <workItem from="1704476546166" duration="13935000" />
-      <workItem from="1704643704945" duration="20585000" />
-    </task>
-    <task id="LOCAL-00019" summary="Connect Login Register Page to SQL Database Testing 1">
-      <option name="closed" value="true" />
-      <created>1704544631924</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1704544631924</updated>
+      <workItem from="1704643704945" duration="20912000" />
     </task>
     <task id="LOCAL-00020" summary="Connect Login Register Page to SQL Database Testing 3">
       <option name="closed" value="true" />
@@ -547,7 +533,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704666055675</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Testing Home Page v4.2.0">
+      <option name="closed" value="true" />
+      <created>1704668329427</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1704668329427</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -565,7 +559,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Login Register Page v2.7" />
     <MESSAGE value="Login Register Page v2.8" />
     <MESSAGE value="Login Register Page v2.9" />
     <MESSAGE value="Login Register Page v2.10" />
@@ -590,6 +583,7 @@
     <MESSAGE value="Testing Home Page v4.1.7" />
     <MESSAGE value="Testing Home Page v4.1.8" />
     <MESSAGE value="Testing Home Page v4.1.9" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing Home Page v4.1.9" />
+    <MESSAGE value="Testing Home Page v4.2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing Home Page v4.2.0" />
   </component>
 </project>

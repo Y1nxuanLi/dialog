@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Testing Home Page v4.1.2">
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/DeleteControl/DeleteUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/DeleteControl/DeleteUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ReadControl/ReadAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ReadControl/ReadAll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/RegisterServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Response/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Response/ResponseObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/ResponseObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Response/sendResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/sendResponse.java" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Testing Home Page v4.1.5">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/DeleteControl/Delete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/DeleteControl/Delete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ReadControl/Read.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ReadControl/Read.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +91,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.dialog [appStart]">
+  <component name="RunManager" selected="Gradle.dialog [appStop]">
     <configuration name="dialog [appStart]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -142,8 +138,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.dialog [appStart]" />
         <item itemvalue="Gradle.dialog [appStop]" />
+        <item itemvalue="Gradle.dialog [appStart]" />
       </list>
     </recent_temporary>
   </component>
@@ -156,31 +152,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704476545078</updated>
       <workItem from="1704476546166" duration="13935000" />
-      <workItem from="1704643704945" duration="15561000" />
-    </task>
-    <task id="LOCAL-00012" summary="Connect Login Register Page to SQL Database">
-      <option name="closed" value="true" />
-      <created>1704515960349</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1704515960349</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Connect Login Register Page to SQL Database">
-      <option name="closed" value="true" />
-      <created>1704516214430</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1704516214430</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Connect Login Register Page to SQL Database">
-      <option name="closed" value="true" />
-      <created>1704516538510</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1704516538510</updated>
+      <workItem from="1704643704945" duration="16283000" />
     </task>
     <task id="LOCAL-00015" summary="Connect Login Register Page to SQL Database">
       <option name="closed" value="true" />
@@ -550,7 +522,31 @@
       <option name="project" value="LOCAL" />
       <updated>1704662487224</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Testing Home Page v4.1.3">
+      <option name="closed" value="true" />
+      <created>1704663125791</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1704663125791</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Testing Home Page v4.1.4">
+      <option name="closed" value="true" />
+      <created>1704663293144</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1704663293144</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Testing Home Page v4.1.5">
+      <option name="closed" value="true" />
+      <created>1704663467069</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1704663467069</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,9 +564,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Login Register Page v2.0" />
-    <MESSAGE value="Login Register Page v2.1" />
-    <MESSAGE value="Login Register Page v2.2" />
     <MESSAGE value="Login Register Page v2.3" />
     <MESSAGE value="Login Register Page v2.4" />
     <MESSAGE value="Login Register Page v2.5" />
@@ -593,6 +586,9 @@
     <MESSAGE value="Testing Home Page v4.1" />
     <MESSAGE value="Testing Home Page v4.1.1" />
     <MESSAGE value="Testing Home Page v4.1.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing Home Page v4.1.2" />
+    <MESSAGE value="Testing Home Page v4.1.3" />
+    <MESSAGE value="Testing Home Page v4.1.4" />
+    <MESSAGE value="Testing Home Page v4.1.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing Home Page v4.1.5" />
   </component>
 </project>

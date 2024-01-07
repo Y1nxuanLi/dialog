@@ -87,7 +87,7 @@ public class UserDataSQL {
     }
     public static void deleteUser(int UserID) {
         System.out.println("Deleting record from userLogin table.");
-        String sqlDelete = "DELETE FROM userLogin WHERE id = ?";
+        String sqlDelete = "DELETE FROM userLogin WHERE UserID = ?";
 
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlDelete)) {

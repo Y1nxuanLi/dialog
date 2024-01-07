@@ -64,15 +64,12 @@ public class RegisterServlet extends HttpServlet {
 
                 try {
                     int UserID = UserDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
-                    if (UserID != 0){
-                        sendResponse.send(resp, ErrorCode.USER_EXIST);
-                    }
-                    else if (UserID == 0){
+                    if (UserID == 0){
                         UserDataSQL.insertData(userAccountRegister,userPasswordRegister);
                         sendResponse.send(resp, ErrorCode.SUCCESS);
                     }
                     else{
-                        sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
+                        sendResponse.send(resp, ErrorCode.USER_EXIST);
                     }
 
                 } catch (SQLException e) {

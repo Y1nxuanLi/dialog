@@ -1,6 +1,10 @@
 package DiaLogServlet;
 
 import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
+import DiaLogServlet.ServletResponse.ErrorCode;
+import DiaLogServlet.ServletResponse.sendResponse;
+import com.google.gson.JsonObject;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +25,9 @@ public class TestServlet extends HttpServlet {
 
             case "/home":
                 resp.getWriter().write("Welcome to the home page! ");
+                int UserID = 5;
+                JsonObject jsonData= UserLoginDataSQL.readUser(UserID);
+                sendResponse.send(resp, ErrorCode.SUCCESS, jsonData);
                 break;
             case "/UserDataTesting":
                 resp.getWriter().write("UserLoginData Display for testing purpose: \n");

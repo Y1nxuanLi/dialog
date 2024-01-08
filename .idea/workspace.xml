@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Home Page v5.1.1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/TaskData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/Add.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/Addable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/EmailSchedulerListener.java" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Add Read Delete Add Control v5.2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/CreateControl/Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/DeleteControl/DeleteTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/DeleteControl/DeleteTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/sendResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/sendResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,15 +162,7 @@
       <workItem from="1704476546166" duration="13935000" />
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
-      <workItem from="1704709706549" duration="7150000" />
-    </task>
-    <task id="LOCAL-00040" summary="Login Register Page v2.5">
-      <option name="closed" value="true" />
-      <created>1704569369376</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1704569369376</updated>
+      <workItem from="1704709706549" duration="8042000" />
     </task>
     <task id="LOCAL-00041" summary="Login Register Page v2.6">
       <option name="closed" value="true" />
@@ -560,7 +548,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704676265696</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Add Read Delete Add Control v5.2">
+      <option name="closed" value="true" />
+      <created>1704717764283</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1704717764283</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +574,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Testing Home Page v4.1.5" />
     <MESSAGE value="Testing Home Page v4.1.6, Servlet classes are expected to be concrete classes instead of abstract" />
     <MESSAGE value="Testing Home Page v4.1.7" />
     <MESSAGE value="Testing Home Page v4.1.8" />
@@ -603,6 +598,7 @@
     <MESSAGE value="Home Page v5.0.3" />
     <MESSAGE value="Home Page v5.1.0" />
     <MESSAGE value="Home Page v5.1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Home Page v5.1.1" />
+    <MESSAGE value="Add Read Delete Add Control v5.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Read Delete Add Control v5.2" />
   </component>
 </project>

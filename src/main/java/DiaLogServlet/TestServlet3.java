@@ -14,8 +14,8 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 
-@WebServlet(urlPatterns={"/UserDataTesting"}, loadOnStartup=1)
-public class TestServlet extends HttpServlet {
+@WebServlet(urlPatterns={"/home", "/admin"}, loadOnStartup=1)
+public class TestServlet3 extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
@@ -34,12 +34,8 @@ public class TestServlet extends HttpServlet {
                 LocalDateTime testUpdateTime = null; // Assuming update time can be null
                 LocalDateTime testDueTime = LocalDateTime.now().plusDays(7); // Example due date, 7 days from now
                 int testNotification = 1;
+                break;
 
-                break;
-            case "/UserDataTesting":
-                resp.getWriter().write("UserLoginData Display for testing purpose: \n");
-                UserLoginDataSQL.displayData(resp);
-                break;
             case "/admin":
                 resp.getWriter().write("Add admin data");
                 try {

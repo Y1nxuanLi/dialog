@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
-import static DiaLogServlet.LoginServlet.UserID;
-
 @WebServlet(urlPatterns={"/api/post/read/task"}, loadOnStartup=1)
 public class ReadTask extends Read {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {

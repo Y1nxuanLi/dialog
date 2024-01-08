@@ -1,6 +1,7 @@
 package DiaLogServlet.ServletResponse;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +23,13 @@ public class sendResponse {
     }
 
     public static void send(HttpServletResponse resp, ErrorCode errorCode, JsonObject jsonData) throws IOException {
+        resp.setStatus(HttpServletResponse.SC_OK);
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        resp.getWriter().write(new Gson().toJson(new ResponseObject(errorCode.getCode(), errorCode.getMessage(), jsonData)));
+    }
+
+    public static void send(HttpServletResponse resp, ErrorCode errorCode, JsonArray jsonData) throws IOException {
         resp.setStatus(HttpServletResponse.SC_OK);
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");

@@ -5,6 +5,7 @@ import DiaLogServlet.DataBaseController.SQLTableMethods.TaskDataSQL;
 import DiaLogServlet.ServletResponse.ErrorCode;
 import DiaLogServlet.ServletResponse.sendResponse;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import javax.servlet.annotation.WebServlet;
@@ -35,7 +36,7 @@ public class ReadAll extends Read {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }
         if (userID != 0) {
-            JsonObject jsonData= TaskDataSQL.readAllTask(userID);
+            JsonArray jsonData= TaskDataSQL.readAllTask(userID);
             sendResponse.send(resp, ErrorCode.SUCCESS, jsonData);
         } else {
             sendResponse.send(resp, ErrorCode.OPERATION_ERROR);

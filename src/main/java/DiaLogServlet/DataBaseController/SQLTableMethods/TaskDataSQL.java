@@ -1,6 +1,7 @@
 package DiaLogServlet.DataBaseController.SQLTableMethods;
 
 import DiaLogServlet.DataBaseController.DatabaseConnector;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import javax.servlet.http.HttpServletResponse;
@@ -138,10 +139,10 @@ public class TaskDataSQL {
         return jsonData;
     }
 
-    public static JsonObject readAllTask(int userID) {
+    public static JsonArray readAllTask(int userID) {
         System.out.println("Reading data from userLoginData table.");
         String sqlRead = "SELECT * FROM userLoginData WHERE userID = ?";
-        JsonObject jsonData = new JsonObject();
+        JsonArray tasksArray = new JsonArray();
 
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlRead)) {
@@ -150,22 +151,25 @@ public class TaskDataSQL {
 
             try (ResultSet rs = pstmt.executeQuery()) { // Execute the query and get the result set
                 System.out.println("Read SQL success.");
-                if (rs.next()) { // Use if instead of while if you're expecting only one result
-                    jsonData.addProperty("id", rs.getInt("id"));
-                    jsonData.addProperty("userID", rs.getString("userID"));
-                    jsonData.addProperty("title", rs.getString("title"));
-                    jsonData.addProperty("content", rs.getString("content"));
-                    jsonData.addProperty("createTime", rs.getTimestamp("createTime").toString());
-                    jsonData.addProperty("updateTime", rs.getTimestamp("updateTime") != null ? rs.getTimestamp("updateTime").toString() : null);
-                    jsonData.addProperty("dueTime", rs.getTimestamp("dueTime") != null ? rs.getTimestamp("dueTime").toString() : null);
-                    jsonData.addProperty("notification", rs.getString("notification"));
+                while (rs.next()) { // Use while loop to iterate through all results
+                    JsonObject taskJson = new JsonObject();
+                    taskJson.addProperty("id", rs.getInt("id"));
+                    taskJson.addProperty("userID", rs.getInt("userID"));
+                    taskJson.addProperty("title", rs.getString("title"));
+                    taskJson.addProperty("content", rs.getString("content"));
+                    taskJson.addProperty("createTime", rs.getTimestamp("createTime").toString());
+                    taskJson.addProperty("updateTime", rs.getTimestamp("updateTime") != null ? rs.getTimestamp("updateTime").toString() : null);
+                    taskJson.addProperty("dueTime", rs.getTimestamp("dueTime") != null ? rs.getTimestamp("dueTime").toString() : null);
+                    taskJson.addProperty("notification", rs.getInt("notification"));
+
+                    tasksArray.add(taskJson); // Add each task to the array
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return jsonData;
+        return tasksArray;
     }
 
 }

@@ -25,10 +25,10 @@
             </div>
             <div class="nav-right">
                 <ul v-if="currentUserID">
-                    <li><span style="line-height: 37px">{{ "Welcome" }}</span></li>
+                    <li><span style="line-height: 37px">"Welcome"</span></li>
                     <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
                     <li><span style="line-height: 37px">{{ currentUserAccount }}</span></li>
-                    <li><a href="login.html">Logout</a></li>
+                    <el-button @click="logout()">Logout</el-button>
                 </ul>
                 <ul v-else>
                     <li><a href="login.html">Login</a></li>
@@ -235,6 +235,9 @@
                 }).catch(() => {
                     // 用户取消了删除操作
                 });
+            },
+            logout(){
+                localStorage.clear();
             },
         },
     })

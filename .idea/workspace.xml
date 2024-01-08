@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Testing Home Page v4.3.3" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Home Page v5">
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,15 +149,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704476545078</updated>
       <workItem from="1704476546166" duration="13935000" />
-      <workItem from="1704643704945" duration="27561000" />
-    </task>
-    <task id="LOCAL-00034" summary="Login Register Page v1.6">
-      <option name="closed" value="true" />
-      <created>1704567083877</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1704567083877</updated>
+      <workItem from="1704643704945" duration="27902000" />
     </task>
     <task id="LOCAL-00035" summary="Login Register Page v2.0">
       <option name="closed" value="true" />
@@ -541,7 +535,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704674812159</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Home Page v5">
+      <option name="closed" value="true" />
+      <created>1704675207120</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1704675207120</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +561,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Testing Home Page v4.0" />
     <MESSAGE value="Testing Home Page v4.1" />
     <MESSAGE value="Testing Home Page v4.1.1" />
     <MESSAGE value="Testing Home Page v4.1.2" />
@@ -584,6 +585,7 @@
     <MESSAGE value="Testing Home Page v4.3.1" />
     <MESSAGE value="Testing Home Page v4.3.2" />
     <MESSAGE value="Testing Home Page v4.3.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing Home Page v4.3.3" />
+    <MESSAGE value="Home Page v5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Home Page v5" />
   </component>
 </project>

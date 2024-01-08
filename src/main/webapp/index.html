@@ -154,6 +154,10 @@
                     })
                     .then(response => {
                         const responseData = response.data;
+                        console.log("responseData:",responseData);
+                        console.log("responseData.code:",responseData.code);
+                        console.log("responseData.message:",responseData.message);
+                        console.log("responseData.message:",responseData.data);
                         if (responseData.code === 200) {
                             console.log("Task Log Success", response.data);
                             this.readAll();

@@ -105,14 +105,13 @@
                 content: '',
                 taskForm: {
                     id: '',
-                    title: 'Task',
-                    content: 'Record Blood Sugar Level',
+                    title: '',
+                    content: '',
                     userId: '',
                     createTime: '', // Format these dates as 'YYYY-MM-DD HH:mm:ss'
                     updateTime: '', // or leave them as null if not set
                     dueTime: '',
                     notification: 1,
-
                 },
             }
         },
@@ -141,14 +140,15 @@
             },
 
             createTask() {
+                const createTime = this.formatCurrentDateTime();
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/add/task",
                     {
                         userId: this.currentUserID,
                         title: this.taskForm.title,
                         content: this.taskForm.content,
-                        createTime: this.taskForm.createTime, // Format these dates as 'YYYY-MM-DD HH:mm:ss'
-                        updateTime: this.taskForm.updateTime, // or leave them as null if not set
-                        dueTime: this.taskForm.dueTime,
+                        createTime: createTime, // Format these dates as 'YYYY-MM-DD HH:mm:ss'
+                        updateTime: null, // or leave them as null if not set
+                        dueTime: null,
                         notification: this.taskForm.notification
 
                     })
@@ -161,6 +161,7 @@
                             this.taskForm.title = '';
                             this.taskForm.content = '';
                         } else {
+                            console.log("Task Log Failed", response.data);
                             alert(responseData.message);
                         }
                     })
@@ -250,6 +251,16 @@
                 localStorage.clear();
                 // window.location.href = "login.html";
                 window.location.replace('login.html');
+            },
+            formatCurrentDateTime() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0'); // January is 0!
+                const day = String(now.getDate()).padStart(2, '0');
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
             },
         },
     })

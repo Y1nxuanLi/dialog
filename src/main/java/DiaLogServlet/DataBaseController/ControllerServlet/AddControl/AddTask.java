@@ -40,7 +40,7 @@ public class AddTask extends Add {
         int userID = task.getUserID();
         String title = task.getTitle();
         String content = task.getContent();
-        LocalDateTime createTime = task.getCreateTime(); // Assuming the JSON includes date-time in a compatible format
+        LocalDateTime createTime = task.getCreateTime();
         LocalDateTime updateTime = task.getUpdateTime();
         LocalDateTime dueTime = task.getDueTime();
         int notification = task.getNotification();

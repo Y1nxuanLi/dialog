@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="ReadAll test v5.2.8">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/trends.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/trends.html" afterDir="false" />
-    </list>
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="ReadAll test v5.2.9" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,15 +153,7 @@
       <workItem from="1704476546166" duration="13935000" />
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
-      <workItem from="1704709706549" duration="13756000" />
-    </task>
-    <task id="LOCAL-00049" summary="Login Register Page v2.13">
-      <option name="closed" value="true" />
-      <created>1704574792254</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1704574792254</updated>
+      <workItem from="1704709706549" duration="14065000" />
     </task>
     <task id="LOCAL-00050" summary="Login Register Page v2.14">
       <option name="closed" value="true" />
@@ -551,7 +539,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704722907930</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="ReadAll test v5.2.9">
+      <option name="closed" value="true" />
+      <created>1704724263963</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1704724263963</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,7 +565,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Testing Home Page v4.2.4" />
     <MESSAGE value="Testing Home Page v4.2.5" />
     <MESSAGE value="Testing Home Page v4.2.6" />
     <MESSAGE value="Testing Home Page v4.2.7" />
@@ -594,6 +589,7 @@
     <MESSAGE value="Add Task button v5.2.6" />
     <MESSAGE value="Add Task button v5.2.7" />
     <MESSAGE value="ReadAll test v5.2.8" />
-    <option name="LAST_COMMIT_MESSAGE" value="ReadAll test v5.2.8" />
+    <MESSAGE value="ReadAll test v5.2.9" />
+    <option name="LAST_COMMIT_MESSAGE" value="ReadAll test v5.2.9" />
   </component>
 </project>

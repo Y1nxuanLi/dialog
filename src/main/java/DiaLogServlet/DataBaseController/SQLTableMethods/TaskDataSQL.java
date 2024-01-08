@@ -30,7 +30,7 @@ public class TaskDataSQL {
                 "createTime VARCHAR(128) NOT NULL, " +
                 "updateTime VARCHAR(128), " +
                 "dueTime VARCHAR(128), " +
-                "notification INT;";
+                "notification INT);";
 
 
         try (Connection conn = DatabaseConnector.getConnection();

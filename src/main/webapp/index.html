@@ -95,7 +95,7 @@
         el: '#index',
         data() {
             return {
-                userMes: localStorage.getItem('userMes'),
+                userMes: {},
                 currentUserAccount:null,
                 currentUserID: null,
                 title: '',
@@ -111,8 +111,9 @@
             }
         },
         created() {
-            this.currentUserAccount = this.userMes.userAccount
-            this.currentUserID = this.userMes.userID
+            const userMes = JSON.parse(localStorage.getItem('userMes'));
+            this.currentUserAccount = userMes.userAccount;
+            this.currentUserID = userMes.userID;
         },
         methods: {
             openModal(postId) {

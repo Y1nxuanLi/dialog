@@ -27,8 +27,11 @@
                 </ul>
             </div>
             <div class="nav-right">
-                <ul v-if="currentUser">
-                    <li><span style="line-height: 37px">{{ currentUser.userAccount }}</span></li>
+                <ul v-if="currentUserID">
+                    <li><span style="line-height: 37px">"Welcome"</span></li>
+                    <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
+                    <li><span style="line-height: 37px">{{ currentUserAccount }}</span></li>
+                    <el-button @click="logout()">Logout</el-button>
                 </ul>
                 <ul v-else>
                     <!-- 渲染登录/注册链接 -->

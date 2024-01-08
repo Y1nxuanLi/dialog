@@ -20,7 +20,7 @@ public class TestServlet2 extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         String servletPath = req.getServletPath();
-        UserLoginDataSQL.createTable();
+        TaskDataSQL.createTable();
         switch (servletPath) {
 
             case "/TaskDataTesting":

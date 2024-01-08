@@ -17,8 +17,8 @@ public class TaskDataSQL {
     private String content;
     private String title;
     private Long userId;
-    private Date createTime;
-    private Date updateTime;
+    private String createTime;
+    private String updateTime;
     public static void createTable() {
 
         System.out.println("Creating table.");
@@ -27,9 +27,9 @@ public class TaskDataSQL {
                 "userID INT NOT NULL, " +
                 "title VARCHAR(128), " +
                 "content VARCHAR(128), " +
-                "createTime DATETIME NOT NULL, " +
-                "updateTime DATETIME, " +
-                "dueTime DATETIME, " +
+                "createTime VARCHAR(128) NOT NULL, " +
+                "updateTime VARCHAR(128), " +
+                "dueTime VARCHAR(128), " +
                 "notification INT;";
 
 
@@ -43,7 +43,7 @@ public class TaskDataSQL {
     }
 
     LocalDateTime currentDateTime = LocalDateTime.now();
-    public static void insertData(int userID, String title, String content, LocalDateTime createTime, LocalDateTime updateTime, LocalDateTime dueTime, int notification) {
+    public static void insertData(int userID, String title, String content, String createTime, String updateTime, String dueTime, int notification) {
         String sqlInsert = "INSERT INTO taskData (userID, title, content, createTime, updateTime, dueTime, notification) VALUES (?,?,?,?,?,?,?);";
         System.out.println("Inserting Data table.");
         System.out.println("Inserting Data into taskData table.");
@@ -54,9 +54,9 @@ public class TaskDataSQL {
             pstmt.setInt(1, userID);
             pstmt.setString(2, title);
             pstmt.setString(3, content);
-            pstmt.setObject(4, createTime);
-            pstmt.setObject(5, updateTime);
-            pstmt.setObject(6, dueTime);
+            pstmt.setString(4, createTime);
+            pstmt.setString(5, updateTime);
+            pstmt.setString(6, dueTime);
             pstmt.setInt(7, notification);
 
             pstmt.executeUpdate();
@@ -78,9 +78,9 @@ public class TaskDataSQL {
                 String userID = rs.getString("userID");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
-                Timestamp createTime = rs.getTimestamp("createTime");
-                Timestamp updateTime = rs.getTimestamp("updateTime");
-                Timestamp dueTime = rs.getTimestamp("dueTime");
+                String createTime = rs.getString("createTime");
+                String updateTime = rs.getString("updateTime");
+                String dueTime = rs.getString("dueTime");
                 String notification = rs.getString("notification");
 
                 resp.getWriter().write("ID: " + id + ", UserID: " + userID + ", Title: " + title + ", Content: " + content + ", CreateTime: " + createTime + ", UpdateTime: " + updateTime + ", DueTime: " + dueTime + ", Notification: " + notification + ". ");
@@ -126,9 +126,9 @@ public class TaskDataSQL {
                     jsonData.addProperty("userID", rs.getString("userID"));
                     jsonData.addProperty("title", rs.getString("title"));
                     jsonData.addProperty("content", rs.getString("content"));
-                    jsonData.addProperty("createTime", rs.getTimestamp("createTime").toString());
-                    jsonData.addProperty("updateTime", rs.getTimestamp("updateTime") != null ? rs.getTimestamp("updateTime").toString() : null);
-                    jsonData.addProperty("dueTime", rs.getTimestamp("dueTime") != null ? rs.getTimestamp("dueTime").toString() : null);
+                    jsonData.addProperty("createTime", rs.getString("createTime").toString());
+                    jsonData.addProperty("updateTime", rs.getString("updateTime") != null ? rs.getString("updateTime").toString() : null);
+                    jsonData.addProperty("dueTime", rs.getString("dueTime") != null ? rs.getString("dueTime").toString() : null);
                     jsonData.addProperty("notification", rs.getString("notification"));
                 }
             }
@@ -157,9 +157,9 @@ public class TaskDataSQL {
                     taskJson.addProperty("userID", rs.getInt("userID"));
                     taskJson.addProperty("title", rs.getString("title"));
                     taskJson.addProperty("content", rs.getString("content"));
-                    taskJson.addProperty("createTime", rs.getTimestamp("createTime").toString());
-                    taskJson.addProperty("updateTime", rs.getTimestamp("updateTime") != null ? rs.getTimestamp("updateTime").toString() : null);
-                    taskJson.addProperty("dueTime", rs.getTimestamp("dueTime") != null ? rs.getTimestamp("dueTime").toString() : null);
+                    taskJson.addProperty("createTime", rs.getString("createTime"));
+                    taskJson.addProperty("updateTime", rs.getString("updateTime") != null ? rs.getString("updateTime") : null);
+                    taskJson.addProperty("dueTime", rs.getString("dueTime") != null ? rs.getString("dueTime") : null);
                     taskJson.addProperty("notification", rs.getInt("notification"));
 
                     tasksArray.add(taskJson); // Add each task to the array

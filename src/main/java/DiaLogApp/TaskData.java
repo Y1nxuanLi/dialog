@@ -1,17 +1,14 @@
 package DiaLogApp;
 
-import java.time.LocalDateTime;
-
-import java.time.LocalDateTime;
 
 public class TaskData {
     private int id;
     private int userID;
     private String title;
     private String content;
-    private LocalDateTime createTime;
-    private LocalDateTime updateTime;
-    private LocalDateTime dueTime;
+    private String createTime;
+    private String updateTime;
+    private String dueTime;
     private int notification;
 
     // Getters and setters
@@ -48,27 +45,27 @@ public class TaskData {
         this.content = content;
     }
 
-    public LocalDateTime getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public LocalDateTime getUpdateTime() {
+    public String getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(LocalDateTime updateTime) {
+    public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
     }
 
-    public LocalDateTime getDueTime() {
+    public String getDueTime() {
         return dueTime;
     }
 
-    public void setDueTime(LocalDateTime dueTime) {
+    public void setDueTime(String dueTime) {
         this.dueTime = dueTime;
     }
 

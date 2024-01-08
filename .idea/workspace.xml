@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Add Task button v5.2.3" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Add Task button v5.2.4">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/TaskData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/TaskData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,15 +158,7 @@
       <workItem from="1704476546166" duration="13935000" />
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
-      <workItem from="1704709706549" duration="9855000" />
-    </task>
-    <task id="LOCAL-00044" summary="Login Register Page v2.8">
-      <option name="closed" value="true" />
-      <created>1704571027151</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1704571027151</updated>
+      <workItem from="1704709706549" duration="11309000" />
     </task>
     <task id="LOCAL-00045" summary="Login Register Page v2.9">
       <option name="closed" value="true" />
@@ -547,7 +544,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704719963382</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Add Task button v5.2.4">
+      <option name="closed" value="true" />
+      <created>1704720485058</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1704720485058</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -565,7 +570,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Testing Home Page v4.1.9" />
     <MESSAGE value="Testing Home Page v4.2.0" />
     <MESSAGE value="Testing Home Page v4.2.1" />
     <MESSAGE value="Testing Home Page v4.2.2" />
@@ -590,6 +594,7 @@
     <MESSAGE value="Add Read Delete Add Control v5.2.1" />
     <MESSAGE value="Add Task button v5.2.2" />
     <MESSAGE value="Add Task button v5.2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Task button v5.2.3" />
+    <MESSAGE value="Add Task button v5.2.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Task button v5.2.4" />
   </component>
 </project>

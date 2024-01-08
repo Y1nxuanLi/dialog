@@ -103,24 +103,28 @@ public class UserLoginDataSQL {
     public static JsonObject readUser(int userID) {
         System.out.println("Reading data from userLoginData table.");
         String sqlRead = "SELECT * FROM userLoginData WHERE userID = ?";
-        JsonObject jasonData = new JsonObject();
+        JsonObject jsonData = new JsonObject();
 
         try (Connection conn = DatabaseConnector.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sqlRead);
-             ResultSet rs = pstmt.executeQuery()) {
-            System.out.println("Read SQL success.");
-            pstmt.setInt(1, userID);
-            while (rs.next()) {
-                jasonData.addProperty("userID", rs.getInt("userID"));
-                jasonData.addProperty("userAccount", rs.getString("userAccount"));
-                jasonData.addProperty("userPassword", rs.getString("userPassword"));
+             PreparedStatement pstmt = conn.prepareStatement(sqlRead)) {
+
+            pstmt.setInt(1, userID); // Set the userID parameter here, before executing the query
+
+            try (ResultSet rs = pstmt.executeQuery()) { // Execute the query and get the result set
+                System.out.println("Read SQL success.");
+                if (rs.next()) { // Use if instead of while if you're expecting only one result
+                    jsonData.addProperty("userID", rs.getInt("userID"));
+                    jsonData.addProperty("userAccount", rs.getString("userAccount"));
+                    jsonData.addProperty("userPassword", rs.getString("userPassword"));
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return jasonData;
+        return jsonData;
     }
+
 
 }
 

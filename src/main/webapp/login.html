@@ -58,7 +58,9 @@
 
                             let userMes = JSON.parse(localStorage.getItem('userMes'));
                             console.log("userMes", userMes);
-
+                            console.log("userID", userMes.userID);
+                            console.log("userAccount", userMes.userAccount);
+                            console.log("userPassword", userMes.userPassword);
                             window.location.replace('index.html');
 
                         } else if (responseData.code === 40400){

@@ -28,15 +28,13 @@ public class DeleteUser extends Delete{
     @Override
     public void delete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        if (UserID == 0){
-            sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
-        }
+
         if (UserID != 0){
             UserLoginDataSQL.deleteUser(UserID);
             sendResponse.send(resp, ErrorCode.SUCCESS);
         }
         else {
-            sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
+            sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }
 
     }

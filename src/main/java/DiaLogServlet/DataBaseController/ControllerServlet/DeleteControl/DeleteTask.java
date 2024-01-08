@@ -36,15 +36,13 @@ public class DeleteTask extends Delete{
 
         int taskID = task.getId();
         int userID = task.getUserID();
-        if (userID == 0){
-            sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
-        }
+
         if (userID != 0 && taskID != 0){
             TaskDataSQL.deleteTask(taskID, userID);
             sendResponse.send(resp, ErrorCode.SUCCESS);
         }
         else {
-            sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
+            sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }
 
     }

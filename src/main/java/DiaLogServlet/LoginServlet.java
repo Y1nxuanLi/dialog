@@ -58,11 +58,8 @@ public class LoginServlet extends HttpServlet {
                         JsonObject jsonData= UserLoginDataSQL.readUser(UserID);
                         sendResponse.send(resp, ErrorCode.SUCCESS, jsonData);
                     }
-                    else if (UserID == 0){
-                        sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
-                    }
                     else {
-                        sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
+                        sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
                     }
 
                 } catch (SQLException e) {

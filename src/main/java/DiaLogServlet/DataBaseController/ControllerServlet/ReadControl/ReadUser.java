@@ -29,14 +29,11 @@ public class ReadUser extends Read {
     @Override
     public void read(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        if (UserID == 0) {
-            sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
-        }
         if (UserID != 0) {
             JsonObject jsonData= UserLoginDataSQL.readUser(UserID);
             sendResponse.send(resp, ErrorCode.SUCCESS, jsonData);
         } else {
-            sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
+            sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }
 
     }

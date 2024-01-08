@@ -44,16 +44,13 @@ public class AddTask extends Add {
         LocalDateTime updateTime = task.getUpdateTime();
         LocalDateTime dueTime = task.getDueTime();
         int notification = task.getNotification();
-        if (UserID == 0){
-            sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
-        }
         if (UserID != 0){
             TaskDataSQL.createTable();
             TaskDataSQL.insertData(userID, title, content, createTime, updateTime, dueTime, notification);
             sendResponse.send(resp, ErrorCode.SUCCESS);
         }
         else {
-            sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
+            sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }
 
     }

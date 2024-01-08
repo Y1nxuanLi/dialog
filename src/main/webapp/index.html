@@ -212,7 +212,7 @@
             readAll() {
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/all",
                     {
-                        userId: this.useMes.data
+                        userId: this.currentUserID
                     })
                     .then(response => {
                         if (Array.isArray(response.data.data)) {

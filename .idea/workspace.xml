@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Home Page v5.1.0">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Home Page v5.1.1">
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/TaskData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/Add.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/Addable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/EmailSchedulerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/CreateControl/Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/DeleteControl/DeleteTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/DeleteControl/DeleteTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +47,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -78,6 +90,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="DiaLogServlet.DataBaseController.ControllerServlet.CreateControl" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog" />
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\java" />
@@ -149,15 +164,9 @@
       <option name="presentableId" value="Default" />
       <updated>1704476545078</updated>
       <workItem from="1704476546166" duration="13935000" />
-      <workItem from="1704643704945" duration="28688000" />
-    </task>
-    <task id="LOCAL-00039" summary="Login Register Page v2.4">
-      <option name="closed" value="true" />
-      <created>1704568858071</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1704568858071</updated>
+      <workItem from="1704643704945" duration="28939000" />
+      <workItem from="1704677135882" duration="118000" />
+      <workItem from="1704709706549" duration="7150000" />
     </task>
     <task id="LOCAL-00040" summary="Login Register Page v2.5">
       <option name="closed" value="true" />
@@ -543,7 +552,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704676215335</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Home Page v5.1.1">
+      <option name="closed" value="true" />
+      <created>1704676265696</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1704676265696</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -561,7 +578,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Testing Home Page v4.1.4" />
     <MESSAGE value="Testing Home Page v4.1.5" />
     <MESSAGE value="Testing Home Page v4.1.6, Servlet classes are expected to be concrete classes instead of abstract" />
     <MESSAGE value="Testing Home Page v4.1.7" />
@@ -586,6 +602,7 @@
     <MESSAGE value="Home Page v5.0.2" />
     <MESSAGE value="Home Page v5.0.3" />
     <MESSAGE value="Home Page v5.1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Home Page v5.1.0" />
+    <MESSAGE value="Home Page v5.1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Home Page v5.1.1" />
   </component>
 </project>

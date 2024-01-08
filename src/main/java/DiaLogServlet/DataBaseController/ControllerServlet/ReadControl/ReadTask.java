@@ -1,11 +1,10 @@
-package DiaLogServlet.DataBaseController.ControllerServlet.DeleteControl;
-
+package DiaLogServlet.DataBaseController.ControllerServlet.ReadControl;
 import DiaLogApp.TaskData;
 import DiaLogServlet.DataBaseController.SQLTableMethods.TaskDataSQL;
-import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
 import DiaLogServlet.ServletResponse.ErrorCode;
 import DiaLogServlet.ServletResponse.sendResponse;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,37 +14,33 @@ import java.util.stream.Collectors;
 
 import static DiaLogServlet.LoginServlet.UserID;
 
-@WebServlet(urlPatterns={"/api/post/delete/task"}, loadOnStartup=1)
-public class DeleteTask extends Delete{
-    @Override
+@WebServlet(urlPatterns={"/api/post/read/task"}, loadOnStartup=1)
+public class ReadTask extends Read {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
         String servletPath = req.getServletPath();
-
         switch (servletPath) {
-            case "/api/post/delete/task":
-                delete(req, resp);
+            case "/api/post/read/task":
+                read(req, resp);
         }
     }
-
     @Override
-    public void delete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void read(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String jsonData1 = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
         Gson gson1 = new Gson();
         TaskData task = gson1.fromJson(jsonData1, TaskData.class);
 
         int taskID = task.getId();
         int userID = task.getUserID();
-        if (userID == 0){
+        if (userID == 0) {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }
-        if (userID != 0 && taskID != 0){
-            TaskDataSQL.deleteTask(taskID, userID);
-            sendResponse.send(resp, ErrorCode.SUCCESS);
-        }
-        else {
+        if (userID != 0 && taskID !=0) {
+            JsonObject jsonData= TaskDataSQL.readTask(taskID, userID);
+            sendResponse.send(resp, ErrorCode.SUCCESS, jsonData);
+        } else {
             sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
         }
 
     }
 }
+

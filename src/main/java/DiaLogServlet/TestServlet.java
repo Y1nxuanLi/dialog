@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 
 
 @WebServlet(urlPatterns={"/home", "/UserDataTesting","/admin"}, loadOnStartup=1)
@@ -26,6 +27,14 @@ public class TestServlet extends HttpServlet {
 
             case "/home":
                 resp.getWriter().write("Welcome to the home page! ");
+
+                int testUserID = 1; // Example user ID
+                String testTitle = "Test Task";
+                String testContent = "This is a test task content.";
+                LocalDateTime testCreateTime = LocalDateTime.now();
+                LocalDateTime testUpdateTime = null; // Assuming update time can be null
+                LocalDateTime testDueTime = LocalDateTime.now().plusDays(7); // Example due date, 7 days from now
+                int testNotification = 1;
 
                 break;
             case "/UserDataTesting":

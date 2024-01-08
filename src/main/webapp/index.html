@@ -105,8 +105,14 @@
                 content: '',
                 taskForm: {
                     id: '',
-                    title: '',
-                    content: ''
+                    title: 'Task',
+                    content: 'Record Blood Sugar Level',
+                    userId: '',
+                    createTime: '', // Format these dates as 'YYYY-MM-DD HH:mm:ss'
+                    updateTime: '', // or leave them as null if not set
+                    dueTime: '',
+                    notification: 1,
+
                 },
             }
         },
@@ -135,16 +141,21 @@
             },
 
             createTask() {
-                axios.post("http://35.179.12.19:7529/api/post/add",
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/add/task",
                     {
+                        userId: this.currentUserID,
                         title: this.taskForm.title,
                         content: this.taskForm.content,
-                        userId: this.useMes.data
+                        createTime: this.taskForm.createTime, // Format these dates as 'YYYY-MM-DD HH:mm:ss'
+                        updateTime: this.taskForm.updateTime, // or leave them as null if not set
+                        dueTime: this.taskForm.dueTime,
+                        notification: this.taskForm.notification
+
                     })
                     .then(response => {
                         const responseData = response.data;
-                        if (responseData.code === 0) {
-                            console.log("添加成功", response.data);
+                        if (responseData.code === 200) {
+                            console.log("Task Log Success", response.data);
                             this.readAll();
                             this.isModalOpen = false;
                             this.taskForm.title = '';
@@ -154,7 +165,7 @@
                         }
                     })
                     .catch(error => {
-                        console.error("检索时发生错误:", error);
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
                     });
 
             },
@@ -202,7 +213,6 @@
                         if (Array.isArray(response.data.data)) {
                             this.posts = response.data.data;
                         } else if (typeof response.data.data === 'object') {
-                            // 如果是对象，将其转换为数组
                             this.posts = Object.values(response.data.data);
                         } else {
                             console.error("不支持的数据类型:", response.data.data);

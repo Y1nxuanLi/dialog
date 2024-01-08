@@ -35,7 +35,7 @@ public class DeleteTask extends Delete{
         TaskData task = gson1.fromJson(jsonData1, TaskData.class);
 
         int taskID = task.getId();
-        int userID = task.getUserID();
+        int userID = task.getUserId();
 
         if (userID != 0 && taskID != 0){
             TaskDataSQL.deleteTask(taskID, userID);

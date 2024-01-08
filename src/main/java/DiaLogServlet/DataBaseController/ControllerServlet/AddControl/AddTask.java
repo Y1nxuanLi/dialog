@@ -35,16 +35,16 @@ public class AddTask extends Add {
         Gson gson1 = new Gson();
         TaskData task = gson1.fromJson(jsonData1, TaskData.class);
 
-        int userID = task.getUserID();
+        int userId = task.getUserId();
         String title = task.getTitle();
         String content = task.getContent();
         String createTime = task.getCreateTime();
         String updateTime = task.getUpdateTime();
         String dueTime = task.getDueTime();
         int notification = task.getNotification();
-        if (userID != 0){
+        if (userId != 0){
             TaskDataSQL.createTable();
-            TaskDataSQL.insertData(userID, title, content, createTime, updateTime, dueTime, notification);
+            TaskDataSQL.insertData(userId, title, content, createTime, updateTime, dueTime, notification);
             sendResponse.send(resp, ErrorCode.SUCCESS);
         }
         else {

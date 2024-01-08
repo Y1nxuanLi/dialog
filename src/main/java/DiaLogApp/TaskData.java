@@ -3,7 +3,7 @@ package DiaLogApp;
 
 public class TaskData {
     private int id;
-    private int userID;
+    private int userId;
     private String title;
     private String content;
     private String createTime;
@@ -21,12 +21,12 @@ public class TaskData {
         this.id = id;
     }
 
-    public int getUserID() {
-        return userID;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {

@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Add Task button v5.2.4">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Add Task button v5.2.6">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/TaskData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/TaskData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/DeleteControl/DeleteTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/DeleteControl/DeleteTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadTask.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,23 +160,7 @@
       <workItem from="1704476546166" duration="13935000" />
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
-      <workItem from="1704709706549" duration="11309000" />
-    </task>
-    <task id="LOCAL-00045" summary="Login Register Page v2.9">
-      <option name="closed" value="true" />
-      <created>1704571106021</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1704571106021</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Login Register Page v2.10">
-      <option name="closed" value="true" />
-      <created>1704571225119</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1704571225119</updated>
+      <workItem from="1704709706549" duration="12179000" />
     </task>
     <task id="LOCAL-00047" summary="Login Register Page v2.11">
       <option name="closed" value="true" />
@@ -552,7 +538,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704720485058</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="Add Task button v5.2.5">
+      <option name="closed" value="true" />
+      <created>1704721653421</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1704721653421</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Add Task button v5.2.6">
+      <option name="closed" value="true" />
+      <created>1704721812680</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1704721812680</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,8 +572,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Testing Home Page v4.2.0" />
-    <MESSAGE value="Testing Home Page v4.2.1" />
     <MESSAGE value="Testing Home Page v4.2.2" />
     <MESSAGE value="Testing Home Page v4.2.3" />
     <MESSAGE value="Testing Home Page v4.2.4" />
@@ -595,6 +595,8 @@
     <MESSAGE value="Add Task button v5.2.2" />
     <MESSAGE value="Add Task button v5.2.3" />
     <MESSAGE value="Add Task button v5.2.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Task button v5.2.4" />
+    <MESSAGE value="Add Task button v5.2.5" />
+    <MESSAGE value="Add Task button v5.2.6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Task button v5.2.6" />
   </component>
 </project>

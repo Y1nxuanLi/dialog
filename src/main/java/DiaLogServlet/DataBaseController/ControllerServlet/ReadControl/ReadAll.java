@@ -31,7 +31,7 @@ public class ReadAll extends Read {
         Gson gson1 = new Gson();
         TaskData task = gson1.fromJson(jsonData1, TaskData.class);
 
-        int userID = task.getUserID();
+        int userID = task.getUserId();
 
         if (userID != 0) {
             JsonArray jsonData= TaskDataSQL.readAllTask(userID);

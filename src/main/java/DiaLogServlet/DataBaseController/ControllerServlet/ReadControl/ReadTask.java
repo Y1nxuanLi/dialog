@@ -28,7 +28,7 @@ public class ReadTask extends Read {
         TaskData task = gson1.fromJson(jsonData1, TaskData.class);
 
         int taskID = task.getId();
-        int userID = task.getUserID();
+        int userID = task.getUserId();
 
         if (userID != 0 && taskID !=0) {
             JsonObject jsonData= TaskDataSQL.readTask(taskID, userID);

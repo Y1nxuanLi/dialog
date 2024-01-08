@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 
 @WebServlet(urlPatterns={"/home", "/UserDataTesting","/admin"}, loadOnStartup=1)
@@ -25,9 +26,7 @@ public class TestServlet extends HttpServlet {
 
             case "/home":
                 resp.getWriter().write("Welcome to the home page! ");
-                int UserID = 5;
-                JsonObject jsonData= UserLoginDataSQL.readUser(UserID);
-                sendResponse.send(resp, ErrorCode.SUCCESS, jsonData);
+
                 break;
             case "/UserDataTesting":
                 resp.getWriter().write("UserLoginData Display for testing purpose: \n");
@@ -35,7 +34,19 @@ public class TestServlet extends HttpServlet {
                 break;
             case "/admin":
                 resp.getWriter().write("Add admin data");
-                UserLoginDataSQL.insertData("Admin","1234567890");
+                try {
+                    int UserID = UserLoginDataSQL.checkIdentity("Admin","1234567890");
+                    if (UserID == 0){
+                        UserLoginDataSQL.insertData("Admin","1234567890");
+                        sendResponse.send(resp, ErrorCode.SUCCESS);
+                    }
+                    else{
+                        sendResponse.send(resp, ErrorCode.USER_EXIST);
+                    }
+
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
 
             default:
                 resp.getWriter().write("404 Not Found");

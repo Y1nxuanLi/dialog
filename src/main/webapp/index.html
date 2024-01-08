@@ -95,7 +95,8 @@
         el: '#index',
         data() {
             return {
-                useMes: JSON.parse(localStorage.getItem('userMes')),
+                userMes: localStorage.getItem('userMes'),
+                currentUserAccount:null,
                 currentUserID: null,
                 title: '',
                 posts: [],
@@ -110,7 +111,8 @@
             }
         },
         created() {
-            this.currentUserID = this.useMes.data
+            this.currentUserAccount = this.userMes.userAccount
+            this.currentUserID = this.userMes.userID
         },
         methods: {
             openModal(postId) {

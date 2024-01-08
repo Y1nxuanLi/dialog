@@ -34,7 +34,7 @@ public class ReadUser extends Read {
         }
         if (UserID != 0) {
             JsonObject jsonData= UserLoginDataSQL.readUser(UserID);
-            sendResponse.sendData(resp, ErrorCode.SUCCESS, jsonData);
+            sendResponse.send(resp, ErrorCode.SUCCESS, jsonData);
         } else {
             sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
         }

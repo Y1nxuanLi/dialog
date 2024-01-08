@@ -5,6 +5,7 @@ import DiaLogServlet.ServletResponse.ErrorCode;
 import DiaLogServlet.ServletResponse.sendResponse;
 import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -54,7 +55,8 @@ public class LoginServlet extends HttpServlet {
                 try {
                     UserID = UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
                     if (UserID != 0){
-                        sendResponse.sendId(resp, ErrorCode.SUCCESS, UserID);
+                        JsonObject jsonData= UserLoginDataSQL.readUser(UserID);
+                        sendResponse.send(resp, ErrorCode.SUCCESS, jsonData);
                     }
                     else if (UserID == 0){
                         sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);

@@ -1,6 +1,6 @@
 package DiaLogServlet;
 
-import DiaLogSQL.UserDataSQL;
+import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +16,7 @@ public class TestServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         String servletPath = req.getServletPath();
-        UserDataSQL.createTable();
+        UserLoginDataSQL.createTable();
         switch (servletPath) {
 
             case "/home":
@@ -24,11 +24,11 @@ public class TestServlet extends HttpServlet {
                 break;
             case "/UserDataTesting":
                 resp.getWriter().write("UserLoginData Display for testing purpose: \n");
-                UserDataSQL.displayData(resp);
+                UserLoginDataSQL.displayData(resp);
                 break;
             case "/admin":
                 resp.getWriter().write("Add admin data");
-                UserDataSQL.insertData("Admin","1234567890");
+                UserLoginDataSQL.insertData("Admin","1234567890");
 
             default:
                 resp.getWriter().write("404 Not Found");

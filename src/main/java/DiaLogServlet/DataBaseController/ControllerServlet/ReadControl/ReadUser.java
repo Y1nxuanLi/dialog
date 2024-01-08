@@ -1,7 +1,7 @@
-package DiaLogServlet.DataBaseController.ReadControl;
+package DiaLogServlet.DataBaseController.ControllerServlet.ReadControl;
 
 import DiaLogServlet.ServletResponse.ErrorCode;
-import DiaLogSQL.UserDataSQL;
+import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
 import DiaLogServlet.ServletResponse.sendResponse;
 import com.google.gson.JsonObject;
 
@@ -13,15 +13,15 @@ import java.io.IOException;
 import static DiaLogServlet.LoginServlet.UserID;
 
 
-@WebServlet(urlPatterns={"/api/post/read/all"}, loadOnStartup=1)
-public class ReadAll extends Read {
+@WebServlet(urlPatterns={"/api/post/read/user"}, loadOnStartup=1)
+public class ReadUser extends Read {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         String servletPath = req.getServletPath();
 
         switch (servletPath) {
-            case "/api/post/read/all":
+            case "/api/post/read/user":
                 read(req, resp);
         }
     }
@@ -33,11 +33,12 @@ public class ReadAll extends Read {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }
         if (UserID != 0) {
-            JsonObject jsonData=UserDataSQL.readUser(UserID);
+            JsonObject jsonData= UserLoginDataSQL.readUser(UserID);
             sendResponse.sendData(resp, ErrorCode.SUCCESS, jsonData);
         } else {
             sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
         }
 
     }
+
 }

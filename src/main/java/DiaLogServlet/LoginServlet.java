@@ -3,7 +3,7 @@ package DiaLogServlet;
 import DiaLogApp.*;
 import DiaLogServlet.ServletResponse.ErrorCode;
 import DiaLogServlet.ServletResponse.sendResponse;
-import DiaLogSQL.UserDataSQL;
+import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
 import com.google.gson.Gson;
 
 import javax.servlet.RequestDispatcher;
@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         String servletPath = req.getServletPath();
-        UserDataSQL.createTable();
+        UserLoginDataSQL.createTable();
         switch (servletPath) {
             case "/login":
                 forwardTo(req, resp, "/login.html");
@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
                 String userPasswordLogin = user1.getUserPassword();
 
                 try {
-                    UserID = UserDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
+                    UserID = UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
                     if (UserID != 0){
                         sendResponse.sendId(resp, ErrorCode.SUCCESS, UserID);
                     }

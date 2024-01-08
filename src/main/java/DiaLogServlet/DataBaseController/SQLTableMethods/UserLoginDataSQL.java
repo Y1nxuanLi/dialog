@@ -1,4 +1,4 @@
-package DiaLogSQL;
+package DiaLogServlet.DataBaseController.SQLTableMethods;
 
 import DiaLogServlet.DataBaseController.DatabaseConnector;
 import com.google.gson.JsonObject;
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
-public class UserDataSQL {
+public class UserLoginDataSQL {
     public static void createTable() {
         System.out.println("Creating table.");
         String sqlCreate = "CREATE TABLE IF NOT EXISTS userLoginData (" +
@@ -121,7 +121,6 @@ public class UserDataSQL {
 
         return jasonData;
     }
-
 
 }
 

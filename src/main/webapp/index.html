@@ -96,6 +96,7 @@
         data() {
             return {
                 useMes: JSON.parse(localStorage.getItem('userMes')),
+                userInfo: null,
                 currentUserID: null,
                 title: '',
                 posts: [],
@@ -112,7 +113,6 @@
         created() {
             this.readAll();
             this.currentUserID = this.useMes.data
-            this.userAccount = localStorage.getItem("userAccount")
         },
         methods: {
             openModal(postId) {
@@ -138,7 +138,7 @@
                     {
                         title: this.taskForm.title,
                         content: this.taskForm.content,
-                        userId: this.useMes.data.id
+                        userId: this.useMes.data
                     })
                     .then(response => {
                         const responseData = response.data;
@@ -193,18 +193,30 @@
                 });
             },
             readAll() {
-                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/all",
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/user",
                     {
-                        userId: this.useMes.data.id
+                        userId: this.useMes.data
                     })
                     .then(response => {
-                        if (Array.isArray(response.data.data)) {
-                            this.posts = response.data.data;
-                        } else if (typeof response.data.data === 'object') {
-                            // 如果是对象，将其转换为数组
-                            this.posts = Object.values(response.data.data);
-                        } else {
-                            console.error("不支持的数据类型:", response.data.data);
+                        const responseData = response.data;
+                        console.log("responseData:",responseData);
+                        if (responseData.code === 200) {
+                            console.log("Login Success");
+
+                            localStorage.setItem('userInfo', JSON.stringify(responseData));
+
+                            let userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                            console.log("userInfo", userInfo);
+
+
+                            if (Array.isArray(response.data.data)) {
+                                this.posts = response.data.data;
+                            } else if (typeof response.data.data === 'object') {
+                                // 如果是对象，将其转换为数组
+                                this.posts = Object.values(response.data.data);
+                            } else {
+                                console.error("不支持的数据类型:", response.data.data);
+                            }
                         }
                     })
                     .catch(error => {

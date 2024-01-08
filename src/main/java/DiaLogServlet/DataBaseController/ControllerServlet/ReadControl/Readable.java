@@ -1,4 +1,4 @@
-package DiaLogServlet.DataBaseController.ReadControl;
+package DiaLogServlet.DataBaseController.ControllerServlet.ReadControl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

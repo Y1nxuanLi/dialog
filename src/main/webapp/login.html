@@ -54,13 +54,10 @@
                         if (responseData.code === 200) {
                             console.log("Login Success", response.data);
 
-                            localStorage.setItem('userMes',JSON.stringify(responseData) );
-                            localStorage.setItem('userAccount',responseData.userAccount)
+                            localStorage.setItem('userMes',JSON.stringify(responseData));
 
                             let userMes = JSON.parse(localStorage.getItem('userMes'));
-                            let userAccount = localStorage.getItem('userAccount');
                             console.log("userMes", userMes);
-                            console.log("userAccount", userAccount);
 
                             window.location.replace('index.html');
 

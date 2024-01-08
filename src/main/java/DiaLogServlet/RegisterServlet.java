@@ -2,7 +2,7 @@ package DiaLogServlet;
 
 import DiaLogApp.*;
 import DiaLogServlet.ServletResponse.ErrorCode;
-import DiaLogSQL.UserDataSQL;
+import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
 import DiaLogServlet.ServletResponse.sendResponse;
 import com.google.gson.Gson;
 
@@ -24,7 +24,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         String servletPath = req.getServletPath();
-        UserDataSQL.createTable();
+        UserLoginDataSQL.createTable();
         switch (servletPath) {
             case "/register":
                 forwardTo(req, resp, "/register.html");
@@ -52,9 +52,9 @@ public class RegisterServlet extends HttpServlet {
                 String userConfirmedPassword = user2.getUserConfirmedPassword();
 
                 try {
-                    int UserID = UserDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
+                    int UserID = UserLoginDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
                     if (UserID == 0){
-                        UserDataSQL.insertData(userAccountRegister,userPasswordRegister);
+                        UserLoginDataSQL.insertData(userAccountRegister,userPasswordRegister);
                         sendResponse.send(resp, ErrorCode.SUCCESS);
                     }
                     else{

@@ -1,4 +1,4 @@
-package DiaLogServlet.DataBaseController.DeleteControl;
+package DiaLogServlet.DataBaseController.ControllerServlet.DeleteControl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

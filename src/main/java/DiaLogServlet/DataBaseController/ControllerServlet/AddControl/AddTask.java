@@ -42,7 +42,7 @@ public class AddTask extends Add {
         String updateTime = task.getUpdateTime();
         String dueTime = task.getDueTime();
         int notification = task.getNotification();
-        if (UserID != 0){
+        if (userID != 0){
             TaskDataSQL.createTable();
             TaskDataSQL.insertData(userID, title, content, createTime, updateTime, dueTime, notification);
             sendResponse.send(resp, ErrorCode.SUCCESS);

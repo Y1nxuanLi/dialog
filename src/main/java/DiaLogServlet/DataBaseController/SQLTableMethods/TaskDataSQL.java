@@ -83,7 +83,7 @@ public class TaskDataSQL {
                 String dueTime = rs.getString("dueTime");
                 String notification = rs.getString("notification");
 
-                resp.getWriter().write("ID: " + id + ", UserID: " + userID + ", Title: " + title + ", Content: " + content + ", CreateTime: " + createTime + ", UpdateTime: " + updateTime + ", DueTime: " + dueTime + ", Notification: " + notification + ". ");
+                resp.getWriter().write("ID: " + id + ", UserID: " + userID + ", Title: " + title + ", Content: " + content + ", CreateTime: " + createTime + ", UpdateTime: " + updateTime + ", DueTime: " + dueTime + ", Notification: " + notification + ". \n");
             }
         } catch (SQLException | IOException e) {
             e.printStackTrace();

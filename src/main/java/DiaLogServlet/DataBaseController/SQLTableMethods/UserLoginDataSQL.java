@@ -51,7 +51,7 @@ public class UserLoginDataSQL {
                 int userID = rs.getInt("userID");
                 String userAccount = rs.getString("userAccount");
                 String userPassword = rs.getString("userPassword");
-                resp.getWriter().write("userID: " + userID + ", Account: " + userAccount + ", Password: " + userPassword+ ". ");
+                resp.getWriter().write("userID: " + userID + ", Account: " + userAccount + ", Password: " + userPassword+ ". \n");
             }
         } catch (SQLException e) {
             e.printStackTrace();

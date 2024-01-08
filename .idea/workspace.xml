@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Testing Home Page v4.3.1" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Testing Home Page v4.3.3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,23 +147,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704476545078</updated>
       <workItem from="1704476546166" duration="13935000" />
-      <workItem from="1704643704945" duration="27062000" />
-    </task>
-    <task id="LOCAL-00032" summary="Login Register Page v1.4">
-      <option name="closed" value="true" />
-      <created>1704555915600</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1704555915600</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Login Register Page v1.5">
-      <option name="closed" value="true" />
-      <created>1704556009977</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1704556009977</updated>
+      <workItem from="1704643704945" duration="27561000" />
     </task>
     <task id="LOCAL-00034" summary="Login Register Page v1.6">
       <option name="closed" value="true" />
@@ -541,7 +525,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704674584745</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Testing Home Page v4.3.2">
+      <option name="closed" value="true" />
+      <created>1704674690148</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1704674690148</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Testing Home Page v4.3.3">
+      <option name="closed" value="true" />
+      <created>1704674812159</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1704674812159</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,8 +559,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Login Register Page v3.3" />
-    <MESSAGE value="Add Home Page v3.6" />
     <MESSAGE value="Testing Home Page v4.0" />
     <MESSAGE value="Testing Home Page v4.1" />
     <MESSAGE value="Testing Home Page v4.1.1" />
@@ -584,6 +582,8 @@
     <MESSAGE value="Testing Home Page v4.2.9" />
     <MESSAGE value="Testing Home Page v4.3.0" />
     <MESSAGE value="Testing Home Page v4.3.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing Home Page v4.3.1" />
+    <MESSAGE value="Testing Home Page v4.3.2" />
+    <MESSAGE value="Testing Home Page v4.3.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing Home Page v4.3.3" />
   </component>
 </project>

@@ -2,6 +2,7 @@ package DiaLogServlet;
 
 import DiaLogServlet.DataBaseController.SQLTableMethods.TaskDataSQL;
 import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
+import com.google.gson.JsonArray;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +27,8 @@ public class TestServlet2 extends HttpServlet {
             case "/TaskDataTesting":
                 resp.getWriter().write("TaskLoginData Display for testing purpose: \n");
                 TaskDataSQL.displayData(resp);
+                JsonArray tasksArray = TaskDataSQL.readAllTask(15);
+                resp.getWriter().write(String.valueOf(tasksArray));
                 break;
 
             default:

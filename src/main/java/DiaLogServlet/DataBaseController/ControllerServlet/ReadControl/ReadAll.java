@@ -6,7 +6,6 @@ import DiaLogServlet.ServletResponse.ErrorCode;
 import DiaLogServlet.ServletResponse.sendResponse;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
-import static DiaLogServlet.LoginServlet.UserID;
 
 @WebServlet(urlPatterns={"/api/post/read/all"}, loadOnStartup=1)
 public class ReadAll extends Read {
@@ -34,8 +32,8 @@ public class ReadAll extends Read {
         int userID = task.getUserId();
 
         if (userID != 0) {
-            JsonArray jsonData= TaskDataSQL.readAllTask(userID);
-            sendResponse.send(resp, ErrorCode.SUCCESS, jsonData);
+            JsonArray jsonArray= TaskDataSQL.readAllTask(userID);
+            sendResponse.send(resp, ErrorCode.SUCCESS, jsonArray);
         } else {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }

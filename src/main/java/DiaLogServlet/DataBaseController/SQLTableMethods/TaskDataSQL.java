@@ -66,29 +66,7 @@ public class TaskDataSQL {
         }
     }
 
-    public static void displayData(HttpServletResponse resp) {
-        String sqlSelect = "SELECT * FROM taskData;";
 
-        try (Connection conn = DatabaseConnector.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sqlSelect)) {
-            System.out.println("Display SQL success.");
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String userID = rs.getString("userID");
-                String title = rs.getString("title");
-                String content = rs.getString("content");
-                String createTime = rs.getString("createTime");
-                String updateTime = rs.getString("updateTime");
-                String dueTime = rs.getString("dueTime");
-                String notification = rs.getString("notification");
-
-                resp.getWriter().write("ID: " + id + ", UserID: " + userID + ", Title: " + title + ", Content: " + content + ", CreateTime: " + createTime + ", UpdateTime: " + updateTime + ", DueTime: " + dueTime + ", Notification: " + notification + ". \n");
-            }
-        } catch (SQLException | IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 
     public static void deleteTask(int id, int userID) {
@@ -170,38 +148,28 @@ public class TaskDataSQL {
         return tasksArray;
     }
 
-    public static JsonArray displayAllTask(int userID) {
-        System.out.println("Reading data from userLoginData table.");
-        String sqlRead = "SELECT * FROM userLoginData WHERE userID = ?";
-        JsonArray tasksArray = new JsonArray();
+    public static void displayData(HttpServletResponse resp) {
+        String sqlSelect = "SELECT * FROM taskData;";
 
         try (Connection conn = DatabaseConnector.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sqlRead)) {
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sqlSelect)) {
+            System.out.println("Display SQL success.");
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String userID = rs.getString("userID");
+                String title = rs.getString("title");
+                String content = rs.getString("content");
+                String createTime = rs.getString("createTime");
+                String updateTime = rs.getString("updateTime");
+                String dueTime = rs.getString("dueTime");
+                String notification = rs.getString("notification");
 
-            pstmt.setInt(1, userID); // Set the userID parameter here, before executing the query
-
-            try (ResultSet rs = pstmt.executeQuery()) { // Execute the query and get the result set
-                System.out.println("Read SQL success.");
-                while (rs.next()) { // Use while loop to iterate through all results
-                    JsonObject taskJson = new JsonObject();
-                    taskJson.addProperty("id", rs.getInt("id"));
-                    taskJson.addProperty("userID", rs.getInt("userID"));
-                    taskJson.addProperty("title", rs.getString("title"));
-                    taskJson.addProperty("content", rs.getString("content"));
-                    taskJson.addProperty("createTime", rs.getString("createTime"));
-                    taskJson.addProperty("updateTime", rs.getString("updateTime") != null ? rs.getString("updateTime") : null);
-                    taskJson.addProperty("dueTime", rs.getString("dueTime") != null ? rs.getString("dueTime") : null);
-                    taskJson.addProperty("notification", rs.getInt("notification"));
-
-                    tasksArray.add(taskJson); // Add each task to the array
-                }
+                resp.getWriter().write("ID: " + id + ", UserID: " + userID + ", Title: " + title + ", Content: " + content + ", CreateTime: " + createTime + ", UpdateTime: " + updateTime + ", DueTime: " + dueTime + ", Notification: " + notification + ". \n");
             }
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
         }
-
-        return tasksArray;
     }
-
 }
 

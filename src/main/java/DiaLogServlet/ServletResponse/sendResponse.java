@@ -29,10 +29,10 @@ public class sendResponse {
         resp.getWriter().write(new Gson().toJson(new ResponseObject(errorCode.getCode(), errorCode.getMessage(), jsonData)));
     }
 
-    public static void send(HttpServletResponse resp, ErrorCode errorCode, JsonArray jsonData) throws IOException {
+    public static void send(HttpServletResponse resp, ErrorCode errorCode, JsonArray jsonArray) throws IOException {
         resp.setStatus(HttpServletResponse.SC_OK);
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().write(new Gson().toJson(new ResponseObject(errorCode.getCode(), errorCode.getMessage(), jsonData)));
+        resp.getWriter().write(new Gson().toJson(new ResponseObject(errorCode.getCode(), errorCode.getMessage(), jsonArray)));
     }
 }

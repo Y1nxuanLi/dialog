@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="ReadAll test v5.2.9" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="ReadAll test v5.3.1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/UserLoginDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/UserLoginDataSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,23 +162,8 @@
       <workItem from="1704476546166" duration="13935000" />
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
-      <workItem from="1704709706549" duration="14065000" />
-    </task>
-    <task id="LOCAL-00050" summary="Login Register Page v2.14">
-      <option name="closed" value="true" />
-      <created>1704574985881</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1704574985882</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Login Register Page v2.15">
-      <option name="closed" value="true" />
-      <created>1704575376978</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1704575376978</updated>
+      <workItem from="1704709706549" duration="14646000" />
+      <workItem from="1705082248653" duration="2265000" />
     </task>
     <task id="LOCAL-00052" summary="Login Register Page v3">
       <option name="closed" value="true" />
@@ -547,7 +541,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704724263963</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="ReadAll test v5.3.0">
+      <option name="closed" value="true" />
+      <created>1704724608026</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1704724608026</updated>
+    </task>
+    <task id="LOCAL-00100" summary="ReadAll test v5.3.1">
+      <option name="closed" value="true" />
+      <created>1704724798181</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1704724798181</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -565,8 +575,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Testing Home Page v4.2.5" />
-    <MESSAGE value="Testing Home Page v4.2.6" />
     <MESSAGE value="Testing Home Page v4.2.7" />
     <MESSAGE value="Testing Home Page v4.2.8" />
     <MESSAGE value="Testing Home Page v4.2.9" />
@@ -590,6 +598,8 @@
     <MESSAGE value="Add Task button v5.2.7" />
     <MESSAGE value="ReadAll test v5.2.8" />
     <MESSAGE value="ReadAll test v5.2.9" />
-    <option name="LAST_COMMIT_MESSAGE" value="ReadAll test v5.2.9" />
+    <MESSAGE value="ReadAll test v5.3.0" />
+    <MESSAGE value="ReadAll test v5.3.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="ReadAll test v5.3.1" />
   </component>
 </project>

@@ -107,8 +107,7 @@ public class TaskDataSQL {
         }
     }
 
-
-    public static JsonObject readTask(int id, int userID) {
+    public static JsonObject readOneTask(int id, int userID) {
         System.out.println("Reading data from userLoginData table.");
         String sqlRead = "SELECT * FROM userLoginData WHERE id = ? AND userID = ?";
         JsonObject jsonData = new JsonObject();
@@ -138,8 +137,40 @@ public class TaskDataSQL {
 
         return jsonData;
     }
-
     public static JsonArray readAllTask(int userID) {
+        System.out.println("Reading data from userLoginData table.");
+        String sqlRead = "SELECT * FROM userLoginData WHERE userID = ?";
+        JsonArray tasksArray = new JsonArray();
+
+        try (Connection conn = DatabaseConnector.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sqlRead)) {
+
+            pstmt.setInt(1, userID);
+
+            try (ResultSet rs = pstmt.executeQuery()) { // Execute the query and get the result set
+                System.out.println("Read SQL success.");
+                if (rs.next()) { // Use if instead of while if you're expecting only one result
+                    JsonObject taskJson = new JsonObject();
+                    taskJson.addProperty("id", rs.getInt("id"));
+                    taskJson.addProperty("userID", rs.getInt("userID"));
+                    taskJson.addProperty("title", rs.getString("title"));
+                    taskJson.addProperty("content", rs.getString("content"));
+                    taskJson.addProperty("createTime", rs.getString("createTime"));
+                    taskJson.addProperty("updateTime", rs.getString("updateTime") != null ? rs.getString("updateTime") : null);
+                    taskJson.addProperty("dueTime", rs.getString("dueTime") != null ? rs.getString("dueTime") : null);
+                    taskJson.addProperty("notification", rs.getInt("notification"));
+
+                    tasksArray.add(taskJson); // Add each task to the array
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return tasksArray;
+    }
+
+    public static JsonArray displayAllTask(int userID) {
         System.out.println("Reading data from userLoginData table.");
         String sqlRead = "SELECT * FROM userLoginData WHERE userID = ?";
         JsonArray tasksArray = new JsonArray();

@@ -35,7 +35,6 @@ public class TestServlet2 extends HttpServlet {
         }
     }
 
-
 }
 
 

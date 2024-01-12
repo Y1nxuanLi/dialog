@@ -40,7 +40,7 @@ public class UserLoginDataSQL {
         }
     }
 
-    public static void displayData(HttpServletResponse resp) {
+    public static void displayUserData(HttpServletResponse resp) {
         String sqlSelect = "SELECT * FROM userLoginData;";
 
         try (Connection conn = DatabaseConnector.getConnection();

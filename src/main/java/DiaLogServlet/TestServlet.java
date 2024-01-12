@@ -38,7 +38,7 @@ public class TestServlet extends HttpServlet {
                 break;
             case "/UserDataTesting":
                 resp.getWriter().write("UserLoginData Display for testing purpose: \n");
-                UserLoginDataSQL.displayData(resp);
+                UserLoginDataSQL.displayUserData(resp);
                 break;
             case "/admin":
                 resp.getWriter().write("Add admin data");
@@ -62,7 +62,6 @@ public class TestServlet extends HttpServlet {
                 break;
         }
     }
-
 
 }
 

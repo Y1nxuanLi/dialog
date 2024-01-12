@@ -219,8 +219,8 @@
                     })
                     .then(response => {
                         console.log("readAll Processing");
-                        if (Array.isArray(response.data)) {
-                            this.posts = response.data;
+                        if (Array.isArray(response.data.data)) {
+                            this.posts = response.data.data;
                             console.log("All posts:", this.posts);
                             console.log("posts.length:",posts.length);
                             console.log("post.title:",post.title);
@@ -228,15 +228,9 @@
                             console.log("post.id:",post.id);
                             // localStorage.setItem('posts',JSON.stringify(response.data));
 
-                        } else if (typeof response.data === 'object') {
+                        } else if (typeof response.data.data === 'object') {
                             console.log("Object post:");
-                            this.posts = Object.values(response.data);
-                            console.log(this.posts);
-                            console.log("All posts:", this.posts);
-                            console.log("posts.length:",posts.length);
-                            console.log("post.title:",post.title);
-                            console.log("post.createTime:",post.createTime);
-                            console.log("post.id:",post.id);
+                            this.posts = Object.values(response.data.data);
                         } else {
                             console.error("不支持的数据类型:", response.data);
                         }

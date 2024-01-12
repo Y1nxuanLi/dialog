@@ -185,7 +185,7 @@
 
             },
             updateTask() {
-                axios.post("http://35.179.12.19:7529/api/post/update", {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/update/task", {
                     id: this.taskForm.id,
                     title: this.taskForm.title,
                     content: this.taskForm.content
@@ -193,7 +193,7 @@
                     .then(response => {
                         const responseData = response.data;
                         if (responseData.code === 0) {
-                            console.log("修改成功", response.data);
+                            console.log("Edit Success", response.data);
                             this.readAll();
                             this.isModalOpen = false;
                             this.taskForm.id = '';
@@ -204,13 +204,13 @@
                         }
                     })
                     .catch(error => {
-                        console.error("检索时发生错误:", error);
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
                     });
             },
             closeModal() {
-                this.$confirm('确定要取消吗？', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                this.$confirm('Are you sure you want to close this？', 'hint', {
+                    confirmButtonText: 'Sure',
+                    cancelButtonText: 'cancel',
                     type: 'info'
                 }).then(() => {
                     this.isModalOpen = false;
@@ -239,11 +239,11 @@
                             console.log("Object post:");
                             this.posts = Object.values(response.data.data);
                         } else {
-                            console.error("不支持的数据类型:", response.data);
+                            console.error("Unsupport data type:", response.data);
                         }
                     })
                     .catch(error => {
-                        console.error("检索时发生错误:", error);
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
                     });
             },
 

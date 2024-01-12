@@ -87,7 +87,7 @@ public class TaskDataSQL {
 
     public static void updateTask(int taskID, int userID, String title, String content, String createTime, String updateTime, String dueTime, int notification) {
         System.out.println("Updating task in taskData table.");
-        String sqlUpdate = "UPDATE taskData SET title = ?, content = ?, updateTime = ?, dueTime = ?, notification = ? WHERE id = ? AND userID = ?;";
+        String sqlUpdate = "UPDATE taskData SET title = ?, content = ?, createTime = ?, updateTime = ?, dueTime = ?, notification = ? WHERE id = ? AND userID = ?;";
 
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {

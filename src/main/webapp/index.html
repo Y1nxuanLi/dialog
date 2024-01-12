@@ -216,12 +216,12 @@
                         userId: this.currentUserID
                     })
                     .then(response => {
-                        if (Array.isArray(response.data.data)) {
-                            this.posts = response.data.data;
-                        } else if (typeof response.data.data === 'object') {
-                            this.posts = Object.values(response.data.data);
+                        if (Array.isArray(response.data)) {
+                            this.posts = response.data;
+                        } else if (typeof response.data === 'object') {
+                            this.posts = Object.values(response.data);
                         } else {
-                            console.error("不支持的数据类型:", response.data.data);
+                            console.error("不支持的数据类型:", response.data);
                         }
                     })
                     .catch(error => {

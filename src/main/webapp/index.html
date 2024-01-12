@@ -114,9 +114,9 @@
                     content: '',
                     userId: '',
                     createTime: '', // Format these dates as 'YYYY-MM-DD HH:mm:ss'
-                    updateTime: '', // or leave them as null if not set
+                    updateTime: '',
                     dueTime: '',
-                    notification: 1,
+                    notification: '',
                 },
             }
         },
@@ -138,14 +138,10 @@
                     // If no matching post is found, selectedPost will be undefined.
 
                     if (selectedPost) {
-                        this.taskForm.id = selectedPost.id;
-                        this.taskForm.title = selectedPost.title;
-                        this.taskForm.content = selectedPost.content;
+                        this.setTaskForm(selectedPost);
                     }
                 } else {
-                    this.taskForm.id = '';
-                    this.taskForm.title = '';
-                    this.taskForm.content = '';
+                    this.resetTaskForm();
                 }
             },
 
@@ -157,7 +153,7 @@
                         title: this.taskForm.title,
                         content: this.taskForm.content,
                         createTime: createTime, // Format these dates as 'YYYY-MM-DD HH:mm:ss'
-                        updateTime: null, // or leave them as null if not set
+                        updateTime: null,
                         dueTime: null,
                         notification: this.taskForm.notification
 
@@ -172,8 +168,8 @@
                             console.log("Task Log Success", response.data);
                             this.readAll();
                             this.isModalOpen = false;
-                            this.taskForm.title = '';
-                            this.taskForm.content = '';
+                            this.resetTaskForm()
+
                         } else {
                             console.log("Task Log Failed", response.data);
                             alert(responseData.message);
@@ -202,9 +198,7 @@
                             console.log("Edit Success", response.data);
                             this.readAll();
                             this.isModalOpen = false;
-                            this.taskForm.id = '';
-                            this.taskForm.title = '';
-                            this.taskForm.content = '';
+                            this.resetTaskForm();
                         } else {
                             alert(responseData.message);
                         }
@@ -220,8 +214,7 @@
                     type: 'info'
                 }).then(() => {
                     this.isModalOpen = false;
-                    this.taskForm.title = '';
-                    this.taskForm.content = '';
+                    this.resetTaskForm();
                 }).catch(() => {
                 });
             },
@@ -235,14 +228,12 @@
                         if (Array.isArray(response.data.data)) {
                             this.posts = response.data.data;
                             console.log("All posts:", this.posts);
-                            console.log("posts.length:",this.posts.length);
-                            // localStorage.setItem('posts',JSON.stringify(response.data));
 
                         } else if (typeof response.data.data === 'object') {
-                            console.log("Object post:");
+                            console.log("Object post", response.data.data);
                             this.posts = Object.values(response.data.data);
                         } else {
-                            console.error("Unsupport data type:", response.data);
+                            console.error("Unknown data type:", response.data);
                         }
                     })
                     .catch(error => {
@@ -288,6 +279,26 @@
                 const seconds = String(now.getSeconds()).padStart(2, '0');
                 return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
             },
+            setTaskForm(selectedPost){
+                this.taskForm.id = selectedPost.id;
+                this.taskForm.title = selectedPost.title;
+                this.taskForm.content = selectedPost.content;
+                this.taskForm.userId = selectedPost.userId;
+                this.taskForm.createTime = selectedPost.createTime;
+                this.taskForm.updateTime = selectedPost.updateTime;
+                this.taskForm.dueTime = selectedPost.dueTime;
+                this.taskForm.notification = selectedPost.notification;
+            },
+            resetTaskForm(){
+                this.taskForm.id = '';
+                this.taskForm.title = '';
+                this.taskForm.content = '';
+                this.taskForm.userId = '';
+                this.taskForm.createTime = '';
+                this.taskForm.updateTime = '';
+                this.taskForm.dueTime = '';
+                this.taskForm.notification = '';
+            }
         },
     })
 

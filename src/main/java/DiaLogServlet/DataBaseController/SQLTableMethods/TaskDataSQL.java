@@ -96,9 +96,9 @@ public class TaskDataSQL {
             pstmt.setInt(1, id);
             pstmt.setInt(2, userID);
 
-            try (ResultSet rs = pstmt.executeQuery()) { // Execute the query and get the result set
+            try (ResultSet rs = pstmt.executeQuery()) {
                 System.out.println("Read SQL success.");
-                if (rs.next()) { // Use if instead of while if you're expecting only one result
+                if (rs.next()) {
                     jsonData.addProperty("id", rs.getInt("id"));
                     jsonData.addProperty("userID", rs.getString("userID"));
                     jsonData.addProperty("title", rs.getString("title"));
@@ -125,9 +125,9 @@ public class TaskDataSQL {
 
             pstmt.setInt(1, userID);
 
-            try (ResultSet rs = pstmt.executeQuery()) { // Execute the query and get the result set
+            try (ResultSet rs = pstmt.executeQuery()) {
                 System.out.println("Read SQL success.");
-                if (rs.next()) { // Use if instead of while if you're expecting only one result
+                while (rs.next()) {
                     JsonObject taskJson = new JsonObject();
                     taskJson.addProperty("id", rs.getInt("id"));
                     taskJson.addProperty("userID", rs.getInt("userID"));

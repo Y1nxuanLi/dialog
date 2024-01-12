@@ -138,11 +138,16 @@
                     // If no matching post is found, selectedPost will be undefined.
 
                     if (selectedPost) {
-                        console.log("setTaskForm");
-                        this.setTaskForm(selectedPost);
+                        this.taskForm.userId = selectedPost.userId;
+                        this.taskForm.id = selectedPost.id;
+                        this.taskForm.title = selectedPost.title;
+                        this.taskForm.content = selectedPost.content;
+                        this.taskForm.createTime = selectedPost.createTime;
+                        this.taskForm.updateTime = selectedPost.updateTime;
+                        this.taskForm.dueTime = selectedPost.dueTime;
+                        this.taskForm.notification = selectedPost.notification;
                     }
                 } else {
-                    console.log("resetTaskForm");
                     this.resetTaskForm();
                 }
             },
@@ -170,7 +175,8 @@
                             console.log("Task Log Success", response.data);
                             this.readAll();
                             this.isModalOpen = false;
-                            this.resetTaskForm()
+                            this.taskForm.title = '';
+                            this.taskForm.content = '';
 
                         } else {
                             console.log("Task Log Failed", response.data);
@@ -200,7 +206,9 @@
                             console.log("Edit Success", response.data);
                             this.readAll();
                             this.isModalOpen = false;
-                            this.resetTaskForm();
+                            this.taskForm.id = '';
+                            this.taskForm.title = '';
+                            this.taskForm.content = '';
                         } else {
                             alert(responseData.message);
                         }
@@ -216,7 +224,8 @@
                     type: 'info'
                 }).then(() => {
                     this.isModalOpen = false;
-                    this.resetTaskForm();
+                    this.taskForm.title = '';
+                    this.taskForm.content = '';
                 }).catch(() => {
                 });
             },

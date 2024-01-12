@@ -218,6 +218,7 @@
                         userId: this.currentUserID
                     })
                     .then(response => {
+                        console.log("readAll Processing");
                         if (Array.isArray(response.data)) {
                             this.posts = response.data;
                             console.log("All posts:", this.posts);
@@ -228,6 +229,7 @@
                             // localStorage.setItem('posts',JSON.stringify(response.data));
 
                         } else if (typeof response.data === 'object') {
+                            console.log("Object post:", this.posts);
                             this.posts = Object.values(response.data);
                         } else {
                             console.error("不支持的数据类型:", response.data);

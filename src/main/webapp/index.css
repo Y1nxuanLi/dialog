@@ -12,7 +12,6 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    width: 100%;
 }
 
 .post-title {
@@ -59,12 +58,18 @@
 }
 
 
-.delete-flex{
-    display: flex;
-    justify-content: flex-end; /* Align items to the end (right) of the container */
-    margin-top: 20px;
-    flex-grow: 1;
-    position: absolute; /* Position delete-flex absolutely within post-header */
-    right: 0; /* Align it to the right */
 
+.post-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-times {
+    min-width: 150px; /* Adjust as needed */
+}
+
+.delete-flex {
+    margin-top: 20px;
+    flex-shrink: 0; /* Prevent the button group from shrinking */
 }

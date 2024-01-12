@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="page layout adjusting v5.7.4">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.css" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="page layout adjusting v5.7.5">
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,15 +156,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="18443000" />
-    </task>
-    <task id="LOCAL-00090" summary="Add Read Delete Add Control v5.2.1">
-      <option name="closed" value="true" />
-      <created>1704718391237</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1704718391237</updated>
+      <workItem from="1705082248653" duration="18601000" />
     </task>
     <task id="LOCAL-00091" summary="Add Task button v5.2.2">
       <option name="closed" value="true" />
@@ -550,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705100514245</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="page layout adjusting v5.7.5">
+      <option name="closed" value="true" />
+      <created>1705100854827</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1705100854827</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,7 +568,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ReadAll test v5.4.9" />
     <MESSAGE value="ReadAll test v5.4.10" />
     <MESSAGE value="update-button v5.5.1" />
     <MESSAGE value="delete-button v5.5.2" />
@@ -593,6 +592,7 @@
     <MESSAGE value="page layout adjusting v5.7.2" />
     <MESSAGE value="page layout adjusting v5.7.3" />
     <MESSAGE value="page layout adjusting v5.7.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="page layout adjusting v5.7.4" />
+    <MESSAGE value="page layout adjusting v5.7.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="page layout adjusting v5.7.5" />
   </component>
 </project>

@@ -12,6 +12,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 .post-title {
@@ -61,5 +62,6 @@
 .delete-flex{
     display: flex;
     justify-content: flex-end; /* Align items to the end (right) of the container */
-    margin-top: 20px
+    margin-top: 20px;
+    flex-grow: 1;
 }

@@ -122,10 +122,6 @@
             this.readAll();
             this.currentUserAccount = userMes.userAccount;
             this.currentUserID = userMes.userID;
-            console.log("posts.length:",posts.length);
-            console.log("post.title:",post.title);
-            console.log("post.createTime:",post.createTime);
-            console.log("post.id:",post.id);
         },
         methods: {
             openModal(postId) {
@@ -225,6 +221,10 @@
                         if (Array.isArray(response.data)) {
                             this.posts = response.data;
                             console.log("All posts:", this.posts);
+                            console.log("posts.length:",posts.length);
+                            console.log("post.title:",post.title);
+                            console.log("post.createTime:",post.createTime);
+                            console.log("post.id:",post.id);
                             // localStorage.setItem('posts',JSON.stringify(response.data));
 
                         } else if (typeof response.data === 'object') {

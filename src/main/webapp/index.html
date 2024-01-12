@@ -45,6 +45,7 @@
             <div class="add-activity-button-container">
                 <el-button @click="openModal()">Add Task</el-button>
             </div>
+
             <div class="entry normal" v-for="post in posts" :key="post.id">
                 <div class="post-header">
                     <h2 class="post-title">{{ post.title }}</h2>
@@ -63,9 +64,7 @@
         <p v-else>no record.</p>
     </main>
 
-    <div class="add-activity-button-container">
-        <el-button @click="openModal()">Add Task</el-button>
-    </div>
+
     <el-dialog
             :visible.sync="isModalOpen"
             title="Add Task"
@@ -130,15 +129,19 @@
             openModal(postId) {
                 this.isModalOpen = true;
                 if (postId) {
-                    // 如果有 postId，表示是修改任务，加载任务信息
                     const selectedPost = this.posts.find(post => post.id === postId);
+                    //nCallback Function: The callback function here is (post => post.id === postId).
+                    // For each post in the this.posts array, it checks whether post.id is equal to postId.
+                    // selectedPost: This is the variable where the result of the find operation is stored.
+                    // If a post with an ID matching postId is found in the this.posts array, selectedPost will be that post object.
+                    // If no matching post is found, selectedPost will be undefined.
+
                     if (selectedPost) {
                         this.taskForm.id = selectedPost.id;
                         this.taskForm.title = selectedPost.title;
                         this.taskForm.content = selectedPost.content;
                     }
                 } else {
-                    // 没有 postId，表示是添加任务
                     this.taskForm.id = '';
                     this.taskForm.title = '';
                     this.taskForm.content = '';

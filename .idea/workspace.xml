@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="ReadAll test v5.4.0">
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="ReadAll test v5.4.2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,31 +157,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="3656000" />
-    </task>
-    <task id="LOCAL-00055" summary="Login Register Page v3.3">
-      <option name="closed" value="true" />
-      <created>1704576823313</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1704576823313</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Add Home Page v3.6">
-      <option name="closed" value="true" />
-      <created>1704578417749</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1704578417749</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Testing Home Page v4.0">
-      <option name="closed" value="true" />
-      <created>1704661571980</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1704661571980</updated>
+      <workItem from="1705082248653" duration="4402000" />
     </task>
     <task id="LOCAL-00058" summary="Testing Home Page v4.1">
       <option name="closed" value="true" />
@@ -550,7 +527,31 @@
       <option name="project" value="LOCAL" />
       <updated>1705085785523</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="ReadAll test v5.4.1">
+      <option name="closed" value="true" />
+      <created>1705085910098</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1705085910098</updated>
+    </task>
+    <task id="LOCAL-00105" summary="ReadAll test v5.4.1">
+      <option name="closed" value="true" />
+      <created>1705085914368</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1705085914368</updated>
+    </task>
+    <task id="LOCAL-00106" summary="ReadAll test v5.4.2">
+      <option name="closed" value="true" />
+      <created>1705086090992</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1705086090992</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,8 +569,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Testing Home Page v4.3.0" />
-    <MESSAGE value="Testing Home Page v4.3.1" />
     <MESSAGE value="Testing Home Page v4.3.2" />
     <MESSAGE value="Testing Home Page v4.3.3" />
     <MESSAGE value="Home Page v5" />
@@ -593,6 +592,8 @@
     <MESSAGE value="ReadAll test v5.3.2" />
     <MESSAGE value="ReadAll test v5.3.3" />
     <MESSAGE value="ReadAll test v5.4.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="ReadAll test v5.4.0" />
+    <MESSAGE value="ReadAll test v5.4.1" />
+    <MESSAGE value="ReadAll test v5.4.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="ReadAll test v5.4.2" />
   </component>
 </project>

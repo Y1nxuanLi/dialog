@@ -186,12 +186,13 @@
             },
             updateTask() {
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/update/task", {
+                    const updateTime = this.formatCurrentDateTime();
                     id: this.taskForm.id,
                     userId: this.currentUserID,
                     title: this.taskForm.title,
                     content: this.taskForm.content,
                     createTime: this.taskForm.createTime, // Format these dates as 'YYYY-MM-DD HH:mm:ss'
-                    updateTime: createTime, // or leave them as null if not set
+                    updateTime: updateTime, // or leave them as null if not set
                     dueTime: null,
                     notification: this.taskForm.notification
                 })
@@ -235,9 +236,6 @@
                             this.posts = response.data.data;
                             console.log("All posts:", this.posts);
                             console.log("posts.length:",this.posts.length);
-                            console.log("post.title:",this.post.title);
-                            console.log("post.createTime:",this.post.createTime);
-                            console.log("post.id:",this.post.id);
                             // localStorage.setItem('posts',JSON.stringify(response.data));
 
                         } else if (typeof response.data.data === 'object') {

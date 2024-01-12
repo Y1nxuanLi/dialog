@@ -65,6 +65,6 @@
     margin-top: 20px;
     flex-grow: 1;
     position: absolute; /* Position delete-flex absolutely within post-header */
-    right: 5; /* Align it to the right */
+    right: 0; /* Align it to the right */
 
 }

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="page layout adjusting v5.7.2" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="page layout adjusting v5.7.3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,15 +154,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="17741000" />
-    </task>
-    <task id="LOCAL-00088" summary="Home Page v5.1.1">
-      <option name="closed" value="true" />
-      <created>1704676265696</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1704676265696</updated>
+      <workItem from="1705082248653" duration="18041000" />
     </task>
     <task id="LOCAL-00089" summary="Add Read Delete Add Control v5.2">
       <option name="closed" value="true" />
@@ -548,7 +540,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705100074292</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="page layout adjusting v5.7.3">
+      <option name="closed" value="true" />
+      <created>1705100389239</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1705100389239</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,7 +566,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ReadAll test v5.4.7" />
     <MESSAGE value="ReadAll test v5.4.8" />
     <MESSAGE value="ReadAll test v5.4.9" />
     <MESSAGE value="ReadAll test v5.4.10" />
@@ -591,6 +590,7 @@
     <MESSAGE value="page layout adjusting v5.7.0" />
     <MESSAGE value="page layout adjusting v5.7.1" />
     <MESSAGE value="page layout adjusting v5.7.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="page layout adjusting v5.7.2" />
+    <MESSAGE value="page layout adjusting v5.7.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="page layout adjusting v5.7.3" />
   </component>
 </project>

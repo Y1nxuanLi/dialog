@@ -252,21 +252,21 @@
                     cancelButtonText: 'cancel',
                     type: 'warning'
                 }).then(() => {
-                    axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/delete/user", { id: postId })
+                    axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/delete/task", { id: postId, userId: this.currentUserID })
                         .then(response => {
                             const responseData = response.data;
                             if (responseData.code === 0) {
-                                console.log("删除成功", response.data);
+                                console.log("Delete Success", response.data);
                                 this.getAll();
                             } else {
                                 alert(responseData.message);
                             }
                         })
                         .catch(error => {
-                            console.error("删除时发生错误:", error);
+                            console.error("Delete Failed:", error);
                         });
                 }).catch(() => {
-                    // 用户取消了删除操作
+                    // Delete cancel
                 });
             },
             logout(){

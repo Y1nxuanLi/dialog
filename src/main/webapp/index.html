@@ -12,88 +12,88 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
 <body>
-<div id="index">
-    <header>
-        <nav>
-            <div class="nav-left">
-                <ul>
-                    <li><a href="index.html">Home Page</a></li>
-                    <li><a href="logbook.html">Log</a></li>
-                    <li><a href="trends.html">Blood Sugar Trend</a></li>
-                    <li><a href="settings.html">User Info</a></li>
-                </ul>
-            </div>
-            <div class="nav-right">
-                <ul v-if="currentUserID">
-                    <li><span style="line-height: 37px">"Welcome"</span></li>
-                    <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
-                    <li><span style="line-height: 37px">{{ currentUserAccount }}</span></li>
-                    <el-button @click="logout()">Logout</el-button>
-                </ul>
-                <ul v-else>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html">Register</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <div class="footerConfig">
+        <div id="index">
+            <header>
+                <nav>
+                    <div class="nav-left">
+                        <ul>
+                            <li><a href="index.html">Home Page</a></li>
+                            <li><a href="logbook.html">Log</a></li>
+                            <li><a href="trends.html">Blood Sugar Trend</a></li>
+                            <li><a href="settings.html">User Info</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-right">
+                        <ul v-if="currentUserID">
+                            <li><span style="line-height: 37px">"Welcome"</span></li>
+                            <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
+                            <li><span style="line-height: 37px">{{ currentUserAccount }}</span></li>
+                            <el-button @click="logout()">Logout</el-button>
+                        </ul>
+                        <ul v-else>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
 
-    <main>
-        <section id="logbook-entries" v-if="posts.length > 0">
+            <main>
+                <section id="logbook-entries" v-if="posts.length > 0">
 
-            <h1>Task</h1>
-            <div class="add-activity-button-container">
-                <el-button @click="openModal()">Add Task</el-button>
-            </div>
-
-            <div class="entry normal" v-for="post in posts" :key="post.id">
-                <div class="post-header">
-                    <h2 class="post-title">{{ post.title }}</h2>
-                    <div>
-                        <span class="post-time">Created Time：{{ post.createTime }}</span>
-                        <div class="delete-flex">
-                            <button class="delete-button" @click="deleteTask(post.id)">delete</button>
-                            <button class="update-button" @click="openModal(post.id)">edit</button>
-                        </div>
+                    <h1>Task</h1>
+                    <div class="add-activity-button-container">
+                        <el-button @click="openModal()">Add Task</el-button>
                     </div>
 
-                </div>
-                <div class="post-content">{{ post.content }}</div>
-            </div>
-        </section>
-        <p v-else>no record.</p>
-    </main>
+                    <div class="entry normal" v-for="post in posts" :key="post.id">
+                        <div class="post-header">
+                            <h2 class="post-title">{{ post.title }}</h2>
+                            <div>
+                                <span class="post-time">Created Time：{{ post.createTime }}</span>
+                                <div class="delete-flex">
+                                    <button class="delete-button" @click="deleteTask(post.id)">delete</button>
+                                    <button class="update-button" @click="openModal(post.id)">edit</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="post-content">{{ post.content }}</div>
+                    </div>
+                </section>
+                <p v-else>no record.</p>
+            </main>
 
 
-    <el-dialog
-            :visible.sync="isModalOpen"
-            title="Add Task"
-            width="30%"
-            :before-close="closeModal">
-        <el-form ref="taskForm" :model="taskForm" label-width="80px">
-            <el-form-item label="Title" prop="title">
-                <el-input v-model="taskForm.title" placeholder="Please enter the title"></el-input>
-            </el-form-item>
-            <el-form-item label="Content" prop="content">
-                <el-input type="textarea" v-model="taskForm.content" placeholder="Please enter the content"></el-input>
-            </el-form-item>
-        </el-form>
+            <el-dialog
+                    :visible.sync="isModalOpen"
+                    title="Add Task"
+                    width="30%"
+                    :before-close="closeModal">
+                <el-form ref="taskForm" :model="taskForm" label-width="80px">
+                    <el-form-item label="Title" prop="title">
+                        <el-input v-model="taskForm.title" placeholder="Please enter the title"></el-input>
+                    </el-form-item>
+                    <el-form-item label="Content" prop="content">
+                        <el-input type="textarea" v-model="taskForm.content" placeholder="Please enter the content"></el-input>
+                    </el-form-item>
+                </el-form>
 
-        <span slot="footer" class="dialog-footer">
-            <el-button @click="closeModal">cancel</el-button>
-            <el-button type="primary" @click="taskForm.id ? updateTask() : createTask()">
-                {{ taskForm.id ? 'Edit Task' : 'Create Task' }}
-            </el-button>
-        </span>
-    </el-dialog>
+                <span slot="footer" class="dialog-footer">
+                    <el-button @click="closeModal">cancel</el-button>
+                    <el-button type="primary" @click="taskForm.id ? updateTask() : createTask()">
+                        {{ taskForm.id ? 'Edit Task' : 'Create Task' }}
+                    </el-button>
+                </span>
+            </el-dialog>
 
-    <div class="footerConfig">
         <footer>
             <p>@2024，DiaLog</p>
         </footer>
-    </div >
-</div>
 
+    </div>
+    </div>
 <script>
     new Vue({
         name: 'index',

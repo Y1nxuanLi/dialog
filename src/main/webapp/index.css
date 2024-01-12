@@ -68,7 +68,7 @@ footer {
     color: #fff;
 }
 
-.footerConfig {
+.content-wrapper {
     min-height: 100vh; /* Full viewport height */
     display: flex;
     flex-direction: column;

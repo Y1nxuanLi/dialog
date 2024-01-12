@@ -138,9 +138,11 @@
                     // If no matching post is found, selectedPost will be undefined.
 
                     if (selectedPost) {
+                        console.log("setTaskForm");
                         this.setTaskForm(selectedPost);
                     }
                 } else {
+                    console.log("resetTaskForm");
                     this.resetTaskForm();
                 }
             },

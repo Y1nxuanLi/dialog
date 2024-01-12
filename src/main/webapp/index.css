@@ -58,5 +58,7 @@
 }
 
 .delete-flex{
+    display: flex;
+    justify-content: flex-end; /* Align items to the end (right) of the container */
     margin-top: 20px
 }

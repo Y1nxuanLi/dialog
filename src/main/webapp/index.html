@@ -87,9 +87,11 @@
         </span>
     </el-dialog>
 
-    <footer>
-        <p>@2024，DiaLog</p>
-    </footer>
+    <div class="footerConfig">
+        <footer>
+            <p>@2024，DiaLog</p>
+        </footer>
+    </div >
 </div>
 
 <script>
@@ -257,7 +259,7 @@
                             const responseData = response.data;
                             if (responseData.code === 0) {
                                 console.log("Delete Success", response.data);
-                                this.getAll();
+                                this.readAll();
                             } else {
                                 alert(responseData.message);
                             }

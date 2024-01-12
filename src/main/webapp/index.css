@@ -60,3 +60,17 @@
 .delete-flex{
     margin-top: 20px
 }
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+}
+
+.footerConfig {
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spread out the content and footer */
+}

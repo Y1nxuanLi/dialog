@@ -1,11 +1,15 @@
-package DiaLogServlet.DataBaseController.ControllerServlet.AddControl;
+package DiaLogServlet.DataBaseController.ControllerServlet.UpdateControl;
 
 
 import DiaLogApp.TaskData;
+import DiaLogServlet.DataBaseController.ControllerServlet.ReadControl.Read;
 import DiaLogServlet.DataBaseController.SQLTableMethods.TaskDataSQL;
 import DiaLogServlet.ServletResponse.ErrorCode;
+import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
 import DiaLogServlet.ServletResponse.sendResponse;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,26 +19,24 @@ import java.util.stream.Collectors;
 
 import static DiaLogServlet.LoginServlet.UserID;
 
-@WebServlet(urlPatterns={"/api/post/add/task"}, loadOnStartup=1)
-public class AddTask extends Add {
-    @Override
+
+@WebServlet(urlPatterns={"/api/post/update/task"}, loadOnStartup=1)
+
+public class UpdateTask extends Update{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
         String servletPath = req.getServletPath();
-
         switch (servletPath) {
-            case "/api/post/add/task":
-                add(req, resp);
+            case "/api/post/read/task":
+                update(req, resp);
         }
     }
-
-
     @Override
-    public void add(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void update(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String jsonData1 = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
         Gson gson1 = new Gson();
         TaskData task = gson1.fromJson(jsonData1, TaskData.class);
 
+        int taskID = task.getId();
         int userID = task.getUserId();
         String title = task.getTitle();
         String content = task.getContent();
@@ -42,15 +44,14 @@ public class AddTask extends Add {
         String updateTime = task.getUpdateTime();
         String dueTime = task.getDueTime();
         int notification = task.getNotification();
-        if (userID != 0){
-            TaskDataSQL.createTable();
-            TaskDataSQL.insertData(userID, title, content, createTime, updateTime, dueTime, notification);
+
+        if (userID != 0 && taskID !=0) {
+            TaskDataSQL.updateTask(taskID, userID, title, content, createTime, updateTime, dueTime, notification);
             sendResponse.send(resp, ErrorCode.SUCCESS);
-        }
-        else {
+        } else {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }
 
-    }
 
+    }
 }

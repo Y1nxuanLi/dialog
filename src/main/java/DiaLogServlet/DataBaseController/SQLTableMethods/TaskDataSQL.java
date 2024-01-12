@@ -85,6 +85,33 @@ public class TaskDataSQL {
         }
     }
 
+    public static void updateTask(int taskID, int userID, String title, String content, String createTime, String updateTime, String dueTime, int notification) {
+        System.out.println("Updating task in taskData table.");
+        String sqlUpdate = "UPDATE taskData SET title = ?, content = ?, updateTime = ?, dueTime = ?, notification = ? WHERE id = ? AND userID = ?;";
+
+        try (Connection conn = DatabaseConnector.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
+
+            pstmt.setString(1, title);
+            pstmt.setString(2, content);
+            pstmt.setString(3, createTime);
+            pstmt.setString(4, updateTime);
+            pstmt.setString(5, dueTime);
+            pstmt.setInt(6, notification);
+            pstmt.setInt(7, taskID);
+            pstmt.setInt(8, userID);
+
+            int rowsAffected = pstmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Task updated successfully.");
+            } else {
+                System.out.println("No task was updated. Check the task ID and User ID.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static JsonObject readOneTask(int id, int userID) {
         System.out.println("Reading data from userLoginData table.");
         String sqlRead = "SELECT * FROM taskData WHERE id = ? AND userID = ?";

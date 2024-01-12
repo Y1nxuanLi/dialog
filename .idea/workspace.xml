@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="delete-button v5.5.3">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="delete-button v5.5.4">
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/Updateable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
     </list>
@@ -158,15 +164,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="8766000" />
-    </task>
-    <task id="LOCAL-00070" summary="Testing Home Page v4.2.2">
-      <option name="closed" value="true" />
-      <created>1704668649308</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1704668649308</updated>
+      <workItem from="1705082248653" duration="10660000" />
     </task>
     <task id="LOCAL-00071" summary="Testing Home Page v4.2.2">
       <option name="closed" value="true" />
@@ -552,7 +550,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705090515654</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="delete-button v5.5.4">
+      <option name="closed" value="true" />
+      <created>1705091206169</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1705091206169</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,7 +576,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Task button v5.2.3" />
     <MESSAGE value="Add Task button v5.2.4" />
     <MESSAGE value="Add Task button v5.2.5" />
     <MESSAGE value="Add Task button v5.2.6" />
@@ -595,6 +600,7 @@
     <MESSAGE value="update-button v5.5.1" />
     <MESSAGE value="delete-button v5.5.2" />
     <MESSAGE value="delete-button v5.5.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete-button v5.5.3" />
+    <MESSAGE value="delete-button v5.5.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete-button v5.5.4" />
   </component>
 </project>

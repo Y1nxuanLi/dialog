@@ -51,6 +51,7 @@
                     <h2 class="post-title">{{ post.title }}</h2>
                     <div>
                         <span class="post-time">Created Time：{{ post.createTime }}</span>
+                        <span class="post-time" v-if="post.updateTime">Update Time: {{ post.updateTime }}</span>
                         <div class="delete-flex">
                             <button class="delete-button" @click="deleteTask(post.id)">delete</button>
                             <button class="update-button" @click="openModal(post.id)">edit</button>
@@ -116,7 +117,7 @@
                     createTime: '', // Format these dates as 'YYYY-MM-DD HH:mm:ss'
                     updateTime: '',
                     dueTime: '',
-                    notification: '',
+                    notification: 1,
                 },
             }
         },
@@ -175,8 +176,7 @@
                             console.log("Task Log Success", response.data);
                             this.readAll();
                             this.isModalOpen = false;
-                            this.taskForm.title = '';
-                            this.taskForm.content = '';
+                            this.resetTaskForm();
 
                         } else {
                             console.log("Task Log Failed", response.data);
@@ -206,9 +206,7 @@
                             console.log("Edit Success", response.data);
                             this.readAll();
                             this.isModalOpen = false;
-                            this.taskForm.id = '';
-                            this.taskForm.title = '';
-                            this.taskForm.content = '';
+                            this.resetTaskForm();
                         } else {
                             alert(responseData.message);
                         }
@@ -224,8 +222,7 @@
                     type: 'info'
                 }).then(() => {
                     this.isModalOpen = false;
-                    this.taskForm.title = '';
-                    this.taskForm.content = '';
+                    this.resetTaskForm();
                 }).catch(() => {
                 });
             },
@@ -308,7 +305,7 @@
                 this.taskForm.createTime = '';
                 this.taskForm.updateTime = '';
                 this.taskForm.dueTime = '';
-                this.taskForm.notification = '';
+                this.taskForm.notification = 1;
             }
         },
     })

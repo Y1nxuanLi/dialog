@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="update done v5.6.5">
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="update done v5.6.7">
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,23 +156,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="14705000" />
-    </task>
-    <task id="LOCAL-00081" summary="Testing Home Page v4.3.2">
-      <option name="closed" value="true" />
-      <created>1704674690148</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1704674690148</updated>
-    </task>
-    <task id="LOCAL-00082" summary="Testing Home Page v4.3.3">
-      <option name="closed" value="true" />
-      <created>1704674812159</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1704674812159</updated>
+      <workItem from="1705082248653" duration="15186000" />
     </task>
     <task id="LOCAL-00083" summary="Home Page v5">
       <option name="closed" value="true" />
@@ -550,7 +534,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705096664300</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="update done v5.6.6">
+      <option name="closed" value="true" />
+      <created>1705097143501</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1705097143501</updated>
+    </task>
+    <task id="LOCAL-00131" summary="update done v5.6.7">
+      <option name="closed" value="true" />
+      <created>1705097457560</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1705097457560</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,8 +568,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ReadAll test v5.4.0" />
-    <MESSAGE value="ReadAll test v5.4.1" />
     <MESSAGE value="ReadAll test v5.4.2" />
     <MESSAGE value="ReadAll test v5.4.3" />
     <MESSAGE value="ReadAll test v5.4.4" />
@@ -593,6 +591,8 @@
     <MESSAGE value="update v5.6.3" />
     <MESSAGE value="update done v5.6.4" />
     <MESSAGE value="update done v5.6.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="update done v5.6.5" />
+    <MESSAGE value="update done v5.6.6" />
+    <MESSAGE value="update done v5.6.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="update done v5.6.7" />
   </component>
 </project>

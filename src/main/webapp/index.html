@@ -187,8 +187,13 @@
             updateTask() {
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/update/task", {
                     id: this.taskForm.id,
+                    userId: this.currentUserID,
                     title: this.taskForm.title,
-                    content: this.taskForm.content
+                    content: this.taskForm.content,
+                    createTime: this.taskForm.createTime, // Format these dates as 'YYYY-MM-DD HH:mm:ss'
+                    updateTime: createTime, // or leave them as null if not set
+                    dueTime: null,
+                    notification: this.taskForm.notification
                 })
                     .then(response => {
                         const responseData = response.data;
@@ -229,10 +234,10 @@
                         if (Array.isArray(response.data.data)) {
                             this.posts = response.data.data;
                             console.log("All posts:", this.posts);
-                            console.log("posts.length:",posts.length);
-                            console.log("post.title:",post.title);
-                            console.log("post.createTime:",post.createTime);
-                            console.log("post.id:",post.id);
+                            console.log("posts.length:",this.posts.length);
+                            console.log("post.title:",this.post.title);
+                            console.log("post.createTime:",this.post.createTime);
+                            console.log("post.id:",this.post.id);
                             // localStorage.setItem('posts',JSON.stringify(response.data));
 
                         } else if (typeof response.data.data === 'object') {

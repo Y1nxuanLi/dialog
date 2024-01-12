@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="ReadAll test v5.3.3" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="ReadAll test v5.4.0">
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,15 +156,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="3321000" />
-    </task>
-    <task id="LOCAL-00054" summary="Login Register Page v3.2">
-      <option name="closed" value="true" />
-      <created>1704576526958</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1704576526958</updated>
+      <workItem from="1705082248653" duration="3656000" />
     </task>
     <task id="LOCAL-00055" summary="Login Register Page v3.3">
       <option name="closed" value="true" />
@@ -548,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705085254828</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="ReadAll test v5.4.0">
+      <option name="closed" value="true" />
+      <created>1705085785523</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1705085785523</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,7 +568,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Testing Home Page v4.2.9" />
     <MESSAGE value="Testing Home Page v4.3.0" />
     <MESSAGE value="Testing Home Page v4.3.1" />
     <MESSAGE value="Testing Home Page v4.3.2" />
@@ -591,6 +592,7 @@
     <MESSAGE value="ReadAll test v5.3.1" />
     <MESSAGE value="ReadAll test v5.3.2" />
     <MESSAGE value="ReadAll test v5.3.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="ReadAll test v5.3.3" />
+    <MESSAGE value="ReadAll test v5.4.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="ReadAll test v5.4.0" />
   </component>
 </project>

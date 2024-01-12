@@ -87,7 +87,7 @@ public class TaskDataSQL {
 
     public static JsonObject readOneTask(int id, int userID) {
         System.out.println("Reading data from userLoginData table.");
-        String sqlRead = "SELECT * FROM userLoginData WHERE id = ? AND userID = ?";
+        String sqlRead = "SELECT * FROM taskData WHERE id = ? AND userID = ?";
         JsonObject jsonData = new JsonObject();
 
         try (Connection conn = DatabaseConnector.getConnection();
@@ -117,7 +117,7 @@ public class TaskDataSQL {
     }
     public static JsonArray readAllTask(int userID) {
         System.out.println("Reading data from userLoginData table.");
-        String sqlRead = "SELECT * FROM userLoginData WHERE userID = ?";
+        String sqlRead = "SELECT * FROM taskData WHERE userID = ?";
         JsonArray tasksArray = new JsonArray();
 
         try (Connection conn = DatabaseConnector.getConnection();

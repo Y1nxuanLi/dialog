@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="ReadAll test v5.3.2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadAll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/sendResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/sendResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="ReadAll test v5.3.3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,15 +154,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="2948000" />
-    </task>
-    <task id="LOCAL-00053" summary="Login Register Page v3.1">
-      <option name="closed" value="true" />
-      <created>1704576339641</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1704576339641</updated>
+      <workItem from="1705082248653" duration="3321000" />
     </task>
     <task id="LOCAL-00054" summary="Login Register Page v3.2">
       <option name="closed" value="true" />
@@ -555,7 +540,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705084585282</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="ReadAll test v5.3.3">
+      <option name="closed" value="true" />
+      <created>1705085254828</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1705085254828</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,7 +566,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Testing Home Page v4.2.8" />
     <MESSAGE value="Testing Home Page v4.2.9" />
     <MESSAGE value="Testing Home Page v4.3.0" />
     <MESSAGE value="Testing Home Page v4.3.1" />
@@ -598,6 +590,7 @@
     <MESSAGE value="ReadAll test v5.3.0" />
     <MESSAGE value="ReadAll test v5.3.1" />
     <MESSAGE value="ReadAll test v5.3.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="ReadAll test v5.3.2" />
+    <MESSAGE value="ReadAll test v5.3.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="ReadAll test v5.3.3" />
   </component>
 </project>

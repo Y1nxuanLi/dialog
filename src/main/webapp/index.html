@@ -40,6 +40,7 @@
 
     <main>
         <section id="logbook-entries" v-if="posts.length > 0">
+
             <h1>Task</h1>
             <div class="entry normal" v-for="post in posts" :key="post.id">
                 <div class="post-header">
@@ -118,9 +119,13 @@
         },
         created() {
             const userMes = JSON.parse(localStorage.getItem('userMes'));
-            this.getAll();
+            this.readAll();
             this.currentUserAccount = userMes.userAccount;
             this.currentUserID = userMes.userID;
+            console.log("posts.length:",posts.length);
+            console.log("post.title:",post.title);
+            console.log("post.createTime:",post.createTime);
+            console.log("post.id:",post.id);
         },
         methods: {
             openModal(postId) {

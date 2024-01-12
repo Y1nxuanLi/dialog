@@ -185,8 +185,8 @@
 
             },
             updateTask() {
+                const updateTime = this.formatCurrentDateTime();
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/update/task", {
-                    const updateTime = this.formatCurrentDateTime();
                     id: this.taskForm.id,
                     userId: this.currentUserID,
                     title: this.taskForm.title,

@@ -26,7 +26,7 @@ public class UpdateTask extends Update{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String servletPath = req.getServletPath();
         switch (servletPath) {
-            case "/api/post/read/task":
+            case "/api/post/update/task":
                 update(req, resp);
         }
     }

@@ -119,9 +119,9 @@
         },
         created() {
             const userMes = JSON.parse(localStorage.getItem('userMes'));
-            this.readAll();
             this.currentUserAccount = userMes.userAccount;
             this.currentUserID = userMes.userID;
+            this.readAll();
         },
         methods: {
             openModal(postId) {

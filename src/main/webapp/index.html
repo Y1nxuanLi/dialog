@@ -229,8 +229,14 @@
                             // localStorage.setItem('posts',JSON.stringify(response.data));
 
                         } else if (typeof response.data === 'object') {
-                            console.log("Object post:", this.posts);
+                            console.log("Object post:");
                             this.posts = Object.values(response.data);
+                            console.log(this.posts);
+                            console.log("All posts:", this.posts);
+                            console.log("posts.length:",posts.length);
+                            console.log("post.title:",post.title);
+                            console.log("post.createTime:",post.createTime);
+                            console.log("post.id:",post.id);
                         } else {
                             console.error("不支持的数据类型:", response.data);
                         }

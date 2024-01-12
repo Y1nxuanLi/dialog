@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="ReadAll test v5.4.6">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="ReadAll test v5.4.7">
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -156,15 +156,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="5320000" />
-    </task>
-    <task id="LOCAL-00062" summary="Testing Home Page v4.1.4">
-      <option name="closed" value="true" />
-      <created>1704663293144</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1704663293144</updated>
+      <workItem from="1705082248653" duration="5673000" />
     </task>
     <task id="LOCAL-00063" summary="Testing Home Page v4.1.5">
       <option name="closed" value="true" />
@@ -550,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705087379681</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="ReadAll test v5.4.7">
+      <option name="closed" value="true" />
+      <created>1705087641664</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1705087641664</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,7 +568,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Home Page v5.0.2" />
     <MESSAGE value="Home Page v5.0.3" />
     <MESSAGE value="Home Page v5.1.0" />
     <MESSAGE value="Home Page v5.1.1" />
@@ -593,6 +592,7 @@
     <MESSAGE value="ReadAll test v5.4.4" />
     <MESSAGE value="ReadAll test v5.4.5" />
     <MESSAGE value="ReadAll test v5.4.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="ReadAll test v5.4.6" />
+    <MESSAGE value="ReadAll test v5.4.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="ReadAll test v5.4.7" />
   </component>
 </project>

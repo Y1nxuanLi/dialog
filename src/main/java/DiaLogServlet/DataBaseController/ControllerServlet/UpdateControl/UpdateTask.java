@@ -2,14 +2,10 @@ package DiaLogServlet.DataBaseController.ControllerServlet.UpdateControl;
 
 
 import DiaLogApp.TaskData;
-import DiaLogServlet.DataBaseController.ControllerServlet.ReadControl.Read;
 import DiaLogServlet.DataBaseController.SQLTableMethods.TaskDataSQL;
 import DiaLogServlet.ServletResponse.ErrorCode;
-import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
 import DiaLogServlet.ServletResponse.sendResponse;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
-import static DiaLogServlet.LoginServlet.UserID;
 
 
 @WebServlet(urlPatterns={"/api/post/update/task"}, loadOnStartup=1)

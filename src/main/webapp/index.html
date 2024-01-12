@@ -192,7 +192,7 @@
                 })
                     .then(response => {
                         const responseData = response.data;
-                        if (responseData.code === 0) {
+                        if (responseData.code === 200) {
                             console.log("Edit Success", response.data);
                             this.readAll();
                             this.isModalOpen = false;
@@ -256,7 +256,7 @@
                     axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/delete/task", { id: postId, userId: this.currentUserID })
                         .then(response => {
                             const responseData = response.data;
-                            if (responseData.code === 0) {
+                            if (responseData.code === 200) {
                                 console.log("Delete Success", response.data);
                                 this.readAll();
                             } else {

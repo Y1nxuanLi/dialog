@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="update v5.5.6">
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateUser.java" afterDir="false" />
-    </list>
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="update v5.5.8" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,23 +154,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="10771000" />
-    </task>
-    <task id="LOCAL-00073" summary="Testing Home Page v4.2.4">
-      <option name="closed" value="true" />
-      <created>1704668938028</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1704668938028</updated>
-    </task>
-    <task id="LOCAL-00074" summary="Testing Home Page v4.2.5">
-      <option name="closed" value="true" />
-      <created>1704670185666</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1704670185666</updated>
+      <workItem from="1705082248653" duration="11089000" />
     </task>
     <task id="LOCAL-00075" summary="Testing Home Page v4.2.6">
       <option name="closed" value="true" />
@@ -551,7 +532,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705092960492</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="update v5.5.7">
+      <option name="closed" value="true" />
+      <created>1705093037524</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1705093037524</updated>
+    </task>
+    <task id="LOCAL-00123" summary="update v5.5.8">
+      <option name="closed" value="true" />
+      <created>1705093329325</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1705093329325</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,8 +566,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Task button v5.2.6" />
-    <MESSAGE value="Add Task button v5.2.7" />
     <MESSAGE value="ReadAll test v5.2.8" />
     <MESSAGE value="ReadAll test v5.2.9" />
     <MESSAGE value="ReadAll test v5.3.0" />
@@ -594,6 +589,8 @@
     <MESSAGE value="delete-button v5.5.4" />
     <MESSAGE value="update v5.5.5" />
     <MESSAGE value="update v5.5.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="update v5.5.6" />
+    <MESSAGE value="update v5.5.7" />
+    <MESSAGE value="update v5.5.8" />
+    <option name="LAST_COMMIT_MESSAGE" value="update v5.5.8" />
   </component>
 </project>

@@ -118,6 +118,7 @@
         },
         created() {
             const userMes = JSON.parse(localStorage.getItem('userMes'));
+            this.getAll();
             this.currentUserAccount = userMes.userAccount;
             this.currentUserID = userMes.userID;
         },

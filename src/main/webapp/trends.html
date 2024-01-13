@@ -96,14 +96,14 @@
                 //title: '',
                 currentUser: null,
                 userAccount: null,
-                daydatas: [],
-				        customDateRange: [],
+                logs: [],
+				customDateRange: [],
                 createTime: '',
                 bloodSugar:'',
                 carb:'',
                 //content: '',
                 selectedOption: 'all',
-                userAccount:null,
+
 				checkedItems: ["bloodSugar","carbohydrate"],
 				}
         },
@@ -118,36 +118,30 @@
 
         },
         methods: {
-             getAll() {
-                 axios.post("http://127.0.0.1:8080/api/daydata/getByUserId", {
-                     userId: this.useMes.user_id
-                 })
-                 .then(response => {
-                     this.daydatas = Array.isArray(response.data.data) ? response.data.data : Object.values(response.data.data);
-					 
-                     this.drawChart();
-                 })
-                 .catch(error => {
-                     console.error("Error:", error);
-                 });
-             },
-     //         filterBloodSugarData() {
-				 // console.log(this.daydatas)
-				 // if(this.checkedItems.length ===2 ){
-					//  this.drawChart();
-				 // }
-				 // else if(this.checkedItems[0] === "bloodSugar")
-     //             {
-					//  this.daydatas = this.daydatas.filter(item => item.title === '碳水化合物');
-					//  this.drawChart();
-				 // }
-				 // else if(this.checkedItems[0] === "carbohydrate")
-				 // {
-					//  this.daydatas = this.daydatas.filter(item => item.title === '血糖');
-					//  this.drawChart();
-				 // }
-                 
-     //         },
+            readLog() {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/log", // Adjust the URL to your log read endpoint
+                    {
+                        userId: this.currentUserID
+                    })
+                    .then(response => {
+                        console.log("readLog Processing");
+                        if (Array.isArray(response.data.data)) {
+                            this.logs = response.data.data;
+                            console.log("All logs:", this.logs);
+
+                        } else if (typeof response.data.data === 'object') {
+                            console.log("Object log", response.data.data);
+                            this.logs = Object.values(response.data.data);
+                        } else {
+                            console.error("Unknown data type:", response.data);
+                        }
+                        this.drawChart();
+                    })
+                    .catch(error => {
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
+                    });
+            },
+
 	         changeDate(){
 				 this.drawChart();
 			 },
@@ -155,7 +149,7 @@
                  const chartContainer = document.getElementById('lineChart');
                  const chart = echarts.init(chartContainer);
                  
-                 let filteredData = this.daydatas.filter(item => {
+                 let filteredData = this.logs.filter(item => {
                      let includeItem = false;
                      const itemDate = moment(item.createTime);
                      const start = this.customDateRange ? moment(this.customDateRange[0]) : moment().startOf('day');

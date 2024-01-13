@@ -17,6 +17,13 @@ import java.util.stream.Collectors;
 
 @WebServlet(urlPatterns={"/api/post/update/user"}, loadOnStartup=1)
 public class UpdateUser extends Update {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String servletPath = req.getServletPath();
+        switch (servletPath) {
+            case "/api/post/update/user":
+                update(req, resp);
+        }
+    }
     public void update(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String jsonData = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
         Gson gson = new Gson();

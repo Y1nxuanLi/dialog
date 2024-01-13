@@ -12,7 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.stream.Collectors;
+
+import static DiaLogServlet.DataBaseController.ControllerServlet.AddControl.AddUser.LoginServlet.UserID;
 
 
 @WebServlet(urlPatterns={"/api/post/update/user"}, loadOnStartup=1)
@@ -21,17 +24,23 @@ public class UpdateUser extends Update {
         String servletPath = req.getServletPath();
         switch (servletPath) {
             case "/api/post/update/user":
-                update(req, resp);
+                try {
+                    update(req, resp);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
         }
     }
-    public void update(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void update(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
         String jsonData = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
         Gson gson = new Gson();
         UserData userData = gson.fromJson(jsonData, UserData.class);
-        System.out.println(userData.getId());
 
+        String acc = userData.getUserAccount();
+        String pswd = userData.getUserPassword();
+        int UserID = UserDataSQL.checkIdentity(acc,pswd);
 
-        if (userData != null && userData.getId() != null && !userData.getId().isEmpty()) {
+        if (userData != null && userData.getId().equals(String.valueOf(UserID))) {
             UserDataSQL.updateUser(userData);
             sendResponse.send(resp, ErrorCode.SUCCESS);
         } else {

@@ -1,5 +1,6 @@
 package DiaLogServlet.Admin;
 
+import DiaLogApp.UserData;
 import DiaLogServlet.DataBaseController.SQLTableMethods.UserDataSQL;
 
 import javax.servlet.ServletException;
@@ -23,6 +24,23 @@ public class TestServlet extends HttpServlet {
             case "/UserDataTesting":
                 resp.getWriter().write("UserLoginData Display for testing purpose: \n");
                 UserDataSQL.displayUserData(resp);
+                UserData testUserData = new UserData();
+                testUserData.setUserAccount("testUser");
+                testUserData.setUserPassword("password123");
+                testUserData.setUserConfirmedPassword("password123");
+                testUserData.setId("1");
+                testUserData.setUserName("John Doe");
+                testUserData.setAddress("123 Main St");
+                testUserData.setEmail("johndoe@example.com");
+                testUserData.setGender("Male");
+                testUserData.setDiabetesType("Type 1");
+                testUserData.setInsulinType("Rapid-Acting");
+                testUserData.setPhoneNumber("123-456-7890");
+                testUserData.setDoctorNumber("098-765-4321");
+                testUserData.setPostalCode("98765");
+
+                UserDataSQL.updateUser(testUserData);
+
                 break;
 
             default:

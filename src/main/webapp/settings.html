@@ -95,6 +95,7 @@
             return {
                 userMes: {},
                 currentUser: null,
+                currentUserAccount: null,
                 currentUserID: null,
                 editMode: true,
                 selectedGender: '',
@@ -116,6 +117,7 @@
             const userMes = JSON.parse(localStorage.getItem('userMes'));
             this.currentUser = userMes; // Assuming userMes contains all the necessary user data
             this.currentUserID = userMes.userID;
+            this.currentUserAccount = userMes.userAccount;
             this.selectedGender = this.currentUser.gender.toString()
         },
         methods: {

@@ -18,7 +18,7 @@
             <div class="nav-left">
                 <ul>
                     <li><a href="index.html">Home Page</a></li>
-                    <li><a href="logbook.html">Log</a></li>
+                    <li><a href="logbook.html">Logbook</a></li>
                     <li><a href="trends.html">Blood Sugar Trend</a></li>
                     <li><a href="settings.html">User Info</a></li>
                 </ul>
@@ -39,14 +39,14 @@
     </header>
 
     <main>
-        <section id="logbook-entries" v-if="posts.length > 0">
+        <section id="logbook-entries" v-if="tasks.length > 0">
 
             <h1>Task</h1>
             <div class="add-activity-button-container">
                 <el-button @click="openModal()">Add Task</el-button>
             </div>
 
-            <div class="entry normal" v-for="post in posts" :key="post.id">
+            <div class="entry normal" v-for="post in tasks" :key="post.id">
                 <div class="post-header">
                     <h2 class="post-title">{{ post.title }}</h2>
                     <div class="post-details">
@@ -106,7 +106,6 @@
                 currentUserAccount:null,
                 currentUserID: null,
                 title: '',
-                posts: [],
                 tasks: [],
                 isModalOpen: false,
                 createTime: '',
@@ -130,18 +129,18 @@
             this.readAll();
         },
         methods: {
-            openModal(postId) {
+            openModal(taskId) {
                 this.isModalOpen = true;
-                if (postId) {
-                    const selectedPost = this.posts.find(post => post.id === postId);
-                    //nCallback Function: The callback function here is (post => post.id === postId).
-                    // For each post in the this.posts array, it checks whether post.id is equal to postId.
-                    // selectedPost: This is the variable where the result of the find operation is stored.
-                    // If a post with an ID matching postId is found in the this.posts array, selectedPost will be that post object.
-                    // If no matching post is found, selectedPost will be undefined.
+                if (taskId) {
+                    const selectedTask = this.tasks.find(task => task.id === taskId);
+                    //nCallback Function: The callback function here is (task => task.id === taskId).
+                    // For each task in the this.tasks array, it checks whether task.id is equal to taskId.
+                    // selectedTask: This is the variable where the result of the find operation is stored.
+                    // If a task with an ID matching taskId is found in the this.tasks array, selectedTask will be that task object.
+                    // If no matching task is found, selectedTask will be undefined.
 
-                    if (selectedPost) {
-                        this.setTaskForm(selectedPost);
+                    if (selectedTask) {
+                        this.setTaskForm(selectedTask);
                     }
                 } else {
                     this.resetTaskForm();
@@ -229,12 +228,12 @@
                     .then(response => {
                         console.log("readAll Processing");
                         if (Array.isArray(response.data.data)) {
-                            this.posts = response.data.data;
-                            console.log("All posts:", this.posts);
+                            this.tasks = response.data.data;
+                            console.log("All tasks:", this.tasks);
 
                         } else if (typeof response.data.data === 'object') {
                             console.log("Object post", response.data.data);
-                            this.posts = Object.values(response.data.data);
+                            this.tasks = Object.values(response.data.data);
                         } else {
                             console.error("Unknown data type:", response.data);
                         }
@@ -244,13 +243,13 @@
                     });
             },
 
-            deleteTask(postId) {
+            deleteTask(taskId) {
                 this.$confirm('Are you sure you want to delete this task?', 'Notification', {
                     confirmButtonText: 'sure',
                     cancelButtonText: 'cancel',
                     type: 'warning'
                 }).then(() => {
-                    axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/delete/task", { id: postId, userId: this.currentUserID })
+                    axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/delete/task", { id: taskId, userId: this.currentUserID })
                         .then(response => {
                             const responseData = response.data;
                             if (responseData.code === 200) {
@@ -282,15 +281,15 @@
                 const seconds = String(now.getSeconds()).padStart(2, '0');
                 return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
             },
-            setTaskForm(selectedPost){
-                this.taskForm.id = selectedPost.id;
-                this.taskForm.title = selectedPost.title;
-                this.taskForm.content = selectedPost.content;
-                this.taskForm.userId = selectedPost.userId;
-                this.taskForm.createTime = selectedPost.createTime;
-                this.taskForm.updateTime = selectedPost.updateTime;
-                this.taskForm.dueTime = selectedPost.dueTime;
-                this.taskForm.notification = selectedPost.notification;
+            setTaskForm(selectedTask){
+                this.taskForm.id = selectedTask.id;
+                this.taskForm.title = selectedTask.title;
+                this.taskForm.content = selectedTask.content;
+                this.taskForm.userId = selectedTask.userId;
+                this.taskForm.createTime = selectedTask.createTime;
+                this.taskForm.updateTime = selectedTask.updateTime;
+                this.taskForm.dueTime = selectedTask.dueTime;
+                this.taskForm.notification = selectedTask.notification;
             },
             resetTaskForm(){
                 this.taskForm.title = '';

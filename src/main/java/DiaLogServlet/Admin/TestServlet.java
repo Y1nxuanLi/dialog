@@ -1,4 +1,4 @@
-package DiaLogServlet;
+package DiaLogServlet.Admin;
 
 import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
 import DiaLogServlet.ServletResponse.ErrorCode;
@@ -24,37 +24,10 @@ public class TestServlet extends HttpServlet {
         UserLoginDataSQL.createTable();
         switch (servletPath) {
 
-            case "/home":
-                resp.getWriter().write("Welcome to the home page! ");
-
-                int testUserID = 1; // Example user ID
-                String testTitle = "Test Task";
-                String testContent = "This is a test task content.";
-                LocalDateTime testCreateTime = LocalDateTime.now();
-                LocalDateTime testUpdateTime = null; // Assuming update time can be null
-                LocalDateTime testDueTime = LocalDateTime.now().plusDays(7); // Example due date, 7 days from now
-                int testNotification = 1;
-
-                break;
             case "/UserDataTesting":
                 resp.getWriter().write("UserLoginData Display for testing purpose: \n");
                 UserLoginDataSQL.displayUserData(resp);
                 break;
-            case "/admin":
-                resp.getWriter().write("Add admin data");
-                try {
-                    int UserID = UserLoginDataSQL.checkIdentity("Admin","1234567890");
-                    if (UserID == 0){
-                        UserLoginDataSQL.insertData("Admin","1234567890");
-                        sendResponse.send(resp, ErrorCode.SUCCESS);
-                    }
-                    else{
-                        sendResponse.send(resp, ErrorCode.USER_EXIST);
-                    }
-
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
 
             default:
                 resp.getWriter().write("404 Not Found");

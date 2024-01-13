@@ -1,8 +1,7 @@
-package DiaLogServlet;
+package DiaLogServlet.Admin;
 
-import DiaLogServlet.DataBaseController.SQLTableMethods.TaskDataSQL;
+import DiaLogServlet.DataBaseController.SQLTableMethods.LogDataSQL;
 import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
-import com.google.gson.JsonArray;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,26 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.time.LocalDateTime;
 
 
-@WebServlet(urlPatterns={"/TaskDataTesting"}, loadOnStartup=1)
-public class TestServlet2 extends HttpServlet {
+@WebServlet(urlPatterns={"/home", "/admin"}, loadOnStartup=1)
+public class TestServlet3 extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         String servletPath = req.getServletPath();
-        TaskDataSQL.createTable();
+        UserLoginDataSQL.createTable();
         switch (servletPath) {
 
-            case "/TaskDataTesting":
-                resp.getWriter().write("TaskLoginData Display for testing purpose: \n");
-                TaskDataSQL.displayData(resp);
-                JsonArray tasksArray = TaskDataSQL.readAllTask(15);
-                resp.getWriter().write(String.valueOf(tasksArray));
-                TaskDataSQL.updateTask(20, 16, "title", "content", "createTime", "updateTime", "dueTime", 0);
+            case "/LogDataTesting":
+                resp.getWriter().write("LogData Display for testing purpose: \n");
+                LogDataSQL.displayLogData(resp);
+//                JsonArray tasksArray = TaskDataSQL.readAllTask(15);
+//                resp.getWriter().write(String.valueOf(tasksArray));
+//                TaskDataSQL.updateTask(20, 16, "title", "content", "createTime", "updateTime", "dueTime", 0);
                 break;
 
             default:
@@ -38,6 +35,7 @@ public class TestServlet2 extends HttpServlet {
                 break;
         }
     }
+
 
 }
 

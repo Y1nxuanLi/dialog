@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日常记录</title>
-    <link rel="stylesheet" type="text/css" href="logbook.css">
+    <title>Logbook</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -18,40 +18,45 @@
         <nav>
             <div class="nav-left">
                 <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="logbook.html">血糖记录</a></li>
-                    <li><a href="trends.html">血糖趋势</a></li>
-                    <li><a href="settings.html">个人信息</a></li>
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="logbook.html">Logbook</a></li>
+                    <li><a href="trends.html">Blood Sugar Trend</a></li>
+                    <li><a href="settings.html">User Info</a></li>
 
                 </ul>
             </div>
             <div class="nav-right">
-                <ul v-if="currentUser">
-                    <li><span style="line-height: 37px">{{ currentUser.userAccount }}</span></li>
+                <ul v-if="currentUserID">
+                    <li><span style="line-height: 37px">"Welcome"</span></li>
+                    <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
+                    <li><span style="line-height: 37px">{{ currentUserAccount }}</span></li>
+                    <el-button @click="logout()">Logout</el-button>
                 </ul>
                 <ul v-else>
-                    <!-- 渲染登录/注册链接 -->
-                    <li><a href="login.html">登录</a></li>
-                    <li><a href="register.html">注册</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+
     <div class="add-activity-button-container">
-        <el-button @click="openModal()">添加记录</el-button>
+        <el-button @click="openModal()">Add Task</el-button>
     </div>
 
     <main>
         <el-table :data="daydatas" class="table" style="width: 90%" stripe border>
             <el-table-column prop="id" label="ID" width="80"></el-table-column>
-            <el-table-column prop="createTime" label="日期" :formatter="formatDate" width="180"></el-table-column>
-            <el-table-column prop="title" label="名称"></el-table-column>
-            <el-table-column prop="content" label="数值"></el-table-column>
-            <el-table-column prop="createTime" label="记录时间" :formatter="formatTime"></el-table-column>
-            <el-table-column label="操作">
+            <el-table-column prop="createTime" label="Date" :formatter="formatDate" width="180"></el-table-column>
+            <el-table-column prop="title" label="Blood sugar"></el-table-column>
+            <el-table-column prop="content" label="Insulin"></el-table-column>
+            <el-table-column prop="content" label="Carbs"></el-table-column>
+            <el-table-column prop="Note" label="Note" :formatter="formatTime"></el-table-column>
+            <el-table-column prop="createTime" label="Time" :formatter="formatTime"></el-table-column>
+            <el-table-column label="Button">
                 <template slot-scope="scope">
-                    <el-button type="text" @click="deleteRecord(scope.row.id)">删除</el-button>
-                    <el-button type="text" @click="openModal(scope.row.id)">修改</el-button>
+                    <el-button type="text" @click="deleteRecord(scope.row.id)">delete</el-button>
+                    <el-button type="text" @click="openModal(scope.row.id)">edit</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -60,22 +65,25 @@
 
     <el-dialog
             :visible.sync="isModalOpen"
-            title="添加记录"
+            title="Add New Entry"
             width="30%"
             :before-close="closeModal">
-        <el-form ref="taskForm" :model="taskForm" label-width="80px">
+        <el-form ref="logForm" :model="logForm" label-width="80px">
             <el-form-item label="名称" prop="title">
-                <el-input v-model="taskForm.title" placeholder="请输入名称，如：血糖"></el-input>
+                <el-select v-model="logForm.title" placeholder="请选择">
+                    <el-option label="血糖" value="血糖"></el-option>
+                    <el-option label="碳水化合物" value="碳水化合物"></el-option>
+                </el-select>
             </el-form-item>
             <el-form-item label="数值" prop="content">
-                <el-input type="textarea" v-model="taskForm.content" placeholder="请输入值，如：100mg/dL"></el-input>
+                <el-input type="textarea" v-model="logForm.content" placeholder="请输入值"></el-input>
             </el-form-item>
         </el-form>
 
         <span slot="footer" class="dialog-footer">
             <el-button @click="closeModal">取消</el-button>
-            <el-button type="primary" @click="taskForm.id ? updateTask() : createTask()">
-                {{ taskForm.id ? '修改记录' : '创建记录' }}
+            <el-button type="primary" @click="logForm.id ? updateTask() : createTask()">
+                {{ logForm.id ? '修改记录' : '创建记录' }}
             </el-button>
         </span>
     </el-dialog>
@@ -91,14 +99,16 @@
         el: '#logbook',
         data() {
             return {
-                useMes: JSON.parse(localStorage.getItem('userMes')),
+                userMes: {},
+                currentUserAccount:null,
+                currentUserID: null,
                 title: '',
                 currentUser: null,
                 daydatas: [],
                 isModalOpen: false,
                 createTime: '',
                 content: '',
-                taskForm: {
+                logForm: {
                     id: '',
                     title: '',
                     content: ''
@@ -123,21 +133,21 @@
                 if (dadataId !== undefined && dadataId !== null) {
                     const selectedRecord = this.daydatas.find(record => record.id === dadataId);
                     if (selectedRecord) {
-                        this.taskForm.id = selectedRecord.id;
-                        this.taskForm.title = selectedRecord.title;
-                        this.taskForm.content = selectedRecord.content;
+                        this.logForm.id = selectedRecord.id;
+                        this.logForm.title = selectedRecord.title;
+                        this.logForm.content = selectedRecord.content;
                     }
                 } else {
-                    this.taskForm.id = '';
-                    this.taskForm.title = '';
-                    this.taskForm.content = '';
+                    this.logForm.id = '';
+                    this.logForm.title = '';
+                    this.logForm.content = '';
                 }
             },
             createTask() {
                 axios.post("http://35.179.12.19:7529/api/daydata/add",
                     {
-                        title: this.taskForm.title,
-                        content: this.taskForm.content,
+                        title: this.logForm.title,
+                        content: this.logForm.content,
                         userId: this.useMes.data.id
                     })
                     .then(response => {
@@ -146,8 +156,8 @@
                             console.log("添加成功", response.data);
                             this.getAll();
                             this.isModalOpen = false;
-                            this.taskForm.title = '';
-                            this.taskForm.content = '';
+                            this.logForm.title = '';
+                            this.logForm.content = '';
                         } else {
                             alert(responseData.message);
                         }
@@ -159,9 +169,9 @@
             },
             updateTask() {
                 axios.post("http://35.179.12.19:7529/api/daydata/update", {
-                    id: this.taskForm.id,
-                    title: this.taskForm.title,
-                    content: this.taskForm.content
+                    id: this.logForm.id,
+                    title: this.logForm.title,
+                    content: this.logForm.content
                 })
                     .then(response => {
                         const responseData = response.data;
@@ -169,9 +179,9 @@
                             console.log("修改成功", response.data);
                             this.getAll();
                             this.isModalOpen = false;
-                            this.taskForm.id = '';
-                            this.taskForm.title = '';
-                            this.taskForm.content = '';
+                            this.logForm.id = '';
+                            this.logForm.title = '';
+                            this.logForm.content = '';
                         } else {
                             alert(responseData.message);
                         }
@@ -187,8 +197,8 @@
                     type: 'info'
                 }).then(() => {
                     this.isModalOpen = false;
-                    this.taskForm.title = '';
-                    this.taskForm.content = '';
+                    this.logForm.title = '';
+                    this.logForm.content = '';
                 }).catch(() => {
                 });
             },

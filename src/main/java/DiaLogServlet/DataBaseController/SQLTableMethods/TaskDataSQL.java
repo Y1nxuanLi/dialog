@@ -42,10 +42,8 @@ public class TaskDataSQL {
         }
     }
 
-    LocalDateTime currentDateTime = LocalDateTime.now();
     public static void insertData(int userID, String title, String content, String createTime, String updateTime, String dueTime, int notification) {
         String sqlInsert = "INSERT INTO taskData (userID, title, content, createTime, updateTime, dueTime, notification) VALUES (?,?,?,?,?,?,?);";
-        System.out.println("Inserting Data table.");
         System.out.println("Inserting Data into taskData table.");
 
         try (Connection conn = DatabaseConnector.getConnection();

@@ -1,8 +1,6 @@
 package DiaLogServlet.Admin;
 
 import DiaLogServlet.DataBaseController.SQLTableMethods.LogDataSQL;
-import DiaLogServlet.DataBaseController.SQLTableMethods.TaskDataSQL;
-import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
 import com.google.gson.JsonArray;
 
 import javax.servlet.ServletException;
@@ -20,7 +18,7 @@ public class TestServlet3 extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         String servletPath = req.getServletPath();
-        UserLoginDataSQL.createTable();
+        LogDataSQL.createTable();
         switch (servletPath) {
 
             case "/LogDataTesting":

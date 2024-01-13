@@ -1,6 +1,7 @@
 package DiaLogServlet.DataBaseController.ControllerServlet.ReadControl;
 import DiaLogApp.LogData;
 import DiaLogServlet.DataBaseController.SQLTableMethods.LogDataSQL;
+import DiaLogServlet.DataBaseController.SQLTableMethods.TaskDataSQL;
 import DiaLogServlet.ServletResponse.ErrorCode;
 import DiaLogServlet.ServletResponse.sendResponse;
 import com.google.gson.Gson;
@@ -27,15 +28,15 @@ public class ReadLog extends Read {
         Gson gson = new Gson();
         LogData log = gson.fromJson(jsonData, LogData.class);
 
-        int logID = log.getId();
         int userID = log.getUserId();
 
-        if (userID != 0 && logID != 0) {
+        if (userID != 0) {
             JsonArray jsonDataArray = LogDataSQL.readAllLogs(userID); // Assuming readAllLogs method returns JsonArray
             sendResponse.send(resp, ErrorCode.SUCCESS, jsonDataArray);
         } else {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }
+
     }
 
 }

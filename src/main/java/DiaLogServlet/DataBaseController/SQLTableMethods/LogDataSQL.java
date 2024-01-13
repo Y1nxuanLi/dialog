@@ -22,7 +22,7 @@ public class LogDataSQL {
     public static void createTable() {
 
         System.out.println("Creating table.");
-        String sqlCreate = "CREATE TABLE IF NOT EXISTS logData (" +
+        String sqlCreate = "CREATE TABLE IF NOT EXISTS logdata (" +
                 // Simple
                 "id SERIAL PRIMARY KEY, " +
                 "userID INT NOT NULL, " +
@@ -43,7 +43,7 @@ public class LogDataSQL {
                 //Intensive
                 "exerciseType VARCHAR(128), " +
                 "exerciseDuration VARCHAR(128), " +
-                "insulinType VARCHAR(128); ";
+                "insulinType VARCHAR(128)); ";
 
         try (Connection conn = DatabaseConnector.getConnection();
              Statement stmt = conn.createStatement()) {

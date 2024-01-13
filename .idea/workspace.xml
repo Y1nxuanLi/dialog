@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="merge v5.12">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logbook22.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook22.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logbook22.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook22.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.css" afterDir="false" />
-    </list>
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="merge v5.12.2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +42,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Y1nxuanLi"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="faf6166f-58e4-49e6-8910-675cd9d3476d" />
+        <option name="url" value="https://github.com/Y1nxuanLi/dialog.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -163,15 +172,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="74255000" />
-    </task>
-    <task id="LOCAL-00161" summary="LogData v5.8.20">
-      <option name="closed" value="true" />
-      <created>1705143105053</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1705143105053</updated>
+      <workItem from="1705082248653" duration="74710000" />
     </task>
     <task id="LOCAL-00162" summary="LogData v5.8.21">
       <option name="closed" value="true" />
@@ -557,7 +558,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705180147635</updated>
     </task>
-    <option name="localTasksCounter" value="210" />
+    <task id="LOCAL-00210" summary="merge v5.12.2">
+      <option name="closed" value="true" />
+      <created>1705181137336</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1705181137336</updated>
+    </task>
+    <option name="localTasksCounter" value="211" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -575,7 +584,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Register troubleshoot v5.10.8" />
     <MESSAGE value="Register troubleshoot v5.10.9" />
     <MESSAGE value="Register troubleshoot v5.10.10" />
     <MESSAGE value="Register troubleshoot v5.10.11" />
@@ -600,6 +608,7 @@
     <MESSAGE value="logbook html fix v5.11.11" />
     <MESSAGE value="logbook html fix v5.11.12" />
     <MESSAGE value="merge v5.12" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge v5.12" />
+    <MESSAGE value="merge v5.12.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge v5.12.2" />
   </component>
 </project>

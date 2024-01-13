@@ -66,7 +66,7 @@ nav {
 .entry {
     padding: 10px;
     border-bottom: 1px solid #eaeaea;
-    overflow: auto; /* Adds a scrollbar if the content overflows */
+    overflow: auto;
 }
 
 .entry:last-child {
@@ -122,7 +122,7 @@ footer {
 }
 
 .add-activity-button-container {
-    text-align: right;
+    text-align: center;
     margin: 20px 0;
 }
 

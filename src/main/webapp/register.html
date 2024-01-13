@@ -66,10 +66,14 @@
                         const responseData = response.data;
                         if (responseData.code === 200) {
                             console.log("Register Success", response.data);
-                            window.location.href = "login.html";
-                        } else {
-                            alert("Register Failed");
+                            // window.location.href = "login.html";
+                        } else if (responseData.code === 40103) {
                             alert(responseData.message);
+                            console.log(responseData.data);
+                            console.log(responseData.message);
+                        }
+                        else {
+                            alert("Register Failed");
                             console.log(responseData.data);
                             console.log(responseData.message);
                         }

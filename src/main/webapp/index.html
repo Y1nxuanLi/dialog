@@ -83,7 +83,7 @@
         </el-form>
 
         <span slot="footer" class="dialog-footer">
-            <el-button @click="closeModal">cancel</el-button>
+            <el-button @click="closeModal">Cancel</el-button>
             <el-button type="primary" @click="taskForm.id ? updateTask() : createTask()">
                 {{ taskForm.id ? 'Edit Task' : 'Create Task' }}
             </el-button>
@@ -212,7 +212,7 @@
             closeModal() {
                 this.$confirm('Are you sure you want to close this？', 'hint', {
                     confirmButtonText: 'Sure',
-                    cancelButtonText: 'cancel',
+                    cancelButtonText: 'Cancel',
                     type: 'info'
                 }).then(() => {
                     this.isModalOpen = false;
@@ -245,8 +245,8 @@
 
             deleteTask(taskId) {
                 this.$confirm('Are you sure you want to delete this task?', 'Notification', {
-                    confirmButtonText: 'sure',
-                    cancelButtonText: 'cancel',
+                    confirmButtonText: 'Sure',
+                    cancelButtonText: 'Cancel',
                     type: 'warning'
                 }).then(() => {
                     axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/delete/task", { id: taskId, userId: this.currentUserID })

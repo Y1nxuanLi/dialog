@@ -89,7 +89,7 @@
     </el-dialog>
 
     <footer>
-        <p>@2024，血糖系统</p>
+        <p>@2024，DiaLog</p>
     </footer>
 </div>
 
@@ -110,130 +110,188 @@
                 content: '',
                 logForm: {
                     id: '',
-                    title: '',
-                    content: ''
+                    userId: '',
+                    bloodSugar: '',
+                    notes: '',
+                    createTime: '', // Format these dates as 'YYYY-MM-DD HH:mm:ss'
+                    updateTime: '',
+                    logType: 0,
+                    carb: '',
+                    mealDescription: '',
+                    insulinDose: '',
+                    medication: '',
+                    exerciseDescription: '',
+                    exerciseType: '',
+                    exerciseDuration: '',
+                    insulinType: '',
                 },
             }
         },
         created() {
-            this.getAll();
-            this.currentUser = this.useMes.data
+            const userMes = JSON.parse(localStorage.getItem('userMes'));
+            this.currentUserAccount = userMes.userAccount;
+            this.currentUserID = userMes.userID;
+            this.readLog();
         },
         methods: {
-            formatDate(row) {
-                // 格式化日期
-                return moment(row.createTime).format('YYYY年MM月DD日');
-            },
-            formatTime(row) {
-                // 格式化时间
-                return moment(row.createTime).format('HH时mm分ss秒');
-            },
-            openModal(dadataId) {
+            openModal(logId) {
                 this.isModalOpen = true;
-                if (dadataId !== undefined && dadataId !== null) {
-                    const selectedRecord = this.daydatas.find(record => record.id === dadataId);
-                    if (selectedRecord) {
-                        this.logForm.id = selectedRecord.id;
-                        this.logForm.title = selectedRecord.title;
-                        this.logForm.content = selectedRecord.content;
+                if (logId) {
+                    const selectedLog = this.logs.find(log => log.id === logId);
+                    if (selectedLog) {
+                        this.setLogForm(selectedLog);
                     }
                 } else {
-                    this.logForm.id = '';
-                    this.logForm.title = '';
-                    this.logForm.content = '';
+                    this.resetLogForm();
                 }
             },
-            createTask() {
-                axios.post("http://35.179.12.19:7529/api/daydata/add",
+            createLog() {
+                const createTime = this.formatCurrentDateTime();
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/add/log", // Adjust the URL to your log endpoint
                     {
-                        title: this.logForm.title,
-                        content: this.logForm.content,
-                        userId: this.useMes.data.id
+                        userId: this.currentUserID,
+                        bloodSugar: this.logForm.bloodSugar,
+                        notes: this.logForm.notes,
+                        createTime: createTime, // Format these dates as 'YYYY-MM-DD HH:mm:ss'
+                        updateTime: null,
+                        logType: this.logForm.logType,
+                        carb: this.logForm.carb,
+                        mealDescription: this.logForm.mealDescription,
+                        insulinDose: this.logForm.insulinDose,
+                        medication: this.logForm.medication,
+                        exerciseDescription: this.logForm.exerciseDescription,
+                        exerciseType: this.logForm.exerciseType,
+                        exerciseDuration: this.logForm.exerciseDuration,
+                        insulinType: this.logForm.insulinType
                     })
                     .then(response => {
                         const responseData = response.data;
-                        if (responseData.code === 0) {
-                            console.log("添加成功", response.data);
-                            this.getAll();
+                        console.log("responseData:", responseData);
+                        if (responseData.code === 200) {
+                            console.log("Log Creation Success", responseData);
+                            this.readLog(); // Adjust to your method for reading logs
                             this.isModalOpen = false;
-                            this.logForm.title = '';
-                            this.logForm.content = '';
+                            this.resetLogForm(); // Adjust to your method for resetting the log form
+
                         } else {
+                            console.log("Log Creation Failed", responseData);
                             alert(responseData.message);
                         }
                     })
                     .catch(error => {
-                        console.error("检索时发生错误:", error);
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
                     });
-
             },
-            updateTask() {
-                axios.post("http://35.179.12.19:7529/api/daydata/update", {
+
+            updateLog() {
+                const updateTime = this.formatCurrentDateTime();
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/update/log", { // Adjust the URL to your log update endpoint
                     id: this.logForm.id,
-                    title: this.logForm.title,
-                    content: this.logForm.content
+                    userId: this.currentUserID,
+                    bloodSugar: this.logForm.bloodSugar,
+                    notes: this.logForm.notes,
+                    createTime: this.logForm.createTime, // Format these dates as 'YYYY-MM-DD HH:mm:ss'
+                    updateTime: updateTime, // or leave them as null if not set
+                    logType: this.logForm.logType,
+                    carb: this.logForm.carb,
+                    mealDescription: this.logForm.mealDescription,
+                    insulinDose: this.logForm.insulinDose,
+                    medication: this.logForm.medication,
+                    exerciseDescription: this.logForm.exerciseDescription,
+                    exerciseType: this.logForm.exerciseType,
+                    exerciseDuration: this.logForm.exerciseDuration,
+                    insulinType: this.logForm.insulinType
                 })
                     .then(response => {
                         const responseData = response.data;
-                        if (responseData.code === 0) {
-                            console.log("修改成功", response.data);
-                            this.getAll();
+                        if (responseData.code === 200) {
+                            console.log("Log Update Success", response.data);
+                            this.readLog(); // Adjust to your method for reading logs
                             this.isModalOpen = false;
-                            this.logForm.id = '';
-                            this.logForm.title = '';
-                            this.logForm.content = '';
+                            this.resetLogForm(); // Adjust to your method for resetting the log form
                         } else {
                             alert(responseData.message);
                         }
                     })
                     .catch(error => {
-                        console.error("检索时发生错误:", error);
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
                     });
             },
+
             closeModal() {
-                this.$confirm('确定要取消吗？', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                this.$confirm('Are you sure you want to close this？', 'hint', {
+                    confirmButtonText: 'Sure',
+                    cancelButtonText: 'cancel',
                     type: 'info'
                 }).then(() => {
                     this.isModalOpen = false;
-                    this.logForm.title = '';
-                    this.logForm.content = '';
+                    this.resetTaskForm();
                 }).catch(() => {
                 });
             },
-            getAll() {
-                axios.post("http://35.179.12.19:7529/api/daydata/getByUserId",
+
+            readLog() {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/log", // Adjust the URL to your log read endpoint
                     {
-                        userId: this.useMes.data.id
+                        userId: this.currentUserID
                     })
                     .then(response => {
+                        console.log("readLog Processing");
                         if (Array.isArray(response.data.data)) {
-                            this.daydatas = response.data.data;
+                            this.logs = response.data.data;
+                            console.log("All logs:", this.logs);
+
                         } else if (typeof response.data.data === 'object') {
-                            this.daydatas = Object.values(response.data.data);
+                            console.log("Object log", response.data.data);
+                            this.logs = Object.values(response.data.data);
                         } else {
-                            console.error("不支持的数据类型:", response.data.data);
+                            console.error("Unknown data type:", response.data);
                         }
                     })
                     .catch(error => {
-                        console.error("检索时发生错误:", error);
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
                     });
             },
-            deleteRecord(id) {
-                if (window.confirm('确定删除吗？')) {
-                    axios.post('http://35.179.12.19:7529/api/daydata/delete', { id: id })
+
+            deleteLog(logId) {
+                this.$confirm('Are you sure you want to delete this log?', 'Notification', {
+                    confirmButtonText: 'Sure',
+                    cancelButtonText: 'Cancel',
+                    type: 'warning'
+                }).then(() => {
+                    axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/delete/log", { id: logId, userId: this.currentUserID }) // Adjust the URL to your log delete endpoint
                         .then(response => {
-                            if (response.data) {
-                                this.getAll();
+                            const responseData = response.data;
+                            if (responseData.code === 200) {
+                                console.log("Delete Success", response.data);
+                                this.readLog(); // Adjust to your method for reading logs
                             } else {
-                                console.error('删除失败，未返回有效数据');
+                                alert(responseData.message);
                             }
                         })
                         .catch(error => {
-                            console.error('删除记录时出错：', error);
+                            console.error("Delete Failed:", error);
                         });
-                }},
+                }).catch(() => {
+                    // Delete cancel
+                });
+            },
+
+            logout(){
+                localStorage.clear();
+                // window.location.href = "login.html";
+                window.location.replace('login.html');
+            },
+            formatCurrentDateTime() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0'); // January is 0!
+                const day = String(now.getDate()).padStart(2, '0');
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            },
         },
     })
 

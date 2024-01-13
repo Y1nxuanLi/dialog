@@ -60,8 +60,8 @@
                     doctorNumber: '',
                     postalCode: '',
                 };
-                axios.post("http://localhost:8080/dialog/register", requestData)
-                // axios.post("https://dialog-1d1125195912.herokuapp.com/register", requestData)
+                // axios.post("http://localhost:8080/dialog/register", requestData)
+                axios.post("https://dialog-1d1125195912.herokuapp.com/register", requestData)
                     .then(response => {
                         const responseData = response.data;
                         if (responseData.code === 200) {

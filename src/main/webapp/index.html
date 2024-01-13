@@ -126,7 +126,7 @@
             const userMes = JSON.parse(localStorage.getItem('userMes'));
             this.currentUserAccount = userMes.userAccount;
             this.currentUserID = userMes.userID;
-            this.readAll();
+            this.readTask();
         },
         methods: {
             openModal(taskId) {
@@ -168,7 +168,7 @@
                         console.log("responseData.message:",responseData.data);
                         if (responseData.code === 200) {
                             console.log("Task Log Success", response.data);
-                            this.readAll();
+                            this.readTask();
                             this.isModalOpen = false;
                             this.resetTaskForm();
 
@@ -198,7 +198,7 @@
                         const responseData = response.data;
                         if (responseData.code === 200) {
                             console.log("Edit Success", response.data);
-                            this.readAll();
+                            this.readTask();
                             this.isModalOpen = false;
                             this.resetTaskForm();
                         } else {
@@ -220,13 +220,13 @@
                 }).catch(() => {
                 });
             },
-            readAll() {
-                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/all",
+            readTask() {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/task",
                     {
                         userId: this.currentUserID
                     })
                     .then(response => {
-                        console.log("readAll Processing");
+                        console.log("readTask Processing");
                         if (Array.isArray(response.data.data)) {
                             this.tasks = response.data.data;
                             console.log("All tasks:", this.tasks);
@@ -254,7 +254,7 @@
                             const responseData = response.data;
                             if (responseData.code === 200) {
                                 console.log("Delete Success", response.data);
-                                this.readAll();
+                                this.readTask();
                             } else {
                                 alert(responseData.message);
                             }

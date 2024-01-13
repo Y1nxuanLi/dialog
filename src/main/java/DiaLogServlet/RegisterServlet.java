@@ -45,7 +45,7 @@ public class RegisterServlet extends HttpServlet {
             case "/register":
                 String jsonData2 = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
                 Gson gson2 = new Gson();
-                UserRegisterData user2 = gson2.fromJson(jsonData2, UserRegisterData.class);
+                UserLoginData user2 = gson2.fromJson(jsonData2, UserLoginData.class);
 
                 String userAccountRegister = user2.getUserAccount();
                 String userPasswordRegister = user2.getUserPassword();

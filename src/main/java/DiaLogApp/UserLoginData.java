@@ -4,6 +4,9 @@ public class UserLoginData {
     private String userAccount;
     private String userPassword;
 
+    private String userConfirmedPassword;
+
+
     // Getters and setters
     public String getUserAccount() {
         return userAccount;
@@ -21,4 +24,11 @@ public class UserLoginData {
         this.userPassword = userPassword;
     }
 
+    public String getUserConfirmedPassword() {
+        return userConfirmedPassword;
+    }
+
+    public void setUserConfirmedPassword(String userConfirmedPassword) {
+        this.userConfirmedPassword = userConfirmedPassword;
+    }
 }

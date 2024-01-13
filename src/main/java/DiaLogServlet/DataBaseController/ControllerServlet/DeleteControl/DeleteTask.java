@@ -2,7 +2,6 @@ package DiaLogServlet.DataBaseController.ControllerServlet.DeleteControl;
 
 import DiaLogApp.TaskData;
 import DiaLogServlet.DataBaseController.SQLTableMethods.TaskDataSQL;
-import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
 import DiaLogServlet.ServletResponse.ErrorCode;
 import DiaLogServlet.ServletResponse.sendResponse;
 import com.google.gson.Gson;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
-import static DiaLogServlet.LoginServlet.UserID;
 
 @WebServlet(urlPatterns={"/api/post/delete/task"}, loadOnStartup=1)
 public class DeleteTask extends Delete{

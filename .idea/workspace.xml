@@ -4,19 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="page layout adjusting v5.7.7">
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/AdminLogData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/AdminTaskData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/AdminUserData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/LogDataSQL.java" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="LogData v5.8.0">
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/LogData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateLog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/UserRegisterData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/UserRegisterData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TestServlet3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/UserLoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/UserLoginData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/UserRegisterData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/DeleteControl/DeleteLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/DeleteControl/DeleteLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/LogDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/LogDataSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/RegisterServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/logbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,15 +169,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="25784000" />
-    </task>
-    <task id="LOCAL-00092" summary="Add Task button v5.2.3">
-      <option name="closed" value="true" />
-      <created>1704719963382</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1704719963382</updated>
+      <workItem from="1705082248653" duration="27103000" />
     </task>
     <task id="LOCAL-00093" summary="Add Task button v5.2.4">
       <option name="closed" value="true" />
@@ -561,7 +555,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705102664693</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="LogData v5.8.0">
+      <option name="closed" value="true" />
+      <created>1705110932061</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1705110932061</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -579,7 +581,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update-button v5.5.1" />
     <MESSAGE value="delete-button v5.5.2" />
     <MESSAGE value="delete-button v5.5.3" />
     <MESSAGE value="delete-button v5.5.4" />
@@ -604,6 +605,7 @@
     <MESSAGE value="page layout adjusting v5.7.4" />
     <MESSAGE value="page layout adjusting v5.7.5" />
     <MESSAGE value="page layout adjusting v5.7.7" />
-    <option name="LAST_COMMIT_MESSAGE" value="page layout adjusting v5.7.7" />
+    <MESSAGE value="LogData v5.8.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="LogData v5.8.0" />
   </component>
 </project>

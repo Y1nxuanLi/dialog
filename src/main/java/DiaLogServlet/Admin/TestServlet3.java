@@ -23,7 +23,7 @@ public class TestServlet3 extends HttpServlet {
 
             case "/LogDataTesting":
                 resp.getWriter().write("LogData Display for testing purpose: \n");
-                LogDataSQL.displayLogData(resp);
+                LogDataSQL.displayData(resp);
 //                JsonArray tasksArray = TaskDataSQL.readAllTask(15);
 //                resp.getWriter().write(String.valueOf(tasksArray));
 //                TaskDataSQL.updateTask(20, 16, "title", "content", "createTime", "updateTime", "dueTime", 0);

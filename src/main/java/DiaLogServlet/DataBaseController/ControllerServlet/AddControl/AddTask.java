@@ -1,6 +1,5 @@
 package DiaLogServlet.DataBaseController.ControllerServlet.AddControl;
 
-
 import DiaLogApp.TaskData;
 import DiaLogServlet.DataBaseController.SQLTableMethods.TaskDataSQL;
 import DiaLogServlet.ServletResponse.ErrorCode;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
-import static DiaLogServlet.LoginServlet.UserID;
 
 @WebServlet(urlPatterns={"/api/post/add/task"}, loadOnStartup=1)
 public class AddTask extends Add {

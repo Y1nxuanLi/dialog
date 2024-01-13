@@ -178,7 +178,7 @@ public class LogDataSQL {
     }
 
 
-    public static void displayLogData(HttpServletResponse resp) {
+    public static void displayData(HttpServletResponse resp) {
         String sqlSelect = "SELECT * FROM logData;";
 
         try (Connection conn = DatabaseConnector.getConnection();

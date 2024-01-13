@@ -47,6 +47,5 @@ public class UpdateTask extends Update{
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }
 
-
     }
 }

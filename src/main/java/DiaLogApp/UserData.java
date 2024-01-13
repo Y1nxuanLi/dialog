@@ -1,6 +1,6 @@
 package DiaLogApp;
 
-public class UserLoginData {
+public class UserData {
     private String userAccount;
     private String userPassword;
 

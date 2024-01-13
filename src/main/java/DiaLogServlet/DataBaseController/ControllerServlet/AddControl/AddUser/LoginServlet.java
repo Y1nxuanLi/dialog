@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
             case "/login":
                 String jsonData1 = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
                 Gson gson1 = new Gson();
-                UserLoginData user1 = gson1.fromJson(jsonData1, UserLoginData.class);
+                UserData user1 = gson1.fromJson(jsonData1, UserData.class);
 
                 String userAccountLogin = user1.getUserAccount();
                 String userPasswordLogin = user1.getUserPassword();

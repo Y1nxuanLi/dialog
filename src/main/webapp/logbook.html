@@ -22,7 +22,6 @@
                     <li><a href="logbook.html">Logbook</a></li>
                     <li><a href="trends.html">Blood Sugar Trend</a></li>
                     <li><a href="settings.html">User Info</a></li>
-
                 </ul>
             </div>
             <div class="nav-right">
@@ -67,7 +66,7 @@
             :visible.sync="isModalOpen"
             title="Add New Entry"
             width="30%"
-            :before-close="closeModal">
+            :before-close="closeLogModal">
         <el-form ref="logForm" :model="logForm" label-width="100px">
             <el-form-item label="Blood Sugar" prop="bloodSugar">
                 <el-input v-model="logForm.bloodSugar" placeholder="Enter blood sugar level"></el-input>
@@ -79,7 +78,7 @@
         </el-form>
 
         <span slot="footer" class="dialog-footer">
-        <el-button @click="closeModal">Cancel</el-button>
+        <el-button @click="closeLogModal">Cancel</el-button>
         <el-button type="primary" @click="logForm.id ? updateLog() : createLog()">
             {{ logForm.id ? 'Update Log' : 'Create Log' }}
         </el-button>
@@ -143,6 +142,7 @@
                     this.resetLogForm();
                 }
             },
+
             createLog() {
                 const createTime = this.formatCurrentDateTime();
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/add/log", // Adjust the URL to your log endpoint
@@ -216,7 +216,7 @@
                     });
             },
 
-            closeModal() {
+            closeLogModal() {
                 this.$confirm('Are you sure you want to close this？', 'hint', {
                     confirmButtonText: 'Sure',
                     cancelButtonText: 'cancel',

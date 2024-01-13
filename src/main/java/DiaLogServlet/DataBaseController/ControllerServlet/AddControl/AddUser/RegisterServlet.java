@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 
@@ -45,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
             case "/register":
                 String jsonData2 = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
                 Gson gson2 = new Gson();
-                UserLoginData user2 = gson2.fromJson(jsonData2, UserLoginData.class);
+                UserData user2 = gson2.fromJson(jsonData2, UserData.class);
 
                 String userAccountRegister = user2.getUserAccount();
                 String userPasswordRegister = user2.getUserPassword();
@@ -53,9 +54,12 @@ public class RegisterServlet extends HttpServlet {
 
                 try {
                     int UserID = UserLoginDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
-                    if (UserID == 0){
+                    if (UserID == 0 && Objects.equals(userPasswordRegister, userConfirmedPassword)){
                         UserLoginDataSQL.insertData(userAccountRegister,userPasswordRegister);
                         sendResponse.send(resp, ErrorCode.SUCCESS);
+                    }
+                    else if(UserID == 0 && !Objects.equals(userPasswordRegister, userConfirmedPassword)){
+                        sendResponse.send(resp, ErrorCode.DIFFERENT_PASSWORD);
                     }
                     else{
                         sendResponse.send(resp, ErrorCode.USER_EXIST);

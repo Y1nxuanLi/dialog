@@ -18,10 +18,10 @@
         <nav>
             <div class="nav-left">
                 <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="logbook.html">血糖记录</a></li>
-                    <li><a href="trends.html">血糖趋势</a></li>
-                    <li><a href="settings.html">个人信息</a></li>
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="logbook.html">Logbook</a></li>
+                    <li><a href="trends.html">Blood Sugar Trend</a></li>
+                    <li><a href="settings.html">User Info</a></li>
                 </ul>
             </div>
             <div class="nav-right">
@@ -32,18 +32,18 @@
                     <el-button @click="logout()">Logout</el-button>
                 </ul>
                 <ul v-else>
-                    <!-- 渲染登录/注册链接 -->
-                    <li><a href="login.html">登录</a></li>
-                    <li><a href="register.html">注册</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+
     <el-card class="box-card">
         <div slot="header" class="clearfix">
-            <span>个人信息</span>
-            <el-button @click="editMode = !editMode">{{ editMode ? '编辑' : '取消编辑' }}</el-button>
-            <el-button @click="saveChanges" v-if="!editMode">保存</el-button>
+            <span>Personal Information</span>
+            <el-button @click="editMode = !editMode">{{ editMode ? 'Edit' : 'Done Editing' }}</el-button>
+            <el-button @click="saveChanges" v-if="!editMode">Save</el-button>
         </div>
         <div>
             <el-form ref="userForm" :model="currentUser" :rules="rules" label-width="80px">
@@ -62,8 +62,20 @@
                 <el-form-item label="电话号码">
                     <el-input v-model="currentUser.phoneNumber" :disabled="editMode"></el-input>
                 </el-form-item>
-                <el-form-item label="身份证号">
-                    <el-input v-model="currentUser.idCardNumber" :disabled="editMode"></el-input>
+                <el-form-item label="糖尿病类型">
+                    <el-select v-model="currentUser.diabetesType" :disabled="editMode">
+                        <el-option label="1型" value="1"></el-option>
+                        <el-option label="2型" value="2"></el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="胰岛素类型">
+                    <el-select v-model="selectedGender" :disabled="editMode">
+                        <el-option label="长期" value="5"></el-option>
+                        <el-option label="短期" value="6"></el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="电话号码">
+                    <el-input v-model="currentUser.doctorNumber" :disabled="editMode"></el-input>
                 </el-form-item>
                 <el-form-item label="邮编">
                     <el-input v-model="currentUser.postalCode" :disabled="editMode"></el-input>
@@ -81,7 +93,7 @@
         el: '#setting',
         data() {
             return {
-                useMes: JSON.parse(localStorage.getItem('userMes')),
+                userMes: {},
                 currentUser: null,
                 editMode: true,
                 selectedGender: '',
@@ -89,20 +101,24 @@
                     address: [{ required: true, message: '请输入地址', trigger: 'blur' }],
                     email: [{ required: true, message: '请输入邮箱', trigger: 'blur' }],
                     gender: [{ required: true, message: '请输入性别', trigger: 'blur' }],
-                    idCardNumber: [{ required: true, message: '请输入身份证号码', trigger: 'blur' }],
+                    diabetesType: [{ required: true, message: '糖尿病类', trigger: 'blur' }],
+                    insulinType: [{ required: true, message: '胰岛素类型', trigger: 'blur' }],
                     phoneNumber: [{ required: true, message: '请输入电话号码', trigger: 'blur' }],
+                    doctorNumber: [{ required: true, message: '请输入医生电话号码', trigger: 'blur' }],
                     postalCode: [{ required: true, message: '请输入邮编', trigger: 'blur' }],
                     userName: [{ required: true, message: '请输入名称', trigger: 'blur' }],
                 }
             }
         },
         created() {
-            this.currentUser = this.useMes.data
+            const userMes = JSON.parse(localStorage.getItem('userMes'));
+            this.currentUserAccount = userMes.userAccount;
+            this.currentUserID = userMes.userID;
             this.selectedGender = this.currentUser.gender.toString()
         },
         methods: {
             saveChanges() {
-                axios.post("http://35.179.12.19:7529/api/user/update", {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/update/user", {
                     id: this.currentUser.id,
                     address: this.currentUser.address,
                     email: this.currentUser.email,
@@ -116,8 +132,8 @@
                         const responseData = response.data;
                         if (responseData.code === 0) {
                             console.log("修改成功", response.data);
-                            this.useMes.data.gender = this.selectedGender;
-                            localStorage.setItem('userMes', JSON.stringify(this.useMes));
+                            this.userMes.data.gender = this.selectedGender;
+                            localStorage.setItem('userMes', JSON.stringify(this.userMes));
                             this.editMode = true;
                         } else {
                             alert(responseData.message);
@@ -126,6 +142,21 @@
                     .catch(error => {
                         console.error("检索时发生错误:", error);
                     });
+            },
+            logout(){
+                localStorage.clear();
+                // window.location.href = "login.html";
+                window.location.replace('login.html');
+            },
+            formatCurrentDateTime() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0'); // January is 0!
+                const day = String(now.getDate()).padStart(2, '0');
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
             }
         },
     })

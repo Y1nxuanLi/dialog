@@ -65,8 +65,10 @@ public class RegisterServlet extends HttpServlet {
                     if (UserID == 0 && Objects.equals(userPasswordRegister, userConfirmedPassword)){
                         UserDataSQL.insertData(user);
                         int new_UserID = UserDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
+                        System.out.println(new_UserID);
                         user.setUserID(new_UserID);
                         UserDataSQL.updateUser(user);
+                        System.out.println(user.getUserID());
                         sendResponse.send(resp, ErrorCode.SUCCESS);
                     }
                     else if(UserID == 0 && !Objects.equals(userPasswordRegister, userConfirmedPassword)){

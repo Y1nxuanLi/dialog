@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Register troubleshoot v5.10.4">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Register troubleshoot v5.10.6">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Crab1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/fish1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/ocean.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/ocean.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/oceanJS.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/tutrle1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddUser/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddUser/RegisterServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/UserDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/UserDataSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +96,9 @@
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog" />
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\java" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\webapp" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="DiaLogSQL" />
       <recent name="DiaLogApp" />
@@ -158,23 +169,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="54326000" />
-    </task>
-    <task id="LOCAL-00132" summary="update done v5.6.8">
-      <option name="closed" value="true" />
-      <created>1705097778664</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1705097778664</updated>
-    </task>
-    <task id="LOCAL-00133" summary="update done v5.6.9">
-      <option name="closed" value="true" />
-      <created>1705098099224</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1705098099224</updated>
+      <workItem from="1705082248653" duration="55681000" />
     </task>
     <task id="LOCAL-00134" summary="page layout adjusting v5.7.0">
       <option name="closed" value="true" />
@@ -552,7 +547,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705159323562</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="Register troubleshoot v5.10.5">
+      <option name="closed" value="true" />
+      <created>1705160139385</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1705160139385</updated>
+    </task>
+    <task id="LOCAL-00182" summary="Register troubleshoot v5.10.6">
+      <option name="closed" value="true" />
+      <created>1705160352697</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1705160352697</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,8 +581,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="LogData v5.8.14" />
-    <MESSAGE value="LogData v5.8.15" />
     <MESSAGE value="LogData v5.8.16" />
     <MESSAGE value="LogData v5.8.17" />
     <MESSAGE value="LogData v5.8.18" />
@@ -595,6 +604,8 @@
     <MESSAGE value="Register troubleshoot v5.10.2" />
     <MESSAGE value="Register troubleshoot v5.10.3" />
     <MESSAGE value="Register troubleshoot v5.10.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Register troubleshoot v5.10.4" />
+    <MESSAGE value="Register troubleshoot v5.10.5" />
+    <MESSAGE value="Register troubleshoot v5.10.6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Register troubleshoot v5.10.6" />
   </component>
 </project>

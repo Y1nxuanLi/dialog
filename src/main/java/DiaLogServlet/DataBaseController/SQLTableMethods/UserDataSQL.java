@@ -87,6 +87,7 @@ public class UserDataSQL {
 
             while (rs.next()) {
                 UserData user = new UserData();
+                user.setUserID(rs.getInt("userID"));
                 user.setId(rs.getString("id"));
                 user.setUserAccount(rs.getString("userAccount"));
                 user.setUserPassword(rs.getString("userPassword"));

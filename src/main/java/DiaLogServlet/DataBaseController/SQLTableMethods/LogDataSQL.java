@@ -22,7 +22,7 @@ public class LogDataSQL {
     public static void createTable() {
 
         System.out.println("Creating table.");
-        String sqlCreate = "CREATE TABLE IF NOT EXISTS logdata (" +
+        String sqlCreate = "CREATE TABLE IF NOT EXISTS logData (" +
                 // Simple
                 "id SERIAL PRIMARY KEY, " +
                 "userID INT NOT NULL, " +

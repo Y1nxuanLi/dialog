@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,10 +19,10 @@
         <nav>
             <div class="nav-left">
                 <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="logbook.html">血糖记录</a></li>
-                    <li><a href="trends.html">血糖趋势</a></li>
-                    <li><a href="settings.html">个人信息</a></li>
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="logbook.html">Logbook</a></li>
+                    <li><a href="trends.html">Trends</a></li>
+                    <li><a href="settings.html">Settings</a></li>
                 </ul>
             </div>
             <div class="nav-right">
@@ -30,9 +30,9 @@
                     <li><span style="line-height: 37px">{{ userAccount }}</span></li>
                 </ul>
                 <ul v-else>
-                    <!-- 渲染登录/注册链接 -->
-                    <li><a href="login.html">登录</a></li>
-                    <li><a href="register.html">注册</a></li>
+                    <!-- Render login/register link -->
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
                 </ul>
             </div>
         </nav>
@@ -44,31 +44,31 @@
             <el-card class="el-card-set-son">
                 <b>数据时间段</b>
                 <el-select v-model="selectedOption" placeholder="请选择" @change="changeDate()">
-                    <el-option label="全部" value="all"></el-option>
-                    <el-option label="当天" value="today"></el-option>
-                    <el-option label="早上" value="morning"></el-option>
-                    <el-option label="中午" value="noon"></el-option>
-                    <el-option label="晚上" value="evening"></el-option>
-                    <el-option label="自定义" value="set"></el-option>
+                    <el-option label="All times" value="all"></el-option>
+                    <el-option label="Today" value="today"></el-option>
+                    <el-option label="Morning" value="morning"></el-option>
+                    <el-option label="Noon" value="noon"></el-option>
+                    <el-option label="Evening" value="evening"></el-option>
+                    <el-option label="Set time" value="set"></el-option>
                 </el-select>
                 <el-date-picker v-if="selectedOption === 'set'"
                                 v-model="customDateRange"
                                 style="margin-top: 10px"
                                 type="datetimerange"
-                                range-separator="至"
-                                start-placeholder="开始日期"
-                                end-placeholder="结束日期"
+                                range-separator="to"
+                                start-placeholder="Start Date"
+                                end-placeholder="End Date"
                                @change="changeDate()"
                 ></el-date-picker>
             </el-card>
             <el-card class="el-card-set-son">
                 <div style="margin-bottom: 10px">
-                    <b>数据类型</b>
+                    <b>Data Type</b>
                 </div>
                 <el-checkbox-group v-model="checkedItems" @change="changeDate()">
         
-                    <el-checkbox label="bloodSugar">血糖</el-checkbox>
-                    <el-checkbox label="carbohydrate">碳水化合物</el-checkbox>
+                    <el-checkbox label="bloodSugar">Blood Sugar</el-checkbox>
+                    <el-checkbox label="carbohydrate">Carbs</el-checkbox>
                 </el-checkbox-group>
             </el-card>
         </div>
@@ -79,7 +79,7 @@
     
 
     <footer>
-        <p>@2024，血糖系统</p>
+        <p>@2024，BloodSugar system</p>
     </footer>
 </div>
 
@@ -185,28 +185,28 @@
 				var carbohydrateData = new Object();
 			    if(this.checkedItems.length == 2 ){
 					
-					 	filteredData1 = filteredData.filter(item => item.title === '血糖')
+					 	filteredData1 = filteredData.filter(item => item.title === 'Blood Sugar')
 					 	bloodSugarSeriesData = filteredData1.map(item => parseFloat(item.content));
-					 	filteredData2 = filteredData.filter(item => item.title === '碳水化合物')
+					 	filteredData2 = filteredData.filter(item => item.title === 'Carbs')
 					 	carbohydrateData = filteredData2.map(item => parseFloat(item.content));		
-					   xAxisData1 = filteredData1.map(item => moment(item.createTime).format('YYYY年MM月DD日 HH时mm分ss秒'));
-					   xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY年MM月DD日 HH时mm分ss秒'));
+					   xAxisData1 = filteredData1.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss'));
+					   xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYYY-MM-DD HH:mm:ss'));
 
 				}
 				else if(this.checkedItems[0] == "bloodSugar")
 				{
-					 filteredData1 = filteredData.filter(item => item.title === '血糖')
+					 filteredData1 = filteredData.filter(item => item.title === 'Blood Sugar')
 					 bloodSugarSeriesData = filteredData1.map(item => parseFloat(item.content));
 					  
 					 carbohydrateData =  "";	
-					 xAxisData2 = filteredData1.map(item => moment(item.createTime).format('YYYY年MM月DD日 HH时mm分ss秒'));
+					 xAxisData2 = filteredData1.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss'));
 				 }
 				else if(this.checkedItems[0] == "carbohydrate")
 				 {
 					bloodSugarSeriesData = "";
-					filteredData2 = filteredData.filter(item => item.title === '碳水化合物')
+					filteredData2 = filteredData.filter(item => item.title === 'Carbs')
 					carbohydrateData = filteredData2.map(item => parseFloat(item.content));
-					xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY年MM月DD日 HH时mm分ss秒'));
+					xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss'));
 				 }
 			     
                 console.log(xAxisData1)
@@ -215,7 +215,7 @@
 				console.log(carbohydrateData)
       //            const options = {
       //                title: {
-      //                    text: '血糖趋势',
+      //                    text: 'Blood Sugar Trend',
       //                    left: 'center',
       //                },
       //                tooltip: {
@@ -232,7 +232,7 @@
       //                    interval: 50,
       //                },
       //                series: [{
-      //                    name: '血糖',
+      //                    name: 'Blood Sugar',
       //                    type: 'line',
       //                    data: bloodSugarSeriesData,
       //                    itemStyle: {
@@ -240,7 +240,7 @@
       //                    },
       //                },
 					 // {
-					 //     name: '碳水化合物',
+					 //     name: 'Carbs',
 					 //     type: 'line',
 					 //     data: carbohydrateData,
 					 //     itemStyle: {
@@ -324,7 +324,7 @@
 	    ],
 	    series: [
 	      {
-	        name: '血糖',
+	        name: 'Blood Sugar',
 	        type: 'line',
 	        xAxisIndex: 1,
 	        smooth: true,
@@ -334,7 +334,7 @@
 	        data: bloodSugarSeriesData
 	      },
 	      {
-	        name: '碳水化合物',
+	        name: 'Carbs',
 	        type: 'line',
 	        smooth: true,
 	        emphasis: {
@@ -347,7 +347,7 @@
 	  option && chart.setOption(option);
 	  
 	  window.addEventListener('resize', function () {
-	        // 改变图表尺寸，在容器大小发生改变时需要手动调用
+	        // Change chart size, needs to be manually called when the container size changes
 	        myChart.resize();
 	      });
              },

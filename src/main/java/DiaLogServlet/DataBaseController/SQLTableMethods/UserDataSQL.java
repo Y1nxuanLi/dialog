@@ -181,7 +181,7 @@ public class UserDataSQL {
 
     public static int updateUser(UserData userData) {
         System.out.println("Updating user in userData table.");
-        String sqlUpdate = "UPDATE userData SET id = ?, userName = ?, address = ?, email = ?, gender = ?, diabetesType = ?, insulinType = ?, phoneNumber = ?, doctorNumber = ?, postalCode = ? WHERE userID = ?;";
+        String sqlUpdate = "UPDATE userData SET userName = ?, address = ?, email = ?, gender = ?, diabetesType = ?, insulinType = ?, phoneNumber = ?, doctorNumber = ?, postalCode = ? WHERE userID = ?;";
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
 

@@ -55,6 +55,7 @@ public class RegisterServlet extends HttpServlet {
                 String userConfirmedPassword = user.getUserConfirmedPassword();
                 String postalCode = user.getPostalCode();
 
+
                 System.out.println(userAccountRegister);
                 System.out.println(userPasswordRegister);
                 System.out.println(userConfirmedPassword);
@@ -63,6 +64,8 @@ public class RegisterServlet extends HttpServlet {
                     int UserID = UserDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
                     if (UserID == 0 && Objects.equals(userPasswordRegister, userConfirmedPassword)){
                         UserDataSQL.insertData(user);
+                        user.setUserID(UserID);
+                        UserDataSQL.updateUser(user);
                         sendResponse.send(resp, ErrorCode.SUCCESS);
                     }
                     else if(UserID == 0 && !Objects.equals(userPasswordRegister, userConfirmedPassword)){

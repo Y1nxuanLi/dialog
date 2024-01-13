@@ -45,19 +45,19 @@
 
     <main>
         <section id="logbook-entries" v-if="logs.length > 0">
-            <el-table :data="logs" class="table" style="width: 100%" stripe border>
-                <el-table-column prop="id" label="id" width="180"></el-table-column>
-                <el-table-column prop="createTime" label="Date" width="180"></el-table-column>
-                <el-table-column prop="bloodSugar" label="Blood Sugar" width="180"></el-table-column>
-                <el-table-column prop="createTime" label="Time" width="180"></el-table-column>
-                <el-table-column prop="notes" label="Notes" width="180"></el-table-column>
-                <el-table-column label="Actions">
-                    <template slot-scope="scope">
-                        <el-button type="text" @click="deleteLog(scope.row.id)">Delete</el-button>
-                        <el-button type="text" @click="openModal(scope.row.id)">Edit</el-button>
-                    </template>
-                </el-table-column>
-            </el-table>
+<!--            <el-table :data="logs" class="table" style="width: 100%" stripe border>-->
+<!--                <el-table-column prop="id" label="id" width="180"></el-table-column>-->
+<!--                <el-table-column prop="createTime" label="Date" width="180"></el-table-column>-->
+<!--                <el-table-column prop="bloodSugar" label="Blood Sugar" width="180"></el-table-column>-->
+<!--                <el-table-column prop="createTime" label="Time" width="180"></el-table-column>-->
+<!--                <el-table-column prop="notes" label="Notes" width="180"></el-table-column>-->
+<!--                <el-table-column label="Actions">-->
+<!--                    <template slot-scope="scope">-->
+<!--                        <el-button type="text" @click="deleteLog(scope.row.id)">Delete</el-button>-->
+<!--                        <el-button type="text" @click="openModal(scope.row.id)">Edit</el-button>-->
+<!--                    </template>-->
+<!--                </el-table-column>-->
+<!--            </el-table>-->
         </section>
         <p v-else>no record.</p>
     </main>

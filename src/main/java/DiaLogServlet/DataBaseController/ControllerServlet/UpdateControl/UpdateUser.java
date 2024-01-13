@@ -36,9 +36,7 @@ public class UpdateUser extends Update {
         Gson gson = new Gson();
         UserData userData = gson.fromJson(jsonData, UserData.class);
 
-        int UserID = userData.getUserID();
-        String current_id = userData.getId();
-        if (userData != null && String.valueOf(UserID).equals(current_id)) {
+        if (userData != null) {
             UserDataSQL.updateUser(userData);
             sendResponse.send(resp, ErrorCode.SUCCESS);
         } else {

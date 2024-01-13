@@ -127,6 +127,7 @@
             this.currentUserAccount = userMes.userAccount;
             this.currentUserID = userMes.userID;
             this.readTask();
+            this.readLog();
         },
         methods: {
             openModal(taskId) {
@@ -219,6 +220,29 @@
                     this.resetTaskForm();
                 }).catch(() => {
                 });
+            },
+
+            readLog() {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/log", // Adjust the URL to your log read endpoint
+                    {
+                        userId: this.currentUserID
+                    })
+                    .then(response => {
+                        console.log("readLog Processing");
+                        if (Array.isArray(response.data.data)) {
+                            this.logs = response.data.data;
+                            console.log("All logs:", this.logs);
+
+                        } else if (typeof response.data.data === 'object') {
+                            console.log("Object log", response.data.data);
+                            this.logs = Object.values(response.data.data);
+                        } else {
+                            console.error("Unknown data type:", response.data);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
+                    });
             },
             readTask() {
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/task",

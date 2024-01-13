@@ -109,8 +109,12 @@
         },
         created() {
 			this.getAll();
-           var  userAccount = localStorage.getItem("userAccount")
-           this.userAccount = userAccount
+            const userMes = JSON.parse(localStorage.getItem('userMes'));
+            this.currentUserAccount = userMes.userAccount;
+            this.currentUserID = userMes.userID;
+
+           // var  userAccount = localStorage.getItem("userAccount")
+           // this.userAccount = userAccount
 
         },
         methods: {

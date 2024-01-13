@@ -208,10 +208,15 @@
             }
         },
         created() {
+            const userMes = JSON.parse(localStorage.getItem('userMes'));
+            this.currentUserAccount = userMes.userAccount;
+            this.currentUserID = userMes.userID;
             this.readLog();
-           var  userAccount = localStorage.getItem("userAccount")
-             this.currentUser = []
-            this.userAccount = userAccount
+
+            // var  userAccount = localStorage.getItem("userAccount")
+            // this.currentUser = []
+            // this.userAccount = userAccount
+
         },
         methods: {
             formatDate(row) {

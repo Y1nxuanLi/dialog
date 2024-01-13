@@ -19,7 +19,7 @@
             <div class="nav-left">
                 <ul>
                     <li><a href="index.html">Home Page</a></li>
-                    <li><a href="logbook.html">Logbook</a></li>
+                    <li><a href="logbook2.html">Logbook</a></li>
                     <li><a href="trends1.html">Blood Sugar Trend</a></li>
                     <li><a href="settings.html">User Info</a></li>
                 </ul>
@@ -42,7 +42,7 @@
     <el-card class="box-card">
         <div slot="header" class="clearfix">
             <span>Personal Information</span>
-            <el-button @click="editMode = !editMode">{{ editMode ? 'Edit' : 'Done Editing' }}</el-button>
+            <el-button @click="editMode = !editMode">{{ editMode ? 'Edit' : 'Discard Editing' }}</el-button>
             <el-button @click="saveChanges" v-if="!editMode">Save</el-button>
         </div>
         <div>
@@ -140,6 +140,7 @@
                             console.log("Edit Success", response.data);
                             this.userMes = this.currentUser; // Update the userMes with current user data
 
+                            this.useMes.gender = response.data.data.gender;
                             localStorage.setItem('userMes', JSON.stringify(this.userMes));
                             this.editMode = true;
 

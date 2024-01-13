@@ -23,6 +23,7 @@
     text-align: right;
     align-self: flex-start;
     flex-grow: 1;
+    color: #888;
 }
 
 
@@ -70,6 +71,5 @@
 
 
 .delete-flex {
-    margin-top: 30px;
-
+    margin-top: 20px;
 }

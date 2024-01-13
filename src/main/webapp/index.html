@@ -49,11 +49,10 @@
             <div class="entry normal" v-for="task in tasks" :key="task.id">
                 <div class="task-header">
                     <h2 class="task-title">{{ task.title }}</h2>
-                    <div class="task-details">
-                        <div class="task-times">
-                            <span class="task-time" v-if="task.updateTime">Update Time: {{ task.updateTime }}</span>
-                            <span class="task-time">Created Time: {{ task.createTime }}</span>
-                        </div>
+                    <div class="task-details">=
+                        <span class="task-time" v-if="task.updateTime">Update Time: {{ task.updateTime }}</span>
+                        <span class="task-time">Created Time: {{ task.createTime }}</span>
+
                         <div class="delete-flex">
                             <button class="delete-button" @click="deleteTask(task.id)">delete</button>
                             <button class="update-button" @click="openModal(task.id)">edit</button>

@@ -44,44 +44,44 @@
         <el-button @click="openModal()">Add Task</el-button>
     </div>
 
-    <main>
-        <el-table :data="logs" class="table" style="width: 100%" stripe border>
-            <el-table-column prop="id" label="id" width="180"></el-table-column>
-            <el-table-column prop="createTime" label="Date" width="180"></el-table-column>
-            <el-table-column prop="bloodSugar" label="Blood Sugar" width="180"></el-table-column>
-            <el-table-column prop="createTime" label="Time" width="180"></el-table-column>
-            <el-table-column prop="notes" label="Notes" width="180"></el-table-column>
-            <el-table-column label="Actions">
-                <template slot-scope="scope">
-                    <el-button type="text" @click="deleteLog(scope.row.id)">Delete</el-button>
-                    <el-button type="text" @click="openModal(scope.row.id)">Edit</el-button>
-                </template>
-            </el-table-column>
-        </el-table>
-    </main>
+<!--    <main>-->
+<!--        <el-table :data="logs" class="table" style="width: 100%" stripe border>-->
+<!--            <el-table-column prop="id" label="id" width="180"></el-table-column>-->
+<!--            <el-table-column prop="createTime" label="Date" width="180"></el-table-column>-->
+<!--            <el-table-column prop="bloodSugar" label="Blood Sugar" width="180"></el-table-column>-->
+<!--            <el-table-column prop="createTime" label="Time" width="180"></el-table-column>-->
+<!--            <el-table-column prop="notes" label="Notes" width="180"></el-table-column>-->
+<!--            <el-table-column label="Actions">-->
+<!--                <template slot-scope="scope">-->
+<!--                    <el-button type="text" @click="deleteLog(scope.row.id)">Delete</el-button>-->
+<!--                    <el-button type="text" @click="openModal(scope.row.id)">Edit</el-button>-->
+<!--                </template>-->
+<!--            </el-table-column>-->
+<!--        </el-table>-->
+<!--    </main>-->
 
-    <el-dialog
-            :visible.sync="isModalOpen"
-            title="Add New Entry"
-            width="30%"
-            :before-close="closeModal">
-        <el-form ref="logForm" :model="logForm" label-width="100px">
-            <el-form-item label="Blood Sugar" prop="bloodSugar">
-                <el-input v-model="logForm.bloodSugar" placeholder="Enter blood sugar level"></el-input>
-            </el-form-item>
-            <el-form-item label="Notes" prop="notes">
-                <el-input type="textarea" v-model="logForm.notes" placeholder="Enter notes"></el-input>
-            </el-form-item>
-            <!-- Include other fields as required -->
-        </el-form>
+<!--    <el-dialog-->
+<!--            :visible.sync="isModalOpen"-->
+<!--            title="Add New Entry"-->
+<!--            width="30%"-->
+<!--            :before-close="closeModal">-->
+<!--        <el-form ref="logForm" :model="logForm" label-width="100px">-->
+<!--            <el-form-item label="Blood Sugar" prop="bloodSugar">-->
+<!--                <el-input v-model="logForm.bloodSugar" placeholder="Enter blood sugar level"></el-input>-->
+<!--            </el-form-item>-->
+<!--            <el-form-item label="Notes" prop="notes">-->
+<!--                <el-input type="textarea" v-model="logForm.notes" placeholder="Enter notes"></el-input>-->
+<!--            </el-form-item>-->
+<!--            &lt;!&ndash; Include other fields as required &ndash;&gt;-->
+<!--        </el-form>-->
 
-        <span slot="footer" class="dialog-footer">
-        <el-button @click="closeModal">Cancel</el-button>
-        <el-button type="primary" @click="logForm.id ? updateLog() : createLog()">
-            {{ logForm.id ? 'Update Log' : 'Create Log' }}
-        </el-button>
-    </span>
-    </el-dialog>
+<!--        <span slot="footer" class="dialog-footer">-->
+<!--        <el-button @click="closeModal">Cancel</el-button>-->
+<!--        <el-button type="primary" @click="logForm.id ? updateLog() : createLog()">-->
+<!--            {{ logForm.id ? 'Update Log' : 'Create Log' }}-->
+<!--        </el-button>-->
+<!--    </span>-->
+<!--    </el-dialog>-->
 
     <footer>
         <p>@2024，DiaLog</p>
@@ -110,7 +110,7 @@
                     notes: '',
                     createTime: '', // Format these dates as 'YYYY-MM-DD HH:mm:ss'
                     updateTime: '',
-                    logType: 0,
+                    logType: 1,
                     carb: '',
                     mealDescription: '',
                     insulinDose: '',

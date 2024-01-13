@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="LogData v5.8.14">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="LogData v5.8.15">
       <change beforePath="$PROJECT_DIR$/src/main/webapp/logbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -156,15 +156,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="36003000" />
-    </task>
-    <task id="LOCAL-00107" summary="ReadAll test v5.4.3">
-      <option name="closed" value="true" />
-      <created>1705086658991</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1705086658991</updated>
+      <workItem from="1705082248653" duration="36356000" />
     </task>
     <task id="LOCAL-00108" summary="ReadAll test v5.4.4">
       <option name="closed" value="true" />
@@ -550,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705140544553</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="LogData v5.8.15">
+      <option name="closed" value="true" />
+      <created>1705140844672</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1705140844672</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,7 +568,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update done v5.6.6" />
     <MESSAGE value="update done v5.6.7" />
     <MESSAGE value="update done v5.6.8" />
     <MESSAGE value="update done v5.6.9" />
@@ -593,6 +592,7 @@
     <MESSAGE value="LogData v5.8.12" />
     <MESSAGE value="LogData v5.8.13" />
     <MESSAGE value="LogData v5.8.14" />
-    <option name="LAST_COMMIT_MESSAGE" value="LogData v5.8.14" />
+    <MESSAGE value="LogData v5.8.15" />
+    <option name="LAST_COMMIT_MESSAGE" value="LogData v5.8.15" />
   </component>
 </project>

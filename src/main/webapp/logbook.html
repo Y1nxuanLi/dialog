@@ -18,25 +18,27 @@
         <nav>
             <div class="nav-left">
                 <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="logbook.html">血糖记录</a></li>
-                    <li><a href="trends.html">血糖趋势</a></li>
-                    <li><a href="settings.html">个人信息</a></li>
-
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="logbook.html">Logbook</a></li>
+                    <li><a href="trends.html">Blood Sugar Trend</a></li>
+                    <li><a href="settings.html">User Info</a></li>
                 </ul>
             </div>
             <div class="nav-right">
-                <ul v-if="currentUser">
-                    <li><span style="line-height: 37px">{{ userAccount }}</span></li>
+                <ul v-if="currentUserID">
+                    <li><span style="line-height: 37px">"Welcome"</span></li>
+                    <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
+                    <li><span style="line-height: 37px">{{ currentUserAccount }}</span></li>
+                    <el-button @click="logout()">Logout</el-button>
                 </ul>
                 <ul v-else>
-                    <!-- 渲染登录/注册链接 -->
-                    <li><a href="login.html">登录</a></li>
-                    <li><a href="register.html">注册</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+
     <div class="add-activity-button-container">
         <el-button @click="openModal('simple',null)">添加简单记录</el-button>
     </div>

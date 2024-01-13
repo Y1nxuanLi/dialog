@@ -27,13 +27,11 @@ public class ReadTask extends Read {
         Gson gson1 = new Gson();
         TaskData task = gson1.fromJson(jsonData1, TaskData.class);
 
-        int taskID = task.getId();
         int userID = task.getUserId();
 
-        if (userID != 0 && taskID !=0) {
-
-            JsonArray jsonData= TaskDataSQL.readAllTask(userID);
-            sendResponse.send(resp, ErrorCode.SUCCESS, jsonData);
+        if (userID != 0) {
+            JsonArray jsonArray= TaskDataSQL.readAllTask(userID);
+            sendResponse.send(resp, ErrorCode.SUCCESS, jsonArray);
         } else {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }

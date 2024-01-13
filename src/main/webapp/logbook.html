@@ -45,18 +45,16 @@
     </div>
 
     <main>
-        <el-table :data="daydatas" class="table" style="width: 90%" stripe border>
-            <el-table-column prop="id" label="ID" width="80"></el-table-column>
-            <el-table-column prop="createTime" label="Date" :formatter="formatDate" width="180"></el-table-column>
-            <el-table-column prop="title" label="Blood sugar"></el-table-column>
-            <el-table-column prop="content" label="Insulin"></el-table-column>
-            <el-table-column prop="content" label="Carbs"></el-table-column>
-            <el-table-column prop="Note" label="Note" :formatter="formatTime"></el-table-column>
-            <el-table-column prop="createTime" label="Time" :formatter="formatTime"></el-table-column>
-            <el-table-column label="Button">
+        <el-table :data="logs" class="table" style="width: 100%" stripe border>
+            <el-table-column prop="date" label="Date" width="180"></el-table-column>
+            <el-table-column prop="bloodSugar" label="Blood Sugar"></el-table-column>
+            <el-table-column prop="insulinDose" label="Insulin Dose"></el-table-column>
+            <el-table-column prop="carbs" label="Carbs"></el-table-column>
+            <el-table-column prop="notes" label="Notes"></el-table-column>
+            <el-table-column label="Actions">
                 <template slot-scope="scope">
-                    <el-button type="text" @click="deleteRecord(scope.row.id)">delete</el-button>
-                    <el-button type="text" @click="openModal(scope.row.id)">edit</el-button>
+                    <el-button type="text" @click="deleteLog(scope.row.id)">Delete</el-button>
+                    <el-button type="text" @click="openModal(scope.row.id)">Edit</el-button>
                 </template>
             </el-table-column>
         </el-table>

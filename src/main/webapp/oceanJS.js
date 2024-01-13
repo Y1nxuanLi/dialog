@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 case "fish":
                     return 'fish1.png';
                 case "crab":
-                    return 'Crab1.png';
+                    return 'crab1.png';
                 case "turtle":
                     return 'turtle1.png';
             }
@@ -64,8 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const creatures = []; // Initialize empty creatures array
 
-  // Function to create a random creature based on rarity
-  function createRandomCreature(x, y) {
+    // Function to create a random creature based on rarity
+    function createRandomCreature(x, y) {
       const rarity = Math.random();
       let type;
 
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       creatures.push(new Creature(x, y, type));
-  }
+    }
 
 
     // Add a new creature on canvas click
@@ -101,4 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     animate();
+
+
 });

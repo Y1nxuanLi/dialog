@@ -179,7 +179,7 @@ public class UserDataSQL {
         }
     }
 
-    public static void updateUser(UserData userData) {
+    public static int updateUser(UserData userData) {
         System.out.println("Updating user in userData table.");
         String sqlUpdate = "UPDATE userData SET id = ?, userName = ?, address = ?, email = ?, gender = ?, diabetesType = ?, insulinType = ?, phoneNumber = ?, doctorNumber = ?, postalCode = ? WHERE userID = ?;";
         try (Connection conn = DatabaseConnector.getConnection();
@@ -200,12 +200,15 @@ public class UserDataSQL {
             int rowsAffected = pstmt.executeUpdate();
             if (rowsAffected > 0) {
                 System.out.println("User updated successfully.");
+                return 1;
             } else {
                 System.out.println("No user was updated. Check the userID.");
+                return 0;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return 0;
     }
     public static void deleteUser(int userID) {
         System.out.println("Deleting record from userData table.");

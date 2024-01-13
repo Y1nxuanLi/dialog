@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>数据分析</title>
-    <link rel="stylesheet" type="text/css" href="logbook.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Page</title>
+    <link rel="stylesheet" href="./trends.css">
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <script src="https://fastly.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://fastly.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/moment@2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.1/dist/echarts.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/moment@2"></script>
+    <script src="./echarts.min.js"></script>
 </head>
 <body>
-<div id="logbook">
+<div id="rend">
     <header>
         <nav>
             <div class="nav-left">
@@ -23,15 +23,11 @@
                     <li><a href="logbook.html">血糖记录</a></li>
                     <li><a href="trends.html">血糖趋势</a></li>
                     <li><a href="settings.html">个人信息</a></li>
-
                 </ul>
             </div>
             <div class="nav-right">
-                <ul v-if="currentUserID">
-                    <li><span style="line-height: 37px">"Welcome"</span></li>
-                    <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
-                    <li><span style="line-height: 37px">{{ currentUserAccount }}</span></li>
-                    <el-button @click="logout()">Logout</el-button>
+                <ul v-if="userAccount">
+                    <li><span style="line-height: 37px">{{ userAccount }}</span></li>
                 </ul>
                 <ul v-else>
                     <!-- 渲染登录/注册链接 -->
@@ -41,17 +37,46 @@
             </div>
         </nav>
     </header>
-    <main>
-        <el-select v-model="selectedOption" placeholder="请选择">
-            <el-option label="全部" value="all"></el-option>
-            <el-option label="当天" value="today"></el-option>
-            <el-option label="早上" value="morning"></el-option>
-            <el-option label="中午" value="noon"></el-option>
-            <el-option label="晚上" value="evening"></el-option>
-            <!-- 添加其他选项 -->
-        </el-select>
+
+    <el-card class="el-card-set">
+        <h2>图表控制台</h2>
+        <div style="display: flex">
+            <el-card class="el-card-set-son">
+                <b>数据时间段</b>
+                <el-select v-model="selectedOption" placeholder="请选择" @change="changeDate()">
+                    <el-option label="全部" value="all"></el-option>
+                    <el-option label="当天" value="today"></el-option>
+                    <el-option label="早上" value="morning"></el-option>
+                    <el-option label="中午" value="noon"></el-option>
+                    <el-option label="晚上" value="evening"></el-option>
+                    <el-option label="自定义" value="set"></el-option>
+                </el-select>
+                <el-date-picker v-if="selectedOption === 'set'"
+                                v-model="customDateRange"
+                                style="margin-top: 10px"
+                                type="datetimerange"
+                                range-separator="至"
+                                start-placeholder="开始日期"
+                                end-placeholder="结束日期"
+                               @change="changeDate()"
+                ></el-date-picker>
+            </el-card>
+            <el-card class="el-card-set-son">
+                <div style="margin-bottom: 10px">
+                    <b>数据类型</b>
+                </div>
+                <el-checkbox-group v-model="checkedItems" @change="changeDate()">
+        
+                    <el-checkbox label="bloodSugar">血糖</el-checkbox>
+                    <el-checkbox label="carbohydrate">碳水化合物</el-checkbox>
+                </el-checkbox-group>
+            </el-card>
+        </div>
+    </el-card>
+    <el-card class="el-card-set">
         <div id="lineChart" style="width: 100%; height: 400px;"></div>
-    </main>
+    </el-card>
+    
 
     <footer>
         <p>@2024，血糖系统</p>
@@ -59,132 +84,275 @@
 </div>
 
 <script>
+
     new Vue({
-        name: 'logbook',
-        el: '#logbook',
+        name: 'rend',
+        el: '#rend',
         data() {
             return {
                 useMes: JSON.parse(localStorage.getItem('userMes')),
                 title: '',
                 currentUser: null,
+                userAccount: null,
                 daydatas: [],
+				customDateRange: [],
                 createTime: '',
                 content: '',
                 selectedOption: 'all',
-            }
+                userAccount:null,
+				checkedItems: ["bloodSugar","carbohydrate"],
+				}
         },
         created() {
-            this.getAll();
-            this.currentUser = this.useMes.data
-        },
-        watch: {
-            selectedOption: 'drawChart',
+			this.getAll();
+           var  userAccount = localStorage.getItem("userAccount")
+           this.userAccount = userAccount
+
         },
         methods: {
-            formatXAxis(row) {
-                if (this.selectedOption === 'today') {
-                    // 如果是今天，只显示 HH:mm:ss
-                    return moment(row.createTime).format('HH时mm分ss秒');
-                } else {
-                    // 如果是全部，显示完整的 createTime
-                    return moment(row.createTime).format('YYYY年MM月DD日 HH时mm分ss秒');
-                }
-            },
-            openModal() {
-                this.isModalOpen = true;
-                this.taskForm.title = '';
-                this.taskForm.content = '';
-            },
+             getAll() {
+                 axios.post("http://127.0.0.1:8080/api/daydata/getByUserId", {
+                     userId: this.useMes.user_id
+                 })
+                 .then(response => {
+                     this.daydatas = Array.isArray(response.data.data) ? response.data.data : Object.values(response.data.data);
+					 
+                     this.drawChart();
+                 })
+                 .catch(error => {
+                     console.error("Error:", error);
+                 });
+             },
+     //         filterBloodSugarData() {
+				 // console.log(this.daydatas)
+				 // if(this.checkedItems.length ===2 ){
+					//  this.drawChart();
+				 // }
+				 // else if(this.checkedItems[0] === "bloodSugar")
+     //             {
+					//  this.daydatas = this.daydatas.filter(item => item.title === '碳水化合物');
+					//  this.drawChart();
+				 // }
+				 // else if(this.checkedItems[0] === "carbohydrate")
+				 // {
+					//  this.daydatas = this.daydatas.filter(item => item.title === '血糖');
+					//  this.drawChart();
+				 // }
+                 
+     //         },
+	         changeDate(){
+				 this.drawChart();
+			 },
+             drawChart() {
+                 const chartContainer = document.getElementById('lineChart');
+                 const chart = echarts.init(chartContainer);
+                 
+                 let filteredData = this.daydatas.filter(item => {
+                     let includeItem = false;
+                     const itemDate = moment(item.createTime);
+                     const start = this.customDateRange ? moment(this.customDateRange[0]) : moment().startOf('day');
+                     const end = this.customDateRange ? moment(this.customDateRange[1]) : moment().endOf('day');
+                     
+					 console.log(this.selectedOption)
+                     switch (this.selectedOption) {
+                         case 'today':
+                             includeItem = itemDate.isSame(moment(), 'day');
+                             break;
+                         case 'morning':
+                             includeItem = itemDate.hour() >= 6 && itemDate.hour() <= 9;
+                             break;
+                         case 'noon':
+                             includeItem = itemDate.hour() >= 11 && itemDate.hour() <= 14;
+                             break;
+                         case 'evening':
+                             includeItem = itemDate.hour() >= 16 && itemDate.hour() <= 19;
+                             break;
+                         case 'set':
+                             includeItem = itemDate.isBetween(start, end);
+                             break;
+                         default:
+                             includeItem = true;
+                     }
+                     return includeItem;
+                 });
+                
+				  
+                var xAxisData = "";
+				var xAxisData1 = "";
+				var xAxisData2 = "";
+				
+				var bloodSugarSeriesData = new Object();
+				var carbohydrateData = new Object();
+			    if(this.checkedItems.length == 2 ){
+					
+					 	filteredData1 = filteredData.filter(item => item.title === '血糖')
+					 	bloodSugarSeriesData = filteredData1.map(item => parseFloat(item.content));
+					 	filteredData2 = filteredData.filter(item => item.title === '碳水化合物')
+					 	carbohydrateData = filteredData2.map(item => parseFloat(item.content));		
+					   xAxisData1 = filteredData1.map(item => moment(item.createTime).format('YYYY年MM月DD日 HH时mm分ss秒'));
+					   xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY年MM月DD日 HH时mm分ss秒'));
 
-            getAll() {
-                axios.post("http://35.179.12.19:7529/api/daydata/getByUserId",
-                    {
-                        userId: this.useMes.data.id
-                    })
-                    .then(response => {
-                        if (Array.isArray(response.data.data)) {
-                            this.daydatas = response.data.data;
-                            this.drawChart();
-                        } else if (typeof response.data.data === 'object') {
-                            this.daydatas = Object.values(response.data.data);
-                            this.drawChart();
-                        } else {
-                            console.error("不支持的数据类型:", response.data.data);
-                        }
-                    })
-                    .catch(error => {
-                        console.error("检索时发生错误:", error);
-                    });
-            },
-            drawChart() {
-                const chartContainer = document.getElementById('lineChart');
-                const chart = echarts.init(chartContainer);
-
-                // 根据选项筛选要显示的数据
-                let filteredData = this.daydatas;
-                if (this.selectedOption === 'today') {
-                    const today = moment().format('YYYY-MM-DD');
-                    // 使用原始的 createTime 进行比较
-                    filteredData = this.daydatas.filter(item => moment(item.createTime).format('YYYY-MM-DD') === today);
-                } else if (this.selectedOption === 'morning') {
-                    // 早上6点到9点
-                    filteredData = this.daydatas.filter(item => {
-                        const hour = moment(item.createTime).hour();
-                        return hour >= 6 && hour <= 9;
-                    });
-                } else if (this.selectedOption === 'noon') {
-                    // 中午11点到14点
-                    filteredData = this.daydatas.filter(item => {
-                        const hour = moment(item.createTime).hour();
-                        return hour >= 11 && hour <= 14;
-                    });
-                } else if (this.selectedOption === 'evening') {
-                    // 晚上16点到19点
-                    filteredData = this.daydatas.filter(item => {
-                        const hour = moment(item.createTime).hour();
-                        return hour >= 16 && hour <= 19;
-                    });
-                }
-                // 处理数据，提取数字部分
-                const xAxisData = filteredData.map(item => this.formatXAxis(item));
-                const seriesData = filteredData.map(item => {
-                    // 使用正则表达式提取数字部分
-                    const match = item.content.match(/\d+(\.\d+)?/);
-                    // 如果有匹配则返回匹配到的数字部分，否则返回原始内容
-                    return match ? parseFloat(match[0]) : item.content;
-                });
-
-                const options = {
-                    title: {
-                        text: '血糖局势',
-                        left: 'center',
-                    },
-                    tooltip: {
-                        trigger: 'axis',
-                        formatter: '{b} <br/>{a}: {c}',  // 不添加单位，可以根据需要自行处理
-                    },
-                    xAxis: {
-                        type: 'category',
-                        data: xAxisData,
-                    },
-                    yAxis: {
-                        type: 'value',
-                        min: 50,
-                        max: 150,
-                        interval: 10,
-                    },
-                    series: [
-                        {
-                            name: '数值',
-                            type: 'line',
-                            data: seriesData,
-                        },
-                    ],
-                };
-
-                // 设置选项并渲染图表
-                chart.setOption(options);
-            },
+				}
+				else if(this.checkedItems[0] == "bloodSugar")
+				{
+					 filteredData1 = filteredData.filter(item => item.title === '血糖')
+					 bloodSugarSeriesData = filteredData1.map(item => parseFloat(item.content));
+					  
+					 carbohydrateData =  "";	
+					 xAxisData2 = filteredData1.map(item => moment(item.createTime).format('YYYY年MM月DD日 HH时mm分ss秒'));
+				 }
+				else if(this.checkedItems[0] == "carbohydrate")
+				 {
+					bloodSugarSeriesData = "";
+					filteredData2 = filteredData.filter(item => item.title === '碳水化合物')
+					carbohydrateData = filteredData2.map(item => parseFloat(item.content));
+					xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY年MM月DD日 HH时mm分ss秒'));
+				 }
+			     
+                console.log(xAxisData1)
+				console.log(xAxisData2)
+				console.log(bloodSugarSeriesData)
+				console.log(carbohydrateData)
+      //            const options = {
+      //                title: {
+      //                    text: '血糖趋势',
+      //                    left: 'center',
+      //                },
+      //                tooltip: {
+      //                    trigger: 'axis',
+      //                },
+      //                xAxis: {
+      //                    type: 'category',
+      //                    data: xAxisData,
+      //                },
+      //                yAxis: {
+      //                    type: 'value',
+      //                    min: 0,
+      //                    max: 550,
+      //                    interval: 50,
+      //                },
+      //                series: [{
+      //                    name: '血糖',
+      //                    type: 'line',
+      //                    data: bloodSugarSeriesData,
+      //                    itemStyle: {
+      //                        color: 'blue',
+      //                    },
+      //                },
+					 // {
+					 //     name: '碳水化合物',
+					 //     type: 'line',
+					 //     data: carbohydrateData,
+					 //     itemStyle: {
+					 //         color: 'red',
+					 //     },
+					 // }],
+      //            };
+                 
+      //            chart.setOption(options);
+	  
+	  const colors = ['#5470C6', '#EE6666'];
+	  option = {
+	    color: colors,
+	    tooltip: {
+	      trigger: 'none',
+	      axisPointer: {
+	        type: 'cross'
+	      }
+	    },
+	    legend: {},
+	    grid: {
+	      top: 70,
+	      bottom: 50
+	    },
+	    xAxis: [
+	      {
+	        type: 'category',
+	        axisTick: {
+	          alignWithLabel: true
+	        },
+	        axisLine: {
+	          onZero: false,
+	          lineStyle: {
+	            color: colors[1]
+	          }
+	        },
+	        axisPointer: {
+	          label: {
+	            formatter: function (params) {
+	              return (
+	                'Precipitation  ' +
+	                params.value +
+	                (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+	              );
+	            }
+	          }
+	        },
+	        // prettier-ignore
+	        data: xAxisData1
+	      },
+	      {
+	        type: 'category',
+	        axisTick: {
+	          alignWithLabel: true
+	        },
+	        axisLine: {
+	          onZero: false,
+	          lineStyle: {
+	            color: colors[0]
+	          }
+	        },
+	        axisPointer: {
+	          label: {
+	            formatter: function (params) {
+	              return (
+	                'Precipitation  ' +
+	                params.value +
+	                (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+	              );
+	            }
+	          }
+	        },
+	        // prettier-ignore
+	        data: xAxisData2
+	      }
+	    ],
+	    yAxis: [
+	      {
+	        type: 'value'
+	      }
+	    ],
+	    series: [
+	      {
+	        name: '血糖',
+	        type: 'line',
+	        xAxisIndex: 1,
+	        smooth: true,
+	        emphasis: {
+	          focus: 'series'
+	        },
+	        data: bloodSugarSeriesData
+	      },
+	      {
+	        name: '碳水化合物',
+	        type: 'line',
+	        smooth: true,
+	        emphasis: {
+	          focus: 'series'
+	        },
+	        data: carbohydrateData
+	      }
+	    ]
+	  };
+	  option && chart.setOption(option);
+	  
+	  window.addEventListener('resize', function () {
+	        // 改变图表尺寸，在容器大小发生改变时需要手动调用
+	        myChart.resize();
+	      });
+             },
+ 
+            
         },
     })
 

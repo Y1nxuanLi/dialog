@@ -46,8 +46,10 @@ public class UpdateUser extends Update {
 
 
         if (userData != null) {
-            UserDataSQL.updateUser(userData);
-            sendResponse.send(resp, ErrorCode.SUCCESS);
+            if (1 == UserDataSQL.updateUser(userData)){
+                sendResponse.send(resp, ErrorCode.SUCCESS);
+            };
+            sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
         } else {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }

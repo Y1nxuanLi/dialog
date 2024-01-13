@@ -21,6 +21,7 @@
 
 .task-time {
     text-align: right;
+    align-self: flex-start;
     flex-grow: 1;
 }
 
@@ -69,6 +70,6 @@
 
 
 .delete-flex {
-    margin-top: 20px;
-    flex-shrink: 0; /* Prevent the button group from shrinking */
+    margin-top: 30px;
+
 }

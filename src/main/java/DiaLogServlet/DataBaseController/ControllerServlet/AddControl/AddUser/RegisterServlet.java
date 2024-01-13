@@ -39,36 +39,23 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
         String servletPath = req.getServletPath();
-
         switch (servletPath) {
             case "/register":
                 String jsonData = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
                 Gson gson = new Gson();
                 UserData user = gson.fromJson(jsonData, UserData.class);
-
-                System.out.println(user);
-
                 String userAccountRegister = user.getUserAccount();
                 String userPasswordRegister = user.getUserPassword();
                 String userConfirmedPassword = user.getUserConfirmedPassword();
-                String postalCode = user.getPostalCode();
 
-
-                System.out.println(userAccountRegister);
-                System.out.println(userPasswordRegister);
-                System.out.println(userConfirmedPassword);
-                System.out.println(postalCode);
                 try {
                     int UserID = UserDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
                     if (UserID == 0 && Objects.equals(userPasswordRegister, userConfirmedPassword)){
                         UserDataSQL.insertData(user);
-                        int new_UserID = UserDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
-                        System.out.println(new_UserID);
-                        user.setUserID(new_UserID);
-                        UserDataSQL.updateAllUser(user);
-                        System.out.println(user.getUserID());
+//                        int new_UserID = UserDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
+//                        user.setUserID(new_UserID);
+//                        UserDataSQL.updateAllUser(user);
                         sendResponse.send(resp, ErrorCode.SUCCESS);
                     }
                     else if(UserID == 0 && !Objects.equals(userPasswordRegister, userConfirmedPassword)){

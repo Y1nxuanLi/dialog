@@ -24,9 +24,9 @@ public class TestServlet2 extends HttpServlet {
             case "/TaskDataTesting":
                 resp.getWriter().write("TaskLoginData Display for testing purpose: \n");
                 TaskDataSQL.displayData(resp);
-                JsonArray tasksArray = TaskDataSQL.readAllTask(15);
+                JsonArray tasksArray = TaskDataSQL.readAllTask(1);
                 resp.getWriter().write(String.valueOf(tasksArray));
-                TaskDataSQL.updateTask(20, 16, "title", "content", "createTime", "updateTime", "dueTime", 0);
+                TaskDataSQL.updateTask(1, 1, "title", "content", "createTime", "updateTime", "dueTime", 0);
                 break;
 
             default:

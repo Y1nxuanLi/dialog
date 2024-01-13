@@ -60,30 +60,27 @@
         </el-table>
     </main>
 
-
     <el-dialog
             :visible.sync="isModalOpen"
             title="Add New Entry"
             width="30%"
             :before-close="closeModal">
-        <el-form ref="logForm" :model="logForm" label-width="80px">
-            <el-form-item label="名称" prop="title">
-                <el-select v-model="logForm.title" placeholder="请选择">
-                    <el-option label="血糖" value="血糖"></el-option>
-                    <el-option label="碳水化合物" value="碳水化合物"></el-option>
-                </el-select>
+        <el-form ref="logForm" :model="logForm" label-width="100px">
+            <el-form-item label="Blood Sugar" prop="bloodSugar">
+                <el-input v-model="logForm.bloodSugar" placeholder="Enter blood sugar level"></el-input>
             </el-form-item>
-            <el-form-item label="数值" prop="content">
-                <el-input type="textarea" v-model="logForm.content" placeholder="请输入值"></el-input>
+            <el-form-item label="Notes" prop="notes">
+                <el-input type="textarea" v-model="logForm.notes" placeholder="Enter notes"></el-input>
             </el-form-item>
+            <!-- Include other fields as required -->
         </el-form>
 
         <span slot="footer" class="dialog-footer">
-            <el-button @click="closeModal">取消</el-button>
-            <el-button type="primary" @click="logForm.id ? updateTask() : createTask()">
-                {{ logForm.id ? '修改记录' : '创建记录' }}
-            </el-button>
-        </span>
+        <el-button @click="closeModal">Cancel</el-button>
+        <el-button type="primary" @click="logForm.id ? updateLog() : createLog()">
+            {{ logForm.id ? 'Update Log' : 'Create Log' }}
+        </el-button>
+    </span>
     </el-dialog>
 
     <footer>

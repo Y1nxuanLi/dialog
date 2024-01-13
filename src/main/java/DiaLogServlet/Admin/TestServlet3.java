@@ -2,6 +2,7 @@ package DiaLogServlet.Admin;
 
 import DiaLogServlet.DataBaseController.SQLTableMethods.LogDataSQL;
 import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
+import com.google.gson.JsonArray;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns={"/home", "/admin"}, loadOnStartup=1)
+@WebServlet(urlPatterns={"/LogDataTesting"}, loadOnStartup=1)
 public class TestServlet3 extends HttpServlet {
 
     @Override
@@ -24,9 +25,9 @@ public class TestServlet3 extends HttpServlet {
             case "/LogDataTesting":
                 resp.getWriter().write("LogData Display for testing purpose: \n");
                 LogDataSQL.displayData(resp);
-//                JsonArray tasksArray = TaskDataSQL.readAllTask(15);
-//                resp.getWriter().write(String.valueOf(tasksArray));
-//                TaskDataSQL.updateTask(20, 16, "title", "content", "createTime", "updateTime", "dueTime", 0);
+                JsonArray tasksArray = LogDataSQL.readAllLogs(17);
+                resp.getWriter().write(String.valueOf(tasksArray));
+//                LogDataSQL.updateLog(20, 16, "title", "content", "createTime", "updateTime", "dueTime", 0);
                 break;
 
             default:

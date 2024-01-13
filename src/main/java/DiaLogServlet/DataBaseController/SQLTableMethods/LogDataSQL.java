@@ -13,10 +13,10 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 public class LogDataSQL {
-    private Long id;
+    private int id;
     private String content;
     private String title;
-    private Long userId;
+    private int userId;
     private String createTime;
     private String updateTime;
     public static void createTable() {
@@ -25,7 +25,7 @@ public class LogDataSQL {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS logData (" +
                 // Simple
                 "id SERIAL PRIMARY KEY, " +
-                "userID INT NOT NULL, " +
+                "userID INT, " +
                 "bloodSugar VARCHAR(128), " +
 
                 "notes VARCHAR(128), " +

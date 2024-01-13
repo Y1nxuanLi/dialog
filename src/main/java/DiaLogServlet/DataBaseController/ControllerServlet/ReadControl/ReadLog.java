@@ -31,7 +31,7 @@ public class ReadLog extends Read {
         int userID = log.getUserId();
 
         if (userID != 0) {
-            JsonArray jsonDataArray = LogDataSQL.readAllLogs(userID); // Assuming readAllLogs method returns JsonArray
+            JsonArray jsonDataArray = LogDataSQL.readAllLogs(userID);
             sendResponse.send(resp, ErrorCode.SUCCESS, jsonDataArray);
         } else {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);

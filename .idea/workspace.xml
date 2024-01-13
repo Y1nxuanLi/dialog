@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="logbook v5.12.10">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="logbook v5.12.12">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/LogDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/LogDataSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadLog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,31 +175,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="79792000" />
-    </task>
-    <task id="LOCAL-00172" summary="Register troubleshoot v5.9.6">
-      <option name="closed" value="true" />
-      <created>1705152250221</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1705152250221</updated>
-    </task>
-    <task id="LOCAL-00173" summary="Register troubleshoot v5.9.7">
-      <option name="closed" value="true" />
-      <created>1705152437300</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1705152437300</updated>
-    </task>
-    <task id="LOCAL-00174" summary="Register troubleshoot v5.9.8">
-      <option name="closed" value="true" />
-      <created>1705155139240</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1705155139240</updated>
+      <workItem from="1705082248653" duration="81843000" />
     </task>
     <task id="LOCAL-00175" summary="Register troubleshoot v5.9.9">
       <option name="closed" value="true" />
@@ -570,7 +545,31 @@
       <option name="project" value="LOCAL" />
       <updated>1705185976248</updated>
     </task>
-    <option name="localTasksCounter" value="221" />
+    <task id="LOCAL-00221" summary="logbook v5.12.11">
+      <option name="closed" value="true" />
+      <created>1705186297540</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1705186297540</updated>
+    </task>
+    <task id="LOCAL-00222" summary="logbook v5.12.11">
+      <option name="closed" value="true" />
+      <created>1705186357240</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1705186357240</updated>
+    </task>
+    <task id="LOCAL-00223" summary="logbook v5.12.12">
+      <option name="closed" value="true" />
+      <created>1705186449214</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1705186449214</updated>
+    </task>
+    <option name="localTasksCounter" value="224" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,8 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Setting troubleshoot v5.10.18" />
-    <MESSAGE value="Setting troubleshoot v5.11.0" />
     <MESSAGE value="Setting troubleshoot v5.11.1" />
     <MESSAGE value="Merge logbook&amp;trend update v5.11.2" />
     <MESSAGE value="logbook html fix v5.11.3" />
@@ -613,6 +610,8 @@
     <MESSAGE value="merge v5.12.8" />
     <MESSAGE value="merge v5.12.9" />
     <MESSAGE value="logbook v5.12.10" />
-    <option name="LAST_COMMIT_MESSAGE" value="logbook v5.12.10" />
+    <MESSAGE value="logbook v5.12.11" />
+    <MESSAGE value="logbook v5.12.12" />
+    <option name="LAST_COMMIT_MESSAGE" value="logbook v5.12.12" />
   </component>
 </project>

@@ -7,21 +7,23 @@
     background-color: #fff;
 }
 
-.task-header > div{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
 
 .task-title {
     font-size: 1.5em;
     margin-right: 10px;
 }
 
-.task-time {
-    color: #888;
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
+
+.task-time {
+    text-align: right;
+    flex-grow: 1;
+}
+
 
 .task-content {
     line-height: 1.5;

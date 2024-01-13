@@ -123,7 +123,7 @@
         methods: {
             saveChanges() {
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/update/user", {
-                    id: this.currentUser.id,
+                    id: this.currentUserID,
                     userName: this.currentUser.userName,
                     address: this.currentUser.address,
                     email: this.currentUser.email,

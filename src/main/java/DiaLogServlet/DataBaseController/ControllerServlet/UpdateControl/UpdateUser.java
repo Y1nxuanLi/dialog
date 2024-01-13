@@ -28,6 +28,8 @@ public class UpdateUser extends Update {
         String jsonData = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
         Gson gson = new Gson();
         UserData userData = gson.fromJson(jsonData, UserData.class);
+        System.out.println(userData.getId());
+
 
         if (userData != null && userData.getId() != null && !userData.getId().isEmpty()) {
             UserDataSQL.updateUser(userData);

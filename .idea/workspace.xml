@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Register troubleshootv5.9.2">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Register troubleshoot v5.9.4">
       <change beforePath="$PROJECT_DIR$/src/main/webapp/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/settings.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -158,23 +157,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="46978000" />
-    </task>
-    <task id="LOCAL-00120" summary="update v5.5.5">
-      <option name="closed" value="true" />
-      <created>1705092929638</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1705092929638</updated>
-    </task>
-    <task id="LOCAL-00121" summary="update v5.5.6">
-      <option name="closed" value="true" />
-      <created>1705092960492</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1705092960492</updated>
+      <workItem from="1705082248653" duration="47281000" />
     </task>
     <task id="LOCAL-00122" summary="update v5.5.7">
       <option name="closed" value="true" />
@@ -552,7 +535,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705151406615</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="Register troubleshoot v5.9.4">
+      <option name="closed" value="true" />
+      <created>1705151832602</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1705151832602</updated>
+    </task>
+    <task id="LOCAL-00170" summary="Register troubleshoot v5.9.4">
+      <option name="closed" value="true" />
+      <created>1705151849800</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1705151849800</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,7 +569,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="LogData v5.8.2" />
     <MESSAGE value="LogData v5.8.3" />
     <MESSAGE value="LogData v5.8.5" />
     <MESSAGE value="LogData v5.8.6" />
@@ -595,6 +593,7 @@
     <MESSAGE value="expand userdata v5.9.0" />
     <MESSAGE value="expand userdata v5.9.1" />
     <MESSAGE value="Register troubleshootv5.9.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Register troubleshootv5.9.2" />
+    <MESSAGE value="Register troubleshoot v5.9.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Register troubleshoot v5.9.4" />
   </component>
 </project>

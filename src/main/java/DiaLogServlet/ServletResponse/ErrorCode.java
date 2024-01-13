@@ -1,10 +1,5 @@
 package DiaLogServlet.ServletResponse;
 
-/**
- * 错误码
- *
- * @author oldwai
- */
 public enum ErrorCode {
 
     SUCCESS(200, "SUCCESS"),
@@ -12,22 +7,10 @@ public enum ErrorCode {
     NO_AUTH_ERROR(40101, "UNAUTHORIZED"),
     USER_EXIST(40102, "USER_EXIST"),
     DIFFERENT_PASSWORD(40103,"DIFFERENT_PASSWORD" ),
-    OPERATION_ERROR(50001, "OPERATION_ERROR"),
-    PARAMS_ERROR(40000, "请求参数错误"),
-    NOT_LOGIN_ERROR(40100, "未登录"),
+    OPERATION_ERROR(50001, "OPERATION_ERROR");
 
-    FORBIDDEN_ERROR(40300, "禁止访问"),
-    SYSTEM_ERROR(50000, "系统内部异常");
-
-
-    /**
-     * 状态码
-     */
     private final int code;
 
-    /**
-     * 信息
-     */
     private final String message;
 
     ErrorCode(int code, String message) {

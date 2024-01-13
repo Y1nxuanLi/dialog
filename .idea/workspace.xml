@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="merge v5.12.5">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="merge v5.12.6">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,23 +174,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="76139000" />
-    </task>
-    <task id="LOCAL-00165" summary="Settings v5.8.24">
-      <option name="closed" value="true" />
-      <created>1705146874951</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1705146874951</updated>
-    </task>
-    <task id="LOCAL-00166" summary="expand userdata v5.9.0">
-      <option name="closed" value="true" />
-      <created>1705148248436</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1705148248437</updated>
+      <workItem from="1705082248653" duration="76854000" />
     </task>
     <task id="LOCAL-00167" summary="expand userdata v5.9.1">
       <option name="closed" value="true" />
@@ -569,7 +552,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705181951063</updated>
     </task>
-    <option name="localTasksCounter" value="214" />
+    <task id="LOCAL-00214" summary="merge v5.12.5 test">
+      <option name="closed" value="true" />
+      <created>1705182664739</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1705182664739</updated>
+    </task>
+    <task id="LOCAL-00215" summary="merge v5.12.6">
+      <option name="closed" value="true" />
+      <created>1705183056768</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1705183056768</updated>
+    </task>
+    <option name="localTasksCounter" value="216" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,8 +586,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Register troubleshoot v5.10.12" />
-    <MESSAGE value="Register troubleshoot v5.10.13" />
     <MESSAGE value="Register troubleshoot v5.10.14" />
     <MESSAGE value="Register troubleshoot v5.10.15" />
     <MESSAGE value="Register troubleshoot v5.10.16" />
@@ -612,6 +609,8 @@
     <MESSAGE value="merge v5.12.3" />
     <MESSAGE value="merge v5.12.4" />
     <MESSAGE value="merge v5.12.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge v5.12.5" />
+    <MESSAGE value="merge v5.12.5 test" />
+    <MESSAGE value="merge v5.12.6" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge v5.12.6" />
   </component>
 </project>

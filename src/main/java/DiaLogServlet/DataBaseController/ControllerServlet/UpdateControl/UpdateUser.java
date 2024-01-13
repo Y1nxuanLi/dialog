@@ -37,14 +37,6 @@ public class UpdateUser extends Update {
         Gson gson = new Gson();
         UserData userData = gson.fromJson(jsonData, UserData.class);
 
-//        String current_id = userData.getId();
-//        JsonObject old_data= UserDataSQL.readUser(Integer.parseInt(current_id));
-//        String old_data_str = gson2.toJson(old_data);
-//        Gson gson2 = new Gson();
-//        UserData oldUserData = gson2.fromJson(old_data_str, UserData.class);
-//        oldUserData.getUserAccount();
-
-
         if (userData != null) {
             if (1 == UserDataSQL.updateUser(userData)){
                 sendResponse.send(resp, ErrorCode.SUCCESS);

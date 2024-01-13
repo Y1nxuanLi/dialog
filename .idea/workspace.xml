@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Register troubleshoot v5.10.14">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/trends1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/UserDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/UserDataSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Crab1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/crab1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/logbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/oceanJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/oceanJS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/trends.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/trends.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/tutrle1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/turtle1.png" afterDir="false" />
-    </list>
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Register troubleshoot v5.10.15" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,15 +158,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="61768000" />
-    </task>
-    <task id="LOCAL-00142" summary="LogData v5.8.1">
-      <option name="closed" value="true" />
-      <created>1705112330184</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1705112330184</updated>
+      <workItem from="1705082248653" duration="62132000" />
     </task>
     <task id="LOCAL-00143" summary="LogData v5.8.2">
       <option name="closed" value="true" />
@@ -564,7 +544,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705166967224</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="Register troubleshoot v5.10.15">
+      <option name="closed" value="true" />
+      <created>1705167978405</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1705167978405</updated>
+    </task>
+    <option name="localTasksCounter" value="192" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,7 +570,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Settings v5.8.24" />
     <MESSAGE value="expand userdata v5.9.0" />
     <MESSAGE value="expand userdata v5.9.1" />
     <MESSAGE value="Register troubleshootv5.9.2" />
@@ -607,6 +594,7 @@
     <MESSAGE value="Register troubleshoot v5.10.12" />
     <MESSAGE value="Register troubleshoot v5.10.13" />
     <MESSAGE value="Register troubleshoot v5.10.14" />
-    <option name="LAST_COMMIT_MESSAGE" value="Register troubleshoot v5.10.14" />
+    <MESSAGE value="Register troubleshoot v5.10.15" />
+    <option name="LAST_COMMIT_MESSAGE" value="Register troubleshoot v5.10.15" />
   </component>
 </project>

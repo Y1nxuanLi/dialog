@@ -185,17 +185,16 @@ public class UserDataSQL {
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
 
-            pstmt.setString(1, userData.getId());
-            pstmt.setString(2, userData.getUserName());
-            pstmt.setString(3, userData.getAddress());
-            pstmt.setString(4, userData.getEmail());
-            pstmt.setString(5, userData.getGender());
-            pstmt.setString(6, userData.getDiabetesType());
-            pstmt.setString(7, userData.getInsulinType());
-            pstmt.setString(8, userData.getPhoneNumber());
-            pstmt.setString(9, userData.getDoctorNumber());
-            pstmt.setString(10, userData.getPostalCode());
-            pstmt.setInt(11, userData.getUserID());
+            pstmt.setString(1, userData.getUserName());
+            pstmt.setString(2, userData.getAddress());
+            pstmt.setString(3, userData.getEmail());
+            pstmt.setString(4, userData.getGender());
+            pstmt.setString(5, userData.getDiabetesType());
+            pstmt.setString(6, userData.getInsulinType());
+            pstmt.setString(7, userData.getPhoneNumber());
+            pstmt.setString(8, userData.getDoctorNumber());
+            pstmt.setString(9, userData.getPostalCode());
+            pstmt.setString(10, userData.getId());
 
             int rowsAffected = pstmt.executeUpdate();
             if (rowsAffected > 0) {

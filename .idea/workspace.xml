@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Register troubleshoot v5.10.0">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/UserData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/UserDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/UserDataSQL.java" afterDir="false" />
-    </list>
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Register troubleshoot v5.10.2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,23 +155,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="52789000" />
-    </task>
-    <task id="LOCAL-00128" summary="update done v5.6.4">
-      <option name="closed" value="true" />
-      <created>1705095860085</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1705095860085</updated>
-    </task>
-    <task id="LOCAL-00129" summary="update done v5.6.5">
-      <option name="closed" value="true" />
-      <created>1705096664300</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1705096664300</updated>
+      <workItem from="1705082248653" duration="53218000" />
     </task>
     <task id="LOCAL-00130" summary="update done v5.6.6">
       <option name="closed" value="true" />
@@ -555,7 +533,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705157323145</updated>
     </task>
-    <option name="localTasksCounter" value="177" />
+    <task id="LOCAL-00177" summary="Register troubleshoot v5.10.1">
+      <option name="closed" value="true" />
+      <created>1705158598148</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1705158598148</updated>
+    </task>
+    <task id="LOCAL-00178" summary="Register troubleshoot v5.10.2">
+      <option name="closed" value="true" />
+      <created>1705158775416</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1705158775416</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,8 +567,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="LogData v5.8.10" />
-    <MESSAGE value="LogData v5.8.11" />
     <MESSAGE value="LogData v5.8.12" />
     <MESSAGE value="LogData v5.8.13" />
     <MESSAGE value="LogData v5.8.14" />
@@ -598,6 +590,8 @@
     <MESSAGE value="Register troubleshoot v5.9.8" />
     <MESSAGE value="Register troubleshoot v5.9.9" />
     <MESSAGE value="Register troubleshoot v5.10.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Register troubleshoot v5.10.0" />
+    <MESSAGE value="Register troubleshoot v5.10.1" />
+    <MESSAGE value="Register troubleshoot v5.10.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Register troubleshoot v5.10.2" />
   </component>
 </project>

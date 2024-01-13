@@ -26,19 +26,20 @@ public class TestServlet extends HttpServlet {
                 UserDataSQL.displayUserData(resp);
 
                 UserData testUserData = new UserData();
-                testUserData.setUserAccount("testUser");
-                testUserData.setUserPassword("password123");
-                testUserData.setUserConfirmedPassword("password123");
+
+                testUserData.setUserAccount("admin");
+                testUserData.setUserPassword("12345678");
+                testUserData.setUserConfirmedPassword("12345678");
                 testUserData.setId("1");
-                testUserData.setUserName("John Doe");
-                testUserData.setAddress("123 Main St");
-                testUserData.setEmail("johndoe@example.com");
-                testUserData.setGender("Male");
-                testUserData.setDiabetesType("Type 1");
-                testUserData.setInsulinType("Rapid-Acting");
-                testUserData.setPhoneNumber("123-456-7890");
-                testUserData.setDoctorNumber("098-765-4321");
-                testUserData.setPostalCode("98765");
+                testUserData.setUserName("");
+                testUserData.setAddress("");
+                testUserData.setEmail("");
+                testUserData.setGender("");
+                testUserData.setDiabetesType("");
+                testUserData.setInsulinType("");
+                testUserData.setPhoneNumber("");
+                testUserData.setDoctorNumber("");
+                testUserData.setPostalCode("");
 
                 UserDataSQL.updateUser(testUserData);
 

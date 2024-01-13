@@ -228,11 +228,11 @@
                 // 格式化时间
                 return moment(row.createTime).format('HH时mm分ss秒');
             },
-            openModal(type, dadataId) {
+            openModal(type, logId) {
                 this.modalType = type; // This will be 'simple', 'medium', or 'complex'
                 this.isModalOpen = true;
-                if (dadataId !== undefined && dadataId !== null) {
-                    const selectedRecord = this.logs.find(record => record.id === dadataId);
+                if (logId !== undefined && logId !== null) {
+                    const selectedRecord = this.logs.find(record => record.id === logId);
                     if (selectedRecord) {
                         this.taskForm.id = selectedRecord.id;
                         this.taskForm.bloodSugar = selectedRecord.bloodSugar;
@@ -271,6 +271,7 @@
             createTask() {
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/add/log",
                     {
+                        userId: this.currentUserID,
                         id: this.taskForm.id,
                         bloodSugar: this.taskForm.bloodSugar,
                         notes: this.taskForm.notes,
@@ -321,6 +322,7 @@
             },
             updateTask() {
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/update/log", {
+                    userId: this.currentUserID,
                     id: this.taskForm.id,
                     bloodSugar: this.taskForm.bloodSugar,
                     notes: this.taskForm.notes,

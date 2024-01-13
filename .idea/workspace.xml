@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="logbook html fix v5.11.6">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="logbook html fix v5.11.8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/logbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook.html" afterDir="false" />
     </list>
@@ -161,23 +161,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="71942000" />
-    </task>
-    <task id="LOCAL-00154" summary="LogData v5.8.13">
-      <option name="closed" value="true" />
-      <created>1705119415330</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1705119415330</updated>
-    </task>
-    <task id="LOCAL-00155" summary="LogData v5.8.14">
-      <option name="closed" value="true" />
-      <created>1705140544553</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1705140544553</updated>
+      <workItem from="1705082248653" duration="72506000" />
     </task>
     <task id="LOCAL-00156" summary="LogData v5.8.15">
       <option name="closed" value="true" />
@@ -555,7 +539,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705177923972</updated>
     </task>
-    <option name="localTasksCounter" value="203" />
+    <task id="LOCAL-00203" summary="logbook html fix v5.11.7">
+      <option name="closed" value="true" />
+      <created>1705178442201</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1705178442201</updated>
+    </task>
+    <task id="LOCAL-00204" summary="logbook html fix v5.11.8">
+      <option name="closed" value="true" />
+      <created>1705178637421</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1705178637421</updated>
+    </task>
+    <option name="localTasksCounter" value="205" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,8 +573,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Register troubleshoot v5.10.1" />
-    <MESSAGE value="Register troubleshoot v5.10.2" />
     <MESSAGE value="Register troubleshoot v5.10.3" />
     <MESSAGE value="Register troubleshoot v5.10.4" />
     <MESSAGE value="Register troubleshoot v5.10.5" />
@@ -598,6 +596,8 @@
     <MESSAGE value="logbook html fix v5.11.4" />
     <MESSAGE value="logbook html fix v5.11.5" />
     <MESSAGE value="logbook html fix v5.11.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="logbook html fix v5.11.6" />
+    <MESSAGE value="logbook html fix v5.11.7" />
+    <MESSAGE value="logbook html fix v5.11.8" />
+    <option name="LAST_COMMIT_MESSAGE" value="logbook html fix v5.11.8" />
   </component>
 </project>

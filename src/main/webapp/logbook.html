@@ -46,11 +46,11 @@
 
     <main>
         <el-table :data="logs" class="table" style="width: 100%" stripe border>
-            <el-table-column prop="date" label="Date" width="180"></el-table-column>
-            <el-table-column prop="bloodSugar" label="Blood Sugar"></el-table-column>
-            <el-table-column prop="insulinDose" label="Insulin Dose"></el-table-column>
-            <el-table-column prop="carbs" label="Carbs"></el-table-column>
-            <el-table-column prop="notes" label="Notes"></el-table-column>
+            <el-table-column prop="id" label="id" width="180"></el-table-column>
+            <el-table-column prop="createTime" label="Date" width="180"></el-table-column>
+            <el-table-column prop="bloodSugar" label="Blood Sugar" width="180"></el-table-column>
+            <el-table-column prop="createTime" label="Time" width="180"></el-table-column>
+            <el-table-column prop="notes" label="Notes" width="180"></el-table-column>
             <el-table-column label="Actions">
                 <template slot-scope="scope">
                     <el-button type="text" @click="deleteLog(scope.row.id)">Delete</el-button>

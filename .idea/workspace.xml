@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="LogData v5.8.11">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles.css" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="LogData v5.8.13">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/logbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,31 +157,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="34011000" />
-    </task>
-    <task id="LOCAL-00103" summary="ReadAll test v5.4.0">
-      <option name="closed" value="true" />
-      <created>1705085785523</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1705085785523</updated>
-    </task>
-    <task id="LOCAL-00104" summary="ReadAll test v5.4.1">
-      <option name="closed" value="true" />
-      <created>1705085910098</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1705085910098</updated>
-    </task>
-    <task id="LOCAL-00105" summary="ReadAll test v5.4.1">
-      <option name="closed" value="true" />
-      <created>1705085914368</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1705085914368</updated>
+      <workItem from="1705082248653" duration="35698000" />
     </task>
     <task id="LOCAL-00106" summary="ReadAll test v5.4.2">
       <option name="closed" value="true" />
@@ -550,7 +527,31 @@
       <option name="project" value="LOCAL" />
       <updated>1705119064040</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="LogData v5.8.11">
+      <option name="closed" value="true" />
+      <created>1705119124042</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1705119124042</updated>
+    </task>
+    <task id="LOCAL-00153" summary="LogData v5.8.12">
+      <option name="closed" value="true" />
+      <created>1705119278577</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1705119278577</updated>
+    </task>
+    <task id="LOCAL-00154" summary="LogData v5.8.13">
+      <option name="closed" value="true" />
+      <created>1705119415330</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1705119415330</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,8 +569,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update v5.6.3" />
-    <MESSAGE value="update done v5.6.4" />
     <MESSAGE value="update done v5.6.5" />
     <MESSAGE value="update done v5.6.6" />
     <MESSAGE value="update done v5.6.7" />
@@ -593,6 +592,8 @@
     <MESSAGE value="LogData v5.8.9" />
     <MESSAGE value="LogData v5.8.10" />
     <MESSAGE value="LogData v5.8.11" />
-    <option name="LAST_COMMIT_MESSAGE" value="LogData v5.8.11" />
+    <MESSAGE value="LogData v5.8.12" />
+    <MESSAGE value="LogData v5.8.13" />
+    <option name="LAST_COMMIT_MESSAGE" value="LogData v5.8.13" />
   </component>
 </project>

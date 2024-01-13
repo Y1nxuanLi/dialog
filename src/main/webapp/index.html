@@ -39,12 +39,13 @@
     </header>
 
     <main>
+        <div class="add-activity-button-container">
+            <el-button @click="openModal()">Add Task</el-button>
+        </div>
         <section id="logbook-entries" v-if="tasks.length > 0">
 
             <h1>Task</h1>
-            <div class="add-activity-button-container">
-                <el-button @click="openModal()">Add Task</el-button>
-            </div>
+
 
             <div class="entry normal" v-for="task in tasks" :key="task.id">
                 <div class="task-header">

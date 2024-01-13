@@ -43,9 +43,7 @@ public class LogDataSQL {
                 //Intensive
                 "exerciseType VARCHAR(128), " +
                 "exerciseDuration VARCHAR(128), " +
-                "insulinType VARCHAR(128), " +
-
-                "logType INT); ";
+                "insulinType VARCHAR(128); ";
 
         try (Connection conn = DatabaseConnector.getConnection();
              Statement stmt = conn.createStatement()) {

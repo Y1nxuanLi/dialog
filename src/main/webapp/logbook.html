@@ -48,7 +48,7 @@
     </div>
 
     <main>
-        <el-table :data="daydatas" class="table" style="width: 90%" stripe border>
+        <el-table :data="logs" class="table" style="width: 90%" stripe border>
             <el-table-column prop="id" label="ID" width="80"></el-table-column>
             <el-table-column prop="createTime" label="日期" :formatter="formatDate" width="180"></el-table-column>
             <el-table-column prop="bloodSugar" label="血糖数值"></el-table-column>
@@ -179,7 +179,7 @@
                 useMes: JSON.parse(localStorage.getItem('userMes')),
                 currentUser: null,
                 modalType: '',
-                daydatas: [],
+                logs: [],
                 isModalOpen: false,
                 createTime: '',
                 bloodSugar: '',
@@ -206,7 +206,7 @@
             }
         },
         created() {
-            this.getAll();
+            this.readLog();
            var  userAccount = localStorage.getItem("userAccount")
              this.currentUser = []
             this.userAccount = userAccount
@@ -224,7 +224,7 @@
                 this.modalType = type; // This will be 'simple', 'medium', or 'complex'
                 this.isModalOpen = true;
                 if (dadataId !== undefined && dadataId !== null) {
-                    const selectedRecord = this.daydatas.find(record => record.id === dadataId);
+                    const selectedRecord = this.logs.find(record => record.id === dadataId);
                     if (selectedRecord) {
                         this.taskForm.id = selectedRecord.id;
                         this.taskForm.bloodSugar = selectedRecord.bloodSugar;
@@ -261,7 +261,7 @@
                 }
             },
             createTask() {
-                axios.post("http://127.0.0.1:8080/api/daydata/add",
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/add/Log",
                     {
                         id: this.taskForm.id,
                         bloodSugar: this.taskForm.bloodSugar,
@@ -283,9 +283,9 @@
                     })
                     .then(response => {
                         const responseData = response.data;
-                        if (responseData.code === 0) {
-                            console.log("添加成功", response.data);
-                            this.getAll();
+                        if (responseData.code === 200) {
+                            console.log("Add Success", response.data);
+                            this.readLog();
                             this.isModalOpen = false;
                             this.taskForm.bloodSugar = '';
                             this.taskForm.notes='';
@@ -312,7 +312,7 @@
 
             },
             updateTask() {
-                axios.post("http://127.0.0.1:8080/api/daydata/update", {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/update/log", {
                     id: this.taskForm.id,
                     bloodSugar: this.taskForm.bloodSugar,
                     notes: this.taskForm.notes,
@@ -332,9 +332,9 @@
                 })
                     .then(response => {
                         const responseData = response.data;
-                        if (responseData.code === 0) {
+                        if (responseData.code === 200) {
                             console.log("修改成功", response.data);
-                            this.getAll();
+                            this.readLog();
                             this.isModalOpen = false;
                             this.taskForm.id = '';
                             this.taskForm.bloodSugar = '';
@@ -371,40 +371,59 @@
                 }).catch(() => {
                 });
             },
-            getAll() {
-                axios.post("http://127.0.0.1:8080/api/daydata/getByUserId",
+            readLog() {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/log", // Adjust the URL to your log read endpoint
                     {
-                        userId: this.useMes.user_id
+                        userId: this.currentUserID
                     })
                     .then(response => {
-                        console.log(response.data.data)
+                        console.log("readLog Processing");
                         if (Array.isArray(response.data.data)) {
-                            this.daydatas = response.data.data;
+                            this.logs = response.data.data;
+                            console.log("All logs:", this.logs);
+
                         } else if (typeof response.data.data === 'object') {
-                            this.daydatas = Object.values(response.data.data);
+                            console.log("Object log", response.data.data);
+                            this.logs = Object.values(response.data.data);
                         } else {
-                            console.error("不支持的数据类型:", response.data.data);
+                            console.error("Unknown data type:", response.data);
                         }
                     })
                     .catch(error => {
-                        console.error("检索时发生错误:", error);
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
                     });
             },
-            deleteRecord(id) {
-                if (window.confirm('确定删除吗？')) {
-                    axios.post('http://127.0.0.1:8080/api/daydata/delete', { id: id })
+
+            deleteLog(taskId) {
+                this.$confirm('Are you sure you want to delete this task?', 'Notification', {
+                    confirmButtonText: 'Sure',
+                    cancelButtonText: 'Cancel',
+                    type: 'warning'
+                }).then(() => {
+                    axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/delete/log", { id: taskId, userId: this.currentUserID })
                         .then(response => {
-                            if (response.data) {
-                                this.getAll();
+                            const responseData = response.data;
+                            if (responseData.code === 200) {
+                                console.log("Delete Success", response.data);
+                                this.readLog();
                             } else {
-                                console.error('删除失败，未返回有效数据');
+                                alert(responseData.message);
                             }
                         })
                         .catch(error => {
-                            console.error('删除记录时出错：', error);
+                            console.error("Delete Failed:", error);
                         });
-                }},
+                }).catch(() => {
+                    // Delete cancel
+                });
+            },
+            logout(){
+                localStorage.clear();
+                // window.location.href = "login.html";
+                window.location.replace('login.html');
+            },
         },
+
     })
 
 </script>

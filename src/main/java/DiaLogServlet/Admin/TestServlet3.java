@@ -25,33 +25,33 @@ public class TestServlet3 extends HttpServlet {
                 resp.getWriter().write("LogData Display for testing purpose: \n");
 
                 // Test data for insertData method
-                int userID = 15;
-                String bloodSugar = "120 mg/dL";
-                String notes = "Felt dizzy in the morning";
-                String createTime = "2024-01-13 08:00:00";
-                String updateTime = "2024-01-13 09:00:00";
+                int userID = 1;
+                String bloodSugar = "12";
+                String notes = "";
+                String createTime = "2024-01-03 08:00:00";
+                String updateTime = "";
                 int logType = 1;
-                String carb = "45g";
-                String mealDescription = "Breakfast - Oatmeal and fruits";
-                String insulinDose = "10 units";
-                String medication = "Metformin";
-                String exerciseDescription = "Morning walk";
-                String exerciseType = "Walking";
-                String exerciseDuration = "30 minutes";
-                String insulinType = "Rapid-acting";
+                String carb = "45";
+                String mealDescription = "Breakfast";
+                String insulinDose = "";
+                String medication = "";
+                String exerciseDescription = "";
+                String exerciseType = "";
+                String exerciseDuration = "";
+                String insulinType = "";
 
                 LogDataSQL.insertData(userID, bloodSugar, notes, createTime, updateTime, logType, carb, mealDescription, insulinDose, medication, exerciseDescription, exerciseType, exerciseDuration, insulinType);
 
 
                 int logID = 1;
-                String updatedBloodSugar = "110 mg/dL";
+                String updatedBloodSugar = "5";
                 String updatedNotes = "Feeling better";
-                String updatedUpdateTime = "2024-01-13 10:00:00";
+                String updatedUpdateTime = "2024-01-13 19:00:00";
 
 
                 LogDataSQL.updateLog(logID, userID, updatedBloodSugar, updatedNotes, createTime, updatedUpdateTime, logType, carb, mealDescription, insulinDose, medication, exerciseDescription, exerciseType, exerciseDuration, insulinType);
                 LogDataSQL.displayData(resp);
-                JsonArray tasksArray = LogDataSQL.readAllLogs(15);
+                JsonArray tasksArray = LogDataSQL.readAllLogs(1);
                 resp.getWriter().write(String.valueOf(tasksArray));
 
                 break;

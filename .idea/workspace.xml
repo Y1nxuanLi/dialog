@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="LogData v5.8.9">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="LogData v5.8.11">
       <change beforePath="$PROJECT_DIR$/src/main/webapp/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,23 +156,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="33694000" />
-    </task>
-    <task id="LOCAL-00101" summary="ReadAll test v5.3.2">
-      <option name="closed" value="true" />
-      <created>1705084585282</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1705084585282</updated>
-    </task>
-    <task id="LOCAL-00102" summary="ReadAll test v5.3.3">
-      <option name="closed" value="true" />
-      <created>1705085254828</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1705085254828</updated>
+      <workItem from="1705082248653" duration="34011000" />
     </task>
     <task id="LOCAL-00103" summary="ReadAll test v5.4.0">
       <option name="closed" value="true" />
@@ -551,7 +534,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705117811627</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="LogData v5.8.10">
+      <option name="closed" value="true" />
+      <created>1705118817595</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1705118817596</updated>
+    </task>
+    <task id="LOCAL-00151" summary="LogData v5.8.11">
+      <option name="closed" value="true" />
+      <created>1705119064040</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1705119064040</updated>
+    </task>
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,8 +568,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update v5.6.1" />
-    <MESSAGE value="update v5.6.2" />
     <MESSAGE value="update v5.6.3" />
     <MESSAGE value="update done v5.6.4" />
     <MESSAGE value="update done v5.6.5" />
@@ -594,6 +591,8 @@
     <MESSAGE value="LogData v5.8.7" />
     <MESSAGE value="LogData v5.8.8" />
     <MESSAGE value="LogData v5.8.9" />
-    <option name="LAST_COMMIT_MESSAGE" value="LogData v5.8.9" />
+    <MESSAGE value="LogData v5.8.10" />
+    <MESSAGE value="LogData v5.8.11" />
+    <option name="LAST_COMMIT_MESSAGE" value="LogData v5.8.11" />
   </component>
 </project>

@@ -4,3 +4,14 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
 }
+.buttons-container {
+    display: flex;
+    justify-content: space-around; /* This will space out the buttons evenly */
+    align-items: center; /* This will vertically center the buttons */
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+.add-activity-button-container {
+    flex-grow: 1; /* Each button container will grow equally */
+    text-align: center; /* Center the button within the container */
+}

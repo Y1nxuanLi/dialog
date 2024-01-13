@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="merge v5.12.2" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="merge v5.12.3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,15 +172,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="74710000" />
-    </task>
-    <task id="LOCAL-00162" summary="LogData v5.8.21">
-      <option name="closed" value="true" />
-      <created>1705143940047</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL-00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1705143940047</updated>
+      <workItem from="1705082248653" duration="75128000" />
     </task>
     <task id="LOCAL-00163" summary="LogData v5.8.22">
       <option name="closed" value="true" />
@@ -566,7 +558,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705181137336</updated>
     </task>
-    <option name="localTasksCounter" value="211" />
+    <task id="LOCAL-00211" summary="merge v5.12.3">
+      <option name="closed" value="true" />
+      <created>1705181419878</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1705181419878</updated>
+    </task>
+    <option name="localTasksCounter" value="212" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -584,7 +584,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Register troubleshoot v5.10.9" />
     <MESSAGE value="Register troubleshoot v5.10.10" />
     <MESSAGE value="Register troubleshoot v5.10.11" />
     <MESSAGE value="Register troubleshoot v5.10.12" />
@@ -609,6 +608,7 @@
     <MESSAGE value="logbook html fix v5.11.12" />
     <MESSAGE value="merge v5.12" />
     <MESSAGE value="merge v5.12.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge v5.12.2" />
+    <MESSAGE value="merge v5.12.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge v5.12.3" />
   </component>
 </project>

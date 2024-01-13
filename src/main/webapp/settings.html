@@ -136,11 +136,15 @@
                 })
                     .then(response => {
                         const responseData = response.data;
-                        if (responseData.code === 0) {
+                        if (responseData.code === 200) {
                             console.log("Edit Success", response.data);
                             this.userMes = this.currentUser; // Update the userMes with current user data
-                            localStorage.setItem('userMes', JSON.stringify(this.userMes));
+
+
+                            this.useMes.gender = response.data.data.gender;
+                            localStorage.setItem('userMes', JSON.stringify(this.useMes));
                             this.editMode = true;
+
                         } else {
                             alert(responseData.message);
                         }

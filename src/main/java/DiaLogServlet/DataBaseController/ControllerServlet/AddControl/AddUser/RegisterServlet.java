@@ -48,10 +48,17 @@ public class RegisterServlet extends HttpServlet {
                 Gson gson = new Gson();
                 UserData user = gson.fromJson(jsonData, UserData.class);
 
+                System.out.println(user);
+
                 String userAccountRegister = user.getUserAccount();
                 String userPasswordRegister = user.getUserPassword();
                 String userConfirmedPassword = user.getUserConfirmedPassword();
+                String postalCode = user.getPostalCode();
 
+                System.out.println(userAccountRegister);
+                System.out.println(userPasswordRegister);
+                System.out.println(userConfirmedPassword);
+                System.out.println(postalCode);
                 try {
                     int UserID = UserDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
                     if (UserID == 0 && Objects.equals(userPasswordRegister, userConfirmedPassword)){

@@ -36,7 +36,7 @@ public class UpdateLog extends Update {
         String notes = log.getNotes();
         String createTime = log.getCreateTime();
         String updateTime = log.getUpdateTime();
-        int logType = log.getLogType();
+        String logType = log.getLogType();
         String carb = log.getCarb();
         String mealDescription = log.getMealDescription();
         String insulinDose = log.getInsulinDose();

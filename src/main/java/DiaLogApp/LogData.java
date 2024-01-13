@@ -7,7 +7,7 @@ public class LogData {
     private String notes;
     private String createTime;
     private String updateTime;
-    private int logType;
+    private String logType;
     private String carb;
     private String mealDescription;
     private String insulinDose;
@@ -67,11 +67,11 @@ public class LogData {
         this.updateTime = updateTime;
     }
 
-    public int getLogType() {
+    public String getLogType() {
         return logType;
     }
 
-    public void setLogType(int logType) {
+    public void setLogType(String logType) {
         this.logType = logType;
     }
 

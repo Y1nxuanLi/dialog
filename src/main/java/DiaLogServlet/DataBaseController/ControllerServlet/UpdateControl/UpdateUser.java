@@ -38,10 +38,8 @@ public class UpdateUser extends Update {
         UserData userData = gson.fromJson(jsonData, UserData.class);
 
         if (userData != null) {
-            if (1 == UserDataSQL.updateUser(userData)){
-                sendResponse.send(resp, ErrorCode.SUCCESS);
-            };
-            sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
+            UserDataSQL.updateUser(userData);
+            sendResponse.send(resp, ErrorCode.SUCCESS);
         } else {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }

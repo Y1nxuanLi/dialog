@@ -31,7 +31,7 @@ public class LogDataSQL {
                 "notes VARCHAR(128), " +
                 "createTime VARCHAR(128), " +
                 "updateTime VARCHAR(128), " +
-                "logType INT, " +
+                "logType VARCHAR(128), " +
 
                 //Comprehensive
                 "carb VARCHAR(128), " +
@@ -54,7 +54,7 @@ public class LogDataSQL {
         }
     }
 
-    public static void insertData(int userID, String bloodSugar, String notes, String createTime, String updateTime, int logType, String carb, String mealDescription, String insulinDose, String medication, String exerciseDescription, String exerciseType, String exerciseDuration, String insulinType) {
+    public static void insertData(int userID, String bloodSugar, String notes, String createTime, String updateTime, String logType, String carb, String mealDescription, String insulinDose, String medication, String exerciseDescription, String exerciseType, String exerciseDuration, String insulinType) {
         String sqlInsert = "INSERT INTO logData (userID, bloodSugar, notes, createTime, updateTime, logType, carb, mealDescription, insulinDose, medication, exerciseDescription, exerciseType, exerciseDuration, insulinType) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         System.out.println("Inserting Data into logData table.");
 
@@ -66,7 +66,7 @@ public class LogDataSQL {
             pstmt.setString(3, notes);
             pstmt.setString(4, createTime);
             pstmt.setString(5, updateTime);
-            pstmt.setInt(6, logType);
+            pstmt.setString(6, logType);
             pstmt.setString(7, carb);
             pstmt.setString(8, mealDescription);
             pstmt.setString(9, insulinDose);
@@ -100,7 +100,7 @@ public class LogDataSQL {
         }
     }
 
-    public static void updateLog(int logID, int userID, String bloodSugar, String notes, String createTime, String updateTime, int logType, String carb, String mealDescription, String insulinDose, String medication, String exerciseDescription, String exerciseType, String exerciseDuration, String insulinType) {
+    public static void updateLog(int logID, int userID, String bloodSugar, String notes, String createTime, String updateTime, String logType, String carb, String mealDescription, String insulinDose, String medication, String exerciseDescription, String exerciseType, String exerciseDuration, String insulinType) {
         System.out.println("Updating log in logData table.");
         String sqlUpdate = "UPDATE logData SET bloodSugar = ?, notes = ?, createTime = ?, updateTime = ?, logType = ?, carb = ?, mealDescription = ?, insulinDose = ?, medication = ?, exerciseDescription = ?, exerciseType = ?, exerciseDuration = ?, insulinType = ? WHERE id = ? AND userID = ?;";
 
@@ -111,7 +111,7 @@ public class LogDataSQL {
             pstmt.setString(2, notes);
             pstmt.setString(3, createTime);
             pstmt.setString(4, updateTime);
-            pstmt.setInt(5, logType);
+            pstmt.setString(5, logType);
             pstmt.setString(6, carb);
             pstmt.setString(7, mealDescription);
             pstmt.setString(8, insulinDose);
@@ -190,7 +190,7 @@ public class LogDataSQL {
                 String notes = rs.getString("notes");
                 String createTime = rs.getString("createTime");
                 String updateTime = rs.getString("updateTime");
-                int logType = rs.getInt("logType");
+                String logType = rs.getString("logType");
                 String carb = rs.getString("carb");
                 String mealDescription = rs.getString("mealDescription");
                 String insulinDose = rs.getString("insulinDose");

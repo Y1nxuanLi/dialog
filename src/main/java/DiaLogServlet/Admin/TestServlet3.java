@@ -30,7 +30,7 @@ public class TestServlet3 extends HttpServlet {
                 String notes = "";
                 String createTime = "2024-01-03 08:00:00";
                 String updateTime = "";
-                int logType = 2;
+                String logType = "2";
                 String carb = "45";
                 String mealDescription = "Breakfast";
                 String insulinDose = "";

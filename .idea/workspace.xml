@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Register troubleshoot v5.10.2" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Register troubleshoot v5.10.3">
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,15 +157,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="53218000" />
-    </task>
-    <task id="LOCAL-00130" summary="update done v5.6.6">
-      <option name="closed" value="true" />
-      <created>1705097143501</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1705097143501</updated>
+      <workItem from="1705082248653" duration="53503000" />
     </task>
     <task id="LOCAL-00131" summary="update done v5.6.7">
       <option name="closed" value="true" />
@@ -549,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705158775416</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="Register troubleshoot v5.10.3">
+      <option name="closed" value="true" />
+      <created>1705159162713</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1705159162713</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,7 +569,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="LogData v5.8.12" />
     <MESSAGE value="LogData v5.8.13" />
     <MESSAGE value="LogData v5.8.14" />
     <MESSAGE value="LogData v5.8.15" />
@@ -592,6 +593,7 @@
     <MESSAGE value="Register troubleshoot v5.10.0" />
     <MESSAGE value="Register troubleshoot v5.10.1" />
     <MESSAGE value="Register troubleshoot v5.10.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Register troubleshoot v5.10.2" />
+    <MESSAGE value="Register troubleshoot v5.10.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Register troubleshoot v5.10.3" />
   </component>
 </project>

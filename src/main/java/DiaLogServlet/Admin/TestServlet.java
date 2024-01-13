@@ -25,23 +25,23 @@ public class TestServlet extends HttpServlet {
                 resp.getWriter().write("UserLoginData Display for testing purpose: \n");
                 UserDataSQL.displayUserData(resp);
 
-                UserData testUserData = new UserData();
-
-                testUserData.setUserAccount("admin");
-                testUserData.setUserPassword("12345678");
-                testUserData.setUserConfirmedPassword("12345678");
-                testUserData.setId("1");
-                testUserData.setUserName("");
-                testUserData.setAddress("");
-                testUserData.setEmail("");
-                testUserData.setGender("");
-                testUserData.setDiabetesType("");
-                testUserData.setInsulinType("");
-                testUserData.setPhoneNumber("");
-                testUserData.setDoctorNumber("");
-                testUserData.setPostalCode("");
-
-                UserDataSQL.updateUser(testUserData);
+//                UserData testUserData = new UserData();
+//
+//                testUserData.setUserAccount("admin");
+//                testUserData.setUserPassword("12345678");
+//                testUserData.setUserConfirmedPassword("12345678");
+//                testUserData.setId("1");
+//                testUserData.setUserName("");
+//                testUserData.setAddress("");
+//                testUserData.setEmail("");
+//                testUserData.setGender("");
+//                testUserData.setDiabetesType("");
+//                testUserData.setInsulinType("");
+//                testUserData.setPhoneNumber("");
+//                testUserData.setDoctorNumber("");
+//                testUserData.setPostalCode("");
+//
+//                UserDataSQL.updateUser(testUserData);
 
                 break;
 

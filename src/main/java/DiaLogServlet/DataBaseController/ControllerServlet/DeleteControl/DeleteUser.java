@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static DiaLogServlet.LoginServlet.UserID;
+import static DiaLogServlet.DataBaseController.ControllerServlet.AddControl.AddUser.LoginServlet.UserID;
 
 
 @WebServlet(urlPatterns={"/api/post/delete/user"}, loadOnStartup=1)

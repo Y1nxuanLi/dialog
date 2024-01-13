@@ -1,4 +1,4 @@
-package DiaLogServlet;
+package DiaLogServlet.DataBaseController.ControllerServlet.AddControl.AddUser;
 
 import DiaLogApp.*;
 import DiaLogServlet.ServletResponse.ErrorCode;

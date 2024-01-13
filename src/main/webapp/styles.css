@@ -64,8 +64,6 @@ nav {
 }
 
 .entry {
-    width: 2000px;  /* Fixed width */
-    height: 200px; /* Fixed height */
     padding: 10px;
     border-bottom: 1px solid #eaeaea;
     overflow: auto; /* Adds a scrollbar if the content overflows */

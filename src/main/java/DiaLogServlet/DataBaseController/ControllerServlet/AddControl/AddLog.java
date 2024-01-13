@@ -48,8 +48,13 @@ public class AddLog extends Add{
 
         if (userID != 0) {
             LogDataSQL.createTable();
-            LogDataSQL.insertData(userID, bloodSugar, notes, createTime, updateTime, logType, carb, mealDescription, insulinDose, medication, exerciseDescription, exerciseType, exerciseDuration, insulinType);
-            sendResponse.send(resp, ErrorCode.SUCCESS);
+            int x = LogDataSQL.insertData(userID, bloodSugar, notes, createTime, updateTime, logType, carb, mealDescription, insulinDose, medication, exerciseDescription, exerciseType, exerciseDuration, insulinType);
+            if (x==1){
+                sendResponse.send(resp, ErrorCode.SUCCESS);
+            }
+            else{
+                sendResponse.send(resp, ErrorCode.OPERATION_ERROR);
+            }
         } else {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }

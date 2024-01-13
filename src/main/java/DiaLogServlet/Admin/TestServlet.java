@@ -24,6 +24,7 @@ public class TestServlet extends HttpServlet {
             case "/UserDataTesting":
                 resp.getWriter().write("UserLoginData Display for testing purpose: \n");
                 UserDataSQL.displayUserData(resp);
+
                 UserData testUserData = new UserData();
                 testUserData.setUserAccount("testUser");
                 testUserData.setUserPassword("password123");

@@ -166,7 +166,7 @@ public class UserDataSQL {
             pstmt.setString(11, userData.getPhoneNumber());
             pstmt.setString(12, userData.getDoctorNumber());
             pstmt.setString(13, userData.getPostalCode());
-            pstmt.setInt(14, Integer.parseInt(userData.getId())); // Assuming 'id' field in UserData is String and corresponds to 'userID' in the database.
+            pstmt.setInt(14, userData.getUserID());
 
             int rowsAffected = pstmt.executeUpdate();
             if (rowsAffected > 0) {

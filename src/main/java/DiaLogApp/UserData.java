@@ -1,6 +1,7 @@
 package DiaLogApp;
 
 public class UserData {
+    private int userID;
     // Login
     private String userAccount;
     private String userPassword;
@@ -20,6 +21,15 @@ public class UserData {
     private String postalCode;
 
     // Getters and setters for all fields
+
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
     public String getUserAccount() {
         return userAccount;
     }

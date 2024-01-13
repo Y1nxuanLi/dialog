@@ -39,8 +39,8 @@ public class UpdateUser extends Update {
         String acc = userData.getUserAccount();
         String pswd = userData.getUserPassword();
         int UserID = UserDataSQL.checkIdentity(acc,pswd);
-
-        if (userData != null && userData.getId().equals(String.valueOf(UserID))) {
+        userData.setUserID(UserID);
+        if (userData != null && UserID != 0 ) {
             UserDataSQL.updateUser(userData);
             sendResponse.send(resp, ErrorCode.SUCCESS);
         } else {

@@ -147,10 +147,9 @@ public class UserDataSQL {
         return 0;
     }
 
-    public static void updateUser(UserData userData) {
+    public static void updateAllUser(UserData userData) {
         System.out.println("Updating user in userData table.");
         String sqlUpdate = "UPDATE userData SET userAccount = ?, userPassword = ?, userConfirmedPassword = ?, id = ?, userName = ?, address = ?, email = ?, gender = ?, diabetesType = ?, insulinType = ?, phoneNumber = ?, doctorNumber = ?, postalCode = ? WHERE userID = ?;";
-
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
 
@@ -180,6 +179,34 @@ public class UserDataSQL {
         }
     }
 
+    public static void updateUser(UserData userData) {
+        System.out.println("Updating user in userData table.");
+        String sqlUpdate = "UPDATE userData SET id = ?, userName = ?, address = ?, email = ?, gender = ?, diabetesType = ?, insulinType = ?, phoneNumber = ?, doctorNumber = ?, postalCode = ? WHERE userID = ?;";
+        try (Connection conn = DatabaseConnector.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
+
+            pstmt.setString(1, userData.getId());
+            pstmt.setString(2, userData.getUserName());
+            pstmt.setString(3, userData.getAddress());
+            pstmt.setString(4, userData.getEmail());
+            pstmt.setString(5, userData.getGender());
+            pstmt.setString(6, userData.getDiabetesType());
+            pstmt.setString(7, userData.getInsulinType());
+            pstmt.setString(8, userData.getPhoneNumber());
+            pstmt.setString(9, userData.getDoctorNumber());
+            pstmt.setString(10, userData.getPostalCode());
+            pstmt.setInt(11, userData.getUserID());
+
+            int rowsAffected = pstmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("User updated successfully.");
+            } else {
+                System.out.println("No user was updated. Check the userID.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public static void deleteUser(int userID) {
         System.out.println("Deleting record from userData table.");
         String sqlDelete = "DELETE FROM userData WHERE userID = ?";

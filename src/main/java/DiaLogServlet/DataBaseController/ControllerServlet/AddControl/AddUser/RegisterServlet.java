@@ -67,7 +67,7 @@ public class RegisterServlet extends HttpServlet {
                         int new_UserID = UserDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
                         System.out.println(new_UserID);
                         user.setUserID(new_UserID);
-                        UserDataSQL.updateUser(user);
+                        UserDataSQL.updateAllUser(user);
                         System.out.println(user.getUserID());
                         sendResponse.send(resp, ErrorCode.SUCCESS);
                     }

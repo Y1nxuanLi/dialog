@@ -98,15 +98,15 @@
                 editMode: true,
                 selectedGender: '',
                 rules: {
-                    address: [{ required: true, message: '请输入地址', trigger: 'blur' }],
-                    email: [{ required: true, message: '请输入邮箱', trigger: 'blur' }],
+                    userName: [{ required: true, message: '请输入名称', trigger: 'blur' }],
                     gender: [{ required: true, message: '请输入性别', trigger: 'blur' }],
                     diabetesType: [{ required: true, message: '糖尿病类', trigger: 'blur' }],
                     insulinType: [{ required: true, message: '胰岛素类型', trigger: 'blur' }],
+                    email: [{ required: true, message: '请输入邮箱', trigger: 'blur' }],
                     phoneNumber: [{ required: true, message: '请输入电话号码', trigger: 'blur' }],
                     doctorNumber: [{ required: true, message: '请输入医生电话号码', trigger: 'blur' }],
                     postalCode: [{ required: true, message: '请输入邮编', trigger: 'blur' }],
-                    userName: [{ required: true, message: '请输入名称', trigger: 'blur' }],
+                    address: [{ required: true, message: '请输入地址', trigger: 'blur' }],
                 }
             }
         },
@@ -120,13 +120,16 @@
             saveChanges() {
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/update/user", {
                     id: this.currentUser.id,
+                    userName: this.currentUser.userName,
                     address: this.currentUser.address,
                     email: this.currentUser.email,
                     gender: this.selectedGender,
-                    idCardNumber: this.currentUser.idCardNumber,
+                    diabetesType: this.currentUser.diabetesType,
+                    insulinType: this.currentUser.insulinType,
                     phoneNumber: this.currentUser.phoneNumber,
+                    doctorNumber: this.currentUser.doctorNumber,
                     postalCode: this.currentUser.postalCode,
-                    userName: this.currentUser.userName,
+
                 })
                     .then(response => {
                         const responseData = response.data;

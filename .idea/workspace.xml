@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="LogData v5.8.23">
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Settings v5.8.24">
+      <change afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/UserDataSQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/UserLoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/UserData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddUser/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddUser/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddUser/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddUser/RegisterServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/logbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/UserData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/settings.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,15 +160,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="42045000" />
-    </task>
-    <task id="LOCAL-00116" summary="update-button v5.5.1">
-      <option name="closed" value="true" />
-      <created>1705089395448</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1705089395448</updated>
+      <workItem from="1705082248653" duration="43349000" />
     </task>
     <task id="LOCAL-00117" summary="delete-button v5.5.2">
       <option name="closed" value="true" />
@@ -559,7 +546,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705144232466</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="Settings v5.8.24">
+      <option name="closed" value="true" />
+      <created>1705146874951</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1705146874951</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,7 +572,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="page layout adjusting v5.7.5" />
     <MESSAGE value="page layout adjusting v5.7.7" />
     <MESSAGE value="LogData v5.8.0" />
     <MESSAGE value="LogData v5.8.1" />
@@ -602,6 +596,7 @@
     <MESSAGE value="LogData v5.8.21" />
     <MESSAGE value="LogData v5.8.22" />
     <MESSAGE value="LogData v5.8.23" />
-    <option name="LAST_COMMIT_MESSAGE" value="LogData v5.8.23" />
+    <MESSAGE value="Settings v5.8.24" />
+    <option name="LAST_COMMIT_MESSAGE" value="Settings v5.8.24" />
   </component>
 </project>

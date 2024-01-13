@@ -53,6 +53,7 @@ public class LogDataSQL {
             e.printStackTrace();
         }
     }
+                                                                                  userID, bloodSugar, notes, createTime, updateTime, logType, carb, mealDescription, insulinDose, medication, exerciseDescription, exerciseType, exerciseDuration, insulinType);
 
     public static int insertData(int userID, String bloodSugar, String notes, String createTime, String updateTime, String logType, String carb, String mealDescription, String insulinDose, String medication, String exerciseDescription, String exerciseType, String exerciseDuration, String insulinType) {
         String sqlInsert = "INSERT INTO logData (userID, bloodSugar, notes, createTime, updateTime, logType, carb, mealDescription, insulinDose, medication, exerciseDescription, exerciseType, exerciseDuration, insulinType) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";

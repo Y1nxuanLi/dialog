@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="merge v5.12.8">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="logbook v5.12.10">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddUser/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddUser/RegisterServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/LogDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/LogDataSQL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,23 +176,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="79046000" />
-    </task>
-    <task id="LOCAL-00170" summary="Register troubleshoot v5.9.4">
-      <option name="closed" value="true" />
-      <created>1705151849800</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL-00170" />
-      <option name="project" value="LOCAL" />
-      <updated>1705151849800</updated>
-    </task>
-    <task id="LOCAL-00171" summary="Register troubleshoot v5.9.5">
-      <option name="closed" value="true" />
-      <created>1705152108289</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1705152108289</updated>
+      <workItem from="1705082248653" duration="79792000" />
     </task>
     <task id="LOCAL-00172" summary="Register troubleshoot v5.9.6">
       <option name="closed" value="true" />
@@ -569,7 +554,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705184364563</updated>
     </task>
-    <option name="localTasksCounter" value="219" />
+    <task id="LOCAL-00219" summary="merge v5.12.9">
+      <option name="closed" value="true" />
+      <created>1705185576629</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1705185576629</updated>
+    </task>
+    <task id="LOCAL-00220" summary="logbook v5.12.10">
+      <option name="closed" value="true" />
+      <created>1705185976248</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1705185976248</updated>
+    </task>
+    <option name="localTasksCounter" value="221" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,8 +588,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Register troubleshoot v5.10.16" />
-    <MESSAGE value="Register troubleshoot v5.10.17" />
     <MESSAGE value="Setting troubleshoot v5.10.18" />
     <MESSAGE value="Setting troubleshoot v5.11.0" />
     <MESSAGE value="Setting troubleshoot v5.11.1" />
@@ -612,6 +611,8 @@
     <MESSAGE value="merge v5.12.6" />
     <MESSAGE value="merge v5.12.7" />
     <MESSAGE value="merge v5.12.8" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge v5.12.8" />
+    <MESSAGE value="merge v5.12.9" />
+    <MESSAGE value="logbook v5.12.10" />
+    <option name="LAST_COMMIT_MESSAGE" value="logbook v5.12.10" />
   </component>
 </project>

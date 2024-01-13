@@ -25,7 +25,7 @@ public class TestServlet3 extends HttpServlet {
                 resp.getWriter().write("LogData Display for testing purpose: \n");
 
                 // Test data for insertData method
-                int userID = 8;
+                int userID = 1;
                 String bloodSugar = "12";
                 String notes = "";
                 String createTime = "2024-01-03 08:00:00";
@@ -51,7 +51,7 @@ public class TestServlet3 extends HttpServlet {
 
                 LogDataSQL.updateLog(logID, userID, updatedBloodSugar, updatedNotes, createTime, updatedUpdateTime, logType, carb, mealDescription, insulinDose, medication, exerciseDescription, exerciseType, exerciseDuration, insulinType);
                 LogDataSQL.displayData(resp);
-                JsonArray tasksArray = LogDataSQL.readAllLogs(8);
+                JsonArray tasksArray = LogDataSQL.readAllLogs(1);
                 resp.getWriter().write(String.valueOf(tasksArray));
 
                 break;

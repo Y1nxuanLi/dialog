@@ -7,23 +7,23 @@
     background-color: #fff;
 }
 
-.post-header > div{
+.task-header > div{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.post-title {
+.task-title {
     font-size: 1.5em;
     margin-right: 10px;
 }
 
-.post-time {
+.task-time {
     color: #888;
 }
 
-.post-content {
+.task-content {
     line-height: 1.5;
 }
 
@@ -59,15 +59,12 @@
 
 
 
-.post-details {
+.task-details {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.post-times {
-    min-width: 150px; /* Adjust as needed */
-}
 
 .delete-flex {
     margin-top: 20px;

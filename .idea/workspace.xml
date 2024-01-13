@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="LogData v5.8.3" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="LogData v5.8.5">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/LogDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/LogDataSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,15 +160,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="28893000" />
-    </task>
-    <task id="LOCAL-00096" summary="Add Task button v5.2.7">
-      <option name="closed" value="true" />
-      <created>1704722527253</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1704722527253</updated>
+      <workItem from="1705082248653" duration="29542000" />
     </task>
     <task id="LOCAL-00097" summary="ReadAll test v5.2.8">
       <option name="closed" value="true" />
@@ -548,7 +546,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705113768432</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="LogData v5.8.5">
+      <option name="closed" value="true" />
+      <created>1705114257634</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1705114257634</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,7 +572,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update v5.5.5" />
     <MESSAGE value="update v5.5.6" />
     <MESSAGE value="update v5.5.7" />
     <MESSAGE value="update v5.5.8" />
@@ -591,6 +596,7 @@
     <MESSAGE value="LogData v5.8.1" />
     <MESSAGE value="LogData v5.8.2" />
     <MESSAGE value="LogData v5.8.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="LogData v5.8.3" />
+    <MESSAGE value="LogData v5.8.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="LogData v5.8.5" />
   </component>
 </project>

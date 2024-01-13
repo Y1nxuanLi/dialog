@@ -45,7 +45,7 @@ public class LogDataSQL {
                 "exerciseDuration VARCHAR(128), " +
                 "insulinType VARCHAR(128), " +
 
-                "logType INT; ";
+                "logType INT); ";
 
         try (Connection conn = DatabaseConnector.getConnection();
              Statement stmt = conn.createStatement()) {

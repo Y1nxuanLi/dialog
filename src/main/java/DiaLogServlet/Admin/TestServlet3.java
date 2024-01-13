@@ -24,6 +24,7 @@ public class TestServlet3 extends HttpServlet {
 
             case "/LogDataTesting":
                 resp.getWriter().write("LogData Display for testing purpose: \n");
+                LogDataSQL.createTable();
                 LogDataSQL.displayData(resp);
                 JsonArray tasksArray = LogDataSQL.readAllLogs(17);
                 resp.getWriter().write(String.valueOf(tasksArray));

@@ -107,13 +107,13 @@
                     doctorNumber: [{ required: true, message: '请输入医生电话号码', trigger: 'blur' }],
                     postalCode: [{ required: true, message: '请输入邮编', trigger: 'blur' }],
                     address: [{ required: true, message: '请输入地址', trigger: 'blur' }],
+                    // Add any additional fields that are present in your UserData class
                 }
             }
         },
         created() {
             const userMes = JSON.parse(localStorage.getItem('userMes'));
-            this.currentUserAccount = userMes.userAccount;
-            this.currentUserID = userMes.userID;
+            this.currentUser = userMes; // Assuming userMes contains all the necessary user data
             this.selectedGender = this.currentUser.gender.toString()
         },
         methods: {
@@ -129,13 +129,12 @@
                     phoneNumber: this.currentUser.phoneNumber,
                     doctorNumber: this.currentUser.doctorNumber,
                     postalCode: this.currentUser.postalCode,
-
                 })
                     .then(response => {
                         const responseData = response.data;
                         if (responseData.code === 0) {
-                            console.log("修改成功", response.data);
-                            this.userMes.data.gender = this.selectedGender;
+                            console.log("Edit Success", response.data);
+                            this.userMes = this.currentUser; // Update the userMes with current user data
                             localStorage.setItem('userMes', JSON.stringify(this.userMes));
                             this.editMode = true;
                         } else {
@@ -143,12 +142,12 @@
                         }
                     })
                     .catch(error => {
-                        console.error("检索时发生错误:", error);
+                        console.error("Data not found:", error);
                     });
             },
+
             logout(){
                 localStorage.clear();
-                // window.location.href = "login.html";
                 window.location.replace('login.html');
             },
             formatCurrentDateTime() {

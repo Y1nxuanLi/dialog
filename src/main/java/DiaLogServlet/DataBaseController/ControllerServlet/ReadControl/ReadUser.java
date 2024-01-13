@@ -1,7 +1,7 @@
 package DiaLogServlet.DataBaseController.ControllerServlet.ReadControl;
 
 import DiaLogServlet.ServletResponse.ErrorCode;
-import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
+import DiaLogServlet.DataBaseController.SQLTableMethods.UserDataSQL;
 import DiaLogServlet.ServletResponse.sendResponse;
 import com.google.gson.JsonObject;
 
@@ -30,7 +30,7 @@ public class ReadUser extends Read {
     public void read(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         if (UserID != 0) {
-            JsonObject jsonData= UserLoginDataSQL.readUser(UserID);
+            JsonObject jsonData= UserDataSQL.readUser(UserID);
             sendResponse.send(resp, ErrorCode.SUCCESS, jsonData);
         } else {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);

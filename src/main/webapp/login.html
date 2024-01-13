@@ -43,6 +43,17 @@
                 const requestData = {
                     userAccount: this.account,
                     userPassword: this.password,
+                    checkPassword: '',
+                    id: '',
+                    userName: '',
+                    address: '',
+                    email: '',
+                    gender: '',
+                    diabetesType: '',
+                    insulinType: '',
+                    phoneNumber: '',
+                    doctorNumber: '',
+                    postalCode: '',
                 };
                 //axios.post("http://localhost:8080/dialog/login", requestData)
                 axios.post("https://dialog-1d1125195912.herokuapp.com/login", requestData)

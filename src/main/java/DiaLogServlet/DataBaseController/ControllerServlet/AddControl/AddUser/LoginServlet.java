@@ -3,7 +3,7 @@ package DiaLogServlet.DataBaseController.ControllerServlet.AddControl.AddUser;
 import DiaLogApp.*;
 import DiaLogServlet.ServletResponse.ErrorCode;
 import DiaLogServlet.ServletResponse.sendResponse;
-import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
+import DiaLogServlet.DataBaseController.SQLTableMethods.UserDataSQL;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         String servletPath = req.getServletPath();
-        UserLoginDataSQL.createTable();
+        UserDataSQL.createTable();
         switch (servletPath) {
             case "/login":
                 forwardTo(req, resp, "/login.html");
@@ -53,9 +53,9 @@ public class LoginServlet extends HttpServlet {
                 String userPasswordLogin = user1.getUserPassword();
 
                 try {
-                    UserID = UserLoginDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
+                    UserID = UserDataSQL.checkIdentity(userAccountLogin,userPasswordLogin);
                     if (UserID != 0){
-                        JsonObject jsonData= UserLoginDataSQL.readUser(UserID);
+                        JsonObject jsonData= UserDataSQL.readUser(UserID);
                         sendResponse.send(resp, ErrorCode.SUCCESS, jsonData);
                     }
                     else {

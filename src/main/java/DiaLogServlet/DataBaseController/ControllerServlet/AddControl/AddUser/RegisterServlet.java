@@ -2,7 +2,7 @@ package DiaLogServlet.DataBaseController.ControllerServlet.AddControl.AddUser;
 
 import DiaLogApp.*;
 import DiaLogServlet.ServletResponse.ErrorCode;
-import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
+import DiaLogServlet.DataBaseController.SQLTableMethods.UserDataSQL;
 import DiaLogServlet.ServletResponse.sendResponse;
 import com.google.gson.Gson;
 
@@ -25,7 +25,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         String servletPath = req.getServletPath();
-        UserLoginDataSQL.createTable();
+        UserDataSQL.createTable();
         switch (servletPath) {
             case "/register":
                 forwardTo(req, resp, "/register.html");
@@ -44,18 +44,18 @@ public class RegisterServlet extends HttpServlet {
 
         switch (servletPath) {
             case "/register":
-                String jsonData2 = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-                Gson gson2 = new Gson();
-                UserData user2 = gson2.fromJson(jsonData2, UserData.class);
+                String jsonData = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+                Gson gson = new Gson();
+                UserData user = gson.fromJson(jsonData, UserData.class);
 
-                String userAccountRegister = user2.getUserAccount();
-                String userPasswordRegister = user2.getUserPassword();
-                String userConfirmedPassword = user2.getUserConfirmedPassword();
+                String userAccountRegister = user.getUserAccount();
+                String userPasswordRegister = user.getUserPassword();
+                String userConfirmedPassword = user.getUserConfirmedPassword();
 
                 try {
-                    int UserID = UserLoginDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
+                    int UserID = UserDataSQL.checkIdentity(userAccountRegister,userAccountRegister);
                     if (UserID == 0 && Objects.equals(userPasswordRegister, userConfirmedPassword)){
-                        UserLoginDataSQL.insertData(userAccountRegister,userPasswordRegister);
+                        UserDataSQL.insertData(user);
                         sendResponse.send(resp, ErrorCode.SUCCESS);
                     }
                     else if(UserID == 0 && !Objects.equals(userPasswordRegister, userConfirmedPassword)){
@@ -79,12 +79,4 @@ public class RegisterServlet extends HttpServlet {
 
 }
 
-
-// http://localhost:8080/dialog/login
-// http://localhost:8080/dialog/register
-
-//Heroku
-//https://dialog-1d1125195912.herokuapp.com/home
-//https://dialog-1d1125195912.herokuapp.com/login
-//https://dialog-1d1125195912.herokuapp.com/register
 

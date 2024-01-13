@@ -1,7 +1,7 @@
 package DiaLogServlet.DataBaseController.ControllerServlet.DeleteControl;
 
 import DiaLogServlet.ServletResponse.ErrorCode;
-import DiaLogServlet.DataBaseController.SQLTableMethods.UserLoginDataSQL;
+import DiaLogServlet.DataBaseController.SQLTableMethods.UserDataSQL;
 import DiaLogServlet.ServletResponse.sendResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +30,7 @@ public class DeleteUser extends Delete{
 
 
         if (UserID != 0){
-            UserLoginDataSQL.deleteUser(UserID);
+            UserDataSQL.deleteUser(UserID);
             sendResponse.send(resp, ErrorCode.SUCCESS);
         }
         else {

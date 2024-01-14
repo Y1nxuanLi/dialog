@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.stream.Collectors;
 
 
-@WebServlet(urlPatterns={"/login","/index"}, loadOnStartup=1)
+@WebServlet(urlPatterns={"/login","/index","/","/index.html"}, loadOnStartup=1)
 public class LoginServlet extends HttpServlet {
 
     public static int UserID;

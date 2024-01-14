@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.0.4&#10;rollback">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.0.5&#10;redirect to login page">
       <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddUser/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddUser/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,22 +176,6 @@
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
-    </task>
-    <task id="LOCAL-00198" summary="Merge logbook&amp;trend update v5.11.2">
-      <option name="closed" value="true" />
-      <created>1705175019893</created>
-      <option name="number" value="00198" />
-      <option name="presentableId" value="LOCAL-00198" />
-      <option name="project" value="LOCAL" />
-      <updated>1705175019893</updated>
-    </task>
-    <task id="LOCAL-00199" summary="logbook html fix v5.11.3">
-      <option name="closed" value="true" />
-      <created>1705176982495</created>
-      <option name="number" value="00199" />
-      <option name="presentableId" value="LOCAL-00199" />
-      <option name="project" value="LOCAL" />
-      <updated>1705176982495</updated>
     </task>
     <task id="LOCAL-00200" summary="logbook html fix v5.11.4">
       <option name="closed" value="true" />
@@ -568,7 +553,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705209156290</updated>
     </task>
-    <option name="localTasksCounter" value="247" />
+    <task id="LOCAL-00247" summary="Fully Functional Version v6.0.4&#10;redirect to login page">
+      <option name="closed" value="true" />
+      <created>1705209641291</created>
+      <option name="number" value="00247" />
+      <option name="presentableId" value="LOCAL-00247" />
+      <option name="project" value="LOCAL" />
+      <updated>1705209641291</updated>
+    </task>
+    <task id="LOCAL-00248" summary="Fully Functional Version v6.0.5&#10;redirect to login page">
+      <option name="closed" value="true" />
+      <created>1705209852479</created>
+      <option name="number" value="00248" />
+      <option name="presentableId" value="LOCAL-00248" />
+      <option name="project" value="LOCAL" />
+      <updated>1705209852479</updated>
+    </task>
+    <option name="localTasksCounter" value="249" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,8 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="logbook v5.12.13" />
-    <MESSAGE value="logbook v5.12.14" />
     <MESSAGE value="logbook v5.13.0" />
     <MESSAGE value="logbook v5.13.1" />
     <MESSAGE value="logbook v5.13.2" />
@@ -611,6 +610,8 @@
     <MESSAGE value="Logbook Fixed v5.15.0" />
     <MESSAGE value="Fully Functional Version v6.0.0" />
     <MESSAGE value="Fully Functional Version v6.0.4&#10;rollback" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.0.4&#10;rollback" />
+    <MESSAGE value="Fully Functional Version v6.0.4&#10;redirect to login page" />
+    <MESSAGE value="Fully Functional Version v6.0.5&#10;redirect to login page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.0.5&#10;redirect to login page" />
   </component>
 </project>

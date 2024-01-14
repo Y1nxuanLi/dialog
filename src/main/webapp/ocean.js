@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const ctx = canvas.getContext("2d");
 
     var fishCounter = localStorage.getItem('fishCounter');
+    var storedCreatures = JSON.parse(localStorage.getItem('creatures'));
 
     if (fishCounter !== null) {
         var fishCount = parseInt(fishCounter, 10); // Convert string to integer

@@ -1,5 +1,6 @@
 package DiaLogServlet.DataBaseController.SQLTableMethods;
 
+import DiaLogApp.LogData;
 import DiaLogServlet.DataBaseController.DatabaseConnector;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -49,27 +50,31 @@ public class LogDataSQL {
         }
     }
 
-    public static void insertData(int userId, String bloodSugar, String notes, String createTime, String updateTime, String logType, String carb, String mealDescription, String insulinDose, String medication, String exerciseDescription, String exerciseType, String exerciseDuration, String insulinType) {
-        String sqlInsert = "INSERT INTO logData (userId, bloodSugar, notes, createTime, updateTime, logType, carb, mealDescription, insulinDose, medication, exerciseDescription, exerciseType, exerciseDuration, insulinType) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+    public static void insertData(LogData logData) {
+        String sqlInsert = "INSERT INTO logData (" +
+                "userId, bloodSugar, notes, createTime, updateTime, logType, carb, " +
+                "mealDescription, insulinDose, medication, exerciseDescription, " +
+                "exerciseType, exerciseDuration, insulinType) " +
+                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         System.out.println("Inserting Data into logData table.");
 
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlInsert)) {
 
-            pstmt.setInt(1, userId);
-            pstmt.setString(2, bloodSugar);
-            pstmt.setString(3, notes);
-            pstmt.setString(4, createTime);
-            pstmt.setString(5, updateTime);
-            pstmt.setString(6, logType);
-            pstmt.setString(7, carb);
-            pstmt.setString(8, mealDescription);
-            pstmt.setString(9, insulinDose);
-            pstmt.setString(10, medication);
-            pstmt.setString(11, exerciseDescription);
-            pstmt.setString(12, exerciseType);
-            pstmt.setString(13, exerciseDuration);
-            pstmt.setString(14, insulinType);
+            pstmt.setInt(1, logData.getUserId());
+            pstmt.setString(2, logData.getBloodSugar());
+            pstmt.setString(3, logData.getNotes());
+            pstmt.setString(4, logData.getCreateTime());
+            pstmt.setString(5, logData.getUpdateTime());
+            pstmt.setString(6, logData.getLogType());
+            pstmt.setString(7, logData.getCarb());
+            pstmt.setString(8, logData.getMealDescription());
+            pstmt.setString(9, logData.getInsulinDose());
+            pstmt.setString(10, logData.getMedication());
+            pstmt.setString(11, logData.getExerciseDescription());
+            pstmt.setString(12, logData.getExerciseType());
+            pstmt.setString(13, logData.getExerciseDuration());
+            pstmt.setString(14, logData.getInsulinType());
 
             pstmt.executeUpdate();
             System.out.println("Data inserted successfully.");
@@ -78,45 +83,31 @@ public class LogDataSQL {
         }
     }
 
-
-    public static void deleteLog(int id, int userId) {
-        System.out.println("Deleting record from logData table.");
-        String sqlDelete = "DELETE FROM logData WHERE id = ? AND userId = ?";
-
-        try (Connection conn = DatabaseConnector.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sqlDelete)) {
-
-            pstmt.setInt(1, id);
-            pstmt.setInt(2, userId);
-            pstmt.executeUpdate();
-            System.out.println("Delete success.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void updateLog(int logID, int userId, String bloodSugar, String notes, String createTime, String updateTime, String logType, String carb, String mealDescription, String insulinDose, String medication, String exerciseDescription, String exerciseType, String exerciseDuration, String insulinType) {
+    public static void updateLog(LogData log) {
         System.out.println("Updating log in logData table.");
-        String sqlUpdate = "UPDATE logData SET bloodSugar = ?, notes = ?, createTime = ?, updateTime = ?, logType = ?, carb = ?, mealDescription = ?, insulinDose = ?, medication = ?, exerciseDescription = ?, exerciseType = ?, exerciseDuration = ?, insulinType = ? WHERE id = ? AND userId = ?;";
+        String sqlUpdate = "UPDATE logData SET bloodSugar = ?, notes = ?, createTime = ?, " +
+                "updateTime = ?, logType = ?, carb = ?, mealDescription = ?, insulinDose = ?, " +
+                "medication = ?, exerciseDescription = ?, exerciseType = ?, exerciseDuration = ?, " +
+                "insulinType = ? WHERE id = ? AND userId = ?;";
 
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
 
-            pstmt.setString(1, bloodSugar);
-            pstmt.setString(2, notes);
-            pstmt.setString(3, createTime);
-            pstmt.setString(4, updateTime);
-            pstmt.setString(5, logType);
-            pstmt.setString(6, carb);
-            pstmt.setString(7, mealDescription);
-            pstmt.setString(8, insulinDose);
-            pstmt.setString(9, medication);
-            pstmt.setString(10, exerciseDescription);
-            pstmt.setString(11, exerciseType);
-            pstmt.setString(12, exerciseDuration);
-            pstmt.setString(13, insulinType);
-            pstmt.setInt(14, logID);
-            pstmt.setInt(15, userId);
+            pstmt.setString(1, log.getBloodSugar());
+            pstmt.setString(2, log.getNotes());
+            pstmt.setString(3, log.getCreateTime());
+            pstmt.setString(4, log.getUpdateTime());
+            pstmt.setString(5, log.getLogType());
+            pstmt.setString(6, log.getCarb());
+            pstmt.setString(7, log.getMealDescription());
+            pstmt.setString(8, log.getInsulinDose());
+            pstmt.setString(9, log.getMedication());
+            pstmt.setString(10, log.getExerciseDescription());
+            pstmt.setString(11, log.getExerciseType());
+            pstmt.setString(12, log.getExerciseDuration());
+            pstmt.setString(13, log.getInsulinType());
+            pstmt.setInt(14, log.getId());
+            pstmt.setInt(15, log.getUserId());
 
             int rowsAffected = pstmt.executeUpdate();
             if (rowsAffected > 0) {
@@ -169,7 +160,26 @@ public class LogDataSQL {
 
         return logsArray;
     }
+    public static void deleteLog(LogData log) {
+        System.out.println("Deleting record from logData table.");
+        String sqlDelete = "DELETE FROM logData WHERE id = ? AND userId = ?";
 
+        try (Connection conn = DatabaseConnector.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sqlDelete)) {
+
+            pstmt.setInt(1, log.getId());
+            pstmt.setInt(2, log.getUserId());
+            int rowsAffected = pstmt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Delete success.");
+            } else {
+                System.out.println("No record was deleted. Check the log ID and User ID.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void displayData(HttpServletResponse resp) {
         String sqlSelect = "SELECT * FROM logData;";

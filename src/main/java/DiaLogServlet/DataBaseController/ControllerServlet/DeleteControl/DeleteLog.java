@@ -32,15 +32,13 @@ public class DeleteLog extends Delete{
         Gson gson = new Gson();
         LogData log = gson.fromJson(jsonData, LogData.class);
 
-        int logID = log.getId();
-        int userID = log.getUserId();
-
-        if (userID != 0 && logID != 0) {
-            LogDataSQL.deleteLog(logID, userID);
+        if (log.getUserId() != 0 && log.getId() != 0) {
+            LogDataSQL.deleteLog(log); // Pass the entire LogData object
             sendResponse.send(resp, ErrorCode.SUCCESS);
         } else {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }
     }
+
 }
 

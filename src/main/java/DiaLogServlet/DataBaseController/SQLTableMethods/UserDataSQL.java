@@ -91,7 +91,8 @@ public class UserDataSQL {
                 user.setId(rs.getString("id"));
                 user.setUserAccount(rs.getString("userAccount"));
                 user.setUserPassword(rs.getString("userPassword"));
-                // Set other fields from the result set
+
+
                 user.setUserConfirmedPassword(rs.getString("userConfirmedPassword"));
                 user.setUserName(rs.getString("userName"));
                 user.setAddress(rs.getString("address"));

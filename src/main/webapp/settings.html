@@ -52,8 +52,9 @@
                 </el-form-item>
                 <el-form-item label="性别">
                     <el-select v-model="currentUser.gender" :disabled="editMode">
-                        <el-option label="男" value="1"></el-option>
-                        <el-option label="女" value="2"></el-option>
+                        <el-option label="Male" value="Male"></el-option>
+                        <el-option label="Female" value="Female"></el-option>
+                        <el-option label="Other" value="Other"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="邮箱">
@@ -64,14 +65,16 @@
                 </el-form-item>
                 <el-form-item label="糖尿病类型">
                     <el-select v-model="currentUser.diabetesType" :disabled="editMode">
-                        <el-option label="1型" value="3"></el-option>
-                        <el-option label="2型" value="4"></el-option>
+                        <el-option label="Type I" value="Type I"></el-option>
+                        <el-option label="Type II" value="Type II"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="胰岛素类型">
                     <el-select v-model="currentUser.insulinType" :disabled="editMode">
-                        <el-option label="长期" value="5"></el-option>
-                        <el-option label="短期" value="6"></el-option>
+                        <el-option label="Rapid-acting" value="Rapid-acting"></el-option>
+                        <el-option label="Short-acting" value="Short-acting"></el-option>
+                        <el-option label="Intermediate-acting" value="Intermediate-acting"></el-option>
+                        <el-option label="Long-acting" value="Long-acting"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="电话号码">

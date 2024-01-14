@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
         fishCounter = 0; // Initialize if not found
     }
     console.log("Initial fishCounter: " + fishCounter);
+    
+    var storedCreatures = JSON.parse(localStorage.getItem('creatures'));
 
 
     // Only create new creatures if none are in localStorage

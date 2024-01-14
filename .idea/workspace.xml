@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.3.1&#10;&#10;home page add due time">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/timeselect.js" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.3.3&#10;&#10;home page add due time">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.html" afterDir="false" />
     </list>
@@ -184,23 +183,7 @@
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
-      <workItem from="1705245935920" duration="4486000" />
-    </task>
-    <task id="LOCAL-00219" summary="merge v5.12.9">
-      <option name="closed" value="true" />
-      <created>1705185576629</created>
-      <option name="number" value="00219" />
-      <option name="presentableId" value="LOCAL-00219" />
-      <option name="project" value="LOCAL" />
-      <updated>1705185576629</updated>
-    </task>
-    <task id="LOCAL-00220" summary="logbook v5.12.10">
-      <option name="closed" value="true" />
-      <created>1705185976248</created>
-      <option name="number" value="00220" />
-      <option name="presentableId" value="LOCAL-00220" />
-      <option name="project" value="LOCAL" />
-      <updated>1705185976248</updated>
+      <workItem from="1705245935920" duration="5594000" />
     </task>
     <task id="LOCAL-00221" summary="logbook v5.12.11">
       <option name="closed" value="true" />
@@ -578,7 +561,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705249239214</updated>
     </task>
-    <option name="localTasksCounter" value="268" />
+    <task id="LOCAL-00268" summary="Fully Functional Version v6.3.2&#10;&#10;home page add due time">
+      <option name="closed" value="true" />
+      <created>1705251167797</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1705251167797</updated>
+    </task>
+    <task id="LOCAL-00269" summary="Fully Functional Version v6.3.3&#10;&#10;home page add due time">
+      <option name="closed" value="true" />
+      <created>1705251296591</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1705251296591</updated>
+    </task>
+    <option name="localTasksCounter" value="270" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,8 +595,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="echarts v5.14.3" />
-    <MESSAGE value="echarts v5.14.4" />
     <MESSAGE value="echarts v5.14.5" />
     <MESSAGE value="Logbook Fixed v5.15.0" />
     <MESSAGE value="Fully Functional Version v6.0.0" />
@@ -621,6 +618,8 @@
     <MESSAGE value="Fully Functional Version v6.2.7&#10;&#10;delete bug fix" />
     <MESSAGE value="Fully Functional Version v6.3.0&#10;&#10;home page add due time" />
     <MESSAGE value="Fully Functional Version v6.3.1&#10;&#10;home page add due time" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.3.1&#10;&#10;home page add due time" />
+    <MESSAGE value="Fully Functional Version v6.3.2&#10;&#10;home page add due time" />
+    <MESSAGE value="Fully Functional Version v6.3.3&#10;&#10;home page add due time" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.3.3&#10;&#10;home page add due time" />
   </component>
 </project>

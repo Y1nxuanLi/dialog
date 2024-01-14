@@ -85,10 +85,10 @@
             </el-form-item>
 
             <el-form-item label="Email Notification">
-                <el-checkbox v-model="taskForm.notification">Accept to Send Email Notification</el-checkbox>
+                <el-checkbox v-model="isNotificationEnabled">Accept to Send Email Notification</el-checkbox>
             </el-form-item>
             <el-form-item label="Notification Date" v-if="taskForm.notification"> <!-- Updated v-if condition -->
-                <el-select v-model="taskForm.selectedOption" placeholder="Current Time" @change="changeDate()">
+                <el-select v-model="taskForm.selectedOption" placeholder="After 24 Hours">
                     <el-option label="after 12 hours" value="12"></el-option>
                     <el-option label="after 24 hours" value="24"></el-option>
                     <el-option label="after 3 days" value="72"></el-option>
@@ -143,11 +143,22 @@
                     updateTime: '',
                     dueTime: '',
                     notification: 1,
-                    selectedOption: '',
+                    selectedOption: '24',
                 },
             }
         },
-        created() {
+        computed: {
+            isNotificationEnabled: {
+                get() {
+                    return this.taskForm.notification === 1;
+                },
+                set(value) {
+                    this.taskForm.notification = value ? 1 : 0;
+                }
+            },
+        },
+
+            created() {
 
             this.currentUserAccount = this.userMes.userAccount;
             this.currentUserID = this.userMes.userID;
@@ -336,9 +347,12 @@
                 this.taskForm.id = '';
                 this.taskForm.title = '';
                 this.taskForm.content = '';
+                this.taskForm.createTime = '';
                 this.taskForm.updateTime = '';
                 this.taskForm.dueTime = '';
                 this.taskForm.notification = 1;
+                this.taskForm.selectedOption = '24';
+
             },
             calculateDueTime() {
                if (this.taskForm.selectedOption != "set") {

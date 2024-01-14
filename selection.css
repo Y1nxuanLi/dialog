@@ -1,0 +1,28 @@
+.content-container {
+    display: flex;
+    justify-content: space-between; /* Space between the image and button containers */
+    height: calc(100vh - 60px); /* Subtracting header/footer height if any */
+}
+
+.image-container {
+    flex: 1; /* Take up all available space */
+    background-image: url('logbook.webp'); /* Replace with your actual image path */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.button-container {
+    width: 300px; /* Or whatever width you prefer for the buttons */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    padding: 20px; /* Padding inside the buttons container */
+}
+
+.el-button {
+    width: 100%;
+    margin-bottom: 10px;
+    color: #45a049;
+}

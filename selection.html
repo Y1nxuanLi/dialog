@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模式选择</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link rel="stylesheet" type="text/css" href="./selection.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://fastly.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+<div id="modeSelection">
+    <header>
+        <nav>
+            <div class="nav-left">
+                <ul>
+                    <li><a href="home.html">Home Page</a></li>
+                    <li><a href="selection.html">Logbook</a></li>
+                    <li><a href="trends.html">Blood Sugar Trend</a></li>
+                    <li><a href="settings.html">User Info</a></li>
+                    <li><a href="../Aquarium/ocean.html">Aquarium</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content-container">
+        <div class="image-container">
+        </div>
+        <div class="button-container">
+            <el-button type="primary" @click="navigate('simple')">Simple View</el-button>
+            <el-button type="primary" @click="navigate('intermediate')">Intermediate View</el-button>
+            <el-button type="primary" @click="navigate('complex')">Complex View</el-button>
+        </div>
+    </div>
+
+    <footer>
+        <p>@2024，DiaLog</p>
+    </footer>
+</div>
+
+<script>
+    new Vue({
+        el: '#modeSelection',
+        methods: {
+            navigate(mode) {
+                if (mode === 'simple') {
+                    window.location.href = 'logbook.html';
+                } else if (mode === 'intermediate') {
+                    window.location.href = 'logbook_inter.html';
+                } else if (mode === 'complex') {
+                    window.location.href = 'logbook_complex.html';
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

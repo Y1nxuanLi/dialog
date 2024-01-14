@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日常记录</title>
+    <title>Daily log</title>
     <link rel="stylesheet" type="text/css" href="logbook.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
@@ -22,7 +22,7 @@
                     <li><a href="logbook.html">Logbook</a></li>
                     <li><a href="trends.html">Blood Sugar Trend</a></li>
                     <li><a href="settings.html">User Info</a></li>
-                    <li><a href="../Aquarium/ocean.html">Aquarium</a></li>
+                    <li><a href="ocean.html">Aquarium</a></li>
                 </ul>
             </div>
             <div class="nav-right">
@@ -34,7 +34,7 @@
                 </ul>
                 <ul v-else>
                     <li><a href="login.html">Login</a></li>
-                    <li><a href="../LoginRegister/register.html">Register</a></li>
+                    <li><a href="register.html">Register</a></li>
                 </ul>
             </div>
         </nav>
@@ -42,156 +42,68 @@
 
     <div class="buttons-container">
         <div class="add-activity-button-container">
-            <el-button @click="openModal('simple',null)">添加简单记录</el-button>
+            <el-button @click="openModal('simple',null)">Simple Log</el-button>
         </div>
         <div class="add-activity-button-container">
-            <el-button @click="openModal('medium',null)">添加中等记录</el-button>
-        </div>
-        <div class="add-activity-button-container">
-            <el-button @click="openModal('complex',null)">添加复杂记录</el-button>
+            <el-button type="primary" @click="navigate('selection')">Back to Selection</el-button>
         </div>
     </div>
 
     <main>
         <el-table :data="logs" class="table" style="width: 90%" stripe border>
+            <!--simple-->
             <el-table-column prop="id" label="ID" width="80"></el-table-column>
-            <el-table-column prop="createTime" label="日期" :formatter="formatDate" width="180"></el-table-column>
-            <el-table-column prop="bloodSugar" label="血糖数值"></el-table-column>
-            <el-table-column prop="createTime" label="记录时间" :formatter="formatTime"></el-table-column>
-            <el-table-column label="操作">
+            <el-table-column prop="createTime" label="Time" :formatter="formatDate" width="180"></el-table-column>
+            <el-table-column prop="bloodSugar" label="Blood sugar"></el-table-column>
+            <el-table-column prop="carb" label="Carbs Taken"></el-table-column>
+            <el-table-column prop="notes" label="Note"></el-table-column>
+
+
+
+            <el-table-column label="Action">
                 <template slot-scope="scope">
-                    <el-button type="text" @click="deleteRecord(scope.row.id)">删除</el-button>
-                    <el-button type="text" @click="openModal('complex',scope.row.id)">修改</el-button>
+                    <el-button type="text" @click="deleteLog(scope.row.id)">Delete</el-button>
+                    <el-button type="text" @click="openModal('complex',scope.row.id)">Change</el-button>
                 </template>
             </el-table-column>
         </el-table>
     </main>
 
     <el-dialog
-        :visible.sync="isModalOpen"
-        :title="modalType === 'simple' ? '添加简单记录' : modalType === 'medium' ? '添加中等记录' : '添加复杂记录'"
-        width="50%"
-        :before-close="closeModal">
+            :visible.sync="isModalOpen"
+            :title="modalType === 'simple' ? 'Simple Log' : modalType === 'medium' ? 'Comprehensive Log' : 'Intensive Log'"
+            width="50%"
+            :before-close="closeModal">
 
         <!-- bloodSugar for simple record -->
         <template v-if="modalType === 'simple'">
             <el-form ref="taskForm" :model="taskForm" label-width="120px">
-                <el-form-item label="血糖数值" prop="bloodSugar">
-                    <el-input type="textarea" v-model="taskForm.bloodSugar" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="notes" prop="notes">
-                    <el-input type="textarea" v-model="taskForm.notes" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="Record Time" prop="createTime">
-                    <el-date-picker
-                            v-model="taskForm.createTime"
-                            type="datetime"
-                            placeholder="Select date and time"
-                            value-format="yyyy-MM-dd HH:mm:ss">
-                    </el-date-picker>
-                </el-form-item>
-            </el-form>
-        </template>
-
-        <!-- bloodSugar for medium record -->
-        <template v-else-if="modalType === 'medium'">
-            <el-form ref="taskForm" :model="taskForm" label-width="130px">
-                <el-form-item label="血糖数值" prop="bloodSugar">
-                    <el-input type="textarea" v-model="taskForm.bloodSugar" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="notes" prop="notes">
-                    <el-input type="textarea" v-model="taskForm.notes" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="Record Time" prop="createTime">
-                    <el-date-picker
-                            v-model="taskForm.createTime"
-                            type="datetime"
-                            placeholder="Select date and time"
-                            value-format="yyyy-MM-dd HH:mm:ss">
-                    </el-date-picker>
-                </el-form-item>
-                <el-form-item label="Update Time" prop="updateTime" v-if="taskForm.updateTime">
-                    <el-date-picker
-                            v-model="taskForm.updateTime"
-                            type="datetime"
-                            placeholder="Select date and time"
-                            value-format="yyyy-MM-dd HH:mm:ss">
-                    </el-date-picker>
-                </el-form-item>
-
-                <el-form-item label="carb" prop="carb">
-                    <el-input type="textarea" v-model="taskForm.carb" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="mealDescription" prop="mealDescription">
-                    <el-input type="textarea" v-model="taskForm.mealDescription" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="insulinDose" prop="insulinDose">
-                    <el-input type="textarea" v-model="taskForm.insulinDose" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="medication" prop="medication">
-                    <el-input type="textarea" v-model="taskForm.medication" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="exerciseDescription" prop="exerciseDescription">
-                    <el-input type="textarea" v-model="taskForm.exerciseDescription" placeholder="请输入值"></el-input>
-                </el-form-item>
-            </el-form>
-        </template>
-
-        <!-- bloodSugar for complex record -->
-        <template v-else-if="modalType === 'complex'">
-            <el-form ref="taskForm" :model="taskForm" label-width="130px">
-                <el-form-item label="血糖数值" prop="bloodSugar">
-                    <el-input type="textarea" v-model="taskForm.bloodSugar" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="notes" prop="notes">
-                    <el-input type="textarea" v-model="taskForm.notes" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="Record Time" prop="createTime">
-                    <el-date-picker
-                            v-model="taskForm.createTime"
-                            type="datetime"
-                            placeholder="Select date and time"
-                            value-format="yyyy-MM-dd HH:mm:ss">
-                    </el-date-picker>
+                <el-form-item label="Blood sugar" prop="bloodSugar">
+                    <el-input type="textarea" v-model="taskForm.bloodSugar" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="carb" prop="carb">
-                    <el-input type="textarea" v-model="taskForm.carb" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.carb" placeholder="Please input data"></el-input>
+                <el-form-item label="notes" prop="notes">
+                    <el-input type="textarea" v-model="taskForm.notes" placeholder="Please input data"></el-input>
                 </el-form-item>
-                <el-form-item label="mealDescription" prop="mealDescription">
-                    <el-input type="textarea" v-model="taskForm.mealDescription" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="insulinDose" prop="insulinDose">
-                    <el-input type="textarea" v-model="taskForm.insulinDose" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="medication" prop="medication">
-                    <el-input type="textarea" v-model="taskForm.medication" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="exerciseDescription" prop="exerciseDescription">
-                    <el-input type="textarea" v-model="taskForm.exerciseDescription" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="exerciseType" prop="exerciseType">
-                    <el-input type="textarea" v-model="taskForm.exerciseType" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="exerciseDuration" prop="exerciseDuration">
-                    <el-input type="textarea" v-model="taskForm.exerciseDuration" placeholder="请输入值"></el-input>
-                </el-form-item>
-                <el-form-item label="insulinType" prop="insulinType">
-                    <el-input type="textarea" v-model="taskForm.insulinType" placeholder="请输入值"></el-input>
+                <el-form-item label="createTime" prop="createTime">
+                    <el-input type="textarea" v-model="taskForm.createTime" placeholder="Format: 2023-01-13 09:12:04"></el-input>
                 </el-form-item>
             </el-form>
         </template>
+
 
         <span slot="footer" class="dialog-footer">
-            <el-button @click="closeModal">取消</el-button>
+            <el-button @click="closeModal">Cancel</el-button>
             <el-button type="primary" @click="taskForm.id ? updateTask() : createTask()">
-                {{ taskForm.id ? '修改记录' : '创建记录' }}
+                {{ taskForm.id ? 'Change log' : 'Create new log' }}
             </el-button>
         </span>
     </el-dialog>
 
 
     <footer>
-        <p>@2024，血糖系统</p>
+        <p>@2024，Dialog</p>
     </footer>
 </div>
 
@@ -240,6 +152,12 @@
 
         },
         methods: {
+
+            navigate(mode) {
+                if (mode === 'selection') {
+                    window.location.href = 'selection.html';
+                } },
+
             formatDate(row) {
                 return moment(row.createTime).format('YYYY-MM-DD');
             },
@@ -344,9 +262,9 @@
                     });
             },
             closeModal() {
-                this.$confirm('确定要取消吗？', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                this.$confirm('Are you sure to cancel it？', 'note', {
+                    confirmButtonText: 'yes',
+                    cancelButtonText: 'no',
                     type: 'info'
                 }).then(() => {
                     this.isModalOpen = false;

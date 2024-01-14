@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily log</title>
+    <link rel="stylesheet" type="text/css" href="logbook.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://fastly.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/moment@2"></script>
+</head>
+<body>
+<div id="logbook">
+    <header>
+        <nav>
+            <div class="nav-left">
+                <ul>
+                    <li><a href="home.html">Home Page</a></li>
+                    <li><a href="logbook.html">Logbook</a></li>
+                    <li><a href="trends.html">Blood Sugar Trend</a></li>
+                    <li><a href="settings.html">User Info</a></li>
+                    <li><a href="ocean.html">Aquarium</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <ul v-if="currentUserID">
+                    <li><span style="line-height: 37px">"Welcome"</span></li>
+                    <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
+                    <li><span style="line-height: 37px">{{ currentUserAccount }}</span></li>
+                    <el-button @click="logout()">Logout</el-button>
+                </ul>
+                <ul v-else>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="buttons-container">
+        <div class="add-activity-button-container">
+            <el-button @click="openModal('complex',null)">Intensive Log</el-button>
+        </div>
+        <div class="add-activity-button-container">
+            <el-button type="primary" @click="navigate('selection')">Back to Selection</el-button>
+        </div>
+    </div>
+
+    <main>
+        <el-table :data="logs" class="table" style="width: 90%" stripe border>
+
+            <el-table-column prop="id" label="ID" width="80"></el-table-column>
+            <el-table-column prop="createTime" label="Time" :formatter="formatDate" width="180"></el-table-column>
+            <el-table-column prop="bloodSugar" label="Blood sugar"></el-table-column>
+            <el-table-column label="Meal and carbs">
+                <template slot-scope="scope">
+                    <div>{{ scope.row.mealDescription }}</div>
+                    <div>{{ scope.row.carb }}</div>
+                </template>
+            </el-table-column>
+            <el-table-column label="Exercise Info">
+                <template slot-scope="scope">
+                    <div>{{ scope.row.exerciseDescription }}</div>
+                    <div>{{scope.row.exerciseDuration }}</div>
+                </template>
+            </el-table-column>
+            <el-table-column label="Insulin Type and Dose">
+                <template slot-scope="scope">
+                    <div>{{ scope.row.insulinType }}</div>
+                    <div>{{scope.row.insulinDose}}</div>
+                </template>
+            </el-table-column>
+            <el-table-column prop="medication" label="Medication"></el-table-column>
+            <el-table-column prop="notes" label="Note"></el-table-column>
+
+
+            <el-table-column label="Action">
+                <template slot-scope="scope">
+                    <el-button type="text" @click="deleteLog(scope.row.id)">Delete</el-button>
+                    <el-button type="text" @click="openModal('complex',scope.row.id)">Change</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+    </main>
+
+    <el-dialog
+            :visible.sync="isModalOpen"
+            :title="modalType === 'simple' ? 'Simple Log' : modalType === 'medium' ? 'Comprehensive Log' : 'Intensive Log'"
+            width="50%"
+            :before-close="closeModal">
+
+        <!-- bloodSugar for complex record -->
+        <template v-else-if="modalType === 'complex'">
+            <el-form ref="taskForm" :model="taskForm" label-width="135px">
+                <el-form-item label="Blood sugar" prop="bloodSugar">
+                    <el-input type="textarea" v-model="taskForm.bloodSugar" placeholder="Please input data"></el-input>
+                </el-form-item>
+                <el-form-item label="notes" prop="notes">
+                    <el-input type="textarea" v-model="taskForm.notes" placeholder="Please input data"></el-input>
+                </el-form-item>
+                <el-form-item label="createTime" prop="createTime">
+                    <el-input type="textarea" v-model="taskForm.createTime" placeholder="Format: 2023-01-13 09:12:04"></el-input>
+                </el-form-item>
+                <el-form-item label="carb" prop="carb">
+                    <el-input type="textarea" v-model="taskForm.carb" placeholder="Please input data"></el-input>
+                </el-form-item>
+                <el-form-item label="mealDescription" prop="mealDescription">
+                    <el-input type="textarea" v-model="taskForm.mealDescription" placeholder="Please input data"></el-input>
+                </el-form-item>
+                <el-form-item label="insulinDose" prop="insulinDose">
+                    <el-input type="textarea" v-model="taskForm.insulinDose" placeholder="Please input data"></el-input>
+                </el-form-item>
+                <el-form-item label="medication" prop="medication">
+                    <el-input type="textarea" v-model="taskForm.medication" placeholder="Please input data"></el-input>
+                </el-form-item>
+                <el-form-item label="exerciseDescription" prop="exerciseDescription">
+                    <el-input type="textarea" v-model="taskForm.exerciseDescription" placeholder="Please input data"></el-input>
+                </el-form-item>
+                <el-form-item label="exerciseType" prop="exerciseType">
+                    <el-input type="textarea" v-model="taskForm.exerciseType" placeholder="Please input data"></el-input>
+                </el-form-item>
+                <el-form-item label="exerciseDuration" prop="exerciseDuration">
+                    <el-input type="textarea" v-model="taskForm.exerciseDuration" placeholder="Please input data"></el-input>
+                </el-form-item>
+                <el-form-item label="insulinType" prop="insulinType">
+                    <el-input type="textarea" v-model="taskForm.insulinType" placeholder="Please input data"></el-input>
+                </el-form-item>
+            </el-form>
+        </template>
+
+        <span slot="footer" class="dialog-footer">
+            <el-button @click="closeModal">Cancel</el-button>
+            <el-button type="primary" @click="taskForm.id ? updateTask() : createTask()">
+                {{ taskForm.id ? 'Change log' : 'Create new log' }}
+            </el-button>
+        </span>
+    </el-dialog>
+
+
+    <footer>
+        <p>@2024，Dialog</p>
+    </footer>
+</div>
+
+<script>
+    new Vue({
+        name: 'logbook',
+        el: '#logbook',
+        data() {
+            return {
+                userMes: JSON.parse(localStorage.getItem('userMes')),
+                currentUser: null,
+                modalType: '',
+                logs: [],
+                isModalOpen: false,
+                createTime: '',
+                bloodSugar: '',
+                taskForm: {
+                    userId: '',
+                    // Simple
+                    id: '',
+                    bloodSugar: '',
+                    notes:'',
+                    createTime:'',
+                    updateTime:'',
+                    logType:'',
+                    //comprehensive
+                    carb:'',
+                    mealDescription:'',
+                    insulinDose:'',
+                    medication:'',
+                    exerciseDescription:'',
+                    //intensive
+                    exerciseType:'',
+                    exerciseDuration:'',
+                    insulinType:'',
+                },
+
+            }
+        },
+        created() {
+
+            this.currentUserAccount = this.userMes.userAccount;
+            this.currentUserID = this.userMes.userID;
+            this.readLog();
+
+
+        },
+        methods: {
+            navigate(mode) {
+                if (mode === 'selection') {
+                    window.location.href = 'selection.html';
+                } },
+
+
+            formatDate(row) {
+                return moment(row.createTime).format('YYYY-MM-DD');
+            },
+            formatTime(row) {
+                return moment(row.createTime).format('HH:mm:ss');
+            },
+
+            openModal(type, logId) {
+                this.modalType = type; // This will be 'simple', 'medium', or 'complex'
+                this.isModalOpen = true;
+                if (logId) {
+                    const selectedLog = this.logs.find(log => log.id === logId);
+                    if (selectedLog) {
+                        this.setLogForm(selectedLog)
+                    }
+                } else {
+                    this.resetLogForm();
+                }
+            },
+            createTask() {
+                // if (this.taskForm.createTime){
+                //     const createTimeVar = this.taskForm.createTime;
+                // }
+                // else{
+                //     const createTimeVar = this.formatCurrentDateTime();
+                // }
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/add/log",
+                    {
+                        // simple
+                        userId: this.currentUserID,
+                        bloodSugar: this.taskForm.bloodSugar,
+                        notes: this.taskForm.notes,
+                        createTime: this.taskForm.createTime,
+                        updateTime: this.taskForm.updateTime,
+                        logType: this.taskForm.logType,
+                        // comprehensive
+                        carb: this.taskForm.carb,
+                        mealDescription: this.taskForm.mealDescription,
+                        insulinDose: this.taskForm.insulinDose,
+                        medication: this.taskForm.medication,
+                        exerciseDescription: this.taskForm.exerciseDescription,
+                        // intensive
+                        exerciseType: this.taskForm.exerciseType,
+                        exerciseDuration: this.taskForm.exerciseDuration,
+                        insulinType: this.taskForm.insulinType,
+
+                    })
+                    .then(response => {
+                        const responseData = response.data;
+                        if (responseData.code === 200) {
+                            console.log("Add Success", responseData);
+                            this.readLog();
+                            this.isModalOpen = false;
+
+                            this.resetLogForm();
+
+                        } else {
+                            alert(responseData.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
+                    });
+
+            },
+            updateTask() {
+                const updateTime = this.formatCurrentDateTime();
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/update/log", {
+                    userId: this.currentUserID,
+                    id: this.taskForm.id,
+                    bloodSugar: this.taskForm.bloodSugar,
+                    notes: this.taskForm.notes,
+                    createTime: this.taskForm.createTime,
+                    updateTime: updateTime,
+                    logType: this.taskForm.logType,
+                    //comprehensive
+                    carb: this.taskForm.carb,
+                    mealDescription: this.taskForm.mealDescription,
+                    insulinDose: this.taskForm.insulinDose,
+                    medication: this.taskForm.medication,
+                    exerciseDescription: this.taskForm.exerciseDescription,
+                    //intensive
+                    exerciseType: this.taskForm.exerciseType,
+                    exerciseDuration: this.taskForm.exerciseDuration,
+                    insulinType: this.taskForm.insulinType,
+                })
+                    .then(response => {
+                        const responseData = response.data;
+                        if (responseData.code === 200) {
+                            console.log("修改成功", response.data);
+                            this.readLog();
+                            this.isModalOpen = false;
+
+                            this.resetLogForm();
+
+                        } else {
+                            alert(responseData.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("检索时发生错误:", error);
+                    });
+            },
+            closeModal() {
+                this.$confirm('Are you sure to cancel it？', 'note', {
+                    confirmButtonText: 'yes',
+                    cancelButtonText: 'no',
+                    type: 'info'
+                }).then(() => {
+                    this.isModalOpen = false;
+                    this.taskForm.bloodSugar = '';
+                }).catch(() => {
+                });
+            },
+            readLog() {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/log",
+                    {
+                        userId: this.currentUserID
+                    })
+                    .then(response => {
+                        console.log("readLog Processing");
+                        if (Array.isArray(response.data.data)) {
+                            this.logs = response.data.data;
+
+                            this.logs.sort((a, b) => {
+                                return new Date(b.createTime) - new Date(a.createTime); // Top is the newest entry
+                                // return new Date(a.createTime) - new Date(b.createTime); // Bottom is the newest entry
+                            });
+
+                            console.log("All logs:", this.logs);
+
+                        } else if (typeof response.data.data === 'object') {
+                            console.log("Object log", response.data.data);
+                            this.logs = Object.values(response.data.data);
+                        } else {
+                            console.error("Unknown data type:", response.data);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
+                    });
+            },
+
+            deleteLog(taskId) {
+                this.$confirm('Are you sure you want to delete this task?', 'Notification', {
+                    confirmButtonText: 'Sure',
+                    cancelButtonText: 'Cancel',
+                    type: 'warning'
+                }).then(() => {
+                    axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/delete/log", { id: taskId, userId: this.currentUserID })
+                        .then(response => {
+                            const responseData = response.data;
+                            if (responseData.code === 200) {
+                                console.log("Delete Success", response.data);
+                                this.readLog();
+                            } else {
+                                alert(responseData.message);
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Delete Failed:", error);
+                        });
+                }).catch(() => {
+                    // Delete cancel
+                });
+            },
+            logout(){
+                localStorage.clear();
+                // window.location.href = "index.html";
+                window.location.replace('login.html');
+            },
+            formatCurrentDateTime() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0'); // January is 0!
+                const day = String(now.getDate()).padStart(2, '0');
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            },
+            setLogForm(selectedLog){
+                this.taskForm.id = selectedLog.id;
+                this.taskForm.bloodSugar = selectedLog.bloodSugar;
+                this.taskForm.notes = selectedLog.notes;
+                this.taskForm.createTime = selectedLog.createTime;
+                this.taskForm.updateTime = selectedLog.updateTime;
+                this.taskForm.logType = selectedLog.logType;
+                this.taskForm.carb = selectedLog.carb;
+                this.taskForm.mealDescription = selectedLog.mealDescription;
+                this.taskForm.insulinDose = selectedLog.insulinDose;
+                this.taskForm.medication = selectedLog.medication;
+                this.taskForm.exerciseDescription = selectedLog.exerciseDescription;
+                this.taskForm.exerciseType = selectedLog.exerciseType;
+                this.taskForm.exerciseDuration = selectedLog.exerciseDuration;
+                this.taskForm.insulinType = selectedLog.insulinType;
+            },
+            resetLogForm(){
+                this.taskForm.id = '';
+                this.taskForm.bloodSugar = '';
+                this.taskForm.notes='';
+                this.taskForm.createTime='';
+                this.taskForm.updateTime='';
+                this.taskForm.logType='';
+                //comprehensive
+                this.taskForm.carb='';
+                this.taskForm.mealDescription='';
+                this.taskForm.insulinDose='';
+                this.taskForm.medication='';
+                this.taskForm.exerciseDescription='';
+                //intensive
+                this.taskForm.exerciseType='';
+                this.taskForm.exerciseDuration='';
+                this.taskForm.insulinType='';
+            }
+        },
+
+    })
+
+</script>
+</body>
+</html>

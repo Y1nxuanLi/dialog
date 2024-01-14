@@ -45,4 +45,66 @@
         <canvas id="oceanCanvas"></canvas>
         <script src="ocean.js"></script>
     </body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            account: '',
+            password: ''
+        },
+        methods: {
+            submitLoginForm() {
+                const requestData = {
+                    userAccount: this.account,
+                    userPassword: this.password,
+                    checkPassword: '',
+                    id: '',
+                    userName: '',
+                    address: '',
+                    email: '',
+                    gender: '',
+                    diabetesType: '',
+                    insulinType: '',
+                    phoneNumber: '',
+                    doctorNumber: '',
+                    postalCode: '',
+                };
+
+                axios.post("https://dialog-1d1125195912.herokuapp.com/login", requestData)
+                    .then(response => {
+                        const responseData = response.data;
+                        console.log("responseData:",responseData);
+                        console.log("responseData.code:",responseData.code);
+                        console.log("responseData.message:",responseData.message);
+                        if (responseData.code === 200) {
+                            console.log("Login Success", response.data);
+
+                            localStorage.setItem('userMes',JSON.stringify(responseData.data));
+
+                            let userMes = JSON.parse(localStorage.getItem('userMes'));
+                            console.log("userMes", userMes);
+                            console.log("userID", userMes.userID);
+                            console.log("userAccount", userMes.userAccount);
+                            console.log("userPassword", userMes.userPassword);
+                            window.location.replace('home.html');
+
+                        } else if (responseData.code === 40400){
+                            console.log("Login data not found", response.data);
+                            alert("Invalid User Account or Password");
+
+                        } else {
+                            alert("Login Failed");
+                            alert(responseData.message);
+                            console.log(responseData.data);
+                            console.log(responseData.message);
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error.config);
+                        console.error("Login Failed", error);
+                    });
+            }
+        }
+    });
+</script>
 </html>

@@ -1,0 +1,11 @@
+.el-card-set{
+    width: 80%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.el-card-set-son{
+    margin: 0 30px;
+    text-align: center;
+    flex: 1;
+}

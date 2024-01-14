@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+<div id="home">
+    <header>
+        <nav>
+            <div class="nav-left">
+                <ul>
+                    <li><a href="home.html">Home Page</a></li>
+                    <li><a href="selection.html">Logbook</a></li>
+                    <li><a href="trends.html">Blood Sugar Trend</a></li>
+                    <li><a href="settings.html">User Info</a></li>
+                    <li><a href="../Aquarium/ocean.html">Aquarium</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <ul v-if="currentUserID">
+                    <li><span style="line-height: 37px">"Welcome"</span></li>
+                    <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
+                    <li><span style="line-height: 37px">{{ currentUserAccount }}</span></li>
+                    <el-button @click="logout()">Logout</el-button>
+                </ul>
+                <ul v-else>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="../LoginRegister/register.html">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="add-activity-button-container">
+            <el-button @click="openModal()">Add Task</el-button>
+        </div>
+        <section id="logbook-entries" v-if="tasks.length > 0">
+
+            <h1>Task</h1>
+
+
+            <div class="entry normal" v-for="task in tasks" :key="task.id">
+                <div class="task-header">
+                    <h2 class="task-title">{{ task.title }}</h2>
+                    <div class="task-details">
+                        <span class="task-time" v-if="task.updateTime">Update Time: {{ task.updateTime }}</span>
+                        <span class="task-time">Created Time: {{ task.createTime }}</span>
+
+                        <div class="delete-flex">
+                            <button class="delete-button" @click="deleteTask(task.id)">delete</button>
+                            <button class="update-button" @click="openModal(task.id)">edit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-content">{{ task.content }}</div>
+            </div>
+
+        </section>
+        <p v-else>no record.</p>
+    </main>
+
+
+    <el-dialog
+            :visible.sync="isModalOpen"
+            title="Add Task"
+            width="30%"
+            :before-close="closeModal">
+        <el-form ref="taskForm" :model="taskForm" label-width="80px">
+            <el-form-item label="Title" prop="title">
+                <el-input v-model="taskForm.title" placeholder="Please enter the title"></el-input>
+            </el-form-item>
+            <el-form-item label="Content" prop="content">
+                <el-input type="textarea" v-model="taskForm.content" placeholder="Please enter the content"></el-input>
+            </el-form-item>
+
+
+<!--            <el-card class="el-card-set-son">-->
+<!--                <b>Due Date</b>-->
+<!--                <el-select v-model="selectedOption" placeholder="Current Time" @change="changeDate()">-->
+<!--                    <el-option label="after 12 hours" value="12"></el-option>-->
+<!--                    <el-option label="after 24 hours" value="24"></el-option>-->
+<!--                    <el-option label="after 3 days" value="72"></el-option>-->
+<!--                    <el-option label="after 1 week" value="168"></el-option>-->
+<!--                    <el-option label="Custom Time" value="set"></el-option>-->
+<!--                </el-select>-->
+<!--                <el-date-picker v-if="selectedOption === 'set'"-->
+<!--                                v-model="customDateRange"-->
+<!--                                style="margin-top: 10px"-->
+<!--                                type="datetimerange"-->
+<!--                                range-separator="to"-->
+<!--                                start-placeholder="Start"-->
+<!--                                end-placeholder="End"-->
+<!--                                @change="changeDate()"-->
+<!--                ></el-date-picker>-->
+<!--            </el-card>-->
+
+            <el-form-item label="Email Notification">
+                <el-checkbox v-model="taskForm.notification">Accept to Send Email Notification</el-checkbox>
+            </el-form-item>
+
+            <el-form-item label="Notification Date" v-if="taskForm.notification"> <!-- Updated v-if condition -->
+                <el-date-picker
+                        v-model="taskForm.notificationDate"
+                        type="datetime"
+                        placeholder="Choose date and time"
+                        value-format="yyyy-MM-dd HH:mm:ss">
+                </el-date-picker>
+            </el-form-item>
+
+        </el-form>
+
+        <span slot="footer" class="dialog-footer">
+            <el-button @click="closeModal">Cancel</el-button>
+            <el-button type="primary" @click="taskForm.id ? updateTask() : createTask()">
+                {{ taskForm.id ? 'Edit Task' : 'Create Task' }}
+            </el-button>
+        </span>
+    </el-dialog>
+
+
+    <footer>
+        <p>@2024，DiaLog</p>
+    </footer>
+</div>
+
+<script>
+    new Vue({
+        name: 'home',
+        el: '#home',
+        data() {
+            return {
+                userMes: JSON.parse(localStorage.getItem('userMes')),
+                currentUserAccount:null,
+                currentUserID: null,
+                title: '',
+                tasks: [],
+                isModalOpen: false,
+                createTime: '',
+                content: '',
+                taskForm: {
+                    id: '',
+                    title: '',
+                    content: '',
+                    userId: '',
+                    createTime: '', // Format these dates as 'YYYY-MM-DD HH:mm:ss'
+                    updateTime: '',
+                    dueTime: '',
+                    notification: 1,// Set this as false by default
+                    notificationDate: '',
+                },
+            }
+        },
+        created() {
+
+            this.currentUserAccount = this.userMes.userAccount;
+            this.currentUserID = this.userMes.userID;
+            this.readTask();
+            this.readLog();
+        },
+        methods: {
+            openModal(taskId) {
+                this.isModalOpen = true;
+                if (taskId) {
+                    const selectedTask = this.tasks.find(task => task.id === taskId);
+                    //nCallback Function: The callback function here is (task => task.id === taskId).
+                    // For each task in the this.tasks array, it checks whether task.id is equal to taskId.
+                    // selectedTask: This is the variable where the result of the find operation is stored.
+                    // If a task with an ID matching taskId is found in the this.tasks array, selectedTask will be that task object.
+                    // If no matching task is found, selectedTask will be undefined.
+
+                    if (selectedTask) {
+                        this.setTaskForm(selectedTask);
+                    }
+                } else {
+                    this.resetTaskForm();
+                }
+            },
+
+            createTask() {
+                const createTime = this.formatCurrentDateTime();
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/add/task",
+                    {
+                        userId: this.currentUserID,
+                        title: this.taskForm.title,
+                        content: this.taskForm.content,
+                        createTime: createTime, // Format these dates as 'YYYY-MM-DD HH:mm:ss'
+                        updateTime: null,
+                        dueTime: null,
+                        notification: this.taskForm.notification
+
+                    })
+                    .then(response => {
+                        const responseData = response.data;
+                        if (responseData.code === 200) {
+                            console.log("Task Log Success", responseData);
+                            this.readTask();
+                            this.isModalOpen = false;
+                            this.resetTaskForm();
+
+                        } else {
+                            console.log("Task Log Failed", responseData);
+                            alert(responseData.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
+                    });
+
+            },
+            updateTask() {
+                const updateTime = this.formatCurrentDateTime();
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/update/task", {
+                    id: this.taskForm.id,
+                    userId: this.currentUserID,
+                    title: this.taskForm.title,
+                    content: this.taskForm.content,
+                    createTime: this.taskForm.createTime, // Format these dates as 'YYYY-MM-DD HH:mm:ss'
+                    updateTime: updateTime,
+                    dueTime: null,
+                    notification: this.taskForm.notification
+                })
+                    .then(response => {
+                        const responseData = response.data;
+                        if (responseData.code === 200) {
+                            console.log("Edit Success", response.data);
+                            this.readTask();
+                            this.isModalOpen = false;
+                            this.resetTaskForm();
+                        } else {
+                            alert(responseData.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
+                    });
+            },
+            closeModal() {
+                this.$confirm('Are you sure you want to close this？', 'hint', {
+                    confirmButtonText: 'Sure',
+                    cancelButtonText: 'Cancel',
+                    type: 'info'
+                }).then(() => {
+                    this.isModalOpen = false;
+                    this.resetTaskForm();
+                }).catch(() => {
+                });
+            },
+
+            readLog() {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/log", // Adjust the URL to your log read endpoint
+                    {
+                        userId: this.currentUserID
+                    })
+                    .then(response => {
+                        console.log("readLog Processing");
+                        if (Array.isArray(response.data.data)) {
+                            this.logs = response.data.data;
+                            console.log("All logs:", this.logs);
+
+                        } else if (typeof response.data.data === 'object') {
+                            console.log("Object log", response.data.data);
+                            this.logs = Object.values(response.data.data);
+                        } else {
+                            console.error("Unknown data type:", response.data);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
+                    });
+            },
+            readTask() {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/task",
+                    {
+                        userId: this.currentUserID
+                    })
+                    .then(response => {
+                        console.log("readTask Processing");
+                        if (Array.isArray(response.data.data)) {
+                            this.tasks = response.data.data;
+                            console.log("All tasks:", this.tasks);
+
+                        } else if (typeof response.data.data === 'object') {
+                            console.log("Object post", response.data.data);
+                            this.tasks = Object.values(response.data.data);
+                        } else {
+                            console.error("Unknown data type:", response.data);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
+                    });
+            },
+
+            deleteTask(taskId) {
+                this.$confirm('Are you sure you want to delete this task?', 'Notification', {
+                    confirmButtonText: 'Sure',
+                    cancelButtonText: 'Cancel',
+                    type: 'warning'
+                }).then(() => {
+                    axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/delete/task", { id: taskId, userId: this.currentUserID })
+                        .then(response => {
+                            const responseData = response.data;
+                            if (responseData.code === 200) {
+                                console.log("Delete Success", response.data);
+                                this.readTask();
+                            } else {
+                                alert(responseData.message);
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Delete Failed:", error);
+                        });
+                }).catch(() => {
+                    // Delete cancel
+                });
+            },
+            logout(){
+                localStorage.clear();
+                // window.location.href = "index.html";
+                window.location.replace('login.html');
+            },
+            formatCurrentDateTime() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0'); // January is 0!
+                const day = String(now.getDate()).padStart(2, '0');
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            },
+            setTaskForm(selectedTask){
+                this.taskForm.id = selectedTask.id;
+                this.taskForm.title = selectedTask.title;
+                this.taskForm.content = selectedTask.content;
+                this.taskForm.userId = selectedTask.userId;
+                this.taskForm.createTime = selectedTask.createTime;
+                this.taskForm.updateTime = selectedTask.updateTime;
+                this.taskForm.dueTime = selectedTask.dueTime;
+                this.taskForm.notification = selectedTask.notification;
+            },
+            resetTaskForm(){
+                this.taskForm.id = '';
+                this.taskForm.title = '';
+                this.taskForm.content = '';
+                this.taskForm.updateTime = '';
+                this.taskForm.dueTime = '';
+                this.taskForm.notification = 1;
+            }
+        },
+    })
+
+</script>
+
+</body>
+</html>

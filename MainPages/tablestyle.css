@@ -1,0 +1,140 @@
+/* tablestyle.css */
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and HTML Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; /* This will space between the nav-left and nav-right */
+}
+
+.nav-left, .nav-right {
+    display: flex;
+}
+
+.nav-left ul, .nav-right ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-left li, .nav-right li {
+    margin-right: 20px;
+}
+
+.nav-right li:last-child {
+    margin-right: 0; /* Removes margin for the last item */
+}
+
+.nav-left li a, .nav-right li a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: bold;
+    display: block;
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+.nav-left li a:hover, .nav-right li a:hover {
+    background-color: #eaeaea;
+}
+
+
+/* Container for the table */
+.container {
+    width: 100%;
+    margin: 20px auto;
+    overflow-x: auto; /* Add horizontal scrollbar if the table overflows */
+}
+
+/* Table Styling */
+#logbook-table {
+    width: auto; /* Set to auto to ensure table respects content width */
+    min-width: 100%; /* Ensure the table is at least as wide as its container */
+    border-collapse: collapse;
+    margin: auto;
+    background-color: #fff;
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        overflow-x: auto; /* Horizontal scrollbar for smaller screens */
+    }
+}
+
+#logbook-table thead th {
+    background-color: hsl(210, 16%, 93%);
+    color: #474e55;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+}
+
+#logbook-table tbody td {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Highlighting alternating rows for better readability */
+#logbook-table tbody tr:nth-child(4n), /* Targeting the Carbs Eaten rows */
+#logbook-table tbody tr:nth-child(4n-1) { /* Targeting the Blood Glucose rows */
+    background-color: #f2f2f2;
+}
+
+/* Hover effect for rows */
+#logbook-table tbody tr:hover {
+    background-color: #ddd;
+}
+
+/* Ensure the last row of tbody has a visible bottom border */
+#logbook-table tbody tr:last-child td {
+    border-bottom: 2px solid #dee2e6 !important;
+}
+
+/* Responsive Table: Adjusts on smaller screens */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    nav ul {
+        padding: 0;
+    }
+
+    nav li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    /* Making the table horizontally scrollable on small screens */
+    .container {
+        overflow-x: auto;
+    }
+}

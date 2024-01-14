@@ -1,0 +1,192 @@
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 0 0 60px;
+}
+
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; /* This will space between the nav-left and nav-right */
+}
+
+.nav-left, .nav-right {
+    display: flex;
+}
+
+.nav-left ul, .nav-right ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-left li, .nav-right li {
+    margin-right: 20px;
+}
+
+.nav-right li:last-child {
+    margin-right: 0; /* Removes margin for the last item */
+}
+
+.nav-left li a, .nav-right li a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: bold;
+    display: block;
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+.nav-left li a:hover, .nav-right li a:hover {
+    background-color: #eaeaea;
+}
+
+
+#logbook-entries {
+    background: #ffffff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.entry {
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea;
+    overflow: auto;
+}
+
+.entry:last-child {
+    border-bottom: none;
+}
+
+.entry span {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 0.9em;
+}
+
+.entry .date {
+    font-weight: bold;
+}
+
+.entry .level {
+    font-weight: bold;
+    color: #4caf50; /* Green for normal levels */
+}
+
+/* Add .high and .medium with appropriate colors */
+
+#summary {
+    background: #ffffff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.summary-item {
+    margin-bottom: 10px;
+}
+
+.summary-item .label {
+    font-weight: bold;
+}
+
+.summary-item .value {
+    float: right;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #ffffff;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.add-activity-button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.add-activity-button-container button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: #45a04a;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-activity-button-container button:hover {
+    background-color: #45a049;
+    color: #ffffff;
+}
+.content-container {
+    display: flex;
+    justify-content: space-between; /* Space between the image and button containers */
+    height: calc(100vh - 60px); /* Subtracting header/footer height if any */
+}
+
+.image-container {
+    flex: 1; /* Take up all available space */
+    background-image: url('logbook.webp'); /* Replace with your actual image path */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.button-container {
+    width: 300px; /* Or whatever width you prefer for the buttons */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    padding: 20px; /* Padding inside the buttons container */
+}
+
+.el-button {
+    width: 100%; /* Use 100% width for full-width buttons or specify a width */
+    margin-bottom: 10px; /* Spacing between buttons */
+    border-radius: 20px; /* Rounded corners, adjust as needed */
+    font-size: 18px; /* Larger font size */
+    line-height: 1.5; /* Adjust line height for better readability with larger font size */
+}
+
+/* Overriding Element UI's default styles for primary button */
+.el-button--primary {
+    background-color: #4CAF50; /* Green background */
+    border-color: #4CAF50;
+    color: #ffffff; /* White text */
+}
+
+
+.el-button--primary:hover {
+background-color: #45a049; / Slightly darker green on hover /
+border-color: #45a049; / Slightly darker border on hover /
+color: #ffffff; / Ensure text stays white on hover */
+}
+
+/* Overriding Element UI's default styles for secondary button */
+.el-button {
+padding: 15px 30px; / Increase padding for larger buttons /
+/ Other styles remain the same */
+}

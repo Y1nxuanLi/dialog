@@ -19,11 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Decrease the number of creatures every 24 hours
+    // Update and save creatures periodically
     setInterval(function() {
         if (creatures.length > 0) {
-            creatures.shift(); // Removes one creature from the end of the array
+            creatures.shift(); // Removes one creature
+            fishCounter--; // Update fishCounter
+            saveCreatures(); // Save updated creatures list
         }
-    }, 10 * 1000); // 60s
+    }, 1000); // 60s
     // Creature constructor
     class Creature {
         constructor(x, y, type) {
@@ -85,20 +88,20 @@ document.addEventListener("DOMContentLoaded", function () {
     
     const creatures = []; // Initialize creatures array
 
-// Load creatures if they exist in localStorage
-if (storedCreatures) {
-    for (let creature of storedCreatures) {
-        creatures.push(new Creature(creature.x, creature.y, creature.type));
+    // Load creatures if they exist in localStorage
+    if (storedCreatures) {
+        for (let creature of storedCreatures) {
+            creatures.push(new Creature(creature.x, creature.y, creature.type));
+        }
+    } else {
+        // Only create new creatures if none are in localStorage
+        let totalCreatures = Math.floor(fishCounter / 5);
+        for (let i = 0; i < totalCreatures; i++) {
+            const randomX = Math.random() * canvas.width;
+            const randomY = Math.random() * canvas.height;
+            createRandomCreature(randomX, randomY);
+        }
     }
-} else {
-    // Only create new creatures if none are in localStorage
-    let totalCreatures = Math.floor(fishCounter / 5);
-    for (let i = 0; i < totalCreatures; i++) {
-        const randomX = Math.random() * canvas.width;
-        const randomY = Math.random() * canvas.height;
-        createRandomCreature(randomX, randomY);
-    }
-}
     // Function to create a random creature based on rarity
     function createRandomCreature(x, y) {
         const rarity = Math.random();

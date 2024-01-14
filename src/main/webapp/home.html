@@ -356,31 +356,35 @@
             },
             calculateDueTime() {
                 if (this.taskForm.selectedOption != "set") {
-                    let newTime = new Date(this.taskForm.createTime); // Parse createTime
+                    // Convert createTime to a more standard format (ISO 8601)
+                    let formattedCreateTime = this.taskForm.createTime.replace(' ', 'T');
+                    console.log("createTime: ", this.taskForm.createTime);
+                    console.log("createTime: ", this.taskForm.selectedOption);
 
-                    // Ensure the date is valid
+                    let newTime = new Date(formattedCreateTime); // Parse createTime
+                    console.log("Parsed createTime: ", newTime);
+
                     if (!isNaN(newTime.getTime())) {
                         newTime.setHours(newTime.getHours() + parseInt(this.taskForm.selectedOption, 10));
                         this.taskForm.dueTime = newTime.toISOString().replace('T', ' ').substring(0, 19);
+                        console.log("createTime: ", this.taskForm.dueTime);
                     } else {
-                        console.error("Invalid createTime format");
+                        console.error("Invalid createTime format: ", formattedCreateTime);
                     }
                 } else {
-                    // Check if dueTime is not null before trying to format it
                     if (this.taskForm.dueTime) {
                         let dueTime = new Date(this.taskForm.dueTime);
-                        // Ensure the date is valid
                         if (!isNaN(dueTime.getTime())) {
                             this.taskForm.dueTime = dueTime.toISOString().replace('T', ' ').substring(0, 19);
                         } else {
                             console.error("Invalid dueTime format");
                         }
                     } else {
-                        // Handle the case where dueTime is null or undefined
                         console.error("dueTime is null or undefined");
                     }
                 }
             }
+
 
 
         },

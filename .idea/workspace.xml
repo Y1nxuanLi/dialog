@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.3.5&#10;&#10;home page add due time">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.3.6&#10;&#10;fishcounter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/EmailSchedulerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/EmailSchedulerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/logbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ocean.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ocean.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ocean.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ocean.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,15 +183,7 @@
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
-      <workItem from="1705245935920" duration="7870000" />
-    </task>
-    <task id="LOCAL-00223" summary="logbook v5.12.12">
-      <option name="closed" value="true" />
-      <created>1705186449214</created>
-      <option name="number" value="00223" />
-      <option name="presentableId" value="LOCAL-00223" />
-      <option name="project" value="LOCAL" />
-      <updated>1705186449214</updated>
+      <workItem from="1705245935920" duration="8659000" />
     </task>
     <task id="LOCAL-00224" summary="logbook v5.12.13">
       <option name="closed" value="true" />
@@ -580,7 +569,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705252977303</updated>
     </task>
-    <option name="localTasksCounter" value="272" />
+    <task id="LOCAL-00272" summary="Fully Functional Version v6.3.6&#10;&#10;fishcounter">
+      <option name="closed" value="true" />
+      <created>1705254693665</created>
+      <option name="number" value="00272" />
+      <option name="presentableId" value="LOCAL-00272" />
+      <option name="project" value="LOCAL" />
+      <updated>1705254693665</updated>
+    </task>
+    <option name="localTasksCounter" value="273" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -598,7 +595,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fully Functional Version v6.0.0" />
     <MESSAGE value="Fully Functional Version v6.0.4&#10;rollback" />
     <MESSAGE value="Fully Functional Version v6.0.4&#10;redirect to login page" />
     <MESSAGE value="Fully Functional Version v6.0.5&#10;redirect to login page" />
@@ -623,6 +619,7 @@
     <MESSAGE value="Fully Functional Version v6.3.3&#10;&#10;home page add due time" />
     <MESSAGE value="Fully Functional Version v6.3.4&#10;&#10;home page add due time" />
     <MESSAGE value="Fully Functional Version v6.3.5&#10;&#10;home page add due time" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.3.5&#10;&#10;home page add due time" />
+    <MESSAGE value="Fully Functional Version v6.3.6&#10;&#10;fishcounter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.3.6&#10;&#10;fishcounter" />
   </component>
 </project>

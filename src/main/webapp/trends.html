@@ -49,7 +49,7 @@
                 <el-select v-model="selectedOption" placeholder="Please select" @change="changeDate()">
                     <el-option label="All" value="all"></el-option>
                     <el-option label="Today" value="today"></el-option>
-                    <el-option label="Morning上" value="morning"></el-option>
+                    <el-option label="Morning" value="morning"></el-option>
                     <el-option label="Noon" value="noon"></el-option>
                     <el-option label="Evening" value="evening"></el-option>
                     <el-option label="Custom" value="set"></el-option>
@@ -191,8 +191,8 @@
 					 	bloodSugarSeriesData = filteredData1.map(item => parseFloat(item.bloodSugar));
 					 	filteredData2 = filteredData.filter(item => item.carb !== undefined && item.carb !== null && item.carb !=='')
 					 	carbohydrateData = filteredData2.map(item => parseFloat(item.carb));		
-					   xAxisData1 = filteredData1.map(item => moment(item.createTime).format('YYYY年MM月DD日 HH时mm分ss秒'));
-					   xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY年MM月DD日 HH时mm分ss秒'));
+					   xAxisData1 = filteredData1.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss:'));
+					   xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss:'));
 
 				}
 				else if(this.checkedItems[0] == "bloodSugar")
@@ -201,14 +201,14 @@
 					 bloodSugarSeriesData = filteredData1.map(item => parseFloat(item.bloodSugar));
 					  
 					 carbohydrateData =  "";	
-					 xAxisData2 = filteredData1.map(item => moment(item.createTime).format('YYYY年MM月DD日 HH时mm分ss秒'));
+					 xAxisData2 = filteredData1.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss:'));
 				 }
 				else if(this.checkedItems[0] == "carbohydrate")
 				 {
 					bloodSugarSeriesData = "";
 					filteredData2 = filteredData.filter(item => item.carb !== undefined && item.carb !== null && item.carb !=='')
 					carbohydrateData = filteredData2.map(item => parseFloat(item.carb));
-					xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY年MM月DD日 HH时mm分ss秒'));
+					xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss:'));
 				 }
 			     
                 console.log(xAxisData1)

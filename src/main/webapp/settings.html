@@ -51,7 +51,7 @@
                     <el-input v-model="currentUser.userName" :disabled="editMode"></el-input>
                 </el-form-item>
                 <el-form-item label="性别">
-                    <el-select v-model="selectedGender" :disabled="editMode">
+                    <el-select v-model="currentUser.gender" :disabled="editMode">
                         <el-option label="男" value="1"></el-option>
                         <el-option label="女" value="2"></el-option>
                     </el-select>
@@ -93,12 +93,11 @@
         el: '#setting',
         data() {
             return {
-                userMes: {},
+                userMes: JSON.parse(localStorage.getItem('userMes')),
                 currentUser: null,
                 currentUserAccount: null,
                 currentUserID: null,
                 editMode: true,
-                selectedGender: '',
                 rules: {
                     userName: [{ required: true, message: '请输入名称', trigger: 'blur' }],
                     gender: [{ required: true, message: '请输入性别', trigger: 'blur' }],
@@ -114,11 +113,10 @@
             }
         },
         created() {
-            const userMes = JSON.parse(localStorage.getItem('userMes'));
-            this.currentUser = userMes; // Assuming userMes contains all the necessary user data
-            this.currentUserID = userMes.userID;
-            this.currentUserAccount = userMes.userAccount;
-            this.selectedGender = this.currentUser.gender.toString()
+
+            this.currentUser = this.userMes;
+            this.currentUserID = this.userMes.userID;
+            this.currentUserAccount = this.userMes.userAccount;
         },
         methods: {
             saveChanges() {
@@ -127,7 +125,7 @@
                     userName: this.currentUser.userName,
                     address: this.currentUser.address,
                     email: this.currentUser.email,
-                    gender: this.selectedGender,
+                    gender: this.currentUser.gender,
                     diabetesType: this.currentUser.diabetesType,
                     insulinType: this.currentUser.insulinType,
                     phoneNumber: this.currentUser.phoneNumber,
@@ -139,8 +137,6 @@
                         if (responseData.code === 200) {
                             console.log("Edit Success", response.data);
                             this.userMes = this.currentUser; // Update the userMes with current user data
-
-                            this.useMes.gender = response.data.data.gender;
                             localStorage.setItem('userMes', JSON.stringify(this.userMes));
                             this.editMode = true;
 

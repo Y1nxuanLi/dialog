@@ -104,7 +104,7 @@
         el: '#index',
         data() {
             return {
-                userMes: {},
+                userMes: JSON.parse(localStorage.getItem('userMes')),
                 currentUserAccount:null,
                 currentUserID: null,
                 title: '',
@@ -125,9 +125,9 @@
             }
         },
         created() {
-            const userMes = JSON.parse(localStorage.getItem('userMes'));
-            this.currentUserAccount = userMes.userAccount;
-            this.currentUserID = userMes.userID;
+
+            this.currentUserAccount = this.userMes.userAccount;
+            this.currentUserID = this.userMes.userID;
             this.readTask();
             this.readLog();
         },

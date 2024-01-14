@@ -42,36 +42,36 @@
     </header>
 
     <el-card class="el-card-set">
-        <h2>图表控制台</h2>
+        <h2>Trend Chart</h2>
         <div style="display: flex">
             <el-card class="el-card-set-son">
-                <b>数据时间段</b>
-                <el-select v-model="selectedOption" placeholder="请选择" @change="changeDate()">
-                    <el-option label="全部" value="all"></el-option>
-                    <el-option label="当天" value="today"></el-option>
-                    <el-option label="早上" value="morning"></el-option>
-                    <el-option label="中午" value="noon"></el-option>
-                    <el-option label="晚上" value="evening"></el-option>
-                    <el-option label="自定义" value="set"></el-option>
+                <b>Period</b>
+                <el-select v-model="selectedOption" placeholder="Please select" @change="changeDate()">
+                    <el-option label="All" value="all"></el-option>
+                    <el-option label="Today" value="today"></el-option>
+                    <el-option label="Morning上" value="morning"></el-option>
+                    <el-option label="Noon" value="noon"></el-option>
+                    <el-option label="Evening" value="evening"></el-option>
+                    <el-option label="Custom" value="set"></el-option>
                 </el-select>
                 <el-date-picker v-if="selectedOption === 'set'"
                                 v-model="customDateRange"
                                 style="margin-top: 10px"
                                 type="datetimerange"
-                                range-separator="至"
-                                start-placeholder="开始日期"
-                                end-placeholder="结束日期"
+                                range-separator="to"
+                                start-placeholder="Starting Date"
+                                end-placeholder="End Date"
                                @change="changeDate()"
                 ></el-date-picker>
             </el-card>
             <el-card class="el-card-set-son">
                 <div style="margin-bottom: 10px">
-                    <b>数据类型</b>
+                    <b>Parameter</b>
                 </div>
                 <el-checkbox-group v-model="checkedItems" @change="changeDate()">
         
-                    <el-checkbox label="bloodSugar">血糖</el-checkbox>
-                    <el-checkbox label="carbohydrate">碳水化合物</el-checkbox>
+                    <el-checkbox label="bloodSugar">Blood Sugar</el-checkbox>
+                    <el-checkbox label="carbohydrate">carbohydrate</el-checkbox>
                 </el-checkbox-group>
             </el-card>
         </div>
@@ -82,7 +82,7 @@
     
 
     <footer>
-        <p>@2024，血糖系统</p>
+        <p>@2024，Dialog</p>
     </footer>
 </div>
 
@@ -217,7 +217,7 @@
 				console.log(carbohydrateData)
       //            const options = {
       //                title: {
-      //                    text: '血糖趋势',
+      //                    text: 'Blood Sugar趋势',
       //                    left: 'center',
       //                },
       //                tooltip: {
@@ -234,7 +234,7 @@
       //                    interval: 50,
       //                },
       //                series: [{
-      //                    name: '血糖',
+      //                    name: 'Blood Sugar',
       //                    type: 'line',
       //                    data: bloodSugarSeriesData,
       //                    itemStyle: {
@@ -326,7 +326,7 @@
 	    ],
 	    series: [
 	      {
-	        name: '血糖',
+	        name: 'Blood Sugar',
 	        type: 'line',
 	        xAxisIndex: 1,
 	        smooth: true,
@@ -336,7 +336,7 @@
 	        data: bloodSugarSeriesData
 	      },
 	      {
-	        name: '碳水化合物',
+	        name: 'Carbohydrate',
 	        type: 'line',
 	        smooth: true,
 	        emphasis: {
@@ -349,7 +349,7 @@
 	  option && chart.setOption(option);
 	  
 	  window.addEventListener('resize', function () {
-	        // 改变图表尺寸，在容器大小发生改变时需要手动调用
+	        // change size
 	        chart.resize();
 	      });
              },

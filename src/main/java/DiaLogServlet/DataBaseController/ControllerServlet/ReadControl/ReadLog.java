@@ -1,7 +1,6 @@
 package DiaLogServlet.DataBaseController.ControllerServlet.ReadControl;
 import DiaLogApp.LogData;
 import DiaLogServlet.DataBaseController.SQLTableMethods.LogDataSQL;
-import DiaLogServlet.DataBaseController.SQLTableMethods.TaskDataSQL;
 import DiaLogServlet.ServletResponse.ErrorCode;
 import DiaLogServlet.ServletResponse.sendResponse;
 import com.google.gson.Gson;

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="userID-&gt;userId v5.13.7">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet3.java" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="logbook v5.13.8">
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/ReadControl/ReadLog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,15 +174,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="91592000" />
-    </task>
-    <task id="LOCAL-00185" summary="Register troubleshoot v5.10.9">
-      <option name="closed" value="true" />
-      <created>1705162492109</created>
-      <option name="number" value="00185" />
-      <option name="presentableId" value="LOCAL-00185" />
-      <option name="project" value="LOCAL" />
-      <updated>1705162492109</updated>
+      <workItem from="1705082248653" duration="92064000" />
     </task>
     <task id="LOCAL-00186" summary="Register troubleshoot v5.10.10">
       <option name="closed" value="true" />
@@ -569,7 +560,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705196749199</updated>
     </task>
-    <option name="localTasksCounter" value="234" />
+    <task id="LOCAL-00234" summary="logbook v5.13.8">
+      <option name="closed" value="true" />
+      <created>1705198706072</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL-00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1705198706072</updated>
+    </task>
+    <option name="localTasksCounter" value="235" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,8 +586,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="logbook html fix v5.11.12" />
-    <MESSAGE value="merge v5.12" />
     <MESSAGE value="merge v5.12.2" />
     <MESSAGE value="merge v5.12.3" />
     <MESSAGE value="merge v5.12.4" />
@@ -612,6 +609,8 @@
     <MESSAGE value="setting update v5.13.6" />
     <MESSAGE value="userID-&gt;userId v5.13.6" />
     <MESSAGE value="userID-&gt;userId v5.13.7" />
-    <option name="LAST_COMMIT_MESSAGE" value="userID-&gt;userId v5.13.7" />
+    <MESSAGE value="userID-&gt;userId v5.13.8" />
+    <MESSAGE value="logbook v5.13.8" />
+    <option name="LAST_COMMIT_MESSAGE" value="logbook v5.13.8" />
   </component>
 </project>

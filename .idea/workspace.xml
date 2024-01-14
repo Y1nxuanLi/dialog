@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.2.4&#10;&#10;Restructure Webapp files">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.2.7&#10;&#10;delete bug fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +45,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -182,14 +181,7 @@
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
-    </task>
-    <task id="LOCAL-00215" summary="merge v5.12.6">
-      <option name="closed" value="true" />
-      <created>1705183056768</created>
-      <option name="number" value="00215" />
-      <option name="presentableId" value="LOCAL-00215" />
-      <option name="project" value="LOCAL" />
-      <updated>1705183056768</updated>
+      <workItem from="1705245935920" duration="2081000" />
     </task>
     <task id="LOCAL-00216" summary="merge v5.12.7">
       <option name="closed" value="true" />
@@ -575,7 +567,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705219813660</updated>
     </task>
-    <option name="localTasksCounter" value="264" />
+    <task id="LOCAL-00264" summary="Fully Functional Version v6.2.7&#10;&#10;delete bug fix">
+      <option name="closed" value="true" />
+      <created>1705232800652</created>
+      <option name="number" value="00264" />
+      <option name="presentableId" value="LOCAL-00264" />
+      <option name="project" value="LOCAL" />
+      <updated>1705232800652</updated>
+    </task>
+    <option name="localTasksCounter" value="265" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +593,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="echarts v5.14.0" />
     <MESSAGE value="echarts v5.14.1" />
     <MESSAGE value="echarts v5.14.2" />
     <MESSAGE value="echarts v5.14.3" />
@@ -618,6 +617,7 @@
     <MESSAGE value="Fully Functional Version v6.2.3&#10;&#10;refine Aquarium" />
     <MESSAGE value="Fully Functional Version v6.2.4&#10;&#10;refine Aquarium" />
     <MESSAGE value="Fully Functional Version v6.2.4&#10;&#10;Restructure Webapp files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.2.4&#10;&#10;Restructure Webapp files" />
+    <MESSAGE value="Fully Functional Version v6.2.7&#10;&#10;delete bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.2.7&#10;&#10;delete bug fix" />
   </component>
 </project>

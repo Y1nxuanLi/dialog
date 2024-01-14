@@ -49,7 +49,6 @@
 
             <h1>Task</h1>
 
-
             <div class="entry normal" v-for="task in tasks" :key="task.id">
                 <div class="task-header">
                     <h2 class="task-title">{{ task.title }}</h2>
@@ -74,7 +73,7 @@
     <el-dialog
             :visible.sync="isModalOpen"
             title="Add Task"
-            width="30%"
+            width="40%"
             :before-close="closeModal">
         <el-form ref="taskForm" :model="taskForm" label-width="80px">
             <el-form-item label="Title" prop="title">
@@ -108,6 +107,15 @@
             <el-form-item label="Email Notification">
                 <el-checkbox v-model="taskForm.notification">Accept to Send Email Notification</el-checkbox>
             </el-form-item>
+            <el-form-item label="Notification Date" v-if="taskForm.notification"> <!-- Updated v-if condition -->
+                <el-date-picker
+                        v-model="taskForm.notificationDate"
+                        type="datetime"
+                        placeholder="Choose date and time"
+                        value-format="yyyy-MM-dd HH:mm:ss">
+                </el-date-picker>
+            </el-form-item>
+
         </el-form>
 
         <span slot="footer" class="dialog-footer">

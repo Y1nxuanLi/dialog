@@ -80,8 +80,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    const creatures = []; // Initialize empty creatures array
+ 
+    
+    const creatures = []; // Initialize creatures array
 
+    // Load creatures if they exist in localStorage
+    if (storedCreatures) {
+        for (let creature of storedCreatures) {
+            creatures.push(new Creature(creature.x, creature.y, creature.type, creature.speedX, creature.speedY, creature.flipped));
+        }
+    }
     // Function to create a random creature based on rarity
     function createRandomCreature(x, y) {
         const rarity = Math.random();

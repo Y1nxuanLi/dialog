@@ -52,7 +52,7 @@
     </div>
 
     <main>
-        <el-table :data="daydatas" class="table" style="width: 90%" stripe border>
+        <el-table :data="logs" class="table" style="width: 90%" stripe border>
             <el-table-column prop="id" label="ID" width="80"></el-table-column>
             <el-table-column prop="createTime" label="日期" :formatter="formatDate" width="180"></el-table-column>
             <el-table-column prop="bloodSugar" label="血糖数值"></el-table-column>

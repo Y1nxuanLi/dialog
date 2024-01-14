@@ -85,20 +85,20 @@ document.addEventListener("DOMContentLoaded", function () {
     
     const creatures = []; // Initialize creatures array
 
-   // Load creatures if they exist in localStorage
-    if (storedCreatures) {
-        for (let creature of storedCreatures) {
-            creatures.push(new Creature(creature.x, creature.y, creature.type, creature.speedX, creature.speedY, creature.flipped));
-        }
-    } else {
-        // Only create new creatures if none are in localStorage
-        let totalCreatures = Math.floor(fishCounter / 5);
-        for (let i = 0; i < totalCreatures; i++) {
-            const randomX = Math.random() * canvas.width;
-            const randomY = (i % 3 === 0) ? canvas.height - 30 : Math.random() * canvas.height;
-            createRandomCreature(randomX, randomY);
-        }
+// Load creatures if they exist in localStorage
+if (storedCreatures) {
+    for (let creature of storedCreatures) {
+        creatures.push(new Creature(creature.x, creature.y, creature.type));
     }
+} else {
+    // Only create new creatures if none are in localStorage
+    let totalCreatures = Math.floor(fishCounter / 5);
+    for (let i = 0; i < totalCreatures; i++) {
+        const randomX = Math.random() * canvas.width;
+        const randomY = Math.random() * canvas.height;
+        createRandomCreature(randomX, randomY);
+    }
+}
     // Function to create a random creature based on rarity
     function createRandomCreature(x, y) {
         const rarity = Math.random();

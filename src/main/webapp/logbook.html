@@ -342,7 +342,7 @@
                         if (Array.isArray(response.data.data)) {
                             this.logs = response.data.data;
                             this.logs.sort((a, b) => {
-                                return new Date(a.createTime) - new Date(b.createTime);
+                                return new Date(b.createTime) - new Date(a.createTime);
                             });
 
                             console.log("All logs:", this.logs);

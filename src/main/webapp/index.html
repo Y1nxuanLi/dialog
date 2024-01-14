@@ -1,3 +1,15 @@
+<!--This is the Login & index page-->
+
+<!--The user will access the content in the page with URL:-->
+<!--https://dialog-1d1125195912.herokuapp.com/-->
+<!--https://dialog-1d1125195912.herokuapp.com/-->
+<!--https://dialog-1d1125195912.herokuapp.com/index-->
+<!--https://dialog-1d1125195912.herokuapp.com/index.html-->
+<!--https://dialog-1d1125195912.herokuapp.com/login-->
+<!--https://dialog-1d1125195912.herokuapp.com/login.html-->
+
+<!--Post and Get requests are sent to LoginServlet.java-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +66,7 @@
                     doctorNumber: '',
                     postalCode: '',
                 };
-                //axios.post("http://localhost:8080/dialog/login", requestData)
+
                 axios.post("https://dialog-1d1125195912.herokuapp.com/login", requestData)
                     .then(response => {
                         const responseData = response.data;

@@ -17,7 +17,6 @@ import java.sql.SQLException;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-
 @WebServlet(urlPatterns={"/register"}, loadOnStartup=1)
 public class RegisterServlet extends HttpServlet {
 

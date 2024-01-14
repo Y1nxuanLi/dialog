@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.3.6&#10;&#10;fishcounter">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.3.7&#10;&#10;fishcounter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/DatabaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/DatabaseConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/EmailSchedulerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/EmailSchedulerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/AddUser/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/AddUser/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/AddUser/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/AddUser/RegisterServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,11 +109,11 @@
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\java\DiaLogApp\Admin" />
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\webapp\MainPages" />
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\webapp\LoginRegister" />
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\webapp\Aquarium" />
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\java\DiaLogApp\GeneralMethod" />
-      <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\webapp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="DiaLogSQL" />
@@ -183,15 +186,7 @@
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
-      <workItem from="1705245935920" duration="8659000" />
-    </task>
-    <task id="LOCAL-00224" summary="logbook v5.12.13">
-      <option name="closed" value="true" />
-      <created>1705188947847</created>
-      <option name="number" value="00224" />
-      <option name="presentableId" value="LOCAL-00224" />
-      <option name="project" value="LOCAL" />
-      <updated>1705188947847</updated>
+      <workItem from="1705245935920" duration="13336000" />
     </task>
     <task id="LOCAL-00225" summary="logbook v5.12.14">
       <option name="closed" value="true" />
@@ -577,7 +572,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705254693665</updated>
     </task>
-    <option name="localTasksCounter" value="273" />
+    <task id="LOCAL-00273" summary="Fully Functional Version v6.3.7&#10;&#10;fishcounter">
+      <option name="closed" value="true" />
+      <created>1705255364738</created>
+      <option name="number" value="00273" />
+      <option name="presentableId" value="LOCAL-00273" />
+      <option name="project" value="LOCAL" />
+      <updated>1705255364738</updated>
+    </task>
+    <option name="localTasksCounter" value="274" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,7 +598,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fully Functional Version v6.0.4&#10;rollback" />
     <MESSAGE value="Fully Functional Version v6.0.4&#10;redirect to login page" />
     <MESSAGE value="Fully Functional Version v6.0.5&#10;redirect to login page" />
     <MESSAGE value="Fully Functional Version v6.0.6&#10;redirect to login page" />
@@ -620,6 +622,7 @@
     <MESSAGE value="Fully Functional Version v6.3.4&#10;&#10;home page add due time" />
     <MESSAGE value="Fully Functional Version v6.3.5&#10;&#10;home page add due time" />
     <MESSAGE value="Fully Functional Version v6.3.6&#10;&#10;fishcounter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.3.6&#10;&#10;fishcounter" />
+    <MESSAGE value="Fully Functional Version v6.3.7&#10;&#10;fishcounter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.3.7&#10;&#10;fishcounter" />
   </component>
 </project>

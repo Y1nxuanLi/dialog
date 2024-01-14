@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="timeselect.js"></script>
 </head>
 
 <body>
@@ -83,32 +84,11 @@
                 <el-input type="textarea" v-model="taskForm.content" placeholder="Please enter the content"></el-input>
             </el-form-item>
 
-
-<!--            <el-card class="el-card-set-son">-->
-<!--                <b>Due Date</b>-->
-                <el-select v-model="selectedOption" placeholder="Current Time" @change="changeDate()">
-                    <el-option label="after 12 hours" value="12"></el-option>
-                    <el-option label="after 24 hours" value="24"></el-option>
-                    <el-option label="after 3 days" value="72"></el-option>
-                    <el-option label="after 1 week" value="168"></el-option>
-                    <el-option label="Custom Time" value="set"></el-option>
-                </el-select>
-                <el-date-picker v-if="selectedOption === 'set'"
-                                v-model="customDateRange"
-                                style="margin-top: 10px"
-                                type="datetimerange"
-                                range-separator="to"
-                                start-placeholder="Start"
-                                end-placeholder="End"
-                                @change="changeDate()"
-                ></el-date-picker>
-<!--            </el-card>-->
-
             <el-form-item label="Email Notification">
                 <el-checkbox v-model="taskForm.notification">Accept to Send Email Notification</el-checkbox>
             </el-form-item>
             <el-form-item label="Notification Date" v-if="taskForm.notification"> <!-- Updated v-if condition -->
-                <el-select v-model="selectedOption" placeholder="Current Time" @change="changeDate()">
+                <el-select v-model="taskForm.selectedOption" placeholder="Current Time" @change="changeDate()">
                     <el-option label="after 12 hours" value="12"></el-option>
                     <el-option label="after 24 hours" value="24"></el-option>
                     <el-option label="after 3 days" value="72"></el-option>
@@ -116,8 +96,8 @@
                     <el-option label="Custom Time" value="set"></el-option>
                 </el-select>
                 ></el-date-picker>
-                <el-date-picker v-if="selectedOption === 'set'"
-                        v-model="taskForm.notificationDate"
+                <el-date-picker v-if="taskForm.selectedOption === 'set'"
+                        v-model="taskForm.dueTime"
                         type="datetime"
                         placeholder="Choose date and time"
                         value-format="yyyy-MM-dd HH:mm:ss">
@@ -163,6 +143,7 @@
                     updateTime: '',
                     dueTime: '',
                     notification: 1,
+                    selectedOption: '',
                 },
             }
         },
@@ -178,12 +159,6 @@
                 this.isModalOpen = true;
                 if (taskId) {
                     const selectedTask = this.tasks.find(task => task.id === taskId);
-                    //nCallback Function: The callback function here is (task => task.id === taskId).
-                    // For each task in the this.tasks array, it checks whether task.id is equal to taskId.
-                    // selectedTask: This is the variable where the result of the find operation is stored.
-                    // If a task with an ID matching taskId is found in the this.tasks array, selectedTask will be that task object.
-                    // If no matching task is found, selectedTask will be undefined.
-
                     if (selectedTask) {
                         this.setTaskForm(selectedTask);
                     }
@@ -194,6 +169,7 @@
 
             createTask() {
                 const createTime = this.formatCurrentDateTime();
+                this.calculateDueTime();
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/add/task",
                     {
                         userId: this.currentUserID,
@@ -225,6 +201,7 @@
             },
             updateTask() {
                 const updateTime = this.formatCurrentDateTime();
+                this.calculateDueTime();
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/update/task", {
                     id: this.taskForm.id,
                     userId: this.currentUserID,
@@ -232,7 +209,7 @@
                     content: this.taskForm.content,
                     createTime: this.taskForm.createTime, // Format these dates as 'YYYY-MM-DD HH:mm:ss'
                     updateTime: updateTime,
-                    dueTime: null,
+                    dueTime: this.taskForm.dueTime,
                     notification: this.taskForm.notification
                 })
                     .then(response => {
@@ -362,6 +339,15 @@
                 this.taskForm.updateTime = '';
                 this.taskForm.dueTime = '';
                 this.taskForm.notification = 1;
+            },
+            calculateDueTime() {
+                    if (selectedOption=!"set"){
+                        Date(this.taskForm.dueTime).setHours(Date(this.taskForm.createTime).getHours() + parseInt(this.taskForm.selectedOption, 10))
+                        this.taskForm.dueTime = this.taskForm.dueTime.toISOString().replace('T', ' ').substring(0, 19);
+                    }
+                    else if(selectedOption =="set"){
+                        this.taskForm.dueTime = this.taskForm.dueTime.toISOString().replace('T', ' ').substring(0, 19);
+                    }
             }
         },
     })

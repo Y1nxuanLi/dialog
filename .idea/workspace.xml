@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.3.0&#10;&#10;home page add due time">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.3.1&#10;&#10;home page add due time">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/timeselect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +41,7 @@
         <option value="Interface" />
         <option value="Class" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -181,23 +184,7 @@
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
-      <workItem from="1705245935920" duration="2475000" />
-    </task>
-    <task id="LOCAL-00217" summary="merge v5.12.8">
-      <option name="closed" value="true" />
-      <created>1705184156961</created>
-      <option name="number" value="00217" />
-      <option name="presentableId" value="LOCAL-00217" />
-      <option name="project" value="LOCAL" />
-      <updated>1705184156961</updated>
-    </task>
-    <task id="LOCAL-00218" summary="merge v5.12.8">
-      <option name="closed" value="true" />
-      <created>1705184364563</created>
-      <option name="number" value="00218" />
-      <option name="presentableId" value="LOCAL-00218" />
-      <option name="project" value="LOCAL" />
-      <updated>1705184364563</updated>
+      <workItem from="1705245935920" duration="4486000" />
     </task>
     <task id="LOCAL-00219" summary="merge v5.12.9">
       <option name="closed" value="true" />
@@ -575,7 +562,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705249030058</updated>
     </task>
-    <option name="localTasksCounter" value="266" />
+    <task id="LOCAL-00266" summary="Fully Functional Version v6.3.1&#10;&#10;home page add due time">
+      <option name="closed" value="true" />
+      <created>1705249197700</created>
+      <option name="number" value="00266" />
+      <option name="presentableId" value="LOCAL-00266" />
+      <option name="project" value="LOCAL" />
+      <updated>1705249197700</updated>
+    </task>
+    <task id="LOCAL-00267" summary="Fully Functional Version v6.3.1&#10;&#10;home page add due time">
+      <option name="closed" value="true" />
+      <created>1705249239213</created>
+      <option name="number" value="00267" />
+      <option name="presentableId" value="LOCAL-00267" />
+      <option name="project" value="LOCAL" />
+      <updated>1705249239214</updated>
+    </task>
+    <option name="localTasksCounter" value="268" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +596,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="echarts v5.14.2" />
     <MESSAGE value="echarts v5.14.3" />
     <MESSAGE value="echarts v5.14.4" />
     <MESSAGE value="echarts v5.14.5" />
@@ -618,6 +620,7 @@
     <MESSAGE value="Fully Functional Version v6.2.4&#10;&#10;Restructure Webapp files" />
     <MESSAGE value="Fully Functional Version v6.2.7&#10;&#10;delete bug fix" />
     <MESSAGE value="Fully Functional Version v6.3.0&#10;&#10;home page add due time" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.3.0&#10;&#10;home page add due time" />
+    <MESSAGE value="Fully Functional Version v6.3.1&#10;&#10;home page add due time" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.3.1&#10;&#10;home page add due time" />
   </component>
 </project>

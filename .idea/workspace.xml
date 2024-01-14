@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.2.3&#10;&#10;refine Aquarium" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.2.4&#10;&#10;refine Aquarium">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Crab1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Aquarium/Crab1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/fish1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Aquarium/fish1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/logbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ocean.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Aquarium/ocean.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ocean.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Aquarium/ocean.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ocean.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Aquarium/ocean.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ocean.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Aquarium/ocean.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/trends.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/trends.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/turtle1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Aquarium/turtle1.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,7 +88,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Desktop/BIOE60010_Software_Engineering_for_Bioengineers/IdeaProjects/DiaLog Leo",
+    "last_opened_file_path": "D:/Desktop/BIOE60010_Software_Engineering_for_Bioengineers/IdeaProjects/dialog/src/main/webapp/Aquarium",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -102,6 +115,7 @@
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\webapp\Aquarium" />
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\java\DiaLogApp\GeneralMethod" />
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\webapp" />
     </key>
@@ -176,14 +190,6 @@
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
-    </task>
-    <task id="LOCAL-00213" summary="merge v5.12.5">
-      <option name="closed" value="true" />
-      <created>1705181951063</created>
-      <option name="number" value="00213" />
-      <option name="presentableId" value="LOCAL-00213" />
-      <option name="project" value="LOCAL" />
-      <updated>1705181951063</updated>
     </task>
     <task id="LOCAL-00214" summary="merge v5.12.5 test">
       <option name="closed" value="true" />
@@ -569,7 +575,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705218651636</updated>
     </task>
-    <option name="localTasksCounter" value="262" />
+    <task id="LOCAL-00262" summary="Fully Functional Version v6.2.4&#10;&#10;refine Aquarium">
+      <option name="closed" value="true" />
+      <created>1705219103734</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1705219103734</updated>
+    </task>
+    <option name="localTasksCounter" value="263" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,7 +601,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="trends v5.13.10" />
     <MESSAGE value="trends v5.13.11" />
     <MESSAGE value="echarts v5.14.0" />
     <MESSAGE value="echarts v5.14.1" />
@@ -612,6 +625,7 @@
     <MESSAGE value="Fully Functional Version v6.2.2&#10;&#10;Add Aquarium" />
     <MESSAGE value="Fully Functional Version v6.2.3&#10;&#10;Add Aquarium" />
     <MESSAGE value="Fully Functional Version v6.2.3&#10;&#10;refine Aquarium" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.2.3&#10;&#10;refine Aquarium" />
+    <MESSAGE value="Fully Functional Version v6.2.4&#10;&#10;refine Aquarium" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.2.4&#10;&#10;refine Aquarium" />
   </component>
 </project>

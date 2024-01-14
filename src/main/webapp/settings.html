@@ -62,7 +62,7 @@
                     <el-input v-model="currentUser.userName" :disabled="editMode"></el-input>
                 </el-form-item>
                 <el-form-item label="Gender">
-                    <el-select v-model="currentUser.gender" :disabled="editMode">
+                    <el-select v-model="currentUser.gender" placeholder="select" :disabled="editMode">
                         <el-option label="Male" value="Male"></el-option>
                         <el-option label="Female" value="Female"></el-option>
                         <el-option label="Other" value="Other"></el-option>
@@ -75,13 +75,13 @@
                     <el-input v-model="currentUser.phoneNumber" :disabled="editMode"></el-input>
                 </el-form-item>
                 <el-form-item label="Diabetes Type">
-                    <el-select v-model="currentUser.diabetesType" :disabled="editMode">
+                    <el-select v-model="currentUser.diabetesType" placeholder="select" :disabled="editMode">
                         <el-option label="Type I" value="Type I"></el-option>
                         <el-option label="Type II" value="Type II"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="Insulin Type">
-                    <el-select v-model="currentUser.insulinType" :disabled="editMode">
+                    <el-select v-model="currentUser.insulinType" placeholder="select" :disabled="editMode">
                         <el-option label="Rapid-acting" value="Rapid-acting"></el-option>
                         <el-option label="Short-acting" value="Short-acting"></el-option>
                         <el-option label="Intermediate-acting" value="Intermediate-acting"></el-option>

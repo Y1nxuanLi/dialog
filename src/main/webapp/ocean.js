@@ -2,16 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("oceanCanvas");
     const ctx = canvas.getContext("2d");
 
-    var fishCounter = localStorage.getItem('fishCounter');
-
-    if (fishCounter !== null) {
-        var fishCount = parseInt(fishCounter, 10); // Convert string to integer
-        console.log("Number of fish: " + fishCount);
-    } else {
-        console.log("Fish counter not found in local storage.");
-    }
-
-
     // Load background image
     const backgroundImage = new Image();
     backgroundImage.src = 'ocean.png'; // Replace with the path to your background image
@@ -22,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (creatures.length > 0) {
             creatures.shift(); // Removes one creature from the end of the array
         }
-    }, 10 * 1000); // 60s
+    }, 60 * 1000); // 60s
     // Creature constructor
     class Creature {
         constructor(x, y, type) {
@@ -98,15 +88,16 @@ document.addEventListener("DOMContentLoaded", function () {
         creatures.push(new Creature(x, y, type));
     }
 
-    fishCounter
+    // Automatically generate creatures based on number
+    let number = 11; // Example number
 
-    let totalCreatures = Math.floor(fishCounter / 5);
-    for (let i = 0; i < totalCreatures; i++) {
-        const randomX = Math.random() * canvas.width;
-        const randomY = (i % 3 === 0) ? canvas.height - 30 : Math.random() * canvas.height;
-        createRandomCreature(randomX, randomY);
-    }
 
+        let totalCreatures = Math.floor(number / 5);
+        for (let i = 0; i < totalCreatures; i++) {
+            const randomX = Math.random() * canvas.width;
+            const randomY = (i % 3 === 0) ? canvas.height - 30 : Math.random() * canvas.height;
+            createRandomCreature(randomX, randomY);
+        }
 
 
     // Attach the click event listener to the canvas

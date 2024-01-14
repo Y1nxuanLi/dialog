@@ -22,7 +22,7 @@
 </head>
 <body>
 <canvas id="oceanCanvas" width="800" height="600"></canvas>
-<script src="ocean.js"></script>
+
 <div id="setting">
     <header>
         <nav>
@@ -49,7 +49,7 @@
             </div>
         </nav>
 
-      
+    </header>
 </div>
 <script>
     new Vue({
@@ -58,6 +58,8 @@
         data() {
             return {
                 userMes: JSON.parse(localStorage.getItem('userMes')),
+                fishCounter: localStorage.getItem('fishCounter'),
+
                 currentUser: null,
                 currentUserAccount: null,
                 currentUserID: null,
@@ -84,10 +86,22 @@
                 window.location.replace('login.html');
             },
             
-
+            handleDiscard() {
+                if (!this.editMode && this.isDiscardClicked) {
+                    // Perform action only if it's already "Discard" and clicked again
+                    location.reload();
+                    location.reload();
+                }
+                this.isDiscardClicked = !this.editMode;
+                this.editMode = !this.editMode;
+            },
+            performYourAction() {
+                // Define the action here
+            },
         },
     })
 
 </script>
+<script src="ocean.js"></script>
 </body>
 </html>

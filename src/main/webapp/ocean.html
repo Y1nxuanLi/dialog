@@ -1,5 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+<header>
+    <nav>
+        <div class="nav-left">
+            <ul>
+                <li><a href="home.html">Home Page</a></li>
+                <li><a href="logbook.html">Logbook</a></li>
+                <li><a href="trends.html">Blood Sugar Trend</a></li>
+                <li><a href="settings.html">User Info</a></li>
+                <li><a href="ocean.html">Aquarium</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <ul v-if="currentUserID">
+                <li><span style="line-height: 37px">"Welcome"</span></li>
+                <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
+                <li><span style="line-height: 37px">{{ currentUserAccount }}</span></li>
+                <el-button @click="logout()">Logout</el-button>
+            </ul>
+            <ul v-else>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

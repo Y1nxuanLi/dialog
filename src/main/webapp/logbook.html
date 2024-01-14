@@ -52,8 +52,8 @@
     <main>
         <el-table :data="logs" class="table" style="width: 90%" stripe border>
             <!--simple-->
-            <el-table-column prop="id" label="ID" width="80"></el-table-column>
-            <el-table-column prop="createTime" label="Time" :formatter="formatDate" width="180"></el-table-column>
+            <el-table-column prop="createTime" label="Date" :formatter="formatDate" width="180"></el-table-column>
+            <el-table-column prop="createTime" label="Time" :formatter="formatTime" width="180"></el-table-column>
             <el-table-column prop="bloodSugar" label="Blood sugar"></el-table-column>
             <el-table-column prop="carb" label="Carb"></el-table-column>
             <el-table-column prop="notes" label="Note"></el-table-column>

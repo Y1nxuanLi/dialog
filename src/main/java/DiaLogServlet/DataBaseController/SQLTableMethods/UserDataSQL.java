@@ -112,7 +112,7 @@ public class UserDataSQL {
             String responseWithText = "UserLoginData Display for testing purpose: \n" + jsonResponse;
 
             // Set the response type to JSON
-            resp.setContentType("application/json");
+            resp.setContentType("text/plain");
             resp.setCharacterEncoding("UTF-8");
             resp.getWriter().write(responseWithText);
         } catch (SQLException e) {

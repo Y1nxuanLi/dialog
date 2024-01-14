@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="echarts v5.14.2">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="echarts v5.14.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/UserDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/UserDataSQL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -176,15 +175,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="94359000" />
-    </task>
-    <task id="LOCAL-00192" summary="Register troubleshoot v5.10.16">
-      <option name="closed" value="true" />
-      <created>1705168404978</created>
-      <option name="number" value="00192" />
-      <option name="presentableId" value="LOCAL-00192" />
-      <option name="project" value="LOCAL" />
-      <updated>1705168404978</updated>
+      <workItem from="1705082248653" duration="94751000" />
     </task>
     <task id="LOCAL-00193" summary="Register troubleshoot v5.10.17">
       <option name="closed" value="true" />
@@ -570,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705200706909</updated>
     </task>
-    <option name="localTasksCounter" value="241" />
+    <task id="LOCAL-00241" summary="echarts v5.14.3">
+      <option name="closed" value="true" />
+      <created>1705201299110</created>
+      <option name="number" value="00241" />
+      <option name="presentableId" value="LOCAL-00241" />
+      <option name="project" value="LOCAL" />
+      <updated>1705201299110</updated>
+    </task>
+    <option name="localTasksCounter" value="242" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,7 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="merge v5.12.7" />
     <MESSAGE value="merge v5.12.8" />
     <MESSAGE value="merge v5.12.9" />
     <MESSAGE value="logbook v5.12.10" />
@@ -613,6 +611,7 @@
     <MESSAGE value="echarts v5.14.0" />
     <MESSAGE value="echarts v5.14.1" />
     <MESSAGE value="echarts v5.14.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="echarts v5.14.2" />
+    <MESSAGE value="echarts v5.14.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="echarts v5.14.3" />
   </component>
 </project>

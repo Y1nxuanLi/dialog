@@ -18,7 +18,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 
-@WebServlet(urlPatterns={"/register"}, loadOnStartup=1)
+@WebServlet(urlPatterns={"/MainPages/register"}, loadOnStartup=1)
 public class RegisterServlet extends HttpServlet {
 
     @Override
@@ -27,8 +27,8 @@ public class RegisterServlet extends HttpServlet {
         String servletPath = req.getServletPath();
         UserDataSQL.createTable();
         switch (servletPath) {
-            case "/register":
-                forwardTo(req, resp, "/register.html");
+            case "/MainPages/register":
+                forwardTo(req, resp, "/MainPages/register.html");
                 break;
             default:
                 resp.getWriter().write("404 Not Found");
@@ -41,7 +41,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String servletPath = req.getServletPath();
         switch (servletPath) {
-            case "/register":
+            case "/MainPages/register":
                 String jsonData = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
                 Gson gson = new Gson();
                 UserData user = gson.fromJson(jsonData, UserData.class);

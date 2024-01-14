@@ -46,60 +46,8 @@
                 </ul>
             </div>
         </nav>
-    </header>
 
-    <el-card class="box-card">
-        <div slot="header" class="clearfix">
-            <span>Personal Information</span>
-            <el-button @click="handleDiscard">
-                {{ editMode ? 'Edit' : 'Discard' }}
-            </el-button>
-            <el-button @click="saveChanges" v-if="!editMode">Save</el-button>
-        </div>
-        <div>
-            <el-form ref="userForm" :model="currentUser" :rules="rules" label-width="140px">
-                <el-form-item label="Name">
-                    <el-input v-model="currentUser.userName" :disabled="editMode"></el-input>
-                </el-form-item>
-                <el-form-item label="Gender">
-                    <el-select v-model="currentUser.gender" :disabled="editMode">
-                        <el-option label="Male" value="Male"></el-option>
-                        <el-option label="Female" value="Female"></el-option>
-                        <el-option label="Other" value="Other"></el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="E-mail">
-                    <el-input v-model="currentUser.email" :disabled="editMode"></el-input>
-                </el-form-item>
-                <el-form-item label="Tel">
-                    <el-input v-model="currentUser.phoneNumber" :disabled="editMode"></el-input>
-                </el-form-item>
-                <el-form-item label="Diabetes Type">
-                    <el-select v-model="currentUser.diabetesType" :disabled="editMode">
-                        <el-option label="Type I" value="Type I"></el-option>
-                        <el-option label="Type II" value="Type II"></el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="Insulin Type">
-                    <el-select v-model="currentUser.insulinType" :disabled="editMode">
-                        <el-option label="Rapid-acting" value="Rapid-acting"></el-option>
-                        <el-option label="Short-acting" value="Short-acting"></el-option>
-                        <el-option label="Intermediate-acting" value="Intermediate-acting"></el-option>
-                        <el-option label="Long-acting" value="Long-acting"></el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="Docotr Contact">
-                    <el-input v-model="currentUser.doctorNumber" :disabled="editMode"></el-input>
-                </el-form-item>
-                <el-form-item label="Postal code">
-                    <el-input v-model="currentUser.postalCode" :disabled="editMode"></el-input>
-                </el-form-item>
-                <el-form-item label="Address">
-                    <el-input v-model="currentUser.address" :disabled="editMode"></el-input>
-                </el-form-item>
-            </el-form>
-        </div>
-    </el-card>
+      
 </div>
 <script>
     new Vue({

@@ -214,40 +214,35 @@
             this.currentUserID = userMes.userID;
             this.readLog();
 
-            // var  userAccount = localStorage.getItem("userAccount")
-            // this.currentUser = []
-            // this.userAccount = userAccount
 
         },
         methods: {
             formatDate(row) {
-                // 格式化日期
                 return moment(row.createTime).format('YYYY年MM月DD日');
             },
             formatTime(row) {
-                // 格式化时间
                 return moment(row.createTime).format('HH时mm分ss秒');
             },
             openModal(type, logId) {
                 this.modalType = type; // This will be 'simple', 'medium', or 'complex'
                 this.isModalOpen = true;
-                if (logId !== undefined && logId !== null) {
-                    const selectedRecord = this.logs.find(record => record.id === logId);
-                    if (selectedRecord) {
-                        this.taskForm.id = selectedRecord.id;
-                        this.taskForm.bloodSugar = selectedRecord.bloodSugar;
-                        this.taskForm.notes = selectedRecord.notes;
-                        this.taskForm.createTime = selectedRecord.createTime;
-                        this.taskForm.updateTime = selectedRecord.updateTime;
-                        this.taskForm.logType = selectedRecord.logType;
-                        this.taskForm.carb = selectedRecord.carb;
-                        this.taskForm.mealDescription = selectedRecord.mealDescription;
-                        this.taskForm.insulinDose = selectedRecord.insulinDose;
-                        this.taskForm.medication = selectedRecord.medication;
-                        this.taskForm.exerciseDescription = selectedRecord.exerciseDescription;
-                        this.taskForm.exerciseType = selectedRecord.exerciseType;
-                        this.taskForm.exerciseDuration = selectedRecord.exerciseDuration;
-                        this.taskForm.insulinType = selectedRecord.insulinType;
+                if (logId) {
+                    const selectedLog = this.logs.find(log => log.id === logId);
+                    if (selectedLog) {
+                        this.taskForm.id = selectedLog.id;
+                        this.taskForm.bloodSugar = selectedLog.bloodSugar;
+                        this.taskForm.notes = selectedLog.notes;
+                        this.taskForm.createTime = selectedLog.createTime;
+                        this.taskForm.updateTime = selectedLog.updateTime;
+                        this.taskForm.logType = selectedLog.logType;
+                        this.taskForm.carb = selectedLog.carb;
+                        this.taskForm.mealDescription = selectedLog.mealDescription;
+                        this.taskForm.insulinDose = selectedLog.insulinDose;
+                        this.taskForm.medication = selectedLog.medication;
+                        this.taskForm.exerciseDescription = selectedLog.exerciseDescription;
+                        this.taskForm.exerciseType = selectedLog.exerciseType;
+                        this.taskForm.exerciseDuration = selectedLog.exerciseDuration;
+                        this.taskForm.insulinType = selectedLog.insulinType;
                     }
                 } else {
                     this.taskForm.id = '';
@@ -269,21 +264,28 @@
                 }
             },
             createTask() {
+                // if (this.taskForm.createTime){
+                //     const createTimeVar = this.taskForm.createTime;
+                // }
+                // else{
+                //     const createTimeVar = this.formatCurrentDateTime();
+                // }
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/add/log",
                     {
+                        // simple
                         userId: this.currentUserID,
                         bloodSugar: this.taskForm.bloodSugar,
                         notes: this.taskForm.notes,
                         createTime: this.taskForm.createTime,
                         updateTime: this.taskForm.updateTime,
                         logType: this.taskForm.logType,
-                        //comprehensive
+                        // comprehensive
                         carb: this.taskForm.carb,
                         mealDescription: this.taskForm.mealDescription,
                         insulinDose: this.taskForm.insulinDose,
                         medication: this.taskForm.medication,
                         exerciseDescription: this.taskForm.exerciseDescription,
-                        //intensive
+                        // intensive
                         exerciseType: this.taskForm.exerciseType,
                         exerciseDuration: this.taskForm.exerciseDuration,
                         insulinType: this.taskForm.insulinType,
@@ -292,9 +294,10 @@
                     .then(response => {
                         const responseData = response.data;
                         if (responseData.code === 200) {
-                            console.log("Add Success", response.data);
+                            console.log("Add Success", responseData);
                             this.readLog();
                             this.isModalOpen = false;
+
                             this.taskForm.bloodSugar = '';
                             this.taskForm.notes='';
                             this.taskForm.createTime='';
@@ -315,18 +318,19 @@
                         }
                     })
                     .catch(error => {
-                        console.error("检索时发生错误:", error);
+                        console.error("DATA_NOT_FOUND_ERROR:", error);
                     });
 
             },
             updateTask() {
+                const updateTime = this.formatCurrentDateTime();
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/update/log", {
                     userId: this.currentUserID,
                     id: this.taskForm.id,
                     bloodSugar: this.taskForm.bloodSugar,
                     notes: this.taskForm.notes,
                     createTime: this.taskForm.createTime,
-                    updateTime: this.taskForm.updateTime,
+                    updateTime: updateTime,
                     logType: this.taskForm.logType,
                     //comprehensive
                     carb: this.taskForm.carb,
@@ -345,6 +349,7 @@
                             console.log("修改成功", response.data);
                             this.readLog();
                             this.isModalOpen = false;
+
                             this.taskForm.id = '';
                             this.taskForm.bloodSugar = '';
                             this.taskForm.notes='';
@@ -381,7 +386,7 @@
                 });
             },
             readLog() {
-                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/log", // Adjust the URL to your log read endpoint
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/read/log",
                     {
                         userId: this.currentUserID
                     })
@@ -430,6 +435,16 @@
                 localStorage.clear();
                 // window.location.href = "login.html";
                 window.location.replace('login.html');
+            },
+            formatCurrentDateTime() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0'); // January is 0!
+                const day = String(now.getDate()).padStart(2, '0');
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
             },
         },
 

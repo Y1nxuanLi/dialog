@@ -165,18 +165,14 @@
                     })
                     .then(response => {
                         const responseData = response.data;
-                        console.log("responseData:",responseData);
-                        console.log("responseData.code:",responseData.code);
-                        console.log("responseData.message:",responseData.message);
-                        console.log("responseData.message:",responseData.data);
                         if (responseData.code === 200) {
-                            console.log("Task Log Success", response.data);
+                            console.log("Task Log Success", responseData);
                             this.readTask();
                             this.isModalOpen = false;
                             this.resetTaskForm();
 
                         } else {
-                            console.log("Task Log Failed", response.data);
+                            console.log("Task Log Failed", responseData);
                             alert(responseData.message);
                         }
                     })
@@ -193,7 +189,7 @@
                     title: this.taskForm.title,
                     content: this.taskForm.content,
                     createTime: this.taskForm.createTime, // Format these dates as 'YYYY-MM-DD HH:mm:ss'
-                    updateTime: updateTime, // or leave them as null if not set
+                    updateTime: updateTime,
                     dueTime: null,
                     notification: this.taskForm.notification
                 })

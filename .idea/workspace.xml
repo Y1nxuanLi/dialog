@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.2.3&#10;&#10;Add Aquarium">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ocean.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ocean.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ocean.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ocean.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ocean.js" afterDir="false" />
-    </list>
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.2.3&#10;&#10;refine Aquarium" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,14 +176,6 @@
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
-    </task>
-    <task id="LOCAL-00212" summary="merge v5.12.4">
-      <option name="closed" value="true" />
-      <created>1705181832088</created>
-      <option name="number" value="00212" />
-      <option name="presentableId" value="LOCAL-00212" />
-      <option name="project" value="LOCAL" />
-      <updated>1705181832088</updated>
     </task>
     <task id="LOCAL-00213" summary="merge v5.12.5">
       <option name="closed" value="true" />
@@ -574,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705218149365</updated>
     </task>
-    <option name="localTasksCounter" value="261" />
+    <task id="LOCAL-00261" summary="Fully Functional Version v6.2.3&#10;&#10;refine Aquarium">
+      <option name="closed" value="true" />
+      <created>1705218651636</created>
+      <option name="number" value="00261" />
+      <option name="presentableId" value="LOCAL-00261" />
+      <option name="project" value="LOCAL" />
+      <updated>1705218651636</updated>
+    </task>
+    <option name="localTasksCounter" value="262" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,7 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="logbook v5.13.9" />
     <MESSAGE value="trends v5.13.10" />
     <MESSAGE value="trends v5.13.11" />
     <MESSAGE value="echarts v5.14.0" />
@@ -617,6 +611,7 @@
     <MESSAGE value="Fully Functional Version v6.2.1&#10;&#10;time sorting" />
     <MESSAGE value="Fully Functional Version v6.2.2&#10;&#10;Add Aquarium" />
     <MESSAGE value="Fully Functional Version v6.2.3&#10;&#10;Add Aquarium" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.2.3&#10;&#10;Add Aquarium" />
+    <MESSAGE value="Fully Functional Version v6.2.3&#10;&#10;refine Aquarium" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.2.3&#10;&#10;refine Aquarium" />
   </component>
 </project>

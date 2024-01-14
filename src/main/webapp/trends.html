@@ -191,8 +191,8 @@
 					 	bloodSugarSeriesData = filteredData1.map(item => parseFloat(item.bloodSugar));
 					 	filteredData2 = filteredData.filter(item => item.carb !== undefined && item.carb !== null && item.carb !=='')
 					 	carbohydrateData = filteredData2.map(item => parseFloat(item.carb));		
-					   xAxisData1 = filteredData1.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss:'));
-					   xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss:'));
+					   xAxisData1 = filteredData1.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss'));
+					   xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss'));
 
 				}
 				else if(this.checkedItems[0] == "bloodSugar")
@@ -201,14 +201,14 @@
 					 bloodSugarSeriesData = filteredData1.map(item => parseFloat(item.bloodSugar));
 					  
 					 carbohydrateData =  "";	
-					 xAxisData2 = filteredData1.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss:'));
+					 xAxisData2 = filteredData1.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss'));
 				 }
 				else if(this.checkedItems[0] == "carbohydrate")
 				 {
 					bloodSugarSeriesData = "";
 					filteredData2 = filteredData.filter(item => item.carb !== undefined && item.carb !== null && item.carb !=='')
 					carbohydrateData = filteredData2.map(item => parseFloat(item.carb));
-					xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss:'));
+					xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss'));
 				 }
 			     
                 console.log(xAxisData1)

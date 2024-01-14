@@ -42,7 +42,9 @@
     <el-card class="box-card">
         <div slot="header" class="clearfix">
             <span>Personal Information</span>
-            <el-button @click="editMode = !editMode">{{ editMode ? 'Edit' : 'Discard' }}</el-button>
+            <el-button @click="handleDiscard">
+                {{ editMode ? 'Edit' : 'Discard' }}
+            </el-button>
             <el-button @click="saveChanges" v-if="!editMode">Save</el-button>
         </div>
         <div>
@@ -101,6 +103,7 @@
                 currentUserAccount: null,
                 currentUserID: null,
                 editMode: true,
+                isDiscardClicked: false,
                 rules: {
                     userName: [{ required: true, message: '请输入名称', trigger: 'blur' }],
                     gender: [{ required: true, message: '请输入性别', trigger: 'blur' }],
@@ -165,7 +168,18 @@
                 const minutes = String(now.getMinutes()).padStart(2, '0');
                 const seconds = String(now.getSeconds()).padStart(2, '0');
                 return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-            }
+            },
+            handleDiscard() {
+                if (!this.editMode && this.isDiscardClicked) {
+                    // Perform action only if it's already "Discard" and clicked again
+                    location.reload();
+                }
+                this.isDiscardClicked = !this.editMode;
+                this.editMode = !this.editMode;
+            },
+            performYourAction() {
+                // Define the action here
+            },
         },
     })
 

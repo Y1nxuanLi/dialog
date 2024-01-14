@@ -19,7 +19,7 @@
             <div class="nav-left">
                 <ul>
                     <li><a href="home.html">Home Page</a></li>
-                    <li><a href="logbook.html">Logbook</a></li>
+                    <li><a href="selection.html">Logbook</a></li>
                     <li><a href="trends.html">Blood Sugar Trend</a></li>
                     <li><a href="settings.html">User Info</a></li>
                     <li><a href="ocean.html">Aquarium</a></li>
@@ -45,39 +45,29 @@
             <el-button @click="openModal('simple',null)">Simple Log</el-button>
         </div>
         <div class="add-activity-button-container">
-            <el-button @click="openModal('medium',null)">Comprehensive Log</el-button>
-        </div>
-        <div class="add-activity-button-container">
-            <el-button @click="openModal('complex',null)">Intensive Log</el-button>
+            <el-button type="primary" @click="navigate('selection')">Back to Selection</el-button>
         </div>
     </div>
 
     <main>
         <el-table :data="logs" class="table" style="width: 90%" stripe border>
+            <!--simple-->
             <el-table-column prop="id" label="ID" width="80"></el-table-column>
-            <el-table-column prop="createTime" label="Date" :formatter="formatDate" width="180"></el-table-column>
+            <el-table-column prop="createTime" label="Time" :formatter="formatDate" width="180"></el-table-column>
             <el-table-column prop="bloodSugar" label="Blood sugar"></el-table-column>
-            <el-table-column prop="createTime" label="Time" :formatter="formatTime"></el-table-column>
-            <el-table-column prop="mealDescription" label="Meal"></el-table-column>
-            <el-table-column prop="insulinDose" label="Insulin Dose"></el-table-column>
-            <el-table-column prop="medication" label="Medication"></el-table-column>
-            <el-table-column prop="insulinType" label="insulinType"></el-table-column>
-            <el-table-column prop="notes" label="备注"></el-table-column>
-            
-            <el-table-column label="Action">
-                <template slot-scope="scope">
-                    <el-button type="text" @click="deleteLog(scope.row.id)">Delete</el-button>
-                    <el-button type="text" @click="openModal('complex',scope.row.id)">Change</el-button>
-                </template>
-            </el-table-column>
+            <el-table-column prop="carb" label="Carb"></el-table-column>
+            <el-table-column prop="notes" label="Note"></el-table-column>
+
+
+
         </el-table>
     </main>
 
     <el-dialog
-        :visible.sync="isModalOpen"
-        :title="modalType === 'simple' ? 'Simple Log' : modalType === 'medium' ? 'Comprehensive Log' : 'Intensive Log'"
-        width="50%"
-        :before-close="closeModal">
+            :visible.sync="isModalOpen"
+            :title="modalType === 'simple' ? 'Simple Log' : modalType === 'medium' ? 'Comprehensive Log' : 'Intensive Log'"
+            width="50%"
+            :before-close="closeModal">
 
         <!-- bloodSugar for simple record -->
         <template v-if="modalType === 'simple'">
@@ -85,11 +75,20 @@
                 <el-form-item label="Blood sugar" prop="bloodSugar">
                     <el-input type="textarea" v-model="taskForm.bloodSugar" placeholder="Please input data"></el-input>
                 </el-form-item>
+
+                <el-form-item label="carb" prop="carb">
+                    <el-input type="textarea" v-model="taskForm.carb" placeholder="Please input data"></el-input>
+                </el-form-item>
                 <el-form-item label="notes" prop="notes">
                     <el-input type="textarea" v-model="taskForm.notes" placeholder="Please input data"></el-input>
                 </el-form-item>
-                <el-form-item label="createTime" prop="createTime">
-                    <el-input type="textarea" v-model="taskForm.createTime" placeholder="Format: 2023-01-13 09:12:04"></el-input>
+                <el-form-item label="Record Time" prop="createTime">
+                    <el-date-picker
+                            v-model="taskForm.createTime"
+                            type="datetime"
+                            placeholder="Select date and time"
+                            value-format="yyyy-MM-dd HH:mm:ss">
+                    </el-date-picker>
                 </el-form-item>
             </el-form>
         </template>
@@ -136,8 +135,13 @@
                 <el-form-item label="notes" prop="notes">
                     <el-input type="textarea" v-model="taskForm.notes" placeholder="Please input data"></el-input>
                 </el-form-item>
-                <el-form-item label="createTime" prop="createTime">
-                    <el-input type="textarea" v-model="taskForm.createTime" placeholder="Format: 2023-01-13 09:12:04"></el-input>
+                <el-form-item label="Record Time" prop="createTime">
+                    <el-date-picker
+                            v-model="taskForm.createTime"
+                            type="datetime"
+                            placeholder="Select date and time"
+                            value-format="yyyy-MM-dd HH:mm:ss">
+                    </el-date-picker>
                 </el-form-item>
                 <el-form-item label="carb" prop="carb">
                     <el-input type="textarea" v-model="taskForm.carb" placeholder="Please input data"></el-input>
@@ -187,7 +191,6 @@
         data() {
             return {
                 userMes: JSON.parse(localStorage.getItem('userMes')),
-                fishCounter: 0,
                 currentUser: null,
                 modalType: '',
                 logs: [],
@@ -226,6 +229,12 @@
 
         },
         methods: {
+            navigate(mode) {
+                if (mode === 'selection') {
+                    window.location.href = 'selection.html';
+                } },
+
+
             formatDate(row) {
                 return moment(row.createTime).format('YYYY-MM-DD');
             },
@@ -330,9 +339,9 @@
                     });
             },
             closeModal() {
-                this.$confirm('确定要取消吗？', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                this.$confirm('Are you sure to cancel it？', 'note', {
+                    confirmButtonText: 'yes',
+                    cancelButtonText: 'no',
                     type: 'info'
                 }).then(() => {
                     this.isModalOpen = false;
@@ -353,11 +362,7 @@
                             this.logs.sort((a, b) => {
                                 return new Date(b.createTime) - new Date(a.createTime); // Top is the newest entry
                                 // return new Date(a.createTime) - new Date(b.createTime); // Bottom is the newest entry
-                            },
-
-                            localStorage.setItem('fishCounter', this.logs.length)
-
-                            );
+                            });
 
                             console.log("All logs:", this.logs);
 

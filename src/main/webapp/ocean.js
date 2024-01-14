@@ -104,7 +104,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         creatures.push(new Creature(x, y, type));
+        saveCreatures();
     }
+
+        function saveCreatures() {
+        localStorage.setItem('creatures', JSON.stringify(creatures.map(creature => {
+            return {
+                x: creature.x,
+                y: creature.y,
+                type: creature.type,
+                speedX: creature.speedX,
+                speedY: creature.speedY,
+                flipped: creature.flipped
+            };
+        })));
+    }
+
 
     fishCounter
 

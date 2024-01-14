@@ -219,11 +219,12 @@
         },
         methods: {
             formatDate(row) {
-                return moment(row.createTime).format('YYYY年MM月DD日');
+                return moment(row.createTime).format('YYYY-MM-DD');
             },
             formatTime(row) {
-                return moment(row.createTime).format('HH时mm分ss秒');
+                return moment(row.createTime).format('HH:mm:ss');
             },
+
             openModal(type, logId) {
                 this.modalType = type; // This will be 'simple', 'medium', or 'complex'
                 this.isModalOpen = true;

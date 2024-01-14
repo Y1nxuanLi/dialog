@@ -51,8 +51,8 @@ public class TestServlet3 extends HttpServlet {
 
                 LogDataSQL.updateLog(logID, userID, updatedBloodSugar, updatedNotes, createTime, updatedUpdateTime, logType, carb, mealDescription, insulinDose, medication, exerciseDescription, exerciseType, exerciseDuration, insulinType);
                 LogDataSQL.displayData(resp);
-                JsonArray tasksArray = LogDataSQL.readAllLogs(1);
-                resp.getWriter().write(String.valueOf(tasksArray));
+                JsonArray logsArray = LogDataSQL.readAllLogs(1);
+                resp.getWriter().write(String.valueOf(logsArray));
 
                 break;
 

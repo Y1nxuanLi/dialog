@@ -28,10 +28,10 @@ public class ReadLog extends Read {
         Gson gson = new Gson();
         LogData log = gson.fromJson(jsonData, LogData.class);
 
-        int userID = log.getUserId();
+        int userId = log.getUserId();
 
-        if (userID != 0) {
-            JsonArray jsonDataArray = LogDataSQL.readAllLogs(userID);
+        if (userId != 0) {
+            JsonArray jsonDataArray = LogDataSQL.readAllLogs(userId);
             sendResponse.send(resp, ErrorCode.SUCCESS, jsonDataArray);
         } else {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);

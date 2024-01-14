@@ -13,19 +13,14 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 public class LogDataSQL {
-    private int id;
-    private String content;
-    private String title;
-    private int userId;
-    private String createTime;
-    private String updateTime;
+
     public static void createTable() {
 
         System.out.println("Creating table.");
         String sqlCreate = "CREATE TABLE IF NOT EXISTS logData (" +
                 // Simple
                 "id SERIAL PRIMARY KEY, " +
-                "userID INT, " +
+                "userId INT, " +
                 "bloodSugar VARCHAR(128), " +
 
                 "notes VARCHAR(128), " +
@@ -54,14 +49,14 @@ public class LogDataSQL {
         }
     }
 
-    public static void insertData(int userID, String bloodSugar, String notes, String createTime, String updateTime, String logType, String carb, String mealDescription, String insulinDose, String medication, String exerciseDescription, String exerciseType, String exerciseDuration, String insulinType) {
-        String sqlInsert = "INSERT INTO logData (userID, bloodSugar, notes, createTime, updateTime, logType, carb, mealDescription, insulinDose, medication, exerciseDescription, exerciseType, exerciseDuration, insulinType) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+    public static void insertData(int userId, String bloodSugar, String notes, String createTime, String updateTime, String logType, String carb, String mealDescription, String insulinDose, String medication, String exerciseDescription, String exerciseType, String exerciseDuration, String insulinType) {
+        String sqlInsert = "INSERT INTO logData (userId, bloodSugar, notes, createTime, updateTime, logType, carb, mealDescription, insulinDose, medication, exerciseDescription, exerciseType, exerciseDuration, insulinType) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         System.out.println("Inserting Data into logData table.");
 
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlInsert)) {
 
-            pstmt.setInt(1, userID);
+            pstmt.setInt(1, userId);
             pstmt.setString(2, bloodSugar);
             pstmt.setString(3, notes);
             pstmt.setString(4, createTime);
@@ -84,15 +79,15 @@ public class LogDataSQL {
     }
 
 
-    public static void deleteLog(int id, int userID) {
+    public static void deleteLog(int id, int userId) {
         System.out.println("Deleting record from logData table.");
-        String sqlDelete = "DELETE FROM logData WHERE id = ? AND userID = ?";
+        String sqlDelete = "DELETE FROM logData WHERE id = ? AND userId = ?";
 
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlDelete)) {
 
             pstmt.setInt(1, id);
-            pstmt.setInt(2, userID);
+            pstmt.setInt(2, userId);
             pstmt.executeUpdate();
             System.out.println("Delete success.");
         } catch (SQLException e) {
@@ -100,9 +95,9 @@ public class LogDataSQL {
         }
     }
 
-    public static void updateLog(int logID, int userID, String bloodSugar, String notes, String createTime, String updateTime, String logType, String carb, String mealDescription, String insulinDose, String medication, String exerciseDescription, String exerciseType, String exerciseDuration, String insulinType) {
+    public static void updateLog(int logID, int userId, String bloodSugar, String notes, String createTime, String updateTime, String logType, String carb, String mealDescription, String insulinDose, String medication, String exerciseDescription, String exerciseType, String exerciseDuration, String insulinType) {
         System.out.println("Updating log in logData table.");
-        String sqlUpdate = "UPDATE logData SET bloodSugar = ?, notes = ?, createTime = ?, updateTime = ?, logType = ?, carb = ?, mealDescription = ?, insulinDose = ?, medication = ?, exerciseDescription = ?, exerciseType = ?, exerciseDuration = ?, insulinType = ? WHERE id = ? AND userID = ?;";
+        String sqlUpdate = "UPDATE logData SET bloodSugar = ?, notes = ?, createTime = ?, updateTime = ?, logType = ?, carb = ?, mealDescription = ?, insulinDose = ?, medication = ?, exerciseDescription = ?, exerciseType = ?, exerciseDuration = ?, insulinType = ? WHERE id = ? AND userId = ?;";
 
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
@@ -121,7 +116,7 @@ public class LogDataSQL {
             pstmt.setString(12, exerciseDuration);
             pstmt.setString(13, insulinType);
             pstmt.setInt(14, logID);
-            pstmt.setInt(15, userID);
+            pstmt.setInt(15, userId);
 
             int rowsAffected = pstmt.executeUpdate();
             if (rowsAffected > 0) {
@@ -135,22 +130,22 @@ public class LogDataSQL {
     }
 
 
-    public static JsonArray readAllLogs(int userID) {
+    public static JsonArray readAllLogs(int userId) {
         System.out.println("Reading data from logData table.");
-        String sqlRead = "SELECT * FROM logData WHERE userID = ?";
+        String sqlRead = "SELECT * FROM logData WHERE userId = ?";
         JsonArray logsArray = new JsonArray();
 
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlRead)) {
 
-            pstmt.setInt(1, userID);
+            pstmt.setInt(1, userId);
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 System.out.println("Read SQL success.");
                 while (rs.next()) {
                     JsonObject logJson = new JsonObject();
                     logJson.addProperty("id", rs.getInt("id"));
-                    logJson.addProperty("userID", rs.getInt("userID"));
+                    logJson.addProperty("userId", rs.getInt("userId"));
                     logJson.addProperty("bloodSugar", rs.getString("bloodSugar"));
                     logJson.addProperty("notes", rs.getString("notes"));
                     logJson.addProperty("createTime", rs.getString("createTime"));
@@ -185,7 +180,7 @@ public class LogDataSQL {
             System.out.println("Display SQL success.");
             while (rs.next()) {
                 int id = rs.getInt("id");
-                int userID = rs.getInt("userID");
+                int userId = rs.getInt("userId");
                 String bloodSugar = rs.getString("bloodSugar");
                 String notes = rs.getString("notes");
                 String createTime = rs.getString("createTime");
@@ -200,7 +195,7 @@ public class LogDataSQL {
                 String exerciseDuration = rs.getString("exerciseDuration");
                 String insulinType = rs.getString("insulinType");
 
-                resp.getWriter().write("ID: " + id + ", UserID: " + userID + ", BloodSugar: " + bloodSugar + ", Notes: " + notes + ", CreateTime: " + createTime + ", UpdateTime: " + updateTime + ", LogType: " + logType + ", Carb: " + carb + ", MealDescription: " + mealDescription + ", InsulinDose: " + insulinDose + ", Medication: " + medication + ", ExerciseDescription: " + exerciseDescription + ", ExerciseType: " + exerciseType + ", ExerciseDuration: " + exerciseDuration + ", InsulinType: " + insulinType + ". \n");
+                resp.getWriter().write("ID: " + id + ", UserId: " + userId + ", BloodSugar: " + bloodSugar + ", Notes: " + notes + ", CreateTime: " + createTime + ", UpdateTime: " + updateTime + ", LogType: " + logType + ", Carb: " + carb + ", MealDescription: " + mealDescription + ", InsulinDose: " + insulinDose + ", Medication: " + medication + ", ExerciseDescription: " + exerciseDescription + ", ExerciseType: " + exerciseType + ", ExerciseDuration: " + exerciseDuration + ", InsulinType: " + insulinType + ". \n");
             }
         } catch (SQLException | IOException e) {
             e.printStackTrace();

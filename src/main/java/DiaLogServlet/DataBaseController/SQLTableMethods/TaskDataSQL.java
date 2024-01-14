@@ -13,12 +13,6 @@ import java.time.LocalTime;
 import java.time.LocalDateTime;
 import java.time.Month;
 public class TaskDataSQL {
-    private Long id;
-    private String content;
-    private String title;
-    private Long userId;
-    private String createTime;
-    private String updateTime;
     public static void createTable() {
 
         System.out.println("Creating table.");

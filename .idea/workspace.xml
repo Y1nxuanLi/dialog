@@ -4,28 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.0.0">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Aquarium/Crab1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Crab1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Aquarium/fish1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/fish1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Aquarium/ocean.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ocean.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Aquarium/ocean.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ocean.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Aquarium/ocean.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ocean.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Aquarium/turtle1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/turtle1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/DataPlots/echarts.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/echarts.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/DataPlots/logbook.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/DataPlots/logbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/DataPlots/trends.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/trends.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/DataPlots/trends.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/trends.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/DataPlots/trendstyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/trendstyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/HomePage/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/HomePage/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/LoginRegister/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/LoginRegister/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/LoginRegister/loginImage.webp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginImage.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/LoginRegister/loginstyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginstyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/LoginRegister/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/LoginRegister/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/settings.html" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.0.4&#10;rollback">
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddUser/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddUser/LoginServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,14 +175,6 @@
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
-    </task>
-    <task id="LOCAL-00197" summary="Merge logbook&amp;trend update v5.11.2">
-      <option name="closed" value="true" />
-      <created>1705174865922</created>
-      <option name="number" value="00197" />
-      <option name="presentableId" value="LOCAL-00197" />
-      <option name="project" value="LOCAL" />
-      <updated>1705174865922</updated>
     </task>
     <task id="LOCAL-00198" summary="Merge logbook&amp;trend update v5.11.2">
       <option name="closed" value="true" />
@@ -588,7 +560,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705206652929</updated>
     </task>
-    <option name="localTasksCounter" value="246" />
+    <task id="LOCAL-00246" summary="Fully Functional Version v6.0.4&#10;rollback">
+      <option name="closed" value="true" />
+      <created>1705209156290</created>
+      <option name="number" value="00246" />
+      <option name="presentableId" value="LOCAL-00246" />
+      <option name="project" value="LOCAL" />
+      <updated>1705209156290</updated>
+    </task>
+    <option name="localTasksCounter" value="247" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +586,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="logbook v5.12.12" />
     <MESSAGE value="logbook v5.12.13" />
     <MESSAGE value="logbook v5.12.14" />
     <MESSAGE value="logbook v5.13.0" />
@@ -631,6 +610,7 @@
     <MESSAGE value="echarts v5.14.5" />
     <MESSAGE value="Logbook Fixed v5.15.0" />
     <MESSAGE value="Fully Functional Version v6.0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.0.0" />
+    <MESSAGE value="Fully Functional Version v6.0.4&#10;rollback" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.0.4&#10;rollback" />
   </component>
 </project>

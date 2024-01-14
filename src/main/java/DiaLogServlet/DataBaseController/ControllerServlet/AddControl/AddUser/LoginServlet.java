@@ -31,7 +31,13 @@ public class LoginServlet extends HttpServlet {
             case "/login":
                 forwardTo(req, resp, "/login.html");
                 break;
+            case "/index.html":
+                forwardTo(req, resp, "/login.html");
+                break;
             case "/index":
+                forwardTo(req, resp, "/login.html");
+                break;
+            case "/":
                 forwardTo(req, resp, "/login.html");
                 break;
             default:

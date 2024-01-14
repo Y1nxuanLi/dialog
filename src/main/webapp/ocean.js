@@ -6,15 +6,20 @@ document.addEventListener("DOMContentLoaded", function () {
     if (isNaN(fishCounter)) {
         fishCounter = 0; // Initialize if not found
     }
+    console.log("Initial fishCounter: " + fishCounter);
 
-    var storedCreatures = JSON.parse(localStorage.getItem('creatures'));
 
-    if (fishCounter !== null) {
-        var fishCount = parseInt(fishCounter, 10); // Convert string to integer
-        console.log("Number of fish: " + fishCount);
-    } else {
-        console.log("Fish counter not found in local storage.");
+    // Only create new creatures if none are in localStorage
+    if (!storedCreatures) {
+        let totalCreatures = Math.floor(fishCounter / 5);
+        for (let i = 0; i < totalCreatures; i++) {
+            const randomX = Math.random() * canvas.width;
+            const randomY = Math.random() * canvas.height;
+            createRandomCreature(randomX, randomY);
+        }
+        console.log("Created creatures: " + totalCreatures);
     }
+
 
 
     // Load background image
@@ -124,18 +129,12 @@ document.addEventListener("DOMContentLoaded", function () {
         saveCreatures();
     }
 
-        function saveCreatures() {
-        localStorage.setItem('creatures', JSON.stringify(creatures.map(creature => {
-            return {
-                x: creature.x,
-                y: creature.y,
-                type: creature.type,
-                speedX: creature.speedX,
-                speedY: creature.speedY,
-                flipped: creature.flipped
-            };
-        })));
+            function saveCreatures() {
+        localStorage.setItem('creatures', JSON.stringify(creatures));
+        localStorage.setItem('fishCounter', fishCounter.toString());
+        console.log("Saved creatures and updated fishCounter: " + fishCounter);
     }
+    
 
 
     fishCounter

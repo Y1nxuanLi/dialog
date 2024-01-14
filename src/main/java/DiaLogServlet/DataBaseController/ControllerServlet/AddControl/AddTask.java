@@ -26,29 +26,19 @@ public class AddTask extends Add {
         }
     }
 
-
     @Override
     public void add(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String jsonData1 = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-        Gson gson1 = new Gson();
-        TaskData task = gson1.fromJson(jsonData1, TaskData.class);
+        String jsonData = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+        Gson gson = new Gson();
+        TaskData task = gson.fromJson(jsonData, TaskData.class);
 
-        int userID = task.getUserId();
-        String title = task.getTitle();
-        String content = task.getContent();
-        String createTime = task.getCreateTime();
-        String updateTime = task.getUpdateTime();
-        String dueTime = task.getDueTime();
-        int notification = task.getNotification();
-        if (userID != 0){
+        if (task.getUserId() != 0) {
             TaskDataSQL.createTable();
-            TaskDataSQL.insertData(userID, title, content, createTime, updateTime, dueTime, notification);
+            TaskDataSQL.insertData(task); // Pass the entire TaskData object
             sendResponse.send(resp, ErrorCode.SUCCESS);
-        }
-        else {
+        } else {
             sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
         }
-
     }
 
 }

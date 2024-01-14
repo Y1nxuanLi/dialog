@@ -26,7 +26,6 @@ public class AdminLogData extends HttpServlet {
                 TaskDataSQL.displayData(resp);
                 JsonArray tasksArray = TaskDataSQL.readAllTask(15);
                 resp.getWriter().write(String.valueOf(tasksArray));
-                TaskDataSQL.updateTask(20, 16, "title", "content", "createTime", "updateTime", "dueTime", 0);
                 break;
 
             default:

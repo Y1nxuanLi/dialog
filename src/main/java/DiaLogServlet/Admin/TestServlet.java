@@ -1,6 +1,6 @@
 package DiaLogServlet.Admin;
 
-import DiaLogApp.UserData;
+
 import DiaLogServlet.DataBaseController.SQLTableMethods.UserDataSQL;
 
 import javax.servlet.ServletException;

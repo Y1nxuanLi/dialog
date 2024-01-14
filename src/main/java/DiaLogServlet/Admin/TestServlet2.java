@@ -26,7 +26,7 @@ public class TestServlet2 extends HttpServlet {
                 TaskDataSQL.displayData(resp);
                 JsonArray tasksArray = TaskDataSQL.readAllTask(1);
                 resp.getWriter().write(String.valueOf(tasksArray));
-                TaskDataSQL.updateTask(1, 1, "title", "content", "createTime", "updateTime", "dueTime", 0);
+
                 break;
 
             default:

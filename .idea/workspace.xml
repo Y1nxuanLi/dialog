@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Logbook Fixed v5.15.0">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.0.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/logbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/logbook22.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook22.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/AdminLogData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/AdminLogData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/Admin/TestServlet2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/AddControl/AddTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/ControllerServlet/UpdateControl/UpdateTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/DataBaseController/SQLTableMethods/TaskDataSQL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,15 +180,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="99514000" />
-    </task>
-    <task id="LOCAL-00196" summary="Setting troubleshoot v5.11.1">
-      <option name="closed" value="true" />
-      <created>1705174462022</created>
-      <option name="number" value="00196" />
-      <option name="presentableId" value="LOCAL-00196" />
-      <option name="project" value="LOCAL" />
-      <updated>1705174462022</updated>
+      <workItem from="1705082248653" duration="100281000" />
     </task>
     <task id="LOCAL-00197" summary="Merge logbook&amp;trend update v5.11.2">
       <option name="closed" value="true" />
@@ -570,7 +566,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705204821137</updated>
     </task>
-    <option name="localTasksCounter" value="245" />
+    <task id="LOCAL-00245" summary="Fully Functional Version v6.0.0">
+      <option name="closed" value="true" />
+      <created>1705206652929</created>
+      <option name="number" value="00245" />
+      <option name="presentableId" value="LOCAL-00245" />
+      <option name="project" value="LOCAL" />
+      <updated>1705206652929</updated>
+    </task>
+    <option name="localTasksCounter" value="246" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,7 +592,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="logbook v5.12.11" />
     <MESSAGE value="logbook v5.12.12" />
     <MESSAGE value="logbook v5.12.13" />
     <MESSAGE value="logbook v5.12.14" />
@@ -613,6 +616,7 @@
     <MESSAGE value="echarts v5.14.4" />
     <MESSAGE value="echarts v5.14.5" />
     <MESSAGE value="Logbook Fixed v5.15.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Logbook Fixed v5.15.0" />
+    <MESSAGE value="Fully Functional Version v6.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.0.0" />
   </component>
 </project>

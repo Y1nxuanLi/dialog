@@ -1,5 +1,6 @@
 package DiaLogServlet.DataBaseController.SQLTableMethods;
 
+import DiaLogApp.TaskData;
 import DiaLogServlet.DataBaseController.DatabaseConnector;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -7,11 +8,7 @@ import com.google.gson.JsonObject;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
-import java.util.Date;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.LocalDateTime;
-import java.time.Month;
+
 public class TaskDataSQL {
     public static void createTable() {
 
@@ -36,20 +33,21 @@ public class TaskDataSQL {
         }
     }
 
-    public static void insertData(int userID, String title, String content, String createTime, String updateTime, String dueTime, int notification) {
-        String sqlInsert = "INSERT INTO taskData (userID, title, content, createTime, updateTime, dueTime, notification) VALUES (?,?,?,?,?,?,?);";
+    public static void insertData(TaskData taskData) {
+        String sqlInsert = "INSERT INTO taskData (userID, title, content, createTime, " +
+                "updateTime, dueTime, notification) VALUES (?,?,?,?,?,?,?);";
         System.out.println("Inserting Data into taskData table.");
 
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlInsert)) {
 
-            pstmt.setInt(1, userID);
-            pstmt.setString(2, title);
-            pstmt.setString(3, content);
-            pstmt.setString(4, createTime);
-            pstmt.setString(5, updateTime);
-            pstmt.setString(6, dueTime);
-            pstmt.setInt(7, notification);
+            pstmt.setInt(1, taskData.getUserId());
+            pstmt.setString(2, taskData.getTitle());
+            pstmt.setString(3, taskData.getContent());
+            pstmt.setString(4, taskData.getCreateTime());
+            pstmt.setString(5, taskData.getUpdateTime());
+            pstmt.setString(6, taskData.getDueTime());
+            pstmt.setInt(7, taskData.getNotification());
 
             pstmt.executeUpdate();
             System.out.println("Data inserted successfully.");
@@ -57,8 +55,6 @@ public class TaskDataSQL {
             e.printStackTrace();
         }
     }
-
-
 
 
     public static void deleteTask(int id, int userID) {
@@ -77,21 +73,21 @@ public class TaskDataSQL {
         }
     }
 
-    public static void updateTask(int taskID, int userID, String title, String content, String createTime, String updateTime, String dueTime, int notification) {
+    public static void updateTask(TaskData task) {
         System.out.println("Updating task in taskData table.");
         String sqlUpdate = "UPDATE taskData SET title = ?, content = ?, createTime = ?, updateTime = ?, dueTime = ?, notification = ? WHERE id = ? AND userID = ?;";
 
         try (Connection conn = DatabaseConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
 
-            pstmt.setString(1, title);
-            pstmt.setString(2, content);
-            pstmt.setString(3, createTime);
-            pstmt.setString(4, updateTime);
-            pstmt.setString(5, dueTime);
-            pstmt.setInt(6, notification);
-            pstmt.setInt(7, taskID);
-            pstmt.setInt(8, userID);
+            pstmt.setString(1, task.getTitle());
+            pstmt.setString(2, task.getContent());
+            pstmt.setString(3, task.getCreateTime());
+            pstmt.setString(4, task.getUpdateTime());
+            pstmt.setString(5, task.getDueTime());
+            pstmt.setInt(6, task.getNotification());
+            pstmt.setInt(7, task.getId());
+            pstmt.setInt(8, task.getUserId());
 
             int rowsAffected = pstmt.executeUpdate();
             if (rowsAffected > 0) {

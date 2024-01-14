@@ -80,7 +80,7 @@
             <el-table-column label="Action">
                 <template slot-scope="scope">
                     <el-button type="text" @click="deleteLog(scope.row.id)">Delete</el-button>
-                    <el-button type="text" @click="openModal('complex',scope.row.id)">Change</el-button>
+                    <el-button type="text" @click="openModal('medium',scope.row.id)">Change</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -128,9 +128,6 @@
                             placeholder="Select date and time"
                             value-format="yyyy-MM-dd HH:mm:ss">
                     </el-date-picker>
-                </el-form-item>
-                <el-form-item label="updateTime" prop="updateTime">
-                    <el-input type="textarea" v-model="taskForm.updateTime" placeholder="Format: 2023-01-13 09:12:04"></el-input>
                 </el-form-item>
                 <el-form-item label="carb" prop="carb">
                     <el-input type="textarea" v-model="taskForm.carb" placeholder="Please input data"></el-input>

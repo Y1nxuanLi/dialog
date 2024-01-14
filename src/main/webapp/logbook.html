@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日常记录</title>
+    <title>Daily log</title>
     <link rel="stylesheet" type="text/css" href="logbook.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
@@ -42,26 +42,32 @@
 
     <div class="buttons-container">
         <div class="add-activity-button-container">
-            <el-button @click="openModal('simple',null)">添加简单记录</el-button>
+            <el-button @click="openModal('simple',null)">Simple Log</el-button>
         </div>
         <div class="add-activity-button-container">
-            <el-button @click="openModal('medium',null)">添加中等记录</el-button>
+            <el-button @click="openModal('medium',null)">Comprehensive Log</el-button>
         </div>
         <div class="add-activity-button-container">
-            <el-button @click="openModal('complex',null)">添加复杂记录</el-button>
+            <el-button @click="openModal('complex',null)">Intensive Log</el-button>
         </div>
     </div>
 
     <main>
         <el-table :data="logs" class="table" style="width: 90%" stripe border>
             <el-table-column prop="id" label="ID" width="80"></el-table-column>
-            <el-table-column prop="createTime" label="日期" :formatter="formatDate" width="180"></el-table-column>
-            <el-table-column prop="bloodSugar" label="血糖数值"></el-table-column>
-            <el-table-column prop="createTime" label="记录时间" :formatter="formatTime"></el-table-column>
-            <el-table-column label="操作">
+            <el-table-column prop="createTime" label="Date" :formatter="formatDate" width="180"></el-table-column>
+            <el-table-column prop="bloodSugar" label="Blood sugar"></el-table-column>
+            <el-table-column prop="createTime" label="Time" :formatter="formatTime"></el-table-column>
+            <el-table-column prop="mealDescription" label="Meal"></el-table-column>
+            <el-table-column prop="insulinDose" label="Insulin Dose"></el-table-column>
+            <el-table-column prop="medication" label="Medication"></el-table-column>
+            <el-table-column prop="insulinType" label="insulinType"></el-table-column>
+            <el-table-column prop="notes" label="备注"></el-table-column>
+            
+            <el-table-column label="Action">
                 <template slot-scope="scope">
-                    <el-button type="text" @click="deleteLog(scope.row.id)">删除</el-button>
-                    <el-button type="text" @click="openModal('complex',scope.row.id)">修改</el-button>
+                    <el-button type="text" @click="deleteLog(scope.row.id)">Delete</el-button>
+                    <el-button type="text" @click="openModal('complex',scope.row.id)">Change</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -69,108 +75,108 @@
 
     <el-dialog
         :visible.sync="isModalOpen"
-        :title="modalType === 'simple' ? '添加简单记录' : modalType === 'medium' ? '添加中等记录' : '添加复杂记录'"
+        :title="modalType === 'simple' ? 'Simple Log' : modalType === 'medium' ? 'Comprehensive Log' : 'Intensive Log'"
         width="50%"
         :before-close="closeModal">
 
         <!-- bloodSugar for simple record -->
         <template v-if="modalType === 'simple'">
             <el-form ref="taskForm" :model="taskForm" label-width="120px">
-                <el-form-item label="血糖数值" prop="bloodSugar">
-                    <el-input type="textarea" v-model="taskForm.bloodSugar" placeholder="请输入值"></el-input>
+                <el-form-item label="Blood sugar" prop="bloodSugar">
+                    <el-input type="textarea" v-model="taskForm.bloodSugar" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="notes" prop="notes">
-                    <el-input type="textarea" v-model="taskForm.notes" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.notes" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="createTime" prop="createTime">
-                    <el-input type="textarea" v-model="taskForm.createTime" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.createTime" placeholder="Format: 2023-01-13 09:12:04"></el-input>
                 </el-form-item>
             </el-form>
         </template>
 
         <!-- bloodSugar for medium record -->
         <template v-else-if="modalType === 'medium'">
-            <el-form ref="taskForm" :model="taskForm" label-width="130px">
-                <el-form-item label="血糖数值" prop="bloodSugar">
-                    <el-input type="textarea" v-model="taskForm.bloodSugar" placeholder="请输入值"></el-input>
+            <el-form ref="taskForm" :model="taskForm" label-width="135px">
+                <el-form-item label="Blood sugar" prop="bloodSugar">
+                    <el-input type="textarea" v-model="taskForm.bloodSugar" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="notes" prop="notes">
-                    <el-input type="textarea" v-model="taskForm.notes" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.notes" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="createTime" prop="createTime">
-                    <el-input type="textarea" v-model="taskForm.createTime" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.createTime" placeholder="Format: 2023-01-13 09:12:04"></el-input>
                 </el-form-item>
                 <el-form-item label="updateTime" prop="updateTime">
-                    <el-input type="textarea" v-model="taskForm.updateTime" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.updateTime" placeholder="Format: 2023-01-13 09:12:04"></el-input>
                 </el-form-item>
                 <el-form-item label="carb" prop="carb">
-                    <el-input type="textarea" v-model="taskForm.carb" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.carb" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="mealDescription" prop="mealDescription">
-                    <el-input type="textarea" v-model="taskForm.mealDescription" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.mealDescription" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="insulinDose" prop="insulinDose">
-                    <el-input type="textarea" v-model="taskForm.insulinDose" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.insulinDose" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="medication" prop="medication">
-                    <el-input type="textarea" v-model="taskForm.medication" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.medication" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="exerciseDescription" prop="exerciseDescription">
-                    <el-input type="textarea" v-model="taskForm.exerciseDescription" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.exerciseDescription" placeholder="Please input data"></el-input>
                 </el-form-item>
             </el-form>
         </template>
 
         <!-- bloodSugar for complex record -->
         <template v-else-if="modalType === 'complex'">
-            <el-form ref="taskForm" :model="taskForm" label-width="130px">
-                <el-form-item label="血糖数值" prop="bloodSugar">
-                    <el-input type="textarea" v-model="taskForm.bloodSugar" placeholder="请输入值"></el-input>
+            <el-form ref="taskForm" :model="taskForm" label-width="135px">
+                <el-form-item label="Blood sugar" prop="bloodSugar">
+                    <el-input type="textarea" v-model="taskForm.bloodSugar" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="notes" prop="notes">
-                    <el-input type="textarea" v-model="taskForm.notes" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.notes" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="createTime" prop="createTime">
-                    <el-input type="textarea" v-model="taskForm.createTime" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.createTime" placeholder="Format: 2023-01-13 09:12:04"></el-input>
                 </el-form-item>
                 <el-form-item label="carb" prop="carb">
-                    <el-input type="textarea" v-model="taskForm.carb" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.carb" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="mealDescription" prop="mealDescription">
-                    <el-input type="textarea" v-model="taskForm.mealDescription" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.mealDescription" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="insulinDose" prop="insulinDose">
-                    <el-input type="textarea" v-model="taskForm.insulinDose" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.insulinDose" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="medication" prop="medication">
-                    <el-input type="textarea" v-model="taskForm.medication" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.medication" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="exerciseDescription" prop="exerciseDescription">
-                    <el-input type="textarea" v-model="taskForm.exerciseDescription" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.exerciseDescription" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="exerciseType" prop="exerciseType">
-                    <el-input type="textarea" v-model="taskForm.exerciseType" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.exerciseType" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="exerciseDuration" prop="exerciseDuration">
-                    <el-input type="textarea" v-model="taskForm.exerciseDuration" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.exerciseDuration" placeholder="Please input data"></el-input>
                 </el-form-item>
                 <el-form-item label="insulinType" prop="insulinType">
-                    <el-input type="textarea" v-model="taskForm.insulinType" placeholder="请输入值"></el-input>
+                    <el-input type="textarea" v-model="taskForm.insulinType" placeholder="Please input data"></el-input>
                 </el-form-item>
             </el-form>
         </template>
 
         <span slot="footer" class="dialog-footer">
-            <el-button @click="closeModal">取消</el-button>
+            <el-button @click="closeModal">Cancel</el-button>
             <el-button type="primary" @click="taskForm.id ? updateTask() : createTask()">
-                {{ taskForm.id ? '修改记录' : '创建记录' }}
+                {{ taskForm.id ? 'Change log' : 'Create new log' }}
             </el-button>
         </span>
     </el-dialog>
 
 
     <footer>
-        <p>@2024，血糖系统</p>
+        <p>@2024，Dialog</p>
     </footer>
 </div>
 

@@ -69,7 +69,7 @@
                     </el-select>
                 </el-form-item>
                 <el-form-item label="胰岛素类型">
-                    <el-select v-model="selectedGender" :disabled="editMode">
+                    <el-select v-model="currentUser.insulinType" :disabled="editMode">
                         <el-option label="长期" value="5"></el-option>
                         <el-option label="短期" value="6"></el-option>
                     </el-select>

@@ -57,30 +57,30 @@
             <el-button @click="saveChanges" v-if="!editMode">Save</el-button>
         </div>
         <div>
-            <el-form ref="userForm" :model="currentUser" :rules="rules" label-width="80px">
-                <el-form-item label="名称">
+            <el-form ref="userForm" :model="currentUser" :rules="rules" label-width="140px">
+                <el-form-item label="Name">
                     <el-input v-model="currentUser.userName" :disabled="editMode"></el-input>
                 </el-form-item>
-                <el-form-item label="性别">
+                <el-form-item label="Gender">
                     <el-select v-model="currentUser.gender" :disabled="editMode">
                         <el-option label="Male" value="Male"></el-option>
                         <el-option label="Female" value="Female"></el-option>
                         <el-option label="Other" value="Other"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="邮箱">
+                <el-form-item label="E-mail">
                     <el-input v-model="currentUser.email" :disabled="editMode"></el-input>
                 </el-form-item>
-                <el-form-item label="电话号码">
+                <el-form-item label="Tel">
                     <el-input v-model="currentUser.phoneNumber" :disabled="editMode"></el-input>
                 </el-form-item>
-                <el-form-item label="糖尿病类型">
+                <el-form-item label="Diabetes Type">
                     <el-select v-model="currentUser.diabetesType" :disabled="editMode">
                         <el-option label="Type I" value="Type I"></el-option>
                         <el-option label="Type II" value="Type II"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="胰岛素类型">
+                <el-form-item label="Insulin Type">
                     <el-select v-model="currentUser.insulinType" :disabled="editMode">
                         <el-option label="Rapid-acting" value="Rapid-acting"></el-option>
                         <el-option label="Short-acting" value="Short-acting"></el-option>
@@ -91,10 +91,10 @@
                 <el-form-item label="Docotr Contact">
                     <el-input v-model="currentUser.doctorNumber" :disabled="editMode"></el-input>
                 </el-form-item>
-                <el-form-item label="邮编">
+                <el-form-item label="Postal code">
                     <el-input v-model="currentUser.postalCode" :disabled="editMode"></el-input>
                 </el-form-item>
-                <el-form-item label="地址">
+                <el-form-item label="Address">
                     <el-input v-model="currentUser.address" :disabled="editMode"></el-input>
                 </el-form-item>
             </el-form>
@@ -114,15 +114,15 @@
                 editMode: true,
                 isDiscardClicked: false,
                 rules: {
-                    userName: [{ required: true, message: '请输入名称', trigger: 'blur' }],
-                    gender: [{ required: true, message: '请输入性别', trigger: 'blur' }],
-                    diabetesType: [{ required: true, message: '糖尿病类', trigger: 'blur' }],
-                    insulinType: [{ required: true, message: '胰岛素类型', trigger: 'blur' }],
-                    email: [{ required: true, message: '请输入邮箱', trigger: 'blur' }],
-                    phoneNumber: [{ required: true, message: '请输入电话号码', trigger: 'blur' }],
-                    doctorNumber: [{ required: true, message: '请输入医生电话号码', trigger: 'blur' }],
-                    postalCode: [{ required: true, message: '请输入邮编', trigger: 'blur' }],
-                    address: [{ required: true, message: '请输入地址', trigger: 'blur' }],
+                    userName: [{ required: true, message: 'Please input name', trigger: 'blur' }],
+                    gender: [{ required: true, message: 'Please input gender', trigger: 'blur' }],
+                    diabetesType: [{ required: true, message: 'diabetesType', trigger: 'blur' }],
+                    insulinType: [{ required: true, message: 'insulinType', trigger: 'blur' }],
+                    email: [{ required: true, message: 'email', trigger: 'blur' }],
+                    phoneNumber: [{ required: true, message: 'phoneNumber', trigger: 'blur' }],
+                    doctorNumber: [{ required: true, message: 'doctorNumber', trigger: 'blur' }],
+                    postalCode: [{ required: true, message: ' postalCode', trigger: 'blur' }],
+                    address: [{ required: true, message: 'address', trigger: 'blur' }],
                     // Add any additional fields that are present in your UserData class
                 }
             }

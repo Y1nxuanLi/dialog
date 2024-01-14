@@ -46,3 +46,34 @@
         <script src="ocean.js"></script>
     </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: 'body', // or '#app' if you have an element with id="app"
+        data() {
+            return {
+                currentUserID: null,
+                currentUserAccount: null
+            };
+        },
+        created() {
+            this.loadUserData();
+        },
+        methods: {
+            loadUserData() {
+                // Load user data from localStorage or other sources
+                const userData = JSON.parse(localStorage.getItem('userMes'));
+                if (userData) {
+                    this.currentUserID = userData.userID;
+                    this.currentUserAccount = userData.userAccount;
+                }
+            },
+            logout() {
+                // Logout logic
+                localStorage.clear();
+                window.location.href = 'login.html';
+            }
+        }
+    });
+</script>
+

@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (creatures.length > 0) {
             creatures.shift(); // Removes one creature from the end of the array
         }
-    }, 10 * 1000*60*60*2); // 2days
+    }, 10 * 1000); // 60s
     // Creature constructor
     class Creature {
         constructor(x, y, type) {

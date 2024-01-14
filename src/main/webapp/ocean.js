@@ -1,27 +1,16 @@
-document.addEventListener("DOMContentLoaded", function () {
+ document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("oceanCanvas");
     const ctx = canvas.getContext("2d");
 
-    var fishCounter = parseInt(localStorage.getItem('fishCounter'), 10);
-    if (isNaN(fishCounter)) {
-        fishCounter = 0; // Initialize if not found
-    }
-    console.log("Initial fishCounter: " + fishCounter);
-    
+    var fishCounter = localStorage.getItem('fishCounter');
     var storedCreatures = JSON.parse(localStorage.getItem('creatures'));
 
-
-    // Only create new creatures if none are in localStorage
-    if (!storedCreatures) {
-        let totalCreatures = Math.floor(fishCounter / 5);
-        for (let i = 0; i < totalCreatures; i++) {
-            const randomX = Math.random() * canvas.width;
-            const randomY = Math.random() * canvas.height;
-            createRandomCreature(randomX, randomY);
-        }
-        console.log("Created creatures: " + totalCreatures);
+    if (fishCounter !== null) {
+        var fishCount = parseInt(fishCounter, 10); // Convert string to integer
+        console.log("Number of fish: " + fishCount);
+    } else {
+        console.log("Fish counter not found in local storage.");
     }
-
 
 
     // Load background image
@@ -30,15 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Decrease the number of creatures every 24 hours
-    // Update and save creatures periodically
     setInterval(function() {
         if (creatures.length > 0) {
-            creatures.shift(); // Removes one creature
-            updateFishCounter(fishCounter - 1); // Update fishCounter
-            saveCreatures(); // Save updated creatures list
+            creatures.shift(); // Removes one creature from the end of the array
         }
-    }, 60000); // 24 hours in milliseconds
-
+    }, 10 * 1000); // 60s
     // Creature constructor
     class Creature {
         constructor(x, y, type) {
@@ -100,17 +85,17 @@ document.addEventListener("DOMContentLoaded", function () {
     
     const creatures = []; // Initialize creatures array
 
-    // Load creatures if they exist in localStorage
+   // Load creatures if they exist in localStorage
     if (storedCreatures) {
         for (let creature of storedCreatures) {
-            creatures.push(new Creature(creature.x, creature.y, creature.type));
+            creatures.push(new Creature(creature.x, creature.y, creature.type, creature.speedX, creature.speedY, creature.flipped));
         }
     } else {
         // Only create new creatures if none are in localStorage
         let totalCreatures = Math.floor(fishCounter / 5);
         for (let i = 0; i < totalCreatures; i++) {
             const randomX = Math.random() * canvas.width;
-            const randomY = Math.random() * canvas.height;
+            const randomY = (i % 3 === 0) ? canvas.height - 30 : Math.random() * canvas.height;
             createRandomCreature(randomX, randomY);
         }
     }
@@ -131,12 +116,18 @@ document.addEventListener("DOMContentLoaded", function () {
         saveCreatures();
     }
 
-            function saveCreatures() {
-        localStorage.setItem('creatures', JSON.stringify(creatures));
-        localStorage.setItem('fishCounter', fishCounter.toString());
-        console.log("Saved creatures and updated fishCounter: " + fishCounter);
+        function saveCreatures() {
+        localStorage.setItem('creatures', JSON.stringify(creatures.map(creature => {
+            return {
+                x: creature.x,
+                y: creature.y,
+                type: creature.type,
+                speedX: creature.speedX,
+                speedY: creature.speedY,
+                flipped: creature.flipped
+            };
+        })));
     }
-    
 
 
     fishCounter

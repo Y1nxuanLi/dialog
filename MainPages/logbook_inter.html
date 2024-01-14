@@ -101,8 +101,13 @@
                 <el-form-item label="notes" prop="notes">
                     <el-input type="textarea" v-model="taskForm.notes" placeholder="Please input data"></el-input>
                 </el-form-item>
-                <el-form-item label="createTime" prop="createTime">
-                    <el-input type="textarea" v-model="taskForm.createTime" placeholder="Format: 2023-01-13 09:12:04"></el-input>
+                <el-form-item label="Record Time" prop="createTime">
+                    <el-date-picker
+                            v-model="taskForm.createTime"
+                            type="datetime"
+                            placeholder="Select date and time"
+                            value-format="yyyy-MM-dd HH:mm:ss">
+                    </el-date-picker>
                 </el-form-item>
             </el-form>
         </template>
@@ -116,8 +121,13 @@
                 <el-form-item label="notes" prop="notes">
                     <el-input type="textarea" v-model="taskForm.notes" placeholder="Please input data"></el-input>
                 </el-form-item>
-                <el-form-item label="createTime" prop="createTime">
-                    <el-input type="textarea" v-model="taskForm.createTime" placeholder="Format: 2023-01-13 09:12:04"></el-input>
+                <el-form-item label="Record Time" prop="createTime">
+                    <el-date-picker
+                            v-model="taskForm.createTime"
+                            type="datetime"
+                            placeholder="Select date and time"
+                            value-format="yyyy-MM-dd HH:mm:ss">
+                    </el-date-picker>
                 </el-form-item>
                 <el-form-item label="updateTime" prop="updateTime">
                     <el-input type="textarea" v-model="taskForm.updateTime" placeholder="Format: 2023-01-13 09:12:04"></el-input>

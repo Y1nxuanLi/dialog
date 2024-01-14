@@ -2,7 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("oceanCanvas");
     const ctx = canvas.getContext("2d");
 
-    var fishCounter = localStorage.getItem('fishCounter');
+    var fishCounter = parseInt(localStorage.getItem('fishCounter'), 10);
+    if (isNaN(fishCounter)) {
+        fishCounter = 0; // Initialize if not found
+    }
+
     var storedCreatures = JSON.parse(localStorage.getItem('creatures'));
 
     if (fishCounter !== null) {
@@ -23,10 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(function() {
         if (creatures.length > 0) {
             creatures.shift(); // Removes one creature
-            fishCounter--; // Update fishCounter
+            updateFishCounter(fishCounter - 1); // Update fishCounter
             saveCreatures(); // Save updated creatures list
         }
-    }, 1000); // 60s
+    }, 60000); // 24 hours in milliseconds
+
     // Creature constructor
     class Creature {
         constructor(x, y, type) {

@@ -83,7 +83,7 @@
 
  
     
-    const creatures = []; // Initialize creatures array
+
 
    // Load creatures if they exist in localStorage
     const creatures = []; // Initialize creatures array

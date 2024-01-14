@@ -1,9 +1,8 @@
- document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("oceanCanvas");
     const ctx = canvas.getContext("2d");
 
     var fishCounter = localStorage.getItem('fishCounter');
-    var storedCreatures = JSON.parse(localStorage.getItem('creatures'));
 
     if (fishCounter !== null) {
         var fishCount = parseInt(fishCounter, 10); // Convert string to integer
@@ -81,31 +80,7 @@
         }
     }
 
- 
-    
-
-
-    const creatures = []; // Initialize creatures array
-    var creaturesInitialized = localStorage.getItem('creaturesInitialized');
-
-    // Load or Generate Creatures
-    if (storedCreatures && storedCreatures.length > 0) {
-        console.log("Loading creatures from localStorage");
-        storedCreatures.forEach(creature => {
-            creatures.push(new Creature(creature.x, creature.y, creature.type, creature.speedX, creature.speedY, creature.flipped));
-        });
-    } else if (fishCounter !== null) {
-        console.log("Generating new creatures");
-        let totalCreatures = Math.floor(parseInt(fishCounter, 10) / 5);
-        for (let i = 0; i < totalCreatures; i++) {
-            const randomX = Math.random() * canvas.width;
-            const randomY = (i % 3 === 0) ? canvas.height - 30 : Math.random() * canvas.height;
-            createRandomCreature(randomX, randomY);
-        }
-        saveCreatures();
-    } else {
-        console.log("No fish counter or stored creatures found");
-    }
+    const creatures = []; // Initialize empty creatures array
 
     // Function to create a random creature based on rarity
     function createRandomCreature(x, y) {
@@ -121,24 +96,9 @@
         }
 
         creatures.push(new Creature(x, y, type));
-        saveCreatures();
     }
 
-        function saveCreatures() {
-        localStorage.setItem('creatures', JSON.stringify(creatures.map(creature => {
-            return {
-                x: creature.x,
-                y: creature.y,
-                type: creature.type,
-                speedX: creature.speedX,
-                speedY: creature.speedY,
-                flipped: creature.flipped
-            };
-        })));
-    }
-
-
-     fishCounter
+    fishCounter
 
     let totalCreatures = Math.floor(fishCounter / 5);
     for (let i = 0; i < totalCreatures; i++) {
@@ -172,6 +132,10 @@
 
 // Resize the canvas to fill browser window dynamically
     window.addEventListener('resize', resizeCanvas, false);
+
+// Initial call to set the size
+    resizeCanvas();
+});
 
 // Initial call to set the size
     resizeCanvas();

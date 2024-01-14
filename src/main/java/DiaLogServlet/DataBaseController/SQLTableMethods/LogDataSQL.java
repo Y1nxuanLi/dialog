@@ -130,18 +130,21 @@ public class LogDataSQL {
              PreparedStatement pstmt = conn.prepareStatement(sqlRead)) {
 
             pstmt.setInt(1, userId);
+            System.out.println("Executing query: " + pstmt);
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 System.out.println("Read SQL success.");
                 while (rs.next()) {
                     JsonObject logJson = new JsonObject();
+                    System.out.println("Log found: " + rs.getInt("id"));
+
                     logJson.addProperty("id", rs.getInt("id"));
                     logJson.addProperty("userId", rs.getInt("userId"));
                     logJson.addProperty("bloodSugar", rs.getString("bloodSugar"));
                     logJson.addProperty("notes", rs.getString("notes"));
                     logJson.addProperty("createTime", rs.getString("createTime"));
                     logJson.addProperty("updateTime", rs.getString("updateTime"));
-                    logJson.addProperty("logType", rs.getInt("logType"));
+                    logJson.addProperty("logType", rs.getString("logType"));
                     logJson.addProperty("carb", rs.getString("carb"));
                     logJson.addProperty("mealDescription", rs.getString("mealDescription"));
                     logJson.addProperty("insulinDose", rs.getString("insulinDose"));
@@ -153,6 +156,7 @@ public class LogDataSQL {
 
                     logsArray.add(logJson); // Add each log to the array
                 }
+                System.out.println("Query executed. Number of logs found: " + logsArray.size());
             }
         } catch (SQLException e) {
             e.printStackTrace();

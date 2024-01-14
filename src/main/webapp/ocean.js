@@ -85,23 +85,25 @@
     
 
 
-   // Load creatures if they exist in localStorage
     const creatures = []; // Initialize creatures array
+    var creaturesInitialized = localStorage.getItem('creaturesInitialized');
 
     // Load creatures if they exist in localStorage
     if (storedCreatures) {
         for (let creature of storedCreatures) {
-            creatures.push(new Creature(creature.x, creature.y, creature.type, creature.speedX, creature.speedY, creature.flipped));
+            creatures.push(new Creature(creature.x, creature.y, creature.type));
         }
-    } else {
-        // Only create new creatures if none are stored
+    } else if (!creaturesInitialized) {
+        // Generate creatures only if they haven't been initialized before
         let totalCreatures = Math.floor(fishCounter / 5);
         for (let i = 0; i < totalCreatures; i++) {
             const randomX = Math.random() * canvas.width;
             const randomY = (i % 3 === 0) ? canvas.height - 30 : Math.random() * canvas.height;
             createRandomCreature(randomX, randomY);
         }
+        localStorage.setItem('creaturesInitialized', true);
     }
+
     // Function to create a random creature based on rarity
     function createRandomCreature(x, y) {
         const rarity = Math.random();

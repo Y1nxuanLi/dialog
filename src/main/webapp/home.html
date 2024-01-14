@@ -341,14 +341,16 @@
                 this.taskForm.notification = 1;
             },
             calculateDueTime() {
-                    if (selectedOption=!"set"){
-                        Date(this.taskForm.dueTime).setHours(Date(this.taskForm.createTime).getHours() + parseInt(this.taskForm.selectedOption, 10))
-                        this.taskForm.dueTime = this.taskForm.dueTime.toISOString().replace('T', ' ').substring(0, 19);
-                    }
-                    else if(selectedOption =="set"){
-                        this.taskForm.dueTime = this.taskForm.dueTime.toISOString().replace('T', ' ').substring(0, 19);
-                    }
+               if (this.taskForm.selectedOption != "set") {
+                    let newTime = new Date(this.taskForm.createTime);
+                   newTime.setHours(newTime.getHours() + parseInt(this.taskForm.selectedOption, 10));
+                    this.taskForm.dueTime = newTime.toISOString().replace('T', ' ').substring(0, 19);
+                } else {
+                    // If you need to do something specific when selectedOption is "set", handle it here
+                    this.taskForm.dueTime = new Date(this.taskForm.dueTime).toISOString().replace('T', ' ').substring(0, 19);
+                }
             }
+
         },
     })
 

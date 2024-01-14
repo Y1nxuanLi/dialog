@@ -92,7 +92,7 @@
         el: '#rend',
         data() {
             return {
-                useMes: JSON.parse(localStorage.getItem('userMes')),
+                userMes: JSON.parse(localStorage.getItem('userMes')),
                 //title: '',
                 currentUser: null,
                 userAccount: null,
@@ -109,9 +109,8 @@
         },
         created() {
 
-            const userMes = JSON.parse(localStorage.getItem('userMes'));
-            this.currentUserAccount = userMes.userAccount;
-            this.currentUserID = userMes.userID;
+            this.currentUserAccount = this.userMes.userAccount;
+            this.currentUserID = this.userMes.userID;
             this.readLog();
            // var  userAccount = localStorage.getItem("userAccount")
            // this.userAccount = userAccount

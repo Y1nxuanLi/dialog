@@ -42,7 +42,7 @@
     <el-card class="box-card">
         <div slot="header" class="clearfix">
             <span>Personal Information</span>
-            <el-button @click="editMode = !editMode">{{ editMode ? 'Edit' : 'Discard Editing' }}</el-button>
+            <el-button @click="editMode ? location.reload() : editMode = !editMode">{{ editMode ? 'Edit' : 'Discard' }}</el-button>
             <el-button @click="saveChanges" v-if="!editMode">Save</el-button>
         </div>
         <div>

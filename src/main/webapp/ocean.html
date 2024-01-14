@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Underwater World</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <link rel="stylesheet" type="text/css" href="ocean.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <style>
-        canvas {
-            border: 1px solid black;
-        }
-    </style>
-</head>
-<body>
-    <div id="app">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="styles.css">
+            <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+            <link rel="stylesheet" type="text/css" href="ocean.css">
+            <title>Underwater World</title>
+            <style>
+                canvas {
+                    border: 1px solid black;
+                }
+            </style>
+        </head>
+
+    <body>
         <header>
             <nav>
                 <div class="nav-left">
@@ -33,7 +32,7 @@
                         <li><span style="line-height: 37px">"Welcome"</span></li>
                         <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
                         <li><span style="line-height: 37px">{{ currentUserAccount }}</span></li>
-                        <button @click="logout()">Logout</button>
+                        <el-button @click="logout()">Logout</el-button>
                     </ul>
                     <ul v-else>
                         <li><a href="login.html">Login</a></li>
@@ -45,69 +44,5 @@
 
         <canvas id="oceanCanvas"></canvas>
         <script src="ocean.js"></script>
-    </div>
-<script>
-    new Vue({
-        el: '#app',
-        data: {
-            account: '',
-            password: ''
-        },
-        methods: {
-            submitLoginForm() {
-                const requestData = {
-                    userAccount: this.account,
-                    userPassword: this.password,
-                    checkPassword: '',
-                    id: '',
-                    userName: '',
-                    address: '',
-                    email: '',
-                    gender: '',
-                    diabetesType: '',
-                    insulinType: '',
-                    phoneNumber: '',
-                    doctorNumber: '',
-                    postalCode: '',
-                };
-                
-
-                axios.post("https://dialog-1d1125195912.herokuapp.com/login", requestData)
-                    .then(response => {
-                        const responseData = response.data;
-                        console.log("responseData:",responseData);
-                        console.log("responseData.code:",responseData.code);
-                        console.log("responseData.message:",responseData.message);
-                        if (responseData.code === 200) {
-                            console.log("Login Success", response.data);
-
-                            localStorage.setItem('userMes',JSON.stringify(responseData.data));
-
-                            let userMes = JSON.parse(localStorage.getItem('userMes'));
-                            console.log("userMes", userMes);
-                            console.log("userID", userMes.userID);
-                            console.log("userAccount", userMes.userAccount);
-                            console.log("userPassword", userMes.userPassword);
-                            window.location.replace('home.html');
-
-                        } else if (responseData.code === 40400){
-                            console.log("Login data not found", response.data);
-                            alert("Invalid User Account or Password");
-
-                        } else {
-                            alert("Login Failed");
-                            alert(responseData.message);
-                            console.log(responseData.data);
-                            console.log(responseData.message);
-                        }
-                    })
-                    .catch((error) => {
-                        console.log(error.config);
-                        console.error("Login Failed", error);
-                    });
-            }
-        }
-    });
- </body>
-</script>
+    </body>
 </html>

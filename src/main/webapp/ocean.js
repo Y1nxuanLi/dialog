@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (creatures.length > 0) {
             creatures.shift(); // Removes one creature from the end of the array
         }
-    }, 1000); // 24 hours in milliseconds
+    }, 60 * 1000); // 60s
     // Creature constructor
     class Creature {
         constructor(x, y, type) {
@@ -115,4 +115,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     animate();
+    function resizeCanvas() {
+        var canvas = document.getElementById('oceanCanvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+// Resize the canvas to fill browser window dynamically
+    window.addEventListener('resize', resizeCanvas, false);
+
+// Initial call to set the size
+    resizeCanvas();
 });

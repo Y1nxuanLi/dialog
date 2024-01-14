@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.2.2&#10;&#10;Add Aquarium" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.2.3&#10;&#10;Add Aquarium">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/ocean.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ocean.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ocean.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ocean.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ocean.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +41,7 @@
         <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -66,31 +72,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Desktop/BIOE60010_Software_Engineering_for_Bioengineers/IdeaProjects/DiaLog Leo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Desktop/BIOE60010_Software_Engineering_for_Bioengineers/IdeaProjects/DiaLog Leo",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="DiaLogServlet.DataBaseController.ControllerServlet.CreateControl" />
@@ -174,14 +181,6 @@
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
-    </task>
-    <task id="LOCAL-00211" summary="merge v5.12.3">
-      <option name="closed" value="true" />
-      <created>1705181419878</created>
-      <option name="number" value="00211" />
-      <option name="presentableId" value="LOCAL-00211" />
-      <option name="project" value="LOCAL" />
-      <updated>1705181419878</updated>
     </task>
     <task id="LOCAL-00212" summary="merge v5.12.4">
       <option name="closed" value="true" />
@@ -567,7 +566,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705217801434</updated>
     </task>
-    <option name="localTasksCounter" value="260" />
+    <task id="LOCAL-00260" summary="Fully Functional Version v6.2.3&#10;&#10;Add Aquarium">
+      <option name="closed" value="true" />
+      <created>1705218149365</created>
+      <option name="number" value="00260" />
+      <option name="presentableId" value="LOCAL-00260" />
+      <option name="project" value="LOCAL" />
+      <updated>1705218149365</updated>
+    </task>
+    <option name="localTasksCounter" value="261" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -585,7 +592,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="logbook v5.13.8" />
     <MESSAGE value="logbook v5.13.9" />
     <MESSAGE value="trends v5.13.10" />
     <MESSAGE value="trends v5.13.11" />
@@ -610,6 +616,7 @@
     <MESSAGE value="Fully Functional Version v6.2.0&#10;&#10;time sorting" />
     <MESSAGE value="Fully Functional Version v6.2.1&#10;&#10;time sorting" />
     <MESSAGE value="Fully Functional Version v6.2.2&#10;&#10;Add Aquarium" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.2.2&#10;&#10;Add Aquarium" />
+    <MESSAGE value="Fully Functional Version v6.2.3&#10;&#10;Add Aquarium" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.2.3&#10;&#10;Add Aquarium" />
   </component>
 </project>

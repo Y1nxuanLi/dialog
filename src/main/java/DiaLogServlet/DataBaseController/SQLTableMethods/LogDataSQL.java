@@ -54,7 +54,7 @@ public class LogDataSQL {
         }
     }
 
-    public static int insertData(int userID, String bloodSugar, String notes, String createTime, String updateTime, String logType, String carb, String mealDescription, String insulinDose, String medication, String exerciseDescription, String exerciseType, String exerciseDuration, String insulinType) {
+    public static void insertData(int userID, String bloodSugar, String notes, String createTime, String updateTime, String logType, String carb, String mealDescription, String insulinDose, String medication, String exerciseDescription, String exerciseType, String exerciseDuration, String insulinType) {
         String sqlInsert = "INSERT INTO logData (userID, bloodSugar, notes, createTime, updateTime, logType, carb, mealDescription, insulinDose, medication, exerciseDescription, exerciseType, exerciseDuration, insulinType) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         System.out.println("Inserting Data into logData table.");
 
@@ -78,11 +78,9 @@ public class LogDataSQL {
 
             pstmt.executeUpdate();
             System.out.println("Data inserted successfully.");
-            return 1;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return 0;
     }
 
 

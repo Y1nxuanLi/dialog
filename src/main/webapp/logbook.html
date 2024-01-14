@@ -205,7 +205,7 @@
                     exerciseDuration:'',
                     insulinType:'',
                 },
-                userAccount:null,
+
             }
         },
         created() {
@@ -324,7 +324,7 @@
             },
             updateTask() {
                 const updateTime = this.formatCurrentDateTime();
-                axios.post("https://dialog-1d1125195912.herokuapp.com/api/update/log", {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/update/log", {
                     userId: this.currentUserID,
                     id: this.taskForm.id,
                     bloodSugar: this.taskForm.bloodSugar,

@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.stream.Collectors;
 
 
-@WebServlet(urlPatterns={"/login","/index","/","/index.html"}, loadOnStartup=1)
+@WebServlet(urlPatterns={"/login","/index"}, loadOnStartup=1)
 public class LoginServlet extends HttpServlet {
 
     public static int UserID;
@@ -29,16 +29,10 @@ public class LoginServlet extends HttpServlet {
         UserDataSQL.createTable();
         switch (servletPath) {
             case "/login":
-                forwardTo(req, resp, "/login.html");
-                break;
-            case "/index.html":
-                forwardTo(req, resp, "/login.html");
+                forwardTo(req, resp, "/index.html");
                 break;
             case "/index":
-                forwardTo(req, resp, "/login.html");
-                break;
-            case "/":
-                forwardTo(req, resp, "/login.html");
+                forwardTo(req, resp, "/index.html");
                 break;
             default:
                 resp.getWriter().write("404 Not Found");

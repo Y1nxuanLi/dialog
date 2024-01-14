@@ -82,6 +82,7 @@
             <el-form-item label="Content" prop="content">
                 <el-input type="textarea" v-model="taskForm.content" placeholder="Please enter the content"></el-input>
             </el-form-item>
+            <b>Due Date</b>
             <el-select v-model="selectedOption" placeholder="Current Time" @change="changeDate()">
                 <el-option label="Current Time" value="all"></el-option>
                 <el-option label="Custom Time" value="set"></el-option>
@@ -90,11 +91,14 @@
                             v-model="customDateRange"
                             style="margin-top: 10px"
                             type="datetimerange"
-                            range-separator="至"
+                            range-separator="to"
                             start-placeholder="Start"
                             end-placeholder="End"
                             @change="changeDate()"
             ></el-date-picker>
+            <el-form-item label="Email Notification">
+                <el-checkbox v-model="taskForm.notification">接收任务邮件通知</el-checkbox>
+            </el-form-item>
         </el-form>
 
         <span slot="footer" class="dialog-footer">

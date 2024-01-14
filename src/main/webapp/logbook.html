@@ -231,38 +231,10 @@
                 if (logId) {
                     const selectedLog = this.logs.find(log => log.id === logId);
                     if (selectedLog) {
-                        this.taskForm.id = selectedLog.id;
-                        this.taskForm.bloodSugar = selectedLog.bloodSugar;
-                        this.taskForm.notes = selectedLog.notes;
-                        this.taskForm.createTime = selectedLog.createTime;
-                        this.taskForm.updateTime = selectedLog.updateTime;
-                        this.taskForm.logType = selectedLog.logType;
-                        this.taskForm.carb = selectedLog.carb;
-                        this.taskForm.mealDescription = selectedLog.mealDescription;
-                        this.taskForm.insulinDose = selectedLog.insulinDose;
-                        this.taskForm.medication = selectedLog.medication;
-                        this.taskForm.exerciseDescription = selectedLog.exerciseDescription;
-                        this.taskForm.exerciseType = selectedLog.exerciseType;
-                        this.taskForm.exerciseDuration = selectedLog.exerciseDuration;
-                        this.taskForm.insulinType = selectedLog.insulinType;
+                        this.setLogForm(selectedLog)
                     }
                 } else {
-                    this.taskForm.id = '';
-                    this.taskForm.bloodSugar = '';
-                    this.taskForm.notes='';
-                    this.taskForm.createTime='';
-                    this.taskForm.updateTime='';
-                    this.taskForm.logType='';
-                    //comprehensive
-                    this.taskForm.carb='';
-                    this.taskForm.mealDescription='';
-                    this.taskForm.insulinDose='';
-                    this.taskForm.medication='';
-                    this.taskForm.exerciseDescription='';
-                    //intensive
-                    this.taskForm.exerciseType='';
-                    this.taskForm.exerciseDuration='';
-                    this.taskForm.insulinType='';
+                    this.resetLogForm();
                 }
             },
             createTask() {
@@ -300,21 +272,8 @@
                             this.readLog();
                             this.isModalOpen = false;
 
-                            this.taskForm.bloodSugar = '';
-                            this.taskForm.notes='';
-                            this.taskForm.createTime='';
-                            this.taskForm.updateTime='';
-                            this.taskForm.logType='';
-                            //comprehensive
-                            this.taskForm.carb='';
-                            this.taskForm.mealDescription='';
-                            this.taskForm.insulinDose='';
-                            this.taskForm.medication='';
-                            this.taskForm.exerciseDescription='';
-                            //intensive
-                            this.taskForm.exerciseType='';
-                            this.taskForm.exerciseDuration='';
-                            this.taskForm.insulinType='';
+                            this.resetLogForm();
+
                         } else {
                             alert(responseData.message);
                         }
@@ -352,22 +311,8 @@
                             this.readLog();
                             this.isModalOpen = false;
 
-                            this.taskForm.id = '';
-                            this.taskForm.bloodSugar = '';
-                            this.taskForm.notes='';
-                            this.taskForm.createTime='';
-                            this.taskForm.updateTime='';
-                            this.taskForm.logType='';
-                            //comprehensive
-                            this.taskForm.carb='';
-                            this.taskForm.mealDescription='';
-                            this.taskForm.insulinDose='';
-                            this.taskForm.medication='';
-                            this.taskForm.exerciseDescription='';
-                            //intensive
-                            this.taskForm.exerciseType='';
-                            this.taskForm.exerciseDuration='';
-                            this.taskForm.insulinType='';
+                            this.resetLogForm();
+
                         } else {
                             alert(responseData.message);
                         }
@@ -396,6 +341,10 @@
                         console.log("readLog Processing");
                         if (Array.isArray(response.data.data)) {
                             this.logs = response.data.data;
+                            this.logs.sort((a, b) => {
+                                return new Date(a.createTime) - new Date(b.createTime);
+                            });
+
                             console.log("All logs:", this.logs);
 
                         } else if (typeof response.data.data === 'object') {
@@ -448,6 +397,40 @@
                 const seconds = String(now.getSeconds()).padStart(2, '0');
                 return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
             },
+            setLogForm(selectedLog){
+                this.taskForm.id = selectedLog.id;
+                this.taskForm.bloodSugar = selectedLog.bloodSugar;
+                this.taskForm.notes = selectedLog.notes;
+                this.taskForm.createTime = selectedLog.createTime;
+                this.taskForm.updateTime = selectedLog.updateTime;
+                this.taskForm.logType = selectedLog.logType;
+                this.taskForm.carb = selectedLog.carb;
+                this.taskForm.mealDescription = selectedLog.mealDescription;
+                this.taskForm.insulinDose = selectedLog.insulinDose;
+                this.taskForm.medication = selectedLog.medication;
+                this.taskForm.exerciseDescription = selectedLog.exerciseDescription;
+                this.taskForm.exerciseType = selectedLog.exerciseType;
+                this.taskForm.exerciseDuration = selectedLog.exerciseDuration;
+                this.taskForm.insulinType = selectedLog.insulinType;
+            },
+            resetLogForm(){
+                this.taskForm.id = '';
+                this.taskForm.bloodSugar = '';
+                this.taskForm.notes='';
+                this.taskForm.createTime='';
+                this.taskForm.updateTime='';
+                this.taskForm.logType='';
+                //comprehensive
+                this.taskForm.carb='';
+                this.taskForm.mealDescription='';
+                this.taskForm.insulinDose='';
+                this.taskForm.medication='';
+                this.taskForm.exerciseDescription='';
+                //intensive
+                this.taskForm.exerciseType='';
+                this.taskForm.exerciseDuration='';
+                this.taskForm.insulinType='';
+            }
         },
 
     })

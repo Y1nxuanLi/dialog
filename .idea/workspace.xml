@@ -4,29 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.0.1&#10;index --&gt; home.html&#10;login --&gt; index page">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.0.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/KeyPairs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Crab1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Aquarium/Crab1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/echarts.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/DataPlots/echarts.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/fish1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Aquarium/fish1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/HomePage/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/HomePage/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/logbook.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/DataPlots/logbook.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/logbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/DataPlots/logbook.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/LoginRegister/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/LoginRegister/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/loginImage.webp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/LoginRegister/loginImage.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/loginstyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/LoginRegister/loginstyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ocean.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Aquarium/ocean.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ocean.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Aquarium/ocean.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ocean.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Aquarium/ocean.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/LoginRegister/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/LoginRegister/settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/trends.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/DataPlots/trends.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/trends.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/DataPlots/trends.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/trendstyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/DataPlots/trendstyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/turtle1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Aquarium/turtle1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Aquarium/Crab1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Crab1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Aquarium/fish1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/fish1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Aquarium/ocean.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ocean.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Aquarium/ocean.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ocean.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Aquarium/ocean.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ocean.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Aquarium/turtle1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/turtle1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/DataPlots/echarts.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/echarts.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/DataPlots/logbook.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/DataPlots/logbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/DataPlots/trends.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/trends.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/DataPlots/trends.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/trends.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/DataPlots/trendstyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/trendstyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/HomePage/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/HomePage/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/LoginRegister/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/LoginRegister/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/LoginRegister/loginImage.webp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginImage.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/LoginRegister/loginstyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/loginstyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/LoginRegister/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/LoginRegister/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/settings.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +63,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
+    <option name="RESET_MODE" value="SOFT" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -123,11 +122,7 @@
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\webapp\LoginRegister" />
-      <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\webapp\DataPlots" />
-      <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\webapp\HomePage" />
       <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\webapp" />
-      <recent name="D:\Desktop\BIOE60010_Software_Engineering_for_Bioengineers\IdeaProjects\dialog\src\main\webapp\Aquarium" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="DiaLogSQL" />
@@ -199,7 +194,23 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="101042000" />
+      <workItem from="1705082248653" duration="100281000" />
+    </task>
+    <task id="LOCAL-00197" summary="Merge logbook&amp;trend update v5.11.2">
+      <option name="closed" value="true" />
+      <created>1705174865922</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1705174865922</updated>
+    </task>
+    <task id="LOCAL-00198" summary="Merge logbook&amp;trend update v5.11.2">
+      <option name="closed" value="true" />
+      <created>1705175019893</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1705175019893</updated>
     </task>
     <task id="LOCAL-00199" summary="logbook html fix v5.11.3">
       <option name="closed" value="true" />
@@ -577,23 +588,7 @@
       <option name="project" value="LOCAL" />
       <updated>1705206652929</updated>
     </task>
-    <task id="LOCAL-00246" summary="Fully Functional Version v6.0.1&#10;OOP enhanced">
-      <option name="closed" value="true" />
-      <created>1705207325348</created>
-      <option name="number" value="00246" />
-      <option name="presentableId" value="LOCAL-00246" />
-      <option name="project" value="LOCAL" />
-      <updated>1705207325348</updated>
-    </task>
-    <task id="LOCAL-00247" summary="Fully Functional Version v6.0.1&#10;index --&gt; home.html&#10;login --&gt; index page">
-      <option name="closed" value="true" />
-      <created>1705207687000</created>
-      <option name="number" value="00247" />
-      <option name="presentableId" value="LOCAL-00247" />
-      <option name="project" value="LOCAL" />
-      <updated>1705207687000</updated>
-    </task>
-    <option name="localTasksCounter" value="248" />
+    <option name="localTasksCounter" value="246" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,6 +606,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="logbook v5.12.12" />
+    <MESSAGE value="logbook v5.12.13" />
     <MESSAGE value="logbook v5.12.14" />
     <MESSAGE value="logbook v5.13.0" />
     <MESSAGE value="logbook v5.13.1" />
@@ -634,8 +631,6 @@
     <MESSAGE value="echarts v5.14.5" />
     <MESSAGE value="Logbook Fixed v5.15.0" />
     <MESSAGE value="Fully Functional Version v6.0.0" />
-    <MESSAGE value="Fully Functional Version v6.0.1&#10;OOP enhanced" />
-    <MESSAGE value="Fully Functional Version v6.0.1&#10;index --&gt; home.html&#10;login --&gt; index page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.0.1&#10;index --&gt; home.html&#10;login --&gt; index page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.0.0" />
   </component>
 </project>

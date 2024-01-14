@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="logbook v5.13.9" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="trends v5.13.11">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/trends.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/trends.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,23 +175,7 @@
       <workItem from="1704643704945" duration="28939000" />
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
-      <workItem from="1705082248653" duration="92366000" />
-    </task>
-    <task id="LOCAL-00187" summary="Register troubleshoot v5.10.11">
-      <option name="closed" value="true" />
-      <created>1705165111292</created>
-      <option name="number" value="00187" />
-      <option name="presentableId" value="LOCAL-00187" />
-      <option name="project" value="LOCAL" />
-      <updated>1705165111292</updated>
-    </task>
-    <task id="LOCAL-00188" summary="Register troubleshoot v5.10.12">
-      <option name="closed" value="true" />
-      <created>1705165270738</created>
-      <option name="number" value="00188" />
-      <option name="presentableId" value="LOCAL-00188" />
-      <option name="project" value="LOCAL" />
-      <updated>1705165270738</updated>
+      <workItem from="1705082248653" duration="93041000" />
     </task>
     <task id="LOCAL-00189" summary="Register troubleshoot v5.10.13">
       <option name="closed" value="true" />
@@ -566,7 +553,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705199267082</updated>
     </task>
-    <option name="localTasksCounter" value="236" />
+    <task id="LOCAL-00236" summary="trends v5.13.10">
+      <option name="closed" value="true" />
+      <created>1705199338288</created>
+      <option name="number" value="00236" />
+      <option name="presentableId" value="LOCAL-00236" />
+      <option name="project" value="LOCAL" />
+      <updated>1705199338288</updated>
+    </task>
+    <task id="LOCAL-00237" summary="trends v5.13.11">
+      <option name="closed" value="true" />
+      <created>1705199569615</created>
+      <option name="number" value="00237" />
+      <option name="presentableId" value="LOCAL-00237" />
+      <option name="project" value="LOCAL" />
+      <updated>1705199569616</updated>
+    </task>
+    <option name="localTasksCounter" value="238" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -584,8 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="merge v5.12.3" />
-    <MESSAGE value="merge v5.12.4" />
     <MESSAGE value="merge v5.12.5" />
     <MESSAGE value="merge v5.12.5 test" />
     <MESSAGE value="merge v5.12.6" />
@@ -609,6 +610,8 @@
     <MESSAGE value="userID-&gt;userId v5.13.8" />
     <MESSAGE value="logbook v5.13.8" />
     <MESSAGE value="logbook v5.13.9" />
-    <option name="LAST_COMMIT_MESSAGE" value="logbook v5.13.9" />
+    <MESSAGE value="trends v5.13.10" />
+    <MESSAGE value="trends v5.13.11" />
+    <option name="LAST_COMMIT_MESSAGE" value="trends v5.13.11" />
   </component>
 </project>

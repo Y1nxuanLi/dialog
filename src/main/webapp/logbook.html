@@ -197,6 +197,7 @@
         data() {
             return {
                 userMes: JSON.parse(localStorage.getItem('userMes')),
+                fishCounter:0,
                 currentUser: null,
                 modalType: '',
                 logs: [],
@@ -366,9 +367,13 @@
                             this.logs = response.data.data;
 
                             this.logs.sort((a, b) => {
-                                return new Date(b.createTime) - new Date(a.createTime); // Top is the newest entry
-                                // return new Date(a.createTime) - new Date(b.createTime); // Bottom is the newest entry
-                            });
+                                    return new Date(b.createTime) - new Date(a.createTime); // Top is the newest entry
+                                    // return new Date(a.createTime) - new Date(b.createTime); // Bottom is the newest entry
+                                },
+
+                                localStorage.setItem('fishCounter', this.logs.length)
+
+                            );
 
                             console.log("All logs:", this.logs);
 

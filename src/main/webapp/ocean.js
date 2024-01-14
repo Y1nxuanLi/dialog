@@ -90,7 +90,7 @@
         for (let creature of storedCreatures) {
             creatures.push(new Creature(creature.x, creature.y, creature.type, creature.speedX, creature.speedY, creature.flipped));
         }
-    } 
+    
     }
     // Function to create a random creature based on rarity
     function createRandomCreature(x, y) {

@@ -121,13 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
         canvas.height = window.innerHeight;
     }
 
-// Resize the canvas to fill browser window dynamically
     window.addEventListener('resize', resizeCanvas, false);
 
-// Initial call to set the size
+    // Initial call to set the size
     resizeCanvas();
-});
-
-// Initial call to set the size
-    resizeCanvas();
-});
+}); 

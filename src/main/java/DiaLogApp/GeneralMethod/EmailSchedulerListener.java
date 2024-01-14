@@ -1,4 +1,4 @@
-//package DiaLogServlet;
+//package DiaLogApp.GeneralMethod;
 //
 //import javax.servlet.ServletContextEvent;
 //import javax.servlet.ServletContextListener;

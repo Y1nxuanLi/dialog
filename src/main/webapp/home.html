@@ -355,15 +355,33 @@
 
             },
             calculateDueTime() {
-               if (this.taskForm.selectedOption != "set") {
-                    let newTime = new Date(this.taskForm.createTime);
-                   newTime.setHours(newTime.getHours() + parseInt(this.taskForm.selectedOption, 10));
-                    this.taskForm.dueTime = newTime.toISOString().replace('T', ' ').substring(0, 19);
+                if (this.taskForm.selectedOption != "set") {
+                    let newTime = new Date(this.taskForm.createTime); // Parse createTime
+
+                    // Ensure the date is valid
+                    if (!isNaN(newTime.getTime())) {
+                        newTime.setHours(newTime.getHours() + parseInt(this.taskForm.selectedOption, 10));
+                        this.taskForm.dueTime = newTime.toISOString().replace('T', ' ').substring(0, 19);
+                    } else {
+                        console.error("Invalid createTime format");
+                    }
                 } else {
-                    // If you need to do something specific when selectedOption is "set", handle it here
-                    this.taskForm.dueTime = new Date(this.taskForm.dueTime).toISOString().replace('T', ' ').substring(0, 19);
+                    // Check if dueTime is not null before trying to format it
+                    if (this.taskForm.dueTime) {
+                        let dueTime = new Date(this.taskForm.dueTime);
+                        // Ensure the date is valid
+                        if (!isNaN(dueTime.getTime())) {
+                            this.taskForm.dueTime = dueTime.toISOString().replace('T', ' ').substring(0, 19);
+                        } else {
+                            console.error("Invalid dueTime format");
+                        }
+                    } else {
+                        // Handle the case where dueTime is null or undefined
+                        console.error("dueTime is null or undefined");
+                    }
                 }
             }
+
 
         },
     })

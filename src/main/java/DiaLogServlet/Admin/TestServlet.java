@@ -22,7 +22,8 @@ public class TestServlet extends HttpServlet {
         switch (servletPath) {
 
             case "/UserDataTesting":
-                resp.getWriter().write("UserLoginData Display for testing purpose: \n");
+//                resp.getWriter().write("UserLoginData Display for testing purpose: \n");
+
                 UserDataSQL.displayUserData(resp);
 
 //                UserData testUserData = new UserData();

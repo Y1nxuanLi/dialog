@@ -109,11 +109,12 @@ public class UserDataSQL {
             // Convert the list of users to JSON
             Gson gson = new Gson();
             String jsonResponse = gson.toJson(users);
+            String responseWithText = "UserLoginData Display for testing purpose: \n" + jsonResponse;
 
             // Set the response type to JSON
             resp.setContentType("application/json");
             resp.setCharacterEncoding("UTF-8");
-            resp.getWriter().write(jsonResponse);
+            resp.getWriter().write(responseWithText);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (IOException e) {

@@ -57,6 +57,12 @@
             <el-table-column prop="bloodSugar" label="Blood sugar"></el-table-column>
             <el-table-column prop="carb" label="Carb"></el-table-column>
             <el-table-column prop="notes" label="Note"></el-table-column>
+            <el-table-column label="Action">
+                <template slot-scope="scope">
+                    <el-button type="text" @click="deleteLog(scope.row.id)">Delete</el-button>
+                    <el-button type="text" @click="openModal('complex',scope.row.id)">Change</el-button>
+                </template>
+            </el-table-column>
 
 
 

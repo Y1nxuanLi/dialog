@@ -86,28 +86,35 @@
 
 <!--            <el-card class="el-card-set-son">-->
 <!--                <b>Due Date</b>-->
-<!--                <el-select v-model="selectedOption" placeholder="Current Time" @change="changeDate()">-->
-<!--                    <el-option label="after 12 hours" value="12"></el-option>-->
-<!--                    <el-option label="after 24 hours" value="24"></el-option>-->
-<!--                    <el-option label="after 3 days" value="72"></el-option>-->
-<!--                    <el-option label="after 1 week" value="168"></el-option>-->
-<!--                    <el-option label="Custom Time" value="set"></el-option>-->
-<!--                </el-select>-->
-<!--                <el-date-picker v-if="selectedOption === 'set'"-->
-<!--                                v-model="customDateRange"-->
-<!--                                style="margin-top: 10px"-->
-<!--                                type="datetimerange"-->
-<!--                                range-separator="to"-->
-<!--                                start-placeholder="Start"-->
-<!--                                end-placeholder="End"-->
-<!--                                @change="changeDate()"-->
-<!--                ></el-date-picker>-->
+                <el-select v-model="selectedOption" placeholder="Current Time" @change="changeDate()">
+                    <el-option label="after 12 hours" value="12"></el-option>
+                    <el-option label="after 24 hours" value="24"></el-option>
+                    <el-option label="after 3 days" value="72"></el-option>
+                    <el-option label="after 1 week" value="168"></el-option>
+                    <el-option label="Custom Time" value="set"></el-option>
+                </el-select>
+                <el-date-picker v-if="selectedOption === 'set'"
+                                v-model="customDateRange"
+                                style="margin-top: 10px"
+                                type="datetimerange"
+                                range-separator="to"
+                                start-placeholder="Start"
+                                end-placeholder="End"
+                                @change="changeDate()"
+                ></el-date-picker>
 <!--            </el-card>-->
 
             <el-form-item label="Email Notification">
                 <el-checkbox v-model="taskForm.notification">Accept to Send Email Notification</el-checkbox>
             </el-form-item>
             <el-form-item label="Notification Date" v-if="taskForm.notification"> <!-- Updated v-if condition -->
+                <el-select v-model="selectedOption" placeholder="Current Time" @change="changeDate()">
+                    <el-option label="after 12 hours" value="12"></el-option>
+                    <el-option label="after 24 hours" value="24"></el-option>
+                    <el-option label="after 3 days" value="72"></el-option>
+                    <el-option label="after 1 week" value="168"></el-option>
+                    <el-option label="Custom Time" value="set"></el-option>
+                </el-select>
                 <el-date-picker
                         v-model="taskForm.notificationDate"
                         type="datetime"

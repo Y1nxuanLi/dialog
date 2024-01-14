@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.2.7&#10;&#10;delete bug fix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.3.0&#10;&#10;home page add due time">
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,15 +181,7 @@
       <workItem from="1704677135882" duration="118000" />
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
-      <workItem from="1705245935920" duration="2081000" />
-    </task>
-    <task id="LOCAL-00216" summary="merge v5.12.7">
-      <option name="closed" value="true" />
-      <created>1705183551393</created>
-      <option name="number" value="00216" />
-      <option name="presentableId" value="LOCAL-00216" />
-      <option name="project" value="LOCAL" />
-      <updated>1705183551393</updated>
+      <workItem from="1705245935920" duration="2475000" />
     </task>
     <task id="LOCAL-00217" summary="merge v5.12.8">
       <option name="closed" value="true" />
@@ -575,7 +567,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705232800652</updated>
     </task>
-    <option name="localTasksCounter" value="265" />
+    <task id="LOCAL-00265" summary="Fully Functional Version v6.3.0&#10;&#10;home page add due time">
+      <option name="closed" value="true" />
+      <created>1705249030058</created>
+      <option name="number" value="00265" />
+      <option name="presentableId" value="LOCAL-00265" />
+      <option name="project" value="LOCAL" />
+      <updated>1705249030058</updated>
+    </task>
+    <option name="localTasksCounter" value="266" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +593,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="echarts v5.14.1" />
     <MESSAGE value="echarts v5.14.2" />
     <MESSAGE value="echarts v5.14.3" />
     <MESSAGE value="echarts v5.14.4" />
@@ -618,6 +617,7 @@
     <MESSAGE value="Fully Functional Version v6.2.4&#10;&#10;refine Aquarium" />
     <MESSAGE value="Fully Functional Version v6.2.4&#10;&#10;Restructure Webapp files" />
     <MESSAGE value="Fully Functional Version v6.2.7&#10;&#10;delete bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.2.7&#10;&#10;delete bug fix" />
+    <MESSAGE value="Fully Functional Version v6.3.0&#10;&#10;home page add due time" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.3.0&#10;&#10;home page add due time" />
   </component>
 </project>

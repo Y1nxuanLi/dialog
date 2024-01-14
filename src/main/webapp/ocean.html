@@ -1,79 +1,148 @@
+<!--This is the Setting page-->
+
+<!--The user will access the content in the page with URL:-->
+<!--https://dialog-1d1125195912.herokuapp.com/settings-->
+<!--https://dialog-1d1125195912.herokuapp.com/settings.html-->
+
+<!--Post and Get requests are sent to RegisterServlet.java-->
+
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underwater World</title></title>
+    <link rel="stylesheet" href="ocean.css">
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+<canvas id="oceanCanvas" width="800" height="600"></canvas>
+<script src="script.js"></script>
+<div id="setting">
+    <header>
+        <nav>
+            <div class="nav-left">
+                <ul>
+                    <li><a href="home.html">Home Page</a></li>
+                    <li><a href="logbook.html">Logbook</a></li>
+                    <li><a href="trends.html">Blood Sugar Trend</a></li>
+                    <li><a href="settings.html">User Info</a></li>
+                    <li><a href="ocean.html">Aquarium</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <ul v-if="currentUserID">
+                    <li><span style="line-height: 37px">"Welcome"</span></li>
+                    <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
+                    <li><span style="line-height: 37px">{{ currentUserAccount }}</span></li>
+                    <el-button @click="logout()">Logout</el-button>
+                </ul>
+                <ul v-else>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </div>
+        </nav>
 
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" type="text/css" href="styles.css">
-            <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-            <link rel="stylesheet" type="text/css" href="ocean.css">
-            <title>Underwater World</title>
-            <style>
-                canvas {
-                    border: 1px solid black;
-                }
-            </style>
-        </head>
-
-    <body>
-        <header>
-            <nav>
-                <div class="nav-left">
-                    <ul>
-                        <li><a href="home.html">Home Page</a></li>
-                        <li><a href="logbook.html">Logbook</a></li>
-                        <li><a href="trends.html">Blood Sugar Trend</a></li>
-                        <li><a href="settings.html">User Info</a></li>
-                        <li><a href="ocean.html">Aquarium</a></li>
-                    </ul>
-                </div>
-                <div class="nav-right">
-                    <ul v-if="currentUserID">
-                        <li><span style="line-height: 37px">"Welcome"</span></li>
-                        <li><span style="line-height: 37px">{{ currentUserID }}</span></li>
-                        <li><span style="line-height: 37px">{{ currentUserAccount }}</span></li>
-                        <el-button @click="logout()">Logout</el-button>
-                    </ul>
-                    <ul v-else>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="register.html">Register</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-
-        <canvas id="oceanCanvas"></canvas>
-        <script src="ocean.js"></script>
-    </body>
-</html>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      
+</div>
 <script>
     new Vue({
-        el: 'body', // or '#app' if you have an element with id="app"
+        name: 'setting',
+        el: '#setting',
         data() {
             return {
+                userMes: JSON.parse(localStorage.getItem('userMes')),
+                currentUser: null,
+                currentUserAccount: null,
                 currentUserID: null,
-                currentUserAccount: null
-            };
+                editMode: true,
+                isDiscardClicked: false,
+                rules: {
+                    userName: [{ required: true, message: 'Please input name', trigger: 'blur' }],
+                    gender: [{ required: true, message: 'Please input gender', trigger: 'blur' }],
+                    diabetesType: [{ required: true, message: 'diabetesType', trigger: 'blur' }],
+                    insulinType: [{ required: true, message: 'insulinType', trigger: 'blur' }],
+                    email: [{ required: true, message: 'email', trigger: 'blur' }],
+                    phoneNumber: [{ required: true, message: 'phoneNumber', trigger: 'blur' }],
+                    doctorNumber: [{ required: true, message: 'doctorNumber', trigger: 'blur' }],
+                    postalCode: [{ required: true, message: ' postalCode', trigger: 'blur' }],
+                    address: [{ required: true, message: 'address', trigger: 'blur' }],
+                    // Add any additional fields that are present in your UserData class
+                }
+            }
         },
         created() {
-            this.loadUserData();
+
+            this.currentUser = this.userMes;
+            this.currentUserID = this.userMes.userID;
+            this.currentUserAccount = this.userMes.userAccount;
         },
         methods: {
-            loadUserData() {
-                // Load user data from localStorage or other sources
-                const userData = JSON.parse(localStorage.getItem('userMes'));
-                if (userData) {
-                    this.currentUserID = userData.userID;
-                    this.currentUserAccount = userData.userAccount;
-                }
+            saveChanges() {
+                axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/update/user", {
+                    id: this.currentUserID,
+                    userName: this.currentUser.userName,
+                    address: this.currentUser.address,
+                    email: this.currentUser.email,
+                    gender: this.currentUser.gender,
+                    diabetesType: this.currentUser.diabetesType,
+                    insulinType: this.currentUser.insulinType,
+                    phoneNumber: this.currentUser.phoneNumber,
+                    doctorNumber: this.currentUser.doctorNumber,
+                    postalCode: this.currentUser.postalCode,
+                })
+                    .then(response => {
+                        const responseData = response.data;
+                        if (responseData.code === 200) {
+                            console.log("Edit Success", response.data);
+                            this.userMes = this.currentUser; // Update the userMes with current user data
+                            localStorage.setItem('userMes', JSON.stringify(this.userMes));
+                            this.editMode = true;
+                            location.reload();
+                        } else {
+                            alert(responseData.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Data not found:", error);
+                    });
             },
-            logout() {
-                // Logout logic
-                localStorage.clear();
-                window.location.href = 'login.html';
-            }
-        }
-    });
-</script>
 
+            logout(){
+                localStorage.clear();
+                window.location.replace('login.html');
+            },
+            formatCurrentDateTime() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0'); // January is 0!
+                const day = String(now.getDate()).padStart(2, '0');
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            },
+            handleDiscard() {
+                if (!this.editMode && this.isDiscardClicked) {
+                    // Perform action only if it's already "Discard" and clicked again
+                    location.reload();
+                    location.reload();
+                }
+                this.isDiscardClicked = !this.editMode;
+                this.editMode = !this.editMode;
+            },
+            performYourAction() {
+                // Define the action here
+            },
+        },
+    })
+
+</script>
+</body>
+</html>

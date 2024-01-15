@@ -30,7 +30,7 @@ public class AdminUserData extends HttpServlet {
         switch (servletPath) {
 
             case "/UserDataTesting":
-
+                // UserDataSQL.deleteUser(10);
                 UserDataSQL.displayUserData(resp);
 
                 break;

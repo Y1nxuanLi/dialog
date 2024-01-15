@@ -1,3 +1,9 @@
+/*
+
+abstract Parent Class of AddLog AddTask implements Addable
+
+ */
+
 package DiaLogApp.GeneralMethod.BasicController.AddControl;
 
 import javax.servlet.http.HttpServlet;

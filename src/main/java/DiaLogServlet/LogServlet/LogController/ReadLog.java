@@ -1,3 +1,14 @@
+/*
+
+API servlet for https://dialog-1d1125195912.herokuapp.com/api/post/read/log
+handling doPost request
+
+Get current userID from client
+fetch all log with the provided userID from LogDataSQL table
+send data in JSONARRAY via Response
+
+ */
+
 package DiaLogServlet.LogServlet.LogController;
 import DiaLogServlet.LogServlet.LogData;
 import DiaLogApp.GeneralMethod.BasicController.ReadControl.Read;

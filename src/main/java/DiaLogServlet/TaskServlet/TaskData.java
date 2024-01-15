@@ -1,5 +1,10 @@
-package DiaLogServlet.TaskServlet;
+/*
 
+Java Class to store taskData from client or from database
+
+ */
+
+package DiaLogServlet.TaskServlet;
 
 public class TaskData {
     private int id;

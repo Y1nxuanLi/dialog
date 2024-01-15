@@ -1,3 +1,9 @@
+/*
+
+Java Class to store LogData from client or from database
+
+ */
+
 package DiaLogServlet.LogServlet;
 
 public class LogData {

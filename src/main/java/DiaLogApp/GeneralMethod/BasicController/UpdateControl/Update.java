@@ -1,3 +1,9 @@
+/*
+
+abstract Parent Class of UpdateUser UpdateLog UpdateTask implements Updateable
+
+ */
+
 package DiaLogApp.GeneralMethod.BasicController.UpdateControl;
 
 import javax.servlet.http.HttpServlet;

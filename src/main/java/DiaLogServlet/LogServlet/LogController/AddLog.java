@@ -1,3 +1,14 @@
+/*
+
+API servlet for https://dialog-1d1125195912.herokuapp.com/api/post/add/log
+handling doPost request
+
+Get current userID from client
+insert data received from client to LogDataSQL table
+Response message with no data
+
+ */
+
 package DiaLogServlet.LogServlet.LogController;
 
 import javax.servlet.http.HttpServletRequest;

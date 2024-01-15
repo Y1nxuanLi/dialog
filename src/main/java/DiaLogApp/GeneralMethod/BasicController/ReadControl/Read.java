@@ -1,3 +1,9 @@
+/*
+
+abstract Parent Class of ReadUser ReadLog ReadTask implements Readable
+
+ */
+
 package DiaLogApp.GeneralMethod.BasicController.ReadControl;
 
 import javax.servlet.http.HttpServlet;

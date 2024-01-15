@@ -1,3 +1,9 @@
+/*
+
+Java Class to store userData from client or from database
+
+ */
+
 package DiaLogServlet.UserServlet;
 
 public class UserData {

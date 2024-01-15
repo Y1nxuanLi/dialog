@@ -1,3 +1,11 @@
+/*
+
+SQL Handling Method Class for userData
+
+make sure the field name is EXACTLY the same with the request send from client.
+
+ */
+
 package DiaLogServlet.UserServlet;
 
 import DiaLogApp.GeneralMethod.DatabaseConnector;

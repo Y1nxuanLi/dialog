@@ -1,5 +1,15 @@
-package DiaLogServlet.LogServlet.LogController;
+/*
 
+API servlet for https://dialog-1d1125195912.herokuapp.com/api/post/delete/log
+handling doPost request
+
+Get current userID and logID from client
+delete the selected log in LogDataSQL table
+Response message with no data
+
+ */
+
+package DiaLogServlet.LogServlet.LogController;
 
 import DiaLogServlet.LogServlet.LogData;
 import DiaLogApp.GeneralMethod.BasicController.DeleteControl.Delete;

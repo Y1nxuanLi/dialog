@@ -1,5 +1,15 @@
-package DiaLogServlet.UserServlet.UserController;
+/*
 
+API servlet for https://dialog-1d1125195912.herokuapp.com/api/post/update/user
+handling doPost request
+
+Get current userID and logID from client
+updated the LogDataSQL table with new entry
+Response message with no data
+
+ */
+
+package DiaLogServlet.UserServlet.UserController;
 
 import DiaLogServlet.UserServlet.UserData;
 import DiaLogServlet.UserServlet.UserDataSQL;
@@ -14,7 +24,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.stream.Collectors;
-
 
 @WebServlet(urlPatterns={"/api/post/update/user"}, loadOnStartup=1)
 public class UpdateUser extends Update {
@@ -34,7 +43,7 @@ public class UpdateUser extends Update {
         Gson gson = new Gson();
         UserData userData = gson.fromJson(jsonData, UserData.class);
 
-        if (userData != null) {
+        if (userData.getUserID() != 0 &&userData != null) {
             UserDataSQL.updateUser(userData);
             sendResponse.send(resp, ErrorCode.SUCCESS);
         } else {

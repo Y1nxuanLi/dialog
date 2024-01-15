@@ -1,5 +1,16 @@
-package DiaLogServlet.TaskServlet.TaskController;
+/*
 
+API servlet for https://dialog-1d1125195912.herokuapp.com/api/post/update/task
+handling doPost request
+
+Get current userID and logID from client
+updated the LogDataSQL table with new entry
+Response message with no data
+
+ */
+
+
+package DiaLogServlet.TaskServlet.TaskController;
 
 import DiaLogServlet.TaskServlet.TaskData;
 import DiaLogApp.GeneralMethod.BasicController.UpdateControl.Update;
@@ -13,8 +24,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.stream.Collectors;
-
-
 
 @WebServlet(urlPatterns={"/api/post/update/task"}, loadOnStartup=1)
 

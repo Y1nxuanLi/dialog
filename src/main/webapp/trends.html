@@ -70,8 +70,8 @@
                 </div>
                 <el-checkbox-group v-model="checkedItems" @change="changeDate()">
         
-                    <el-checkbox label="bloodSugar">Blood Sugar</el-checkbox>
-                    <el-checkbox label="carbohydrate">carbohydrate</el-checkbox>
+                    <el-checkbox label="bloodSugar">Blood Sugar(mmol/L)</el-checkbox>
+                    <el-checkbox label="carbohydrate">carbohydrate(kg)</el-checkbox>
                 </el-checkbox-group>
             </el-card>
         </div>
@@ -188,9 +188,11 @@
 			    if(this.checkedItems.length == 2 ){
 					
 					 	filteredData1 = filteredData.filter(item => item.bloodSugar !== undefined && item.bloodSugar !== null && item.bloodSugar !=='')
+                        filteredData1.sort((a, b) => new Date(a.createTime) - new Date(b.createTime));
 					 	bloodSugarSeriesData = filteredData1.map(item => parseFloat(item.bloodSugar));
 					 	filteredData2 = filteredData.filter(item => item.carb !== undefined && item.carb !== null && item.carb !=='')
-					 	carbohydrateData = filteredData2.map(item => parseFloat(item.carb));		
+                        filteredData2.sort((a, b) => new Date(a.createTime) - new Date(b.createTime));
+					 	carbohydrateData = filteredData2.map(item => parseFloat(item.carb));
 					   xAxisData1 = filteredData1.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss'));
 					   xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss'));
 
@@ -198,6 +200,7 @@
 				else if(this.checkedItems[0] == "bloodSugar")
 				{
 					 filteredData1 = filteredData.filter(item => item.bloodSugar !== undefined && item.bloodSugar !== null && item.bloodSugar !=='')
+                     filteredData1.sort((a, b) => new Date(a.createTime) - new Date(b.createTime));
 					 bloodSugarSeriesData = filteredData1.map(item => parseFloat(item.bloodSugar));
 					  
 					 carbohydrateData =  "";	
@@ -207,6 +210,7 @@
 				 {
 					bloodSugarSeriesData = "";
 					filteredData2 = filteredData.filter(item => item.carb !== undefined && item.carb !== null && item.carb !=='')
+                    filteredData2.sort((a, b) => new Date(a.createTime) - new Date(b.createTime));
 					carbohydrateData = filteredData2.map(item => parseFloat(item.carb));
 					xAxisData2 = filteredData2.map(item => moment(item.createTime).format('YYYY-MM-DD HH:mm:ss'));
 				 }

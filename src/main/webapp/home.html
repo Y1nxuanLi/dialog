@@ -52,8 +52,7 @@
 
             <div class="entry normal" v-for="task in tasks" :key="task.id">
                 <div class="task-header">
-                    <h2 class="task-title" v-if!="task.dueTime">>{{ task.title }}</h2>
-                    <h2 class="task-title" v-if="task.dueTime">>{{ task.title }} Due: {{ task.dueTime }}</h2>
+                    <h2 class="task-title" >>{{ task.title }} Due: {{ task.dueTime }}</h2>
                     <div class="task-details">
                         <span class="task-time" v-if="task.updateTime">Update Time: {{ task.updateTime }}</span>
                         <span class="task-time">Created Time: {{ task.createTime }}</span>

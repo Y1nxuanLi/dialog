@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Fully Functional Version v6.3.7&#10;&#10;fishcounter">
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Version v6.4.0&#10;&#10;save point">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_01_2024_01_33__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_01_2024_01_33__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2024_21_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_01_2024_21_19__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2024_16_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2024_16_27__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2024_16_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2024_16_32__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2024_16_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2024_16_52__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2024_17_50__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_01_2024_17_50__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/DatabaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/DatabaseConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/EmailSchedulerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/EmailSchedulerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/AddUser/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/AddUser/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/AddUser/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/AddUser/RegisterServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/logbook_complex.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/logbook_complex.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,6 +193,7 @@
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
       <workItem from="1705245935920" duration="13336000" />
+      <workItem from="1705301648181" duration="1353000" />
     </task>
     <task id="LOCAL-00225" summary="logbook v5.12.14">
       <option name="closed" value="true" />
@@ -624,5 +631,9 @@
     <MESSAGE value="Fully Functional Version v6.3.6&#10;&#10;fishcounter" />
     <MESSAGE value="Fully Functional Version v6.3.7&#10;&#10;fishcounter" />
     <option name="LAST_COMMIT_MESSAGE" value="Fully Functional Version v6.3.7&#10;&#10;fishcounter" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

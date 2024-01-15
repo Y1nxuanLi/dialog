@@ -52,7 +52,7 @@
 
             <div class="entry normal" v-for="task in tasks" :key="task.id">
                 <div class="task-header">
-                    <h2 class="task-title">{{ task.title }}</h2>
+                    <h2 class="task-title">{{ task.title }} - {{ task.dueTime }}</h2>
                     <div class="task-details">
                         <span class="task-time" v-if="task.updateTime">Update Time: {{ task.updateTime }}</span>
                         <span class="task-time">Created Time: {{ task.createTime }}</span>
@@ -180,6 +180,7 @@
 
             createTask() {
                 const createTime = this.formatCurrentDateTime();
+
                 this.calculateDueTime();
                 axios.post("https://dialog-1d1125195912.herokuapp.com/api/post/add/task",
                     {
@@ -188,7 +189,7 @@
                         content: this.taskForm.content,
                         createTime: createTime, // Format these dates as 'YYYY-MM-DD HH:mm:ss'
                         updateTime: null,
-                        dueTime: null,
+                        dueTime: this.taskForm.dueTime,
                         notification: this.taskForm.notification
 
                     })
@@ -357,31 +358,22 @@
             calculateDueTime() {
                 if (this.taskForm.selectedOption != "set") {
                     // Convert createTime to a more standard format (ISO 8601)
-                    let formattedCreateTime = this.taskForm.createTime.replace(' ', 'T');
+                    createTime = this.formatCurrentDateTime();
                     console.log("createTime: ", this.taskForm.createTime);
                     console.log("createTime: ", this.taskForm.selectedOption);
 
-                    let newTime = new Date(formattedCreateTime); // Parse createTime
+                    let newTime = new Date(createTime); // Parse createTime
                     console.log("Parsed createTime: ", newTime);
 
                     if (!isNaN(newTime.getTime())) {
                         newTime.setHours(newTime.getHours() + parseInt(this.taskForm.selectedOption, 10));
-                        this.taskForm.dueTime = newTime.toISOString().replace('T', ' ').substring(0, 19);
-                        console.log("createTime: ", this.taskForm.dueTime);
+                        this.taskForm.dueTime = newTime.toISOString();
+                        console.log("dueTime_from_select: ", this.taskForm.dueTime);
                     } else {
                         console.error("Invalid createTime format: ", formattedCreateTime);
                     }
                 } else {
-                    if (this.taskForm.dueTime) {
-                        let dueTime = new Date(this.taskForm.dueTime);
-                        if (!isNaN(dueTime.getTime())) {
-                            this.taskForm.dueTime = dueTime.toISOString().replace('T', ' ').substring(0, 19);
-                        } else {
-                            console.error("Invalid dueTime format");
-                        }
-                    } else {
-                        console.error("dueTime is null or undefined");
-                    }
+                    console.error("dueTime_calendar: ", this.taskForm.dueTime);
                 }
             }
 

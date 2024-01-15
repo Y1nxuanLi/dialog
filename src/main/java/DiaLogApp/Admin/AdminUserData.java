@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static DiaLogServlet.UserServlet.UserController.AddUser.LoginServlet.UserID;
+
 
 @WebServlet(urlPatterns={"/UserDataTesting"}, loadOnStartup=1)
 public class AdminUserData extends HttpServlet {
@@ -28,7 +30,11 @@ public class AdminUserData extends HttpServlet {
         switch (servletPath) {
 
             case "/UserDataTesting":
-
+                UserDataSQL.deleteUser(10);
+                UserDataSQL.deleteUser(11);
+                UserDataSQL.deleteUser(12);
+                UserDataSQL.deleteUser(13);
+                UserDataSQL.deleteUser(14);
                 UserDataSQL.displayUserData(resp);
 
                 break;

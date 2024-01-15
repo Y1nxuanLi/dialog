@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Version v6.4.3&#10;&#10;comments">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/EmailSchedulerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/EmailSchedulerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/ResponseObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/ResponseObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/sendResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/ServletResponse/sendResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/DeleteUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/DeleteUser.java" afterDir="false" />
-    </list>
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Final Version v6.5.0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,15 +181,7 @@
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
       <workItem from="1705245935920" duration="13336000" />
-      <workItem from="1705301648181" duration="6357000" />
-    </task>
-    <task id="LOCAL-00235" summary="logbook v5.13.9">
-      <option name="closed" value="true" />
-      <created>1705199267082</created>
-      <option name="number" value="00235" />
-      <option name="presentableId" value="LOCAL-00235" />
-      <option name="project" value="LOCAL" />
-      <updated>1705199267082</updated>
+      <workItem from="1705301648181" duration="6684000" />
     </task>
     <task id="LOCAL-00236" summary="trends v5.13.10">
       <option name="closed" value="true" />
@@ -582,7 +567,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705307589793</updated>
     </task>
-    <option name="localTasksCounter" value="284" />
+    <task id="LOCAL-00284" summary="Final Version v6.5.0">
+      <option name="closed" value="true" />
+      <created>1705308029051</created>
+      <option name="number" value="00284" />
+      <option name="presentableId" value="LOCAL-00284" />
+      <option name="project" value="LOCAL" />
+      <updated>1705308029051</updated>
+    </task>
+    <option name="localTasksCounter" value="285" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,7 +593,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fully Functional Version v6.0.8&#10;redirect to login page" />
     <MESSAGE value="Fully Functional Version v6.0.9&#10;redirect to login page" />
     <MESSAGE value="Fully Functional Version v6.1.0&#10;&#10;Due Day Task" />
     <MESSAGE value="Fully Functional Version v6.1.1&#10;&#10;comments" />
@@ -625,7 +617,8 @@
     <MESSAGE value="Version v6.4.1&#10;&#10;save point" />
     <MESSAGE value="Version v6.4.2&#10;&#10;save point" />
     <MESSAGE value="Version v6.4.3&#10;&#10;comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version v6.4.3&#10;&#10;comments" />
+    <MESSAGE value="Final Version v6.5.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Version v6.5.0" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

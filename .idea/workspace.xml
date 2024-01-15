@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Final Version v6.5.0" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Final Version v6.5.0">
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/AdminUserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/AdminUserData.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,23 +183,7 @@
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
       <workItem from="1705245935920" duration="13336000" />
-      <workItem from="1705301648181" duration="6684000" />
-    </task>
-    <task id="LOCAL-00236" summary="trends v5.13.10">
-      <option name="closed" value="true" />
-      <created>1705199338288</created>
-      <option name="number" value="00236" />
-      <option name="presentableId" value="LOCAL-00236" />
-      <option name="project" value="LOCAL" />
-      <updated>1705199338288</updated>
-    </task>
-    <task id="LOCAL-00237" summary="trends v5.13.11">
-      <option name="closed" value="true" />
-      <created>1705199569615</created>
-      <option name="number" value="00237" />
-      <option name="presentableId" value="LOCAL-00237" />
-      <option name="project" value="LOCAL" />
-      <updated>1705199569616</updated>
+      <workItem from="1705301648181" duration="6989000" />
     </task>
     <task id="LOCAL-00238" summary="echarts v5.14.0">
       <option name="closed" value="true" />
@@ -575,7 +561,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705308029051</updated>
     </task>
-    <option name="localTasksCounter" value="285" />
+    <task id="LOCAL-00285" summary="Final Version v6.5.0">
+      <option name="closed" value="true" />
+      <created>1705308415782</created>
+      <option name="number" value="00285" />
+      <option name="presentableId" value="LOCAL-00285" />
+      <option name="project" value="LOCAL" />
+      <updated>1705308415782</updated>
+    </task>
+    <task id="LOCAL-00286" summary="Final Version v6.5.0">
+      <option name="closed" value="true" />
+      <created>1705308620430</created>
+      <option name="number" value="00286" />
+      <option name="presentableId" value="LOCAL-00286" />
+      <option name="project" value="LOCAL" />
+      <updated>1705308620430</updated>
+    </task>
+    <option name="localTasksCounter" value="287" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

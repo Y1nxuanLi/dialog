@@ -1,3 +1,14 @@
+/*
+
+API servlet for https://dialog-1d1125195912.herokuapp.com/api/post/read/user
+handling doPost request
+
+Get current userID from client
+fetch all log with the provided userID from UserDataSQL table
+send data in JsonObject via Response
+
+ */
+
 package DiaLogServlet.UserServlet.UserController;
 
 import DiaLogServlet.UserServlet.UserDataSQL;
@@ -12,7 +23,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static DiaLogServlet.UserServlet.UserController.AddUser.LoginServlet.UserID;
-
 
 @WebServlet(urlPatterns={"/api/post/read/user"}, loadOnStartup=1)
 public class ReadUser extends Read {

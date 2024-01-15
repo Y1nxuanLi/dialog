@@ -1,3 +1,25 @@
+/*
+
+Login Page also the default index page servlet for
+https://dialog-1d1125195912.herokuapp.com
+https://dialog-1d1125195912.herokuapp.com/
+https://dialog-1d1125195912.herokuapp.com/index
+https://dialog-1d1125195912.herokuapp.com/index.html
+https://dialog-1d1125195912.herokuapp.com/login
+
+handling doGet request
+navigate website
+create UserDataSQL table if not exist
+
+handling doPost request
+Check whether user inputs account and password exist in the database
+if exist return their UserData and proceed to home page
+
+Get userAccountLogin and userPasswordLogin from client
+send data in JsonObject via Response
+
+ */
+
 package DiaLogServlet.UserServlet.UserController.AddUser;
 
 import DiaLogServlet.UserServlet.UserData;
@@ -81,12 +103,4 @@ public class LoginServlet extends HttpServlet {
 
 }
 
-
-// http://localhost:8080/dialog/login
-// http://localhost:8080/dialog/register
-
-//Heroku
-//https://dialog-1d1125195912.herokuapp.com/home
-//https://dialog-1d1125195912.herokuapp.com/login
-//https://dialog-1d1125195912.herokuapp.com/register
 

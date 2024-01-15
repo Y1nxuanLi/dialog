@@ -1,3 +1,14 @@
+/*
+
+API servlet for https://dialog-1d1125195912.herokuapp.com/api/post/add/task
+handling doPost request
+
+Get current userID from client
+insert data received from client to TaskDataSQL table
+Response message with no data
+
+ */
+
 package DiaLogServlet.TaskServlet.TaskController;
 
 import DiaLogServlet.TaskServlet.TaskData;

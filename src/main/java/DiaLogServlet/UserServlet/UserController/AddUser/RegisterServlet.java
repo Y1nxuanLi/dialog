@@ -1,3 +1,28 @@
+/*
+
+Register Page also the default index page servlet for
+
+https://dialog-1d1125195912.herokuapp.com/register
+
+handling doGet request
+navigate website
+create UserDataSQL table if not exist
+
+handling doPost request
+Get userAccountRegister userPasswordRegister userConfirmedPassword from client
+Check whether user inputs account and password exist in the database
+if existed, a pop-up window show up saying USER_EXIST
+
+if not existed, then check whether password and confirmed password are matched,
+a pop-up window show up saying DIFFERENT_PASSWORD
+
+If both condition validate,
+insert user information into the UserDataSQL table.
+
+Response message with no data and proceed to login page
+
+ */
+
 package DiaLogServlet.UserServlet.UserController.AddUser;
 
 import DiaLogServlet.UserServlet.UserData;

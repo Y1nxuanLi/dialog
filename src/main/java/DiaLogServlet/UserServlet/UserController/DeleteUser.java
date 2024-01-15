@@ -1,3 +1,16 @@
+/*
+
+API servlet for https://dialog-1d1125195912.herokuapp.com/api/post/delete/user
+handling doPost request
+
+Get current userID from client
+delete the selected log in LogDataSQL table
+Response message with no data
+
+no use yet
+
+ */
+
 package DiaLogServlet.UserServlet.UserController;
 
 import DiaLogServlet.UserServlet.UserDataSQL;
@@ -10,7 +23,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static DiaLogServlet.UserServlet.UserController.AddUser.LoginServlet.UserID;
-
 
 @WebServlet(urlPatterns={"/api/post/delete/user"}, loadOnStartup=1)
 public class DeleteUser extends Delete {

@@ -5,7 +5,7 @@ handling doPost request
 
 Get current userID from client
 fetch all log with the provided userID from LogDataSQL table
-send data in JSONARRAY via Response
+send data in JsonArray via Response
 
  */
 

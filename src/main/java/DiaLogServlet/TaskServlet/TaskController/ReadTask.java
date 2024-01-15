@@ -1,3 +1,14 @@
+/*
+
+API servlet for https://dialog-1d1125195912.herokuapp.com/api/post/read/task
+handling doPost request
+
+Get current userID from client
+fetch all log with the provided userID from TaskDataSQL table
+send data in JsonArray via Response
+
+ */
+
 package DiaLogServlet.TaskServlet.TaskController;
 import DiaLogServlet.TaskServlet.TaskData;
 import DiaLogApp.GeneralMethod.BasicController.ReadControl.Read;

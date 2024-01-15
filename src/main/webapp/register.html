@@ -79,9 +79,12 @@
                             window.location.href = "login.html";
                         } else if (responseData.code === 40103) {
                             alert(responseData.message);
-                            console.log(responseData.data);
+                            console.log(responseData.message);
+                        } else if (responseData.code === 40102) {
+                            alert(responseData.message);
                             console.log(responseData.message);
                         }
+
                         else {
                             alert("Register Failed");
                             console.log(responseData.data);

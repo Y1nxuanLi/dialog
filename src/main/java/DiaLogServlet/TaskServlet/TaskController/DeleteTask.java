@@ -1,3 +1,14 @@
+/*
+
+API servlet for https://dialog-1d1125195912.herokuapp.com/api/post/delete/task
+handling doPost request
+
+Get current userID and taskID from client
+delete the selected task in TaskDataSQL table
+Response message with no data
+
+ */
+
 package DiaLogServlet.TaskServlet.TaskController;
 
 import DiaLogServlet.TaskServlet.TaskData;
@@ -12,7 +23,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.stream.Collectors;
-
 
 @WebServlet(urlPatterns={"/api/post/delete/task"}, loadOnStartup=1)
 public class DeleteTask extends Delete {

@@ -6,21 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Version v6.4.2&#10;&#10;save point">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/BasicController/AddControl/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/BasicController/AddControl/Add.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/BasicController/DeleteControl/Delete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/BasicController/DeleteControl/Delete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/BasicController/ReadControl/Read.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/BasicController/ReadControl/Read.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/BasicController/UpdateControl/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/BasicController/UpdateControl/Update.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/DatabaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/GeneralMethod/DatabaseConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LogServlet/LogController/AddLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LogServlet/LogController/AddLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LogServlet/LogController/DeleteLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LogServlet/LogController/DeleteLog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LogServlet/LogController/ReadLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LogServlet/LogController/ReadLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LogServlet/LogController/UpdateLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LogServlet/LogController/UpdateLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LogServlet/LogData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LogServlet/LogData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LogServlet/LogDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/LogServlet/LogDataSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TaskServlet/TaskData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TaskServlet/TaskData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TaskServlet/TaskDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TaskServlet/TaskDataSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserDataSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserDataSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TaskServlet/TaskController/AddTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TaskServlet/TaskController/AddTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TaskServlet/TaskController/DeleteTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TaskServlet/TaskController/DeleteTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TaskServlet/TaskController/ReadTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/TaskServlet/TaskController/ReadTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/AddUser/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/AddUser/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/AddUser/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/AddUser/RegisterServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/DeleteUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/DeleteUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/ReadUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogServlet/UserServlet/UserController/ReadUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,23 +192,7 @@
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
       <workItem from="1705245935920" duration="13336000" />
-      <workItem from="1705301648181" duration="4740000" />
-    </task>
-    <task id="LOCAL-00232" summary="setting update v5.13.6">
-      <option name="closed" value="true" />
-      <created>1705195652458</created>
-      <option name="number" value="00232" />
-      <option name="presentableId" value="LOCAL-00232" />
-      <option name="project" value="LOCAL" />
-      <updated>1705195652458</updated>
-    </task>
-    <task id="LOCAL-00233" summary="userID-&gt;userId v5.13.6">
-      <option name="closed" value="true" />
-      <created>1705196749199</created>
-      <option name="number" value="00233" />
-      <option name="presentableId" value="LOCAL-00233" />
-      <option name="project" value="LOCAL" />
-      <updated>1705196749199</updated>
+      <workItem from="1705301648181" duration="5924000" />
     </task>
     <task id="LOCAL-00234" summary="logbook v5.13.8">
       <option name="closed" value="true" />
@@ -592,7 +570,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705305115628</updated>
     </task>
-    <option name="localTasksCounter" value="281" />
+    <task id="LOCAL-00281" summary="Version v6.4.2&#10;&#10;save point">
+      <option name="closed" value="true" />
+      <created>1705306400269</created>
+      <option name="number" value="00281" />
+      <option name="presentableId" value="LOCAL-00281" />
+      <option name="project" value="LOCAL" />
+      <updated>1705306400269</updated>
+    </task>
+    <task id="LOCAL-00282" summary="Version v6.4.2&#10;&#10;save point">
+      <option name="closed" value="true" />
+      <created>1705306580396</created>
+      <option name="number" value="00282" />
+      <option name="presentableId" value="LOCAL-00282" />
+      <option name="project" value="LOCAL" />
+      <updated>1705306580396</updated>
+    </task>
+    <option name="localTasksCounter" value="283" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

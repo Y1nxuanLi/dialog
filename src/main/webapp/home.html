@@ -52,7 +52,8 @@
 
             <div class="entry normal" v-for="task in tasks" :key="task.id">
                 <div class="task-header">
-                    <h2 class="task-title">{{ task.title }} - {{ task.dueTime }}</h2>
+                    <h2 class="task-title" v-if!="task.dueTime">>{{ task.title }}</h2>
+                    <h2 class="task-title" v-if="task.dueTime">>{{ task.title }} Due: {{ task.dueTime }}</h2>
                     <div class="task-details">
                         <span class="task-time" v-if="task.updateTime">Update Time: {{ task.updateTime }}</span>
                         <span class="task-time">Created Time: {{ task.createTime }}</span>
@@ -358,18 +359,26 @@
             calculateDueTime() {
                 if (this.taskForm.selectedOption != "set") {
                     const now = new Date();
+
                     console.log("currentTime: ", now);
                     console.log("createTime: ", this.taskForm.selectedOption);
-                    now.setHours(now.getHours()+parseInt(this.taskForm.selectedOption, 10))
-                    this.taskForm.dueTime = now.toISOString();
+                    now.setHours(now.getHours() + parseInt(this.taskForm.selectedOption, 10));
+
+                    // Format the date to remove 'T' and milliseconds
+                    const year = now.getFullYear();
+                    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+                    const day = now.getDate().toString().padStart(2, '0');
+                    const hours = now.getHours().toString().padStart(2, '0');
+                    const minutes = now.getMinutes().toString().padStart(2, '0');
+                    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+                    this.taskForm.dueTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
                     console.log("dueTime_from_select: ", this.taskForm.dueTime);
 
                 } else {
                     console.error("dueTime_calendar: ", this.taskForm.dueTime);
                 }
             }
-
-
 
         },
     })

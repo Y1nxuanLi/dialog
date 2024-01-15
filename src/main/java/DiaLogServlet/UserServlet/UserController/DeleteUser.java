@@ -47,7 +47,7 @@ public class DeleteUser extends Delete {
             sendResponse.send(resp, ErrorCode.SUCCESS);
         }
         else {
-            sendResponse.send(resp, ErrorCode.DATA_NOT_FOUND_ERROR);
+            sendResponse.send(resp, ErrorCode.USER_UNAUTHORIZED);
         }
 
     }

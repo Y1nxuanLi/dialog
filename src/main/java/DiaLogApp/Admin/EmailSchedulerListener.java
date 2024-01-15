@@ -1,3 +1,5 @@
+// The email notification is not complete
+
 //package DiaLogApp.GeneralMethod;
 //
 //import javax.servlet.ServletContextEvent;
@@ -29,11 +31,8 @@
 //        String currentTime = getCurrentTime(); // Implement this method to get current time
 //
 //        if (currentTime.compareTo(timeStamp) > 0) {
-//            sendEmail("recipient@example.com", "Time Exceeded", "The specified time has been exceeded.");
+//            sendEmail("notification@dialog.com", "Time Exceeded", "The task due has been reached.");
 //        }
 //    }
 //
-//    // Implement sendEmail() as shown in the previous example
-//    // Implement getTimeStampFromDatabase() to retrieve the timestamp
-//    // Implement getCurrentTime() to get the current time in the same format as the timestamp
 //}

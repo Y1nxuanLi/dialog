@@ -1,3 +1,10 @@
+/*
+
+A Java Object Class to store response message
+able to store whether 2 or 3 parameter depending on whether data is attached
+
+ */
+
 package DiaLogServlet.ServletResponse;
 
 public class ResponseObject {

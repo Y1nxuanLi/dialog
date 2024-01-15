@@ -1,3 +1,10 @@
+/*
+
+A Java method Class to send response message
+able to send different response to client depending on input data type
+
+ */
+
 package DiaLogServlet.ServletResponse;
 
 import com.google.gson.Gson;

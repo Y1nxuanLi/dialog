@@ -356,27 +356,32 @@
 
             },
             calculateDueTime() {
-                if (this.taskForm.selectedOption != "set") {
-                    const now = new Date();
+                if(this.taskForm.notification === 1){
+                    if (this.taskForm.selectedOption != "set") {
+                        const now = new Date();
 
-                    console.log("currentTime: ", now);
-                    console.log("createTime: ", this.taskForm.selectedOption);
-                    now.setHours(now.getHours() + parseInt(this.taskForm.selectedOption, 10));
+                        console.log("currentTime: ", now);
+                        console.log("createTime: ", this.taskForm.selectedOption);
+                        now.setHours(now.getHours() + parseInt(this.taskForm.selectedOption, 10));
 
-                    // Format the date to remove 'T' and milliseconds
-                    const year = now.getFullYear();
-                    const month = (now.getMonth() + 1).toString().padStart(2, '0');
-                    const day = now.getDate().toString().padStart(2, '0');
-                    const hours = now.getHours().toString().padStart(2, '0');
-                    const minutes = now.getMinutes().toString().padStart(2, '0');
-                    const seconds = now.getSeconds().toString().padStart(2, '0');
+                        // Format the date to remove 'T' and milliseconds
+                        const year = now.getFullYear();
+                        const month = (now.getMonth() + 1).toString().padStart(2, '0');
+                        const day = now.getDate().toString().padStart(2, '0');
+                        const hours = now.getHours().toString().padStart(2, '0');
+                        const minutes = now.getMinutes().toString().padStart(2, '0');
+                        const seconds = now.getSeconds().toString().padStart(2, '0');
 
-                    this.taskForm.dueTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-                    console.log("dueTime_from_select: ", this.taskForm.dueTime);
+                        this.taskForm.dueTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+                        console.log("dueTime_from_select: ", this.taskForm.dueTime);
 
-                } else {
+                    } else {
 
-                    console.error("dueTime_calendar: ", this.taskForm.dueTime);
+                        console.error("dueTime_calendar: ", this.taskForm.dueTime);
+                    }
+                }
+                else{
+                    this.taskForm.dueTime = null;
                 }
             }
 

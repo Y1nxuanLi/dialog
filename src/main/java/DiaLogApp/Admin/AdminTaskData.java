@@ -1,3 +1,10 @@
+/*
+
+This page is for displaying all the TaskData from all user for admin and testing purpose
+with url: https://dialog-1d1125195912.herokuapp.com/TaskDataTesting
+
+ */
+
 package DiaLogApp.Admin;
 
 import DiaLogServlet.TaskServlet.TaskDataSQL;
@@ -10,8 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
-@WebServlet(urlPatterns={"/admin/TaskData"}, loadOnStartup=1)
+@WebServlet(urlPatterns={"/TaskDataTesting"}, loadOnStartup=1)
 public class AdminTaskData extends HttpServlet {
 
     @Override
@@ -21,10 +27,10 @@ public class AdminTaskData extends HttpServlet {
         TaskDataSQL.createTable();
         switch (servletPath) {
 
-            case "/admin/TaskData":
-                resp.getWriter().write("TaskData Display for admin purpose: \n");
+            case "/TaskDataTesting":
+                resp.getWriter().write("TaskLoginData Display for testing purpose: \n");
                 TaskDataSQL.displayData(resp);
-                JsonArray tasksArray = TaskDataSQL.readAllTask(15);
+                JsonArray tasksArray = TaskDataSQL.readAllTask(1);
                 resp.getWriter().write(String.valueOf(tasksArray));
 
                 break;
@@ -35,15 +41,4 @@ public class AdminTaskData extends HttpServlet {
                 break;
         }
     }
-
 }
-
-
-// http://localhost:8080/dialog/login
-// http://localhost:8080/dialog/register
-
-//Heroku
-//https://dialog-1d1125195912.herokuapp.com/home
-//https://dialog-1d1125195912.herokuapp.com/login
-//https://dialog-1d1125195912.herokuapp.com/register
-

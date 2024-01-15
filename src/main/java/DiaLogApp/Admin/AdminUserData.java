@@ -1,3 +1,10 @@
+/*
+
+This page is for displaying all the UserData from all user for admin and testing purpose
+with url: https://dialog-1d1125195912.herokuapp.com/UserDataTesting
+
+ */
+
 package DiaLogApp.Admin;
 
 import DiaLogServlet.UserServlet.UserDataSQL;
@@ -10,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns={"/admin/UserData"}, loadOnStartup=1)
+@WebServlet(urlPatterns={"/UserDataTesting"}, loadOnStartup=1)
 public class AdminUserData extends HttpServlet {
 
     @Override
@@ -20,9 +27,10 @@ public class AdminUserData extends HttpServlet {
         UserDataSQL.createTable();
         switch (servletPath) {
 
-            case "/admin/UserData":
-                resp.getWriter().write("UserLoginData Display for testing purpose: \n");
+            case "/UserDataTesting":
+
                 UserDataSQL.displayUserData(resp);
+
                 break;
 
             default:
@@ -33,13 +41,3 @@ public class AdminUserData extends HttpServlet {
     }
 
 }
-
-
-// http://localhost:8080/dialog/login
-// http://localhost:8080/dialog/register
-
-//Heroku
-//https://dialog-1d1125195912.herokuapp.com/home
-//https://dialog-1d1125195912.herokuapp.com/login
-//https://dialog-1d1125195912.herokuapp.com/register
-

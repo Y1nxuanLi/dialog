@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Version v6.4.1&#10;&#10;save point" />
+    <list default="true" id="fdb9301b-8739-4636-970e-035d6007c259" name="Changes" comment="Version v6.4.1&#10;&#10;save point">
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/AdminLogData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/AdminLogData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/AdminTaskData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/AdminTaskData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/AdminUserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/AdminUserData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/TestServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/TestServlet2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiaLogApp/Admin/TestServlet3.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,31 +188,7 @@
       <workItem from="1704709706549" duration="14646000" />
       <workItem from="1705082248653" duration="100281000" />
       <workItem from="1705245935920" duration="13336000" />
-      <workItem from="1705301648181" duration="2744000" />
-    </task>
-    <task id="LOCAL-00228" summary="logbook v5.13.2">
-      <option name="closed" value="true" />
-      <created>1705193590339</created>
-      <option name="number" value="00228" />
-      <option name="presentableId" value="LOCAL-00228" />
-      <option name="project" value="LOCAL" />
-      <updated>1705193590339</updated>
-    </task>
-    <task id="LOCAL-00229" summary="logbook v5.13.3">
-      <option name="closed" value="true" />
-      <created>1705194568942</created>
-      <option name="number" value="00229" />
-      <option name="presentableId" value="LOCAL-00229" />
-      <option name="project" value="LOCAL" />
-      <updated>1705194568942</updated>
-    </task>
-    <task id="LOCAL-00230" summary="setting update v5.13.4">
-      <option name="closed" value="true" />
-      <created>1705194805603</created>
-      <option name="number" value="00230" />
-      <option name="presentableId" value="LOCAL-00230" />
-      <option name="project" value="LOCAL" />
-      <updated>1705194805603</updated>
+      <workItem from="1705301648181" duration="3323000" />
     </task>
     <task id="LOCAL-00231" summary="setting update v5.13.5">
       <option name="closed" value="true" />
@@ -575,7 +558,31 @@
       <option name="project" value="LOCAL" />
       <updated>1705304157828</updated>
     </task>
-    <option name="localTasksCounter" value="277" />
+    <task id="LOCAL-00277" summary="Version v6.4.1&#10;&#10;save point">
+      <option name="closed" value="true" />
+      <created>1705304424121</created>
+      <option name="number" value="00277" />
+      <option name="presentableId" value="LOCAL-00277" />
+      <option name="project" value="LOCAL" />
+      <updated>1705304424121</updated>
+    </task>
+    <task id="LOCAL-00278" summary="Version v6.4.1&#10;&#10;save point">
+      <option name="closed" value="true" />
+      <created>1705304539346</created>
+      <option name="number" value="00278" />
+      <option name="presentableId" value="LOCAL-00278" />
+      <option name="project" value="LOCAL" />
+      <updated>1705304539346</updated>
+    </task>
+    <task id="LOCAL-00279" summary="Version v6.4.1&#10;&#10;save point">
+      <option name="closed" value="true" />
+      <created>1705304813483</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1705304813484</updated>
+    </task>
+    <option name="localTasksCounter" value="280" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
